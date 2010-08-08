@@ -13,11 +13,11 @@
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctPais->TitleVerb); ?></h2>
-		<h1><?php _t('Pais')?></h1>
+		<h1><?php _t('Procedencia')?></h1>
 	</div>
 
 	<div id="formControls">
-		<?php $this->lblIdPAIS->RenderWithName(); ?>
+		<?php //$this->lblIdPAIS->RenderWithName(); ?>
 
 		<?php $this->txtNombre->RenderWithName(); ?>
 

@@ -28,6 +28,39 @@
 			}
 		}
 */
+            public function txtNombre_Create($strControlId = null) {
+			$this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtNombre->Name = QApplication::Translate('Nombre*');
+			$this->txtNombre->Text = $this->objProveedor->Nombre;
+			$this->txtNombre->Required = true;
+			$this->txtNombre->MaxLength = Proveedor::NombreMaxLength;
+			return $this->txtNombre;
+		}
+
+            public function txtDireccion_Create($strControlId = null) {
+			$this->txtDireccion = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtDireccion->Name = QApplication::Translate('Dirección*');
+			$this->txtDireccion->Text = $this->objProveedor->Direccion;
+			$this->txtDireccion->Required = true;
+			$this->txtDireccion->TextMode = QTextMode::MultiLine;
+			return $this->txtDireccion;
+		}
+
+            public function lstPAISIdPAISObject_Create($strControlId = null) {
+			$this->lstPAISIdPAISObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstPAISIdPAISObject->Name = QApplication::Translate('Pais*');
+			$this->lstPAISIdPAISObject->Required = true;
+			if (!$this->blnEditMode)
+				$this->lstPAISIdPAISObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objPAISIdPAISObjectArray = Pais::LoadAll();
+			if ($objPAISIdPAISObjectArray) foreach ($objPAISIdPAISObjectArray as $objPAISIdPAISObject) {
+				$objListItem = new QListItem($objPAISIdPAISObject->__toString(), $objPAISIdPAISObject->IdPAIS);
+				if (($this->objProveedor->PAISIdPAISObject) && ($this->objProveedor->PAISIdPAISObject->IdPAIS == $objPAISIdPAISObject->IdPAIS))
+					$objListItem->Selected = true;
+				$this->lstPAISIdPAISObject->AddItem($objListItem);
+			}
+			return $this->lstPAISIdPAISObject;
+		}
 
 	}
 ?>
