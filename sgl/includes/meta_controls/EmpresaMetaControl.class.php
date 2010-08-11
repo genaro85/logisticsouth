@@ -27,7 +27,56 @@
 				$this->objEmpresa->Initialize();
 			}
 		}
-*/
+*/public function txtNombre_Create($strControlId = null) {
+			$this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtNombre->Name = QApplication::Translate('Nombre*');
+			$this->txtNombre->Text = $this->objEmpresa->Nombre;
+			$this->txtNombre->Required = true;
+			$this->txtNombre->MaxLength = Empresa::NombreMaxLength;
+			return $this->txtNombre;
+		}
+
+                public function txtRif_Create($strControlId = null) {
+			$this->txtRif = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtRif->Name = QApplication::Translate('R.I.F.*');
+			$this->txtRif->Text = $this->objEmpresa->Rif;
+			$this->txtRif->Required = true;
+			$this->txtRif->MaxLength = Empresa::RifMaxLength;
+			return $this->txtRif;
+		}
+
+                public function txtDireccion_Create($strControlId = null) {
+			$this->txtDireccion = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtDireccion->Name = QApplication::Translate('Dirección*');
+			$this->txtDireccion->Text = $this->objEmpresa->Direccion;
+			$this->txtDireccion->Required = true;
+			$this->txtDireccion->TextMode = QTextMode::MultiLine;
+			return $this->txtDireccion;
+		}
+
+                public function txtTelefono_Create($strControlId = null) {
+			$this->txtTelefono = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtTelefono->Name = QApplication::Translate('Teléfono');
+			$this->txtTelefono->Text = $this->objEmpresa->Telefono;
+			$this->txtTelefono->MaxLength = Empresa::TelefonoMaxLength;
+			return $this->txtTelefono;
+		}
+
+                public function txtLogin_Create($strControlId = null) {
+			$this->txtLogin = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtLogin->Name = QApplication::Translate('Nombre de Usuario');
+			$this->txtLogin->Text = $this->objEmpresa->Login;
+			$this->txtLogin->MaxLength = Empresa::LoginMaxLength;
+			return $this->txtLogin;
+		}
+
+                public function txtPassword_Create($strControlId = null) {
+			$this->txtPassword = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPassword->Name = QApplication::Translate('Contraseña');
+			$this->txtPassword->Text = $this->objEmpresa->Password;
+			$this->txtPassword->MaxLength = Empresa::PasswordMaxLength;
+			return $this->txtPassword;
+		}
 
 	}
 ?>

@@ -49,8 +49,8 @@
 
 			// Create the Other Columns (note that you can use strings for PAIS's properties, or you
 			// can traverse down QQN::PAIS() to display fields that are down the hierarchy)
-			$this->dtgPaises->MetaAddColumn('IdPAIS','Name=ID');
-			$this->dtgPaises->MetaAddColumn('Nombre');
+			//$this->dtgPaises->MetaAddColumn('IdPAIS','Name=ID');
+			$this->dtgPaises->MetaAddColumn('Nombre', 'Name=País');
 		}
 
 	}

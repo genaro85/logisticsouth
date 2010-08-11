@@ -606,13 +606,13 @@
 		 * @param string $strControlId optional ControlId to use
 		 * @return QTextBox
 		 */
-		public function txtSeguro_Create($strControlId = null) {
-			$this->txtSeguro = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtSeguro->Name = QApplication::Translate('Seguro');
-			$this->txtSeguro->Text = $this->objLicencia->Seguro;
-			$this->txtSeguro->MaxLength = Licencia::SeguroMaxLength;
-			return $this->txtSeguro;
-		}
+                public function txtSeguro_Create($strControlId = null) {
+        $this->txtSeguro = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtSeguro->Name = QApplication::Translate('Seguro');
+        $this->txtSeguro->Text = $this->objLicencia->Seguro;
+        $this->txtSeguro->MaxLength = Licencia::SeguroMaxLength;
+        return $this->txtSeguro;
+    }
 
 		/**
 		 * Create and setup QLabel lblSeguro

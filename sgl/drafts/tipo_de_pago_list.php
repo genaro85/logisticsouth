@@ -26,7 +26,31 @@
 
 //		protected function Form_Load() {}
 
-//		protected function Form_Create() {}
+		protected function Form_Create() {
+                    parent::Form_Create();
+			
+			// Instantiate the Meta DataGrid
+			$this->dtgTipoDePagos = new TipoDePagoDataGrid($this);
+
+			// Style the DataGrid (if desired)
+			$this->dtgTipoDePagos->CssClass = 'datagrid';
+			$this->dtgTipoDePagos->AlternateRowStyle->CssClass = 'alternate';
+
+			// Add Pagination (if desired)
+			$this->dtgTipoDePagos->Paginator = new QPaginator($this->dtgTipoDePagos);
+			$this->dtgTipoDePagos->ItemsPerPage = 20;
+
+			// Use the MetaDataGrid functionality to add Columns for this datagrid
+
+			// Create an Edit Column
+			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/tipo_de_pago_edit.php';
+			$this->dtgTipoDePagos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
+
+			// Create the Other Columns (note that you can use strings for TIPO_DE_PAGO's properties, or you
+			// can traverse down QQN::TIPO_DE_PAGO() to display fields that are down the hierarchy)
+			//$this->dtgTipoDePagos->MetaAddColumn('IdTIPODEPAGO');
+			$this->dtgTipoDePagos->MetaAddColumn('Nombre', 'Name=Modalidad');
+                }
 	}
 
 	// Go ahead and run this form object to generate the page and event handlers, implicitly using
