@@ -16,8 +16,10 @@
 	 * @package My QCubed Application
 	 * @subpackage MetaControls
 	 * @property-read Proceso $Proceso the actual Proceso data class being edited
-	 * @property QIntegerTextBox $IdPROCESOControl
+	 * @property QLabel $IdPROCESOControl
 	 * @property-read QLabel $IdPROCESOLabel
+	 * @property QTextBox $NombreControl
+	 * @property-read QLabel $NombreLabel
 	 * @property QIntegerTextBox $DuracionControl
 	 * @property-read QLabel $DuracionLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
@@ -42,16 +44,20 @@
 
 		// Controls that allow the editing of Proceso's individual data fields
 		/**
-		 * @var QIntegerTextBox intIdPROCESO
+		 * @var QLabel intIdPROCESO
 		 */
-		protected $txtIdPROCESO;
+		protected $lblIdPROCESO;
+		/**
+		 * @var QTextBox strNombre
+		 */
+		protected $txtNombre;
 		/**
 		 * @var QIntegerTextBox intDuracion
 		 */
 		protected $txtDuracion;
 
 		// Controls that allow the viewing of Proceso's individual data fields
-		protected $lblIdPROCESO;
+		protected $lblNombre;
 		protected $lblDuracion;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
@@ -152,31 +158,45 @@
 		///////////////////////////////////////////////
 
 		/**
-		 * Create and setup QIntegerTextBox txtIdPROCESO
+		 * Create and setup QLabel lblIdPROCESO
 		 * @param string $strControlId optional ControlId to use
-		 * @return QIntegerTextBox
+		 * @return QLabel
 		 */
-		public function txtIdPROCESO_Create($strControlId = null) {
-			$this->txtIdPROCESO = new QIntegerTextBox($this->objParentObject, $strControlId);
-			$this->txtIdPROCESO->Name = QApplication::Translate('Id P R O C E S O');
-			$this->txtIdPROCESO->Text = $this->objProceso->IdPROCESO;
-			$this->txtIdPROCESO->Required = true;
-			return $this->txtIdPROCESO;
+		public function lblIdPROCESO_Create($strControlId = null) {
+			$this->lblIdPROCESO = new QLabel($this->objParentObject, $strControlId);
+			$this->lblIdPROCESO->Name = QApplication::Translate('Id P R O C E S O');
+			if ($this->blnEditMode)
+				$this->lblIdPROCESO->Text = $this->objProceso->IdPROCESO;
+			else
+				$this->lblIdPROCESO->Text = 'N/A';
+			return $this->lblIdPROCESO;
 		}
 
 		/**
-		 * Create and setup QLabel lblIdPROCESO
+		 * Create and setup QTextBox txtNombre
 		 * @param string $strControlId optional ControlId to use
-		 * @param string $strFormat optional sprintf format to use
+		 * @return QTextBox
+		 */
+		public function txtNombre_Create($strControlId = null) {
+			$this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtNombre->Name = QApplication::Translate('Nombre');
+			$this->txtNombre->Text = $this->objProceso->Nombre;
+			$this->txtNombre->Required = true;
+			$this->txtNombre->MaxLength = Proceso::NombreMaxLength;
+			return $this->txtNombre;
+		}
+
+		/**
+		 * Create and setup QLabel lblNombre
+		 * @param string $strControlId optional ControlId to use
 		 * @return QLabel
 		 */
-		public function lblIdPROCESO_Create($strControlId = null, $strFormat = null) {
-			$this->lblIdPROCESO = new QLabel($this->objParentObject, $strControlId);
-			$this->lblIdPROCESO->Name = QApplication::Translate('Id P R O C E S O');
-			$this->lblIdPROCESO->Text = $this->objProceso->IdPROCESO;
-			$this->lblIdPROCESO->Required = true;
-			$this->lblIdPROCESO->Format = $strFormat;
-			return $this->lblIdPROCESO;
+		public function lblNombre_Create($strControlId = null) {
+			$this->lblNombre = new QLabel($this->objParentObject, $strControlId);
+			$this->lblNombre->Name = QApplication::Translate('Nombre');
+			$this->lblNombre->Text = $this->objProceso->Nombre;
+			$this->lblNombre->Required = true;
+			return $this->lblNombre;
 		}
 
 		/**
@@ -188,6 +208,7 @@
 			$this->txtDuracion = new QIntegerTextBox($this->objParentObject, $strControlId);
 			$this->txtDuracion->Name = QApplication::Translate('Duracion');
 			$this->txtDuracion->Text = $this->objProceso->Duracion;
+			$this->txtDuracion->Required = true;
 			return $this->txtDuracion;
 		}
 
@@ -201,6 +222,7 @@
 			$this->lblDuracion = new QLabel($this->objParentObject, $strControlId);
 			$this->lblDuracion->Name = QApplication::Translate('Duracion');
 			$this->lblDuracion->Text = $this->objProceso->Duracion;
+			$this->lblDuracion->Required = true;
 			$this->lblDuracion->Format = $strFormat;
 			return $this->lblDuracion;
 		}
@@ -216,8 +238,10 @@
 			if ($blnReload)
 				$this->objProceso->Reload();
 
-			if ($this->txtIdPROCESO) $this->txtIdPROCESO->Text = $this->objProceso->IdPROCESO;
-			if ($this->lblIdPROCESO) $this->lblIdPROCESO->Text = $this->objProceso->IdPROCESO;
+			if ($this->lblIdPROCESO) if ($this->blnEditMode) $this->lblIdPROCESO->Text = $this->objProceso->IdPROCESO;
+
+			if ($this->txtNombre) $this->txtNombre->Text = $this->objProceso->Nombre;
+			if ($this->lblNombre) $this->lblNombre->Text = $this->objProceso->Nombre;
 
 			if ($this->txtDuracion) $this->txtDuracion->Text = $this->objProceso->Duracion;
 			if ($this->lblDuracion) $this->lblDuracion->Text = $this->objProceso->Duracion;
@@ -245,7 +269,7 @@
 		public function SaveProceso() {
 			try {
 				// Update any fields for controls that have been created
-				if ($this->txtIdPROCESO) $this->objProceso->IdPROCESO = $this->txtIdPROCESO->Text;
+				if ($this->txtNombre) $this->objProceso->Nombre = $this->txtNombre->Text;
 				if ($this->txtDuracion) $this->objProceso->Duracion = $this->txtDuracion->Text;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
@@ -290,11 +314,17 @@
 
 				// Controls that point to Proceso fields -- will be created dynamically if not yet created
 				case 'IdPROCESOControl':
-					if (!$this->txtIdPROCESO) return $this->txtIdPROCESO_Create();
-					return $this->txtIdPROCESO;
+					if (!$this->lblIdPROCESO) return $this->lblIdPROCESO_Create();
+					return $this->lblIdPROCESO;
 				case 'IdPROCESOLabel':
 					if (!$this->lblIdPROCESO) return $this->lblIdPROCESO_Create();
 					return $this->lblIdPROCESO;
+				case 'NombreControl':
+					if (!$this->txtNombre) return $this->txtNombre_Create();
+					return $this->txtNombre;
+				case 'NombreLabel':
+					if (!$this->lblNombre) return $this->lblNombre_Create();
+					return $this->lblNombre;
 				case 'DuracionControl':
 					if (!$this->txtDuracion) return $this->txtDuracion_Create();
 					return $this->txtDuracion;
@@ -324,7 +354,9 @@
 				switch ($strName) {
 					// Controls that point to Proceso fields
 					case 'IdPROCESOControl':
-						return ($this->txtIdPROCESO = QType::Cast($mixValue, 'QControl'));
+						return ($this->lblIdPROCESO = QType::Cast($mixValue, 'QControl'));
+					case 'NombreControl':
+						return ($this->txtNombre = QType::Cast($mixValue, 'QControl'));
 					case 'DuracionControl':
 						return ($this->txtDuracion = QType::Cast($mixValue, 'QControl'));
 					default:

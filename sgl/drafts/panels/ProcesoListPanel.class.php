@@ -81,6 +81,7 @@
 			// Create the Other Columns (note that you can use strings for PROCESO's properties, or you
 			// can traverse down QQN::PROCESO() to display fields that are down the hierarchy)
 			$this->dtgProcesos->MetaAddColumn('IdPROCESO');
+			$this->dtgProcesos->MetaAddColumn('Nombre');
 			$this->dtgProcesos->MetaAddColumn('Duracion');
 
 			// Setup the Create New button

@@ -5,7 +5,9 @@
 	// code re-generations do not overwrite your changes.
 ?>
 	<div id="formControls">
-		<?php $_CONTROL->txtIdPROCESO->RenderWithName(); ?>
+		<?php $_CONTROL->lblIdPROCESO->RenderWithName(); ?>
+
+		<?php $_CONTROL->txtNombre->RenderWithName(); ?>
 
 		<?php $_CONTROL->txtDuracion->RenderWithName(); ?>
 

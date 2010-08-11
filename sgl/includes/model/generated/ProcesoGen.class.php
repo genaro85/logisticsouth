@@ -15,8 +15,9 @@
 	 * 
 	 * @package My QCubed Application
 	 * @subpackage GeneratedDataObjects
-	 * @property integer $IdPROCESO the value for intIdPROCESO (PK)
-	 * @property integer $Duracion the value for intDuracion 
+	 * @property-read integer $IdPROCESO the value for intIdPROCESO (Read-Only PK)
+	 * @property string $Nombre the value for strNombre (Not Null)
+	 * @property integer $Duracion the value for intDuracion (Not Null)
 	 * @property-read Etapa $_EtapaAsPROCESOIdPROCESO the value for the private _objEtapaAsPROCESOIdPROCESO (Read-Only) if set due to an expansion on the ETAPA.PROCESO_idPROCESO reverse relationship
 	 * @property-read Etapa[] $_EtapaAsPROCESOIdPROCESOArray the value for the private _objEtapaAsPROCESOIdPROCESOArray (Read-Only) if set due to an ExpandAsArray on the ETAPA.PROCESO_idPROCESO reverse relationship
 	 * @property-read Licencia $_LicenciaAsPROCESOIdPROCESO the value for the private _objLicenciaAsPROCESOIdPROCESO (Read-Only) if set due to an expansion on the LICENCIA.PROCESO_idPROCESO reverse relationship
@@ -32,7 +33,7 @@
 		///////////////////////////////////////////////////////////////////////
 		
 		/**
-		 * Protected member variable that maps to the database PK column PROCESO.idPROCESO
+		 * Protected member variable that maps to the database PK Identity column PROCESO.idPROCESO
 		 * @var integer intIdPROCESO
 		 */
 		protected $intIdPROCESO;
@@ -40,11 +41,13 @@
 
 
 		/**
-		 * Protected internal member variable that stores the original version of the PK column value (if restored)
-		 * Used by Save() to update a PK column during UPDATE
-		 * @var integer __intIdPROCESO;
+		 * Protected member variable that maps to the database column PROCESO.nombre
+		 * @var string strNombre
 		 */
-		protected $__intIdPROCESO;
+		protected $strNombre;
+		const NombreMaxLength = 90;
+		const NombreDefault = null;
+
 
 		/**
 		 * Protected member variable that maps to the database column PROCESO.duracion
@@ -132,6 +135,7 @@
 		public function Initialize()
 		{
 			$this->intIdPROCESO = Proceso::IdPROCESODefault;
+			$this->strNombre = Proceso::NombreDefault;
 			$this->intDuracion = Proceso::DuracionDefault;
 		}
 
@@ -401,6 +405,7 @@
 			}
 
 			$objBuilder->AddSelectItem($strTableName, 'idPROCESO', $strAliasPrefix . 'idPROCESO');
+			$objBuilder->AddSelectItem($strTableName, 'nombre', $strAliasPrefix . 'nombre');
 			$objBuilder->AddSelectItem($strTableName, 'duracion', $strAliasPrefix . 'duracion');
 		}
 
@@ -506,7 +511,8 @@
 
 			$strAliasName = array_key_exists($strAliasPrefix . 'idPROCESO', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'idPROCESO'] : $strAliasPrefix . 'idPROCESO';
 			$objToReturn->intIdPROCESO = $objDbRow->GetColumn($strAliasName, 'Integer');
-			$objToReturn->__intIdPROCESO = $objDbRow->GetColumn($strAliasName, 'Integer');
+			$strAliasName = array_key_exists($strAliasPrefix . 'nombre', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'nombre'] : $strAliasPrefix . 'nombre';
+			$objToReturn->strNombre = $objDbRow->GetColumn($strAliasName, 'VarChar');
 			$strAliasName = array_key_exists($strAliasPrefix . 'duracion', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'duracion'] : $strAliasPrefix . 'duracion';
 			$objToReturn->intDuracion = $objDbRow->GetColumn($strAliasName, 'Integer');
 
@@ -651,7 +657,7 @@
 		 * Save this Proceso
 		 * @param bool $blnForceInsert
 		 * @param bool $blnForceUpdate
-		 * @return void
+		 * @return int
 		 */
 		public function Save($blnForceInsert = false, $blnForceUpdate = false) {
 			// Get the Database Object for this Class
@@ -664,15 +670,16 @@
 					// Perform an INSERT query
 					$objDatabase->NonQuery('
 						INSERT INTO `PROCESO` (
-							`idPROCESO`,
+							`nombre`,
 							`duracion`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->intIdPROCESO) . ',
+							' . $objDatabase->SqlVariable($this->strNombre) . ',
 							' . $objDatabase->SqlVariable($this->intDuracion) . '
 						)
 					');
 
-
+					// Update Identity column and return its value
+					$mixToReturn = $this->intIdPROCESO = $objDatabase->InsertId('PROCESO', 'idPROCESO');
 				} else {
 					// Perform an UPDATE query
 
@@ -683,10 +690,10 @@
 						UPDATE
 							`PROCESO`
 						SET
-							`idPROCESO` = ' . $objDatabase->SqlVariable($this->intIdPROCESO) . ',
+							`nombre` = ' . $objDatabase->SqlVariable($this->strNombre) . ',
 							`duracion` = ' . $objDatabase->SqlVariable($this->intDuracion) . '
 						WHERE
-							`idPROCESO` = ' . $objDatabase->SqlVariable($this->__intIdPROCESO) . '
+							`idPROCESO` = ' . $objDatabase->SqlVariable($this->intIdPROCESO) . '
 					');
 				}
 
@@ -697,7 +704,6 @@
 
 			// Update __blnRestored and any Non-Identity PK Columns (if applicable)
 			$this->__blnRestored = true;
-			$this->__intIdPROCESO = $this->intIdPROCESO;
 
 
 			// Return 
@@ -764,8 +770,7 @@
 			$objReloaded = Proceso::Load($this->intIdPROCESO);
 
 			// Update $this's local variables to match
-			$this->intIdPROCESO = $objReloaded->intIdPROCESO;
-			$this->__intIdPROCESO = $this->intIdPROCESO;
+			$this->strNombre = $objReloaded->strNombre;
 			$this->intDuracion = $objReloaded->intDuracion;
 		}
 
@@ -789,14 +794,21 @@
 				///////////////////
 				case 'IdPROCESO':
 					/**
-					 * Gets the value for intIdPROCESO (PK)
+					 * Gets the value for intIdPROCESO (Read-Only PK)
 					 * @return integer
 					 */
 					return $this->intIdPROCESO;
 
+				case 'Nombre':
+					/**
+					 * Gets the value for strNombre (Not Null)
+					 * @return string
+					 */
+					return $this->strNombre;
+
 				case 'Duracion':
 					/**
-					 * Gets the value for intDuracion 
+					 * Gets the value for intDuracion (Not Null)
 					 * @return integer
 					 */
 					return $this->intDuracion;
@@ -886,14 +898,14 @@
 				///////////////////
 				// Member Variables
 				///////////////////
-				case 'IdPROCESO':
+				case 'Nombre':
 					/**
-					 * Sets the value for intIdPROCESO (PK)
-					 * @param integer $mixValue
-					 * @return integer
+					 * Sets the value for strNombre (Not Null)
+					 * @param string $mixValue
+					 * @return string
 					 */
 					try {
-						return ($this->intIdPROCESO = QType::Cast($mixValue, QType::Integer));
+						return ($this->strNombre = QType::Cast($mixValue, QType::String));
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -901,7 +913,7 @@
 
 				case 'Duracion':
 					/**
-					 * Sets the value for intDuracion 
+					 * Sets the value for intDuracion (Not Null)
 					 * @param integer $mixValue
 					 * @return integer
 					 */
@@ -1404,6 +1416,7 @@
 		public static function GetSoapComplexTypeXml() {
 			$strToReturn = '<complexType name="Proceso"><sequence>';
 			$strToReturn .= '<element name="IdPROCESO" type="xsd:int"/>';
+			$strToReturn .= '<element name="Nombre" type="xsd:string"/>';
 			$strToReturn .= '<element name="Duracion" type="xsd:int"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
@@ -1429,6 +1442,8 @@
 			$objToReturn = new Proceso();
 			if (property_exists($objSoapObject, 'IdPROCESO'))
 				$objToReturn->intIdPROCESO = $objSoapObject->IdPROCESO;
+			if (property_exists($objSoapObject, 'Nombre'))
+				$objToReturn->strNombre = $objSoapObject->Nombre;
 			if (property_exists($objSoapObject, 'Duracion'))
 				$objToReturn->intDuracion = $objSoapObject->Duracion;
 			if (property_exists($objSoapObject, '__blnRestored'))
@@ -1464,6 +1479,7 @@
 			// Member Variables
 			///////////////////
 			$iArray['IdPROCESO'] = $this->intIdPROCESO;
+			$iArray['Nombre'] = $this->strNombre;
 			$iArray['Duracion'] = $this->intDuracion;
 			return new ArrayIterator($iArray);
 		}
@@ -1487,6 +1503,7 @@
      * @uses QQNode
      *
      * @property-read QQNode $IdPROCESO
+     * @property-read QQNode $Nombre
      * @property-read QQNode $Duracion
      *
      *
@@ -1504,6 +1521,8 @@
 			switch ($strName) {
 				case 'IdPROCESO':
 					return new QQNode('idPROCESO', 'IdPROCESO', 'Integer', $this);
+				case 'Nombre':
+					return new QQNode('nombre', 'Nombre', 'VarChar', $this);
 				case 'Duracion':
 					return new QQNode('duracion', 'Duracion', 'Integer', $this);
 				case 'EtapaAsPROCESOIdPROCESO':
@@ -1528,6 +1547,7 @@
 
     /**
      * @property-read QQNode $IdPROCESO
+     * @property-read QQNode $Nombre
      * @property-read QQNode $Duracion
      *
      *
@@ -1545,6 +1565,8 @@
 			switch ($strName) {
 				case 'IdPROCESO':
 					return new QQNode('idPROCESO', 'IdPROCESO', 'integer', $this);
+				case 'Nombre':
+					return new QQNode('nombre', 'Nombre', 'string', $this);
 				case 'Duracion':
 					return new QQNode('duracion', 'Duracion', 'integer', $this);
 				case 'EtapaAsPROCESOIdPROCESO':

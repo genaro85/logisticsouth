@@ -290,6 +290,7 @@
 					throw new QCallerException('Content QQNode has a root table of "' . $mixContent->_RootTableName . '". Must be a root of "PROCESO".');
 			} else if (is_string($mixContent)) switch ($mixContent) {
 				case 'IdPROCESO': return QQN::Proceso()->IdPROCESO;
+				case 'Nombre': return QQN::Proceso()->Nombre;
 				case 'Duracion': return QQN::Proceso()->Duracion;
 				default: throw new QCallerException('Simple Property not found in ProcesoDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)

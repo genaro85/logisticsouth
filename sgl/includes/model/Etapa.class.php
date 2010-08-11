@@ -24,7 +24,7 @@
 		 * @return string a nicely formatted string representation of this object
 		 */
 		public function __toString() {
-			return sprintf('Etapa Object %s',  $this->intIdETAPA);
+			return sprintf('Proceso de %s- Fase %s',  $this->PROCESOIdPROCESOObject->Nombre,$this->FASEIdFASEObject->Nombre);
 		}
 
 

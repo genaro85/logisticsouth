@@ -126,9 +126,9 @@
 		if (QApplication::$LanguageCode)
 			QI18n::Initialize();
 		else {
-			// QApplication::$CountryCode = 'us';
-			// QApplication::$LanguageCode = 'en';
-			// QI18n::Initialize();
+			QApplication::$CountryCode = 'es';
+			QApplication::$LanguageCode = 'es';
+			QI18n::Initialize();
 		}
 	}
 ?>

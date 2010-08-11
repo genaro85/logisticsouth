@@ -200,9 +200,7 @@
 		public function lstPROCESOIdPROCESOObject_Create($strControlId = null) {
 			$this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
 			$this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('P R O C E S O Id P R O C E S O Object');
-			$this->lstPROCESOIdPROCESOObject->Required = true;
-			if (!$this->blnEditMode)
-				$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
 			$objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
 			if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
 				$objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
@@ -222,7 +220,6 @@
 			$this->lblPROCESOIdPROCESO = new QLabel($this->objParentObject, $strControlId);
 			$this->lblPROCESOIdPROCESO->Name = QApplication::Translate('P R O C E S O Id P R O C E S O Object');
 			$this->lblPROCESOIdPROCESO->Text = ($this->objListaDeDocumento->PROCESOIdPROCESOObject) ? $this->objListaDeDocumento->PROCESOIdPROCESOObject->__toString() : null;
-			$this->lblPROCESOIdPROCESO->Required = true;
 			return $this->lblPROCESOIdPROCESO;
 		}
 
@@ -234,9 +231,7 @@
 		public function lstFASEIdFASEObject_Create($strControlId = null) {
 			$this->lstFASEIdFASEObject = new QListBox($this->objParentObject, $strControlId);
 			$this->lstFASEIdFASEObject->Name = QApplication::Translate('F A S E Id F A S E Object');
-			$this->lstFASEIdFASEObject->Required = true;
-			if (!$this->blnEditMode)
-				$this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
 			$objFASEIdFASEObjectArray = Fase::LoadAll();
 			if ($objFASEIdFASEObjectArray) foreach ($objFASEIdFASEObjectArray as $objFASEIdFASEObject) {
 				$objListItem = new QListItem($objFASEIdFASEObject->__toString(), $objFASEIdFASEObject->IdFASE);
@@ -256,7 +251,6 @@
 			$this->lblFASEIdFASE = new QLabel($this->objParentObject, $strControlId);
 			$this->lblFASEIdFASE->Name = QApplication::Translate('F A S E Id F A S E Object');
 			$this->lblFASEIdFASE->Text = ($this->objListaDeDocumento->FASEIdFASEObject) ? $this->objListaDeDocumento->FASEIdFASEObject->__toString() : null;
-			$this->lblFASEIdFASE->Required = true;
 			return $this->lblFASEIdFASE;
 		}
 
@@ -287,8 +281,7 @@
 
 			if ($this->lstPROCESOIdPROCESOObject) {
 					$this->lstPROCESOIdPROCESOObject->RemoveAllItems();
-				if (!$this->blnEditMode)
-					$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
+				$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
 				$objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
 				if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
 					$objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
@@ -301,8 +294,7 @@
 
 			if ($this->lstFASEIdFASEObject) {
 					$this->lstFASEIdFASEObject->RemoveAllItems();
-				if (!$this->blnEditMode)
-					$this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
+				$this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
 				$objFASEIdFASEObjectArray = Fase::LoadAll();
 				if ($objFASEIdFASEObjectArray) foreach ($objFASEIdFASEObjectArray as $objFASEIdFASEObject) {
 					$objListItem = new QListItem($objFASEIdFASEObject->__toString(), $objFASEIdFASEObject->IdFASE);
