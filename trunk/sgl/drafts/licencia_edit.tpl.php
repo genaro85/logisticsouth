@@ -50,7 +50,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
 <?php $this->txtSeguro->RenderWithName(); ?>
 
-<?php //$this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+<?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
 
 </div>
 

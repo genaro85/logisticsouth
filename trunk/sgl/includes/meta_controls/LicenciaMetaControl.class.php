@@ -109,7 +109,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function calVencimientoCNP_Create($strControlId = null) {
         $this->calVencimientoCNP = new QDateTimeTextBox($this->objParentObject, $strControlId);
-        $this->calVencimientoCNP->Name = QApplication::Translate('Vencimiento del C.N.P');
+        $this->calVencimientoCNP->Name = QApplication::Translate('Vencimiento C.N.P');
         if ($this->objLicencia->VencimientoCNP)
             $this->calVencimientoCNP->Text = $this->objLicencia->VencimientoCNP->__toString();
         $this->calVencimientoCNP->Required = false;
@@ -135,18 +135,50 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtFormaPago_Create($strControlId = null) {
         $this->txtFormaPago = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtFormaPago->Name = QApplication::Translate('Forma de Pago');
+        $this->txtFormaPago->Name = QApplication::Translate('Modalidad de Pago');
         $this->txtFormaPago->Text = $this->objLicencia->FormaPago;
         $this->txtFormaPago->MaxLength = Licencia::FormaPagoMaxLength;
         return $this->txtFormaPago;
     }
 
+    public function txtTipo_Create($strControlId = null) {
+			$this->txtTipo = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtTipo->Name = QApplication::Translate('Tipo de Licencia');
+			$this->txtTipo->Text = $this->objLicencia->Tipo;
+			$this->txtTipo->MaxLength = Licencia::TipoMaxLength;
+			return $this->txtTipo;
+		}
+
     public function txtFlete_Create($strControlId = null) {
         $this->txtFlete = new QFloatTextBox($this->objParentObject, $strControlId);
-        $this->txtFlete->Name = QApplication::Translate('Costo de Transporte');
+        $this->txtFlete->Name = QApplication::Translate('Costo del Transporte');
         $this->txtFlete->Text = $this->objLicencia->Flete;
         return $this->txtFlete;
     }
+
+    public function txtSeguro_Create($strControlId = null) {
+			$this->txtSeguro = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtSeguro->Name = QApplication::Translate('Seguro de Mercancia');
+			$this->txtSeguro->Text = $this->objLicencia->Seguro;
+			$this->txtSeguro->MaxLength = Licencia::SeguroMaxLength;
+			return $this->txtSeguro;
+		}
+
+    public function lstPROCESOIdPROCESOObject_Create($strControlId = null) {
+			$this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('Proceso a Utilizar*');
+			$this->lstPROCESOIdPROCESOObject->Required = true;
+			if (!$this->blnEditMode)
+				$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
+			if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
+				$objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
+				if (($this->objLicencia->PROCESOIdPROCESOObject) && ($this->objLicencia->PROCESOIdPROCESOObject->IdPROCESO == $objPROCESOIdPROCESOObject->IdPROCESO))
+					$objListItem->Selected = true;
+				$this->lstPROCESOIdPROCESOObject->AddItem($objListItem);
+			}
+			return $this->lstPROCESOIdPROCESOObject;
+		}
 
 }
 ?>
