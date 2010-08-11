@@ -23,7 +23,8 @@
 		protected $mctProceso;
 
 		// Controls for Proceso's Data Fields
-		public $txtIdPROCESO;
+		public $lblIdPROCESO;
+		public $txtNombre;
 		public $txtDuracion;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
@@ -63,7 +64,8 @@
 			$this->mctProceso = ProcesoMetaControl::Create($this, $intIdPROCESO);
 
 			// Call MetaControl's methods to create qcontrols based on Proceso's data fields
-			$this->txtIdPROCESO = $this->mctProceso->txtIdPROCESO_Create();
+			$this->lblIdPROCESO = $this->mctProceso->lblIdPROCESO_Create();
+			$this->txtNombre = $this->mctProceso->txtNombre_Create();
 			$this->txtDuracion = $this->mctProceso->txtDuracion_Create();
 
 			// Create Buttons and Actions on this Form

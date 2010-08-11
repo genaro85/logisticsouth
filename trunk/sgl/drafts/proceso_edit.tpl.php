@@ -17,7 +17,9 @@
 	</div>
 
 	<div id="formControls">
-		<?php $this->txtIdPROCESO->RenderWithName(); ?>
+		<?php //$this->lblIdPROCESO->RenderWithName(); ?>
+
+		<?php $this->txtNombre->RenderWithName(); ?>
 
 		<?php $this->txtDuracion->RenderWithName(); ?>
 

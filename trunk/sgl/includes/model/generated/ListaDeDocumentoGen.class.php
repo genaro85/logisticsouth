@@ -16,11 +16,11 @@
 	 * @package My QCubed Application
 	 * @subpackage GeneratedDataObjects
 	 * @property integer $DOCUMENTOIdDOCUMENTO the value for intDOCUMENTOIdDOCUMENTO (PK)
-	 * @property integer $PROCESOIdPROCESO the value for intPROCESOIdPROCESO (Not Null)
-	 * @property integer $FASEIdFASE the value for intFASEIdFASE (Not Null)
+	 * @property integer $PROCESOIdPROCESO the value for intPROCESOIdPROCESO 
+	 * @property integer $FASEIdFASE the value for intFASEIdFASE 
 	 * @property Documento $DOCUMENTOIdDOCUMENTOObject the value for the Documento object referenced by intDOCUMENTOIdDOCUMENTO (PK)
-	 * @property Proceso $PROCESOIdPROCESOObject the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
-	 * @property Fase $FASEIdFASEObject the value for the Fase object referenced by intFASEIdFASE (Not Null)
+	 * @property Proceso $PROCESOIdPROCESOObject the value for the Proceso object referenced by intPROCESOIdPROCESO 
+	 * @property Fase $FASEIdFASEObject the value for the Fase object referenced by intFASEIdFASE 
 	 * @property-read VigenciaDocumento $_VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO the value for the private _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (Read-Only) if set due to an expansion on the VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO reverse relationship
 	 * @property-read VigenciaDocumento[] $_VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray the value for the private _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray (Read-Only) if set due to an ExpandAsArray on the VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
@@ -832,14 +832,14 @@
 
 				case 'PROCESOIdPROCESO':
 					/**
-					 * Gets the value for intPROCESOIdPROCESO (Not Null)
+					 * Gets the value for intPROCESOIdPROCESO 
 					 * @return integer
 					 */
 					return $this->intPROCESOIdPROCESO;
 
 				case 'FASEIdFASE':
 					/**
-					 * Gets the value for intFASEIdFASE (Not Null)
+					 * Gets the value for intFASEIdFASE 
 					 * @return integer
 					 */
 					return $this->intFASEIdFASE;
@@ -864,7 +864,7 @@
 
 				case 'PROCESOIdPROCESOObject':
 					/**
-					 * Gets the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
+					 * Gets the value for the Proceso object referenced by intPROCESOIdPROCESO 
 					 * @return Proceso
 					 */
 					try {
@@ -878,7 +878,7 @@
 
 				case 'FASEIdFASEObject':
 					/**
-					 * Gets the value for the Fase object referenced by intFASEIdFASE (Not Null)
+					 * Gets the value for the Fase object referenced by intFASEIdFASE 
 					 * @return Fase
 					 */
 					try {
@@ -955,7 +955,7 @@
 
 				case 'PROCESOIdPROCESO':
 					/**
-					 * Sets the value for intPROCESOIdPROCESO (Not Null)
+					 * Sets the value for intPROCESOIdPROCESO 
 					 * @param integer $mixValue
 					 * @return integer
 					 */
@@ -969,7 +969,7 @@
 
 				case 'FASEIdFASE':
 					/**
-					 * Sets the value for intFASEIdFASE (Not Null)
+					 * Sets the value for intFASEIdFASE 
 					 * @param integer $mixValue
 					 * @return integer
 					 */
@@ -1019,7 +1019,7 @@
 
 				case 'PROCESOIdPROCESOObject':
 					/**
-					 * Sets the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
+					 * Sets the value for the Proceso object referenced by intPROCESOIdPROCESO 
 					 * @param Proceso $mixValue
 					 * @return Proceso
 					 */
@@ -1051,7 +1051,7 @@
 
 				case 'FASEIdFASEObject':
 					/**
-					 * Sets the value for the Fase object referenced by intFASEIdFASE (Not Null)
+					 * Sets the value for the Fase object referenced by intFASEIdFASE 
 					 * @param Fase $mixValue
 					 * @return Fase
 					 */
