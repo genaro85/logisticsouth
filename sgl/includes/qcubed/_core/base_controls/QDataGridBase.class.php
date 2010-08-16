@@ -762,6 +762,7 @@
 				for ($intIndex = 0; $intIndex < count($this->objColumnArray); $intIndex++)
 				{
 					$objColumn = $this->objColumnArray[$intIndex];
+                                        //$objColumn->HasResetButton = true;
 
 					$colContent = '&nbsp;';
 
@@ -777,7 +778,7 @@
 							$colContent = $ctlFilter->Render(false);
 					}
 					if ($this->ShowFilterResetButton) {
-						if (!$blnResetButtonRendered && $intIndex == count($this->objColumnArray) -1) {
+						if (!$blnResetButtonRendered && $intIndex == 0) {
 							// no column has the reset button, but ShowFilterResetButton is true
 							// put the reset button in the last column
 							$objColumn->HasResetButton = true;
@@ -790,7 +791,7 @@
 					}
 
 					//show the filter button in the last column (if set to)
-					if($intIndex == count($this->objColumnArray) -1)
+					if($intIndex == 0)
 					{
 						$btnFilter = $this->FilterButton;
 						if (null !== $btnFilter) {
