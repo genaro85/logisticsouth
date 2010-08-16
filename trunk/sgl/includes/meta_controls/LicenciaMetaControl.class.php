@@ -119,7 +119,6 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
     public function txtStatus_Create($strControlId = null) {
         $this->txtStatus = new QListBox($this->objParentObject, $strControlId);
         $this->txtStatus->Name = QApplication::Translate('Estado de Licencia*');
-
         $this->txtStatus->AddItem(QApplication::Translate('- Select One -'), null);  //Campo Null Seleccionar Uno
         $ListaEstatus = array(1 => 'En Proceso', 2 => 'Cerrada');                //Lista de Estatus
         if ($ListaEstatus)
