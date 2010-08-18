@@ -12,3 +12,26 @@
 		</div>
 	</body>
 </html>
+
+/* Footer nuevo*/
+
+<div id="footermainPan">
+  <div id="footerPan">
+  	<div id="footerlogoPan"><a href="index.html"><img src="images/footerlogo.gif" title="Total Management" alt="Total Management" width="290" height="36" border="0" /></a></div>
+	<ul>
+  	<li><a href="#">Home</a>| </li>
+  	<li><a href="#">Noticias</a> | </li>
+  	<li><a href="#"> Licencias</a>| </li>
+  	<li><a href="#">Forum</a> | </li>
+  	<li><a href="#">Soluciones</a> |</li>
+	<li><a href="#">Contactos</a> </li>
+	</ul>
+	<p class="copyright">© sur logistica. Todos los derechos reservados.</p>
+	<ul class="templateworld">
+  	<li>dise&ntilde;ado por:</li>
+	<li><a href="http://www.templateworld.com" target="_blank">Newski Imagination</a></li>
+  </ul>
+  </div>
+</div>
+</body>
+</html>
