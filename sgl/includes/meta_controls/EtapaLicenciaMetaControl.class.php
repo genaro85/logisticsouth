@@ -63,18 +63,18 @@ class EtapaLicenciaMetaControl extends EtapaLicenciaMetaControlGen {
     }
 
     public function calETAPAFechaInicio_Create($strControlId = null) {
-        $this->calETAPAFechaInicio = new QDateTimePicker($this->objParentObject, $strControlId);
+        $this->calETAPAFechaInicio = new QDateTimeTextBox($this->objParentObject, $strControlId);
         $this->calETAPAFechaInicio->Name = QApplication::Translate('Fecha Inicio');
-        $this->calETAPAFechaInicio->DateTime = $this->objEtapaLicencia->ETAPAFechaInicio;
-        $this->calETAPAFechaInicio->DateTimePickerType = QDateTimePickerType::Date;
+        if ($this->objEtapaLicencia->ETAPAFechaInicio)
+            $this->calETAPAFechaInicio->Text = $this->objEtapaLicencia->calETAPAFechaInicio->__toString();
         return $this->calETAPAFechaInicio;
     }
 
     public function calETAPAFechaFin_Create($strControlId = null) {
-        $this->calETAPAFechaFin = new QDateTimePicker($this->objParentObject, $strControlId);
+        $this->calETAPAFechaFin = new QDateTimeTextBox($this->objParentObject, $strControlId);
         $this->calETAPAFechaFin->Name = QApplication::Translate('Fecha Fin');
-        $this->calETAPAFechaFin->DateTime = $this->objEtapaLicencia->ETAPAFechaFin;
-        $this->calETAPAFechaFin->DateTimePickerType = QDateTimePickerType::Date;
+        if ($this->objEtapaLicencia->ETAPAFechaFin)
+            $this->calETAPAFechaFin->Text = $this->objEtapaLicencia->calETAPAFechaFin->__toString();
         return $this->calETAPAFechaFin;
     }
 

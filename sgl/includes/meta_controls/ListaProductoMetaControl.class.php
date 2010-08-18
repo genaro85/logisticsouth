@@ -28,6 +28,101 @@
 			}
 		}
 */
+            /**
+		 * Create and setup QListBox lstLICENCIAIdLICENCIAObject
+		 * @param string $strControlId optional ControlId to use
+		 * @return QListBox
+		 */
+		public function lstLICENCIAIdLICENCIAObject_Create($strControlId = null) {
+			$this->lstLICENCIAIdLICENCIAObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstLICENCIAIdLICENCIAObject->Name = QApplication::Translate('Licencia');
+			$this->lstLICENCIAIdLICENCIAObject->Required = true;
+			if (!$this->blnEditMode)
+				$this->lstLICENCIAIdLICENCIAObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objLICENCIAIdLICENCIAObjectArray = Licencia::LoadAll();
+			if ($objLICENCIAIdLICENCIAObjectArray) foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
+				$objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString(), $objLICENCIAIdLICENCIAObject->IdLICENCIA);
+				if (($this->objListaProducto->LICENCIAIdLICENCIAObject) && ($this->objListaProducto->LICENCIAIdLICENCIAObject->IdLICENCIA == $objLICENCIAIdLICENCIAObject->IdLICENCIA))
+					$objListItem->Selected = true;
+				$this->lstLICENCIAIdLICENCIAObject->AddItem($objListItem);
+			}
+			return $this->lstLICENCIAIdLICENCIAObject;
+		}
+
+                /**
+		 * Create and setup QListBox lstPRODUCTOIdPRODUCTOObject
+		 * @param string $strControlId optional ControlId to use
+		 * @return QListBox
+		 */
+		public function lstPRODUCTOIdPRODUCTOObject_Create($strControlId = null) {
+			$this->lstPRODUCTOIdPRODUCTOObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstPRODUCTOIdPRODUCTOObject->Name = QApplication::Translate('Producto');
+			$this->lstPRODUCTOIdPRODUCTOObject->Required = true;
+			if (!$this->blnEditMode)
+				$this->lstPRODUCTOIdPRODUCTOObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objPRODUCTOIdPRODUCTOObjectArray = Producto::LoadAll();
+			if ($objPRODUCTOIdPRODUCTOObjectArray) foreach ($objPRODUCTOIdPRODUCTOObjectArray as $objPRODUCTOIdPRODUCTOObject) {
+				$objListItem = new QListItem($objPRODUCTOIdPRODUCTOObject->__toString(), $objPRODUCTOIdPRODUCTOObject->IdPRODUCTO);
+				if (($this->objListaProducto->PRODUCTOIdPRODUCTOObject) && ($this->objListaProducto->PRODUCTOIdPRODUCTOObject->IdPRODUCTO == $objPRODUCTOIdPRODUCTOObject->IdPRODUCTO))
+					$objListItem->Selected = true;
+				$this->lstPRODUCTOIdPRODUCTOObject->AddItem($objListItem);
+			}
+			return $this->lstPRODUCTOIdPRODUCTOObject;
+		}
+
+                /**
+		 * Create and setup QTextBox txtPRODUCTOCantidad
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtPRODUCTOCantidad_Create($strControlId = null) {
+			$this->txtPRODUCTOCantidad = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPRODUCTOCantidad->Name = QApplication::Translate('Cantidad');
+			$this->txtPRODUCTOCantidad->Text = $this->objListaProducto->PRODUCTOCantidad;
+			$this->txtPRODUCTOCantidad->Required = true;
+			$this->txtPRODUCTOCantidad->MaxLength = ListaProducto::PRODUCTOCantidadMaxLength;
+			return $this->txtPRODUCTOCantidad;
+		}
+
+                /**
+		 * Create and setup QIntegerTextBox txtPRODUCTOVolumen
+		 * @param string $strControlId optional ControlId to use
+		 * @return QIntegerTextBox
+		 */
+		public function txtPRODUCTOVolumen_Create($strControlId = null) {
+			$this->txtPRODUCTOVolumen = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtPRODUCTOVolumen->Name = QApplication::Translate('Volumen');
+			$this->txtPRODUCTOVolumen->Text = $this->objListaProducto->PRODUCTOVolumen;
+			$this->txtPRODUCTOVolumen->Required = true;
+			return $this->txtPRODUCTOVolumen;
+		}
+
+                /**
+		 * Create and setup QTextBox txtPRODUCTOUnidad
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtPRODUCTOUnidad_Create($strControlId = null) {
+			$this->txtPRODUCTOUnidad = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPRODUCTOUnidad->Name = QApplication::Translate('Unidad');
+			$this->txtPRODUCTOUnidad->Text = $this->objListaProducto->PRODUCTOUnidad;
+			$this->txtPRODUCTOUnidad->Required = true;
+			$this->txtPRODUCTOUnidad->MaxLength = ListaProducto::PRODUCTOUnidadMaxLength;
+			return $this->txtPRODUCTOUnidad;
+		}
+
+                /**
+		 * Create and setup QTextBox txtPRODUCTOCostoUnitario
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtPRODUCTOCostoUnitario_Create($strControlId = null) {
+			$this->txtPRODUCTOCostoUnitario = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPRODUCTOCostoUnitario->Name = QApplication::Translate('Costo Unitario');
+			$this->txtPRODUCTOCostoUnitario->Text = $this->objListaProducto->PRODUCTOCostoUnitario;
+			$this->txtPRODUCTOCostoUnitario->MaxLength = ListaProducto::PRODUCTOCostoUnitarioMaxLength;
+			return $this->txtPRODUCTOCostoUnitario;
+		}
 
 	}
 ?>
