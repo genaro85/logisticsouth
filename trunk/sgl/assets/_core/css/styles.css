@@ -19,7 +19,7 @@ html>body, html>body #page {
 
 a:link {color:#FF6A00;}
 a:visited {color: #FF6A00;}
-a:link, a:visited { text-decoration:none; border-bottom: 1px dotted #FF6A00;}
+a:link, a:visited { text-decoration:none; /*border-bottom: 1px dotted #FF6A00;*/}
 a:hover { text-decoration:none; border-bottom: 1px solid #000;}
 pre { font-family: 'Lucida Console', 'Courier New', 'Courier', 'FreeMono', monospaced; font-size: 11px; line-height: 13px; }
 
@@ -324,7 +324,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     left:65px;
 }
 
-#header ul li{width:64px; height:32px; float:left;}
+#header ul li{width:64px; height:32px; float:left; list-style: none;}
 
 #header ul li.home{
     background:url(../images/topmenu-hover.jpg);
@@ -473,25 +473,77 @@ div#dashboard div#right { float: left; margin-left: 10px; width: 738px;}
 div#dashboard div#right div#pnlList { margin-bottom: 10px; border: 1px solid #111; padding: 5px; max-height: 300px; overflow: auto; }
 div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; background-color: #F6F6F6; max-height: 240px; overflow: auto; }
 
+/* ----- FOOTER ----- */
 #footer {
-    position: absolute;
-    bottom: 0pt;
-    left: 0pt;
-    clear: both;
-    background-color: #FF6A00;
-    color: #ffffff;
-    font:bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
-    height:39px;
-    width:100%;
-    text-align:left;
-    border-top: 3px solid #111;
+	height:144px; 
+	background:url(images/footerbg.gif) 0 0 repeat-x #3B3B3B; 
+	position:relative; 
+	margin:0 auto;  
+	color:#fff; 
+	font:13px/22px "Trebuchet MS",Arial, Helvetica, sans-serif; 
+	clear:both; 
+	padding:30px 0 0;
 }
-#footerLeft {  width: 150px; float:left; height:35px; padding-left:5px; padding-top: 4px;}
+
+#footerLeft {  
+	width:546px;
+	position:absolute;
+	top:-3px;
+	left:79px;
+}
 #footerLeft a img { border: 0px;}
+#footerLeft li{float:left; list-style: none; }
+#footerLeft ul li a{
+    padding:0 10px 0;
+    color:#fff;
+    /*background: url(../images/footermenubg.gif) 0 0 repeat-x #3B3B3B;*/
+    text-decoration:none
+}
+#footerLeft ul li a:hover{text-decoration:underline;}
+
 #footerRight { width: 50%; text-align: right; float:right; padding-right:5px;}
 #footerRight div { height:18px; line-height: 18px; }
+#footerRight .templateworld{	
+	background:#3B3B3B;
+	color:#fff;
+	display:block;
+	position:absolute;
+	top:64px;
+	left:90px;
+}
+#footerRight .templateworld a{background:#3B3B3B; color:#fff; text-decoration:none;}
+#footerRight .templateworld a:hover{text-decoration:underline;}
+#footerRight p.copyright{
+	width:300px;
+	/*background: url(../images/copyrightbg.gif) 0 0 repeat-x #3B3B3B;*/
+	color:#fff;
+	position:absolute;
+	top:25px;
+	left:89px;
+}
 .footerSmall { font-size: 10px; line-height: 18px;}
 a.footerLink { background-color:#FF6A00; color: #FFF; border-bottom: 1px dotted #FFF;}
+
+#footerPan{width:778px; position:relative; margin:0 auto;}
+
+#footerlogoPan{
+	display:block;
+	width:215px;
+	height:40px;
+	position:absolute;
+	top:52px;
+	left:60%;
+    background-image: url(../images/footerlogo.gif);
+	text-align:right;
+}
+#footerPanhtml{width:70px; height:24px; display:block; position:absolute; top:49px; left:5px;}
+#footerPanhtml a{width:65px; height:24px; display:block; background:url(images/html-normal.gif) 0 0 no-repeat #3B3B3B; color:#fff; font-size:13px; line-height:23px; font-weight:bold; text-decoration:none;text-transform:uppercase; padding:0 0 0 5px;}
+#footerPanhtml a:hover{background:url(images/html-hover.gif) 0 0 no-repeat #3B3B3B; color:#fff;}
+#footerPancss{width:58px; height:24px; display:block; position:absolute; top:50px; left:80px;}
+#footerPancss a{width:49px; height:24px; display:block; background:url(images/css-normal.gif) 0 0 no-repeat #3B3B3C; color:#3B3B3B; font-size:13px; line-height:24px; font-weight:bold; text-decoration:none; text-transform:uppercase; padding:0 0 0 10px;}
+#footerPancss a:hover{background:url(images/css-hover.gif) 0 0 no-repeat #3B3B3B; color:#3B3B3C; text-decoration:none;}
+
+/* ----- End FOOTER ----- */
 
 p.create { }
 p.create a { font-weight: bold; }
