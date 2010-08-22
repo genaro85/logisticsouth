@@ -19,6 +19,12 @@
 			return new QQNodeDocumento('DOCUMENTO', null, null);
 		}
 		/**
+		 * @return QQNodeDocumentosFase
+		 */
+		static public function DocumentosFase() {
+			return new QQNodeDocumentosFase('DOCUMENTOS_FASE', null, null);
+		}
+		/**
 		 * @return QQNodeEmpleado
 		 */
 		static public function Empleado() {
@@ -31,34 +37,28 @@
 			return new QQNodeEmpresa('EMPRESA', null, null);
 		}
 		/**
-		 * @return QQNodeEtapa
-		 */
-		static public function Etapa() {
-			return new QQNodeEtapa('ETAPA', null, null);
-		}
-		/**
-		 * @return QQNodeEtapaLicencia
-		 */
-		static public function EtapaLicencia() {
-			return new QQNodeEtapaLicencia('ETAPA_LICENCIA', null, null);
-		}
-		/**
 		 * @return QQNodeFase
 		 */
 		static public function Fase() {
 			return new QQNodeFase('FASE', null, null);
 		}
 		/**
+		 * @return QQNodeFaseLicencia
+		 */
+		static public function FaseLicencia() {
+			return new QQNodeFaseLicencia('FASE_LICENCIA', null, null);
+		}
+		/**
+		 * @return QQNodeImportacion
+		 */
+		static public function Importacion() {
+			return new QQNodeImportacion('IMPORTACION', null, null);
+		}
+		/**
 		 * @return QQNodeLicencia
 		 */
 		static public function Licencia() {
 			return new QQNodeLicencia('LICENCIA', null, null);
-		}
-		/**
-		 * @return QQNodeListaDeDocumento
-		 */
-		static public function ListaDeDocumento() {
-			return new QQNodeListaDeDocumento('LISTA_DE_DOCUMENTO', null, null);
 		}
 		/**
 		 * @return QQNodeListaProducto
@@ -101,6 +101,12 @@
 		 */
 		static public function TipoDePago() {
 			return new QQNodeTipoDePago('TIPO_DE_PAGO', null, null);
+		}
+		/**
+		 * @return QQNodeTransporte
+		 */
+		static public function Transporte() {
+			return new QQNodeTransporte('TRANSPORTE', null, null);
 		}
 		/**
 		 * @return QQNodeVigenciaDocumento

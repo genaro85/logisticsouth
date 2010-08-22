@@ -13,7 +13,7 @@ require(__FORMBASE_CLASSES__ . '/VigenciaDocumentoEditFormBase.class.php');
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
- * 
+ *
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
  * permanent changes, it is STRONGLY RECOMMENDED to move both vigencia_documento_edit.php AND
  * vigencia_documento_edit.tpl.php out of this Form Drafts directory.
@@ -33,16 +33,22 @@ class VigenciaDocumentoEditForm extends VigenciaDocumentoEditFormBase {
     protected function Form_Create() {
         parent::Form_Create();
 
-        $this->calCalendar4 = new QCalendar($this, $this->calFechaOtorgado);
-        $this->calCalendar5 = new QCalendar($this, $this->calFechaVencimieto);
+
 
         // Use the CreateFromPathInfo shortcut (this can also be done manually using the VigenciaDocumentoMetaControl constructor)
         // MAKE SURE we specify "$this" as the MetaControl's (and thus all subsequent controls') parent
         $this->mctVigenciaDocumento = VigenciaDocumentoMetaControl::CreateFromPathInfo($this);
 
         // Call MetaControl's methods to create qcontrols based on VigenciaDocumento's data fields
-        $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = $this->mctVigenciaDocumento->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject_Create();
         $this->lstLICENCIAIdLICENCIAObject = $this->mctVigenciaDocumento->lstLICENCIAIdLICENCIAObject_Create();
+        $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = $this->mctVigenciaDocumento->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject_Create();
+        $this->calFechaOtorgado = $this->mctVigenciaDocumento->calFechaOtorgado_Create();
+        $this->calFechaVencimieto = $this->mctVigenciaDocumento->calFechaVencimieto_Create();
+        $this->txtNumRef = $this->mctVigenciaDocumento->txtNumRef_Create();
+
+        $this->calCalendar4 = new QCalendar($this, $this->calFechaOtorgado);
+        $this->calCalendar5 = new QCalendar($this, $this->calFechaVencimieto);
+
         // Calendar Actions
         $this->calFechaOtorgado->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaOtorgado));
         $this->calFechaOtorgado->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar4));
@@ -51,7 +57,7 @@ class VigenciaDocumentoEditForm extends VigenciaDocumentoEditFormBase {
         $this->calFechaVencimieto->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar5));
         //$this->calFechaOtorgado = $this->mctVigenciaDocumento->calFechaOtorgado_Create();
         //$this->calFechaVencimieto = $this->mctVigenciaDocumento->calFechaVencimieto_Create();
-        
+
         // Create Buttons and Actions on this Form
         $this->btnSave = new QButton($this);
         $this->btnSave->Text = QApplication::Translate('Guardar');

@@ -16,10 +16,10 @@
 	 * @package My QCubed Application
 	 * @subpackage MetaControls
 	 * @property-read VigenciaDocumento $VigenciaDocumento the actual VigenciaDocumento data class being edited
-	 * @property QListBox $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOControl
-	 * @property-read QLabel $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOLabel
 	 * @property QListBox $LICENCIAIdLICENCIAControl
 	 * @property-read QLabel $LICENCIAIdLICENCIALabel
+	 * @property QListBox $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOControl
+	 * @property-read QLabel $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOLabel
 	 * @property QDateTimePicker $FechaOtorgadoControl
 	 * @property-read QLabel $FechaOtorgadoLabel
 	 * @property QDateTimePicker $FechaVencimietoControl
@@ -48,13 +48,13 @@
 
 		// Controls that allow the editing of VigenciaDocumento's individual data fields
 		/**
-		 * @var QListBox intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-		 */
-		protected $lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
-		/**
 		 * @var QListBox intLICENCIAIdLICENCIA
 		 */
 		protected $lstLICENCIAIdLICENCIAObject;
+		/**
+		 * @var QListBox intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 */
+		protected $lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
 		/**
 		 * @var QDateTimePicker dttFechaOtorgado
 		 */
@@ -69,8 +69,8 @@
 		protected $txtNumRef;
 
 		// Controls that allow the viewing of VigenciaDocumento's individual data fields
-		protected $lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
 		protected $lblLICENCIAIdLICENCIA;
+		protected $lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 		protected $lblFechaOtorgado;
 		protected $lblFechaVencimieto;
 		protected $lblNumRef;
@@ -117,15 +117,15 @@
 		 * edit, or if we are also allowed to create a new one, etc.
 		 * 
 		 * @param mixed $objParentObject QForm or QPanel which will be using this VigenciaDocumentoMetaControl
-		 * @param integer $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO primary key value
 		 * @param integer $intLICENCIAIdLICENCIA primary key value
+		 * @param integer $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO primary key value
 		 * @param QMetaControlCreateType $intCreateType rules governing VigenciaDocumento object creation - defaults to CreateOrEdit
  		 * @return VigenciaDocumentoMetaControl
 		 */
-		public static function Create($objParentObject, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = null, $intLICENCIAIdLICENCIA = null, $intCreateType = QMetaControlCreateType::CreateOrEdit) {
+		public static function Create($objParentObject, $intLICENCIAIdLICENCIA = null, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = null, $intCreateType = QMetaControlCreateType::CreateOrEdit) {
 			// Attempt to Load from PK Arguments
-			if (strlen($intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) && strlen($intLICENCIAIdLICENCIA)) {
-				$objVigenciaDocumento = VigenciaDocumento::Load($intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLICENCIAIdLICENCIA);
+			if (strlen($intLICENCIAIdLICENCIA) && strlen($intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)) {
+				$objVigenciaDocumento = VigenciaDocumento::Load($intLICENCIAIdLICENCIA, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO);
 
 				// VigenciaDocumento was found -- return it!
 				if ($objVigenciaDocumento)
@@ -133,7 +133,7 @@
 
 				// If CreateOnRecordNotFound not specified, throw an exception
 				else if ($intCreateType != QMetaControlCreateType::CreateOnRecordNotFound)
-					throw new QCallerException('Could not find a VigenciaDocumento object with PK arguments: ' . $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO . ', ' . $intLICENCIAIdLICENCIA);
+					throw new QCallerException('Could not find a VigenciaDocumento object with PK arguments: ' . $intLICENCIAIdLICENCIA . ', ' . $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO);
 
 			// If EditOnly is specified, throw an exception
 			} else if ($intCreateType == QMetaControlCreateType::EditOnly)
@@ -151,9 +151,9 @@
 		 * @return VigenciaDocumentoMetaControl
 		 */
 		public static function CreateFromPathInfo($objParentObject, $intCreateType = QMetaControlCreateType::CreateOrEdit) {
-			$intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = QApplication::PathInfo(0);
-			$intLICENCIAIdLICENCIA = QApplication::PathInfo(1);
-			return VigenciaDocumentoMetaControl::Create($objParentObject, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLICENCIAIdLICENCIA, $intCreateType);
+			$intLICENCIAIdLICENCIA = QApplication::PathInfo(0);
+			$intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = QApplication::PathInfo(1);
+			return VigenciaDocumentoMetaControl::Create($objParentObject, $intLICENCIAIdLICENCIA, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $intCreateType);
 		}
 
 		/**
@@ -164,9 +164,9 @@
 		 * @return VigenciaDocumentoMetaControl
 		 */
 		public static function CreateFromQueryString($objParentObject, $intCreateType = QMetaControlCreateType::CreateOrEdit) {
-			$intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = QApplication::QueryString('intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO');
 			$intLICENCIAIdLICENCIA = QApplication::QueryString('intLICENCIAIdLICENCIA');
-			return VigenciaDocumentoMetaControl::Create($objParentObject, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLICENCIAIdLICENCIA, $intCreateType);
+			$intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = QApplication::QueryString('intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO');
+			return VigenciaDocumentoMetaControl::Create($objParentObject, $intLICENCIAIdLICENCIA, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $intCreateType);
 		}
 
 
@@ -174,40 +174,6 @@
 		///////////////////////////////////////////////
 		// PUBLIC CREATE and REFRESH METHODS
 		///////////////////////////////////////////////
-
-		/**
-		 * Create and setup QListBox lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject
-		 * @param string $strControlId optional ControlId to use
-		 * @return QListBox
-		 */
-		public function lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject_Create($strControlId = null) {
-			$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = new QListBox($this->objParentObject, $strControlId);
-			$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->Name = QApplication::Translate('L I S T A D E D O C U M E N T O D O C U M E N T O Id D O C U M E N T O Object');
-			$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->Required = true;
-			if (!$this->blnEditMode)
-				$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
-			$objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
-			if ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray) foreach ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray as $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) {
-				$objListItem = new QListItem($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString(), $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
-				if (($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
-					$objListItem->Selected = true;
-				$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
-			}
-			return $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
-		}
-
-		/**
-		 * Create and setup QLabel lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-		 * @param string $strControlId optional ControlId to use
-		 * @return QLabel
-		 */
-		public function lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO_Create($strControlId = null) {
-			$this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = new QLabel($this->objParentObject, $strControlId);
-			$this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO->Name = QApplication::Translate('L I S T A D E D O C U M E N T O D O C U M E N T O Id D O C U M E N T O Object');
-			$this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO->Text = ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) ? $this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString() : null;
-			$this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO->Required = true;
-			return $this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-		}
 
 		/**
 		 * Create and setup QListBox lstLICENCIAIdLICENCIAObject
@@ -241,6 +207,40 @@
 			$this->lblLICENCIAIdLICENCIA->Text = ($this->objVigenciaDocumento->LICENCIAIdLICENCIAObject) ? $this->objVigenciaDocumento->LICENCIAIdLICENCIAObject->__toString() : null;
 			$this->lblLICENCIAIdLICENCIA->Required = true;
 			return $this->lblLICENCIAIdLICENCIA;
+		}
+
+		/**
+		 * Create and setup QListBox lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject
+		 * @param string $strControlId optional ControlId to use
+		 * @return QListBox
+		 */
+		public function lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject_Create($strControlId = null) {
+			$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->Name = QApplication::Translate('D O C U M E N T O S F A S E D O C U M E N T O Id D O C U M E N T O Object');
+			$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->Required = true;
+			if (!$this->blnEditMode)
+				$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
+			if ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray) foreach ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) {
+				$objListItem = new QListItem($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->__toString(), $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
+				if (($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
+					$objListItem->Selected = true;
+				$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
+			}
+			return $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
+		}
+
+		/**
+		 * Create and setup QLabel lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO_Create($strControlId = null) {
+			$this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = new QLabel($this->objParentObject, $strControlId);
+			$this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO->Name = QApplication::Translate('D O C U M E N T O S F A S E D O C U M E N T O Id D O C U M E N T O Object');
+			$this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO->Text = ($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) ? $this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->__toString() : null;
+			$this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO->Required = true;
+			return $this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 		}
 
 		/**
@@ -339,20 +339,6 @@
 			if ($blnReload)
 				$this->objVigenciaDocumento->Reload();
 
-			if ($this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) {
-					$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->RemoveAllItems();
-				if (!$this->blnEditMode)
-					$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
-				$objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
-				if ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray) foreach ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray as $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) {
-					$objListItem = new QListItem($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString(), $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
-					if (($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
-						$objListItem->Selected = true;
-					$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
-				}
-			}
-			if ($this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) $this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO->Text = ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) ? $this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString() : null;
-
 			if ($this->lstLICENCIAIdLICENCIAObject) {
 					$this->lstLICENCIAIdLICENCIAObject->RemoveAllItems();
 				if (!$this->blnEditMode)
@@ -366,6 +352,20 @@
 				}
 			}
 			if ($this->lblLICENCIAIdLICENCIA) $this->lblLICENCIAIdLICENCIA->Text = ($this->objVigenciaDocumento->LICENCIAIdLICENCIAObject) ? $this->objVigenciaDocumento->LICENCIAIdLICENCIAObject->__toString() : null;
+
+			if ($this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) {
+					$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->RemoveAllItems();
+				if (!$this->blnEditMode)
+					$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
+				$objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
+				if ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray) foreach ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) {
+					$objListItem = new QListItem($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->__toString(), $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
+					if (($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
+						$objListItem->Selected = true;
+					$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
+				}
+			}
+			if ($this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) $this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO->Text = ($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) ? $this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->__toString() : null;
 
 			if ($this->calFechaOtorgado) $this->calFechaOtorgado->DateTime = $this->objVigenciaDocumento->FechaOtorgado;
 			if ($this->lblFechaOtorgado) $this->lblFechaOtorgado->Text = sprintf($this->objVigenciaDocumento->FechaOtorgado) ? $this->objVigenciaDocumento->FechaOtorgado->qFormat($this->strFechaOtorgadoDateTimeFormat) : null;
@@ -399,8 +399,8 @@
 		public function SaveVigenciaDocumento() {
 			try {
 				// Update any fields for controls that have been created
-				if ($this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) $this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->SelectedValue;
 				if ($this->lstLICENCIAIdLICENCIAObject) $this->objVigenciaDocumento->LICENCIAIdLICENCIA = $this->lstLICENCIAIdLICENCIAObject->SelectedValue;
+				if ($this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) $this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->SelectedValue;
 				if ($this->calFechaOtorgado) $this->objVigenciaDocumento->FechaOtorgado = $this->calFechaOtorgado->DateTime;
 				if ($this->calFechaVencimieto) $this->objVigenciaDocumento->FechaVencimieto = $this->calFechaVencimieto->DateTime;
 				if ($this->txtNumRef) $this->objVigenciaDocumento->NumRef = $this->txtNumRef->Text;
@@ -446,18 +446,18 @@
 				case 'EditMode': return $this->blnEditMode;
 
 				// Controls that point to VigenciaDocumento fields -- will be created dynamically if not yet created
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOControl':
-					if (!$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) return $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject_Create();
-					return $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOLabel':
-					if (!$this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) return $this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO_Create();
-					return $this->lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
 				case 'LICENCIAIdLICENCIAControl':
 					if (!$this->lstLICENCIAIdLICENCIAObject) return $this->lstLICENCIAIdLICENCIAObject_Create();
 					return $this->lstLICENCIAIdLICENCIAObject;
 				case 'LICENCIAIdLICENCIALabel':
 					if (!$this->lblLICENCIAIdLICENCIA) return $this->lblLICENCIAIdLICENCIA_Create();
 					return $this->lblLICENCIAIdLICENCIA;
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOControl':
+					if (!$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) return $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject_Create();
+					return $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOLabel':
+					if (!$this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) return $this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO_Create();
+					return $this->lblDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 				case 'FechaOtorgadoControl':
 					if (!$this->calFechaOtorgado) return $this->calFechaOtorgado_Create();
 					return $this->calFechaOtorgado;
@@ -498,10 +498,10 @@
 			try {
 				switch ($strName) {
 					// Controls that point to VigenciaDocumento fields
-					case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOControl':
-						return ($this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = QType::Cast($mixValue, 'QControl'));
 					case 'LICENCIAIdLICENCIAControl':
 						return ($this->lstLICENCIAIdLICENCIAObject = QType::Cast($mixValue, 'QControl'));
+					case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOControl':
+						return ($this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = QType::Cast($mixValue, 'QControl'));
 					case 'FechaOtorgadoControl':
 						return ($this->calFechaOtorgado = QType::Cast($mixValue, 'QControl'));
 					case 'FechaVencimietoControl':

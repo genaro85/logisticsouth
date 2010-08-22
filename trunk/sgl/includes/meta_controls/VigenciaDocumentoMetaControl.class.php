@@ -63,6 +63,22 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
         return $this->lstLICENCIAIdLICENCIAObject;
     }
 
+    public function lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject_Create($strControlId = null) {
+        $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = new QListBox($this->objParentObject, $strControlId);
+        $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->Name = QApplication::Translate('Documento de fase');
+        $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->Required = true;
+        if (!$this->blnEditMode)
+            $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
+        $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
+        if ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray) foreach ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) {
+                $objListItem = new QListItem($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->__toString(), $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
+                if (($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
+                    $objListItem->Selected = true;
+                $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
+            }
+        return $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
+    }
+
 
     /**
      * Create and setup QDateTimePicker calFechaOtorgado

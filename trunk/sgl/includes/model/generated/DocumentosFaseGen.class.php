@@ -19,8 +19,8 @@
 	 * @property integer $FASEIdFASE the value for intFASEIdFASE 
 	 * @property Documento $DOCUMENTOIdDOCUMENTOObject the value for the Documento object referenced by intDOCUMENTOIdDOCUMENTO (PK)
 	 * @property Fase $FASEIdFASEObject the value for the Fase object referenced by intFASEIdFASE 
-	 * @property-read VigenciaDocumento $_VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO the value for the private _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (Read-Only) if set due to an expansion on the VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO reverse relationship
-	 * @property-read VigenciaDocumento[] $_VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray the value for the private _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray (Read-Only) if set due to an ExpandAsArray on the VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO reverse relationship
+	 * @property-read VigenciaDocumento $_VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO the value for the private _objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (Read-Only) if set due to an expansion on the VIGENCIA_DOCUMENTO.DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO reverse relationship
+	 * @property-read VigenciaDocumento[] $_VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray the value for the private _objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray (Read-Only) if set due to an ExpandAsArray on the VIGENCIA_DOCUMENTO.DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class DocumentosFaseGen extends QBaseClass implements IteratorAggregate {
@@ -53,20 +53,20 @@
 
 
 		/**
-		 * Private member variable that stores a reference to a single VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO object
+		 * Private member variable that stores a reference to a single VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO object
 		 * (of type VigenciaDocumento), if this DocumentosFase object was restored with
 		 * an expansion on the VIGENCIA_DOCUMENTO association table.
-		 * @var VigenciaDocumento _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
+		 * @var VigenciaDocumento _objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 		 */
-		private $_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
+		private $_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 
 		/**
-		 * Private member variable that stores a reference to an array of VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO objects
+		 * Private member variable that stores a reference to an array of VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO objects
 		 * (of type VigenciaDocumento[]), if this DocumentosFase object was restored with
 		 * an ExpandAsArray on the VIGENCIA_DOCUMENTO association table.
-		 * @var VigenciaDocumento[] _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray;
+		 * @var VigenciaDocumento[] _objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray;
 		 */
-		private $_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray = array();
+		private $_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray = array();
 
 		/**
 		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -425,19 +425,19 @@
 							$strAliasPrefix = 'DOCUMENTOS_FASE__';
 
 
-						// Expanding reverse references: VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-						$strAlias = $strAliasPrefix . 'vigenciadocumentoaslistadedocumentodocumentoiddocumento__LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
+						// Expanding reverse references: VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+						$strAlias = $strAliasPrefix . 'vigenciadocumentoasdocumentosfasedocumentoiddocumento__LICENCIA_idLICENCIA';
 						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
 							(!is_null($objDbRow->GetColumn($strAliasName)))) {
-							if ($intPreviousChildItemCount = count($objPreviousItem->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray)) {
-								$objPreviousChildItems = $objPreviousItem->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray;
-								$objChildItem = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoaslistadedocumentodocumentoiddocumento__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray;
+								$objChildItem = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoasdocumentosfasedocumentoiddocumento__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
 								if ($objChildItem) {
-									$objPreviousItem->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray[] = $objChildItem;
+									$objPreviousItem->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray[] = $objChildItem;
 								}
 							} else {
-								$objPreviousItem->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray[] = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoaslistadedocumentodocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+								$objPreviousItem->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray[] = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoasdocumentosfasedocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 							}
 							$blnExpandedViaArray = true;
 						}
@@ -467,7 +467,7 @@
 					if ($objToReturn->DOCUMENTOIdDOCUMENTO != $objPreviousItem->DOCUMENTOIdDOCUMENTO) {
 						continue;
 					}
-					if (array_diff($objPreviousItem->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray, $objToReturn->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray) != null) {
+					if (array_diff($objPreviousItem->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray, $objToReturn->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray) != null) {
 						continue;
 					}
 
@@ -503,14 +503,14 @@
 
 
 
-			// Check for VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO Virtual Binding
-			$strAlias = $strAliasPrefix . 'vigenciadocumentoaslistadedocumentodocumentoiddocumento__LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
+			// Check for VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO Virtual Binding
+			$strAlias = $strAliasPrefix . 'vigenciadocumentoasdocumentosfasedocumentoiddocumento__LICENCIA_idLICENCIA';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (!is_null($objDbRow->GetColumn($strAliasName))) {
 				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
-					$objToReturn->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray[] = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoaslistadedocumentodocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray[] = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoasdocumentosfasedocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 				else
-					$objToReturn->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoaslistadedocumentodocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = VigenciaDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'vigenciadocumentoasdocumentosfasedocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 			}
 
 			return $objToReturn;
@@ -809,21 +809,21 @@
 				// (If restored via a "Many-to" expansion)
 				////////////////////////////
 
-				case '_VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
+				case '_VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
 					/**
-					 * Gets the value for the private _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (Read-Only)
-					 * if set due to an expansion on the VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO reverse relationship
+					 * Gets the value for the private _objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (Read-Only)
+					 * if set due to an expansion on the VIGENCIA_DOCUMENTO.DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO reverse relationship
 					 * @return VigenciaDocumento
 					 */
-					return $this->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
+					return $this->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 
-				case '_VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray':
+				case '_VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray':
 					/**
-					 * Gets the value for the private _objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray (Read-Only)
-					 * if set due to an ExpandAsArray on the VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO reverse relationship
+					 * Gets the value for the private _objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray (Read-Only)
+					 * if set due to an ExpandAsArray on the VIGENCIA_DOCUMENTO.DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO reverse relationship
 					 * @return VigenciaDocumento[]
 					 */
-					return (array) $this->_objVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray;
+					return (array) $this->_objVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray;
 
 
 				case '__Restored':
@@ -977,20 +977,20 @@
 
 			
 		
-		// Related Objects' Methods for VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		// Related Objects' Methods for VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		//-------------------------------------------------------------------
 
 		/**
-		 * Gets all associated VigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO as an array of VigenciaDocumento objects
+		 * Gets all associated VigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO as an array of VigenciaDocumento objects
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
 		 * @return VigenciaDocumento[]
 		*/ 
-		public function GetVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOArray($objOptionalClauses = null) {
+		public function GetVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOArray($objOptionalClauses = null) {
 			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
 				return array();
 
 			try {
-				return VigenciaDocumento::LoadArrayByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO($this->intDOCUMENTOIdDOCUMENTO, $objOptionalClauses);
+				return VigenciaDocumento::LoadArrayByDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO($this->intDOCUMENTOIdDOCUMENTO, $objOptionalClauses);
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
 				throw $objExc;
@@ -998,26 +998,26 @@
 		}
 
 		/**
-		 * Counts all associated VigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		 * Counts all associated VigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		 * @return int
 		*/ 
-		public function CountVigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO() {
+		public function CountVigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO() {
 			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
 				return 0;
 
-			return VigenciaDocumento::CountByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO($this->intDOCUMENTOIdDOCUMENTO);
+			return VigenciaDocumento::CountByDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO($this->intDOCUMENTOIdDOCUMENTO);
 		}
 
 		/**
-		 * Associates a VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		 * Associates a VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		 * @param VigenciaDocumento $objVigenciaDocumento
 		 * @return void
 		*/ 
-		public function AssociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO(VigenciaDocumento $objVigenciaDocumento) {
+		public function AssociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO(VigenciaDocumento $objVigenciaDocumento) {
 			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
-			if ((is_null($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this DocumentosFase with an unsaved VigenciaDocumento.');
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
+			if ((is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)) || (is_null($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this DocumentosFase with an unsaved VigenciaDocumento.');
 
 			// Get the Database Object for this Class
 			$objDatabase = DocumentosFase::GetDatabase();
@@ -1027,47 +1027,23 @@
 				UPDATE
 					`VIGENCIA_DOCUMENTO`
 				SET
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . '
-			');
-		}
-
-		/**
-		 * Unassociates a VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-		 * @param VigenciaDocumento $objVigenciaDocumento
-		 * @return void
-		*/ 
-		public function UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO(VigenciaDocumento $objVigenciaDocumento) {
-			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
-			if ((is_null($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this DocumentosFase with an unsaved VigenciaDocumento.');
-
-			// Get the Database Object for this Class
-			$objDatabase = DocumentosFase::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`VIGENCIA_DOCUMENTO`
-				SET
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = null
-				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . ' AND
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . '
 			');
 		}
 
 		/**
-		 * Unassociates all VigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		 * Unassociates a VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 * @param VigenciaDocumento $objVigenciaDocumento
 		 * @return void
 		*/ 
-		public function UnassociateAllVigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO() {
+		public function UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO(VigenciaDocumento $objVigenciaDocumento) {
 			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
+			if ((is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)) || (is_null($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this DocumentosFase with an unsaved VigenciaDocumento.');
 
 			// Get the Database Object for this Class
 			$objDatabase = DocumentosFase::GetDatabase();
@@ -1077,22 +1053,46 @@
 				UPDATE
 					`VIGENCIA_DOCUMENTO`
 				SET
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = null
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = null
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
 			');
 		}
 
 		/**
-		 * Deletes an associated VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		 * Unassociates all VigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 * @return void
+		*/ 
+		public function UnassociateAllVigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO() {
+			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
+
+			// Get the Database Object for this Class
+			$objDatabase = DocumentosFase::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`VIGENCIA_DOCUMENTO`
+				SET
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = null
+				WHERE
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		 * @param VigenciaDocumento $objVigenciaDocumento
 		 * @return void
 		*/ 
-		public function DeleteAssociatedVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO(VigenciaDocumento $objVigenciaDocumento) {
+		public function DeleteAssociatedVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO(VigenciaDocumento $objVigenciaDocumento) {
 			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
-			if ((is_null($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this DocumentosFase with an unsaved VigenciaDocumento.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
+			if ((is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)) || (is_null($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this DocumentosFase with an unsaved VigenciaDocumento.');
 
 			// Get the Database Object for this Class
 			$objDatabase = DocumentosFase::GetDatabase();
@@ -1102,19 +1102,19 @@
 				DELETE FROM
 					`VIGENCIA_DOCUMENTO`
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . ' AND
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
 			');
 		}
 
 		/**
-		 * Deletes all associated VigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		 * Deletes all associated VigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		 * @return void
 		*/ 
-		public function DeleteAllVigenciaDocumentosAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO() {
+		public function DeleteAllVigenciaDocumentosAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO() {
 			if ((is_null($this->intDOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO on this unsaved DocumentosFase.');
 
 			// Get the Database Object for this Class
 			$objDatabase = DocumentosFase::GetDatabase();
@@ -1124,7 +1124,7 @@
 				DELETE FROM
 					`VIGENCIA_DOCUMENTO`
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
 			');
 		}
 
@@ -1239,7 +1239,7 @@
      * @property-read QQNodeFase $FASEIdFASEObject
      *
      *
-     * @property-read QQReverseReferenceNodeVigenciaDocumento $VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+     * @property-read QQReverseReferenceNodeVigenciaDocumento $VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 
      * @property-read QQNodeDocumento $_PrimaryKeyNode
      **/
@@ -1257,8 +1257,8 @@
 					return new QQNode('FASE_idFASE', 'FASEIdFASE', 'Integer', $this);
 				case 'FASEIdFASEObject':
 					return new QQNodeFase('FASE_idFASE', 'FASEIdFASEObject', 'Integer', $this);
-				case 'VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
-					return new QQReverseReferenceNodeVigenciaDocumento($this, 'vigenciadocumentoaslistadedocumentodocumentoiddocumento', 'reverse_reference', 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO');
+				case 'VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
+					return new QQReverseReferenceNodeVigenciaDocumento($this, 'vigenciadocumentoasdocumentosfasedocumentoiddocumento', 'reverse_reference', 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO');
 
 				case '_PrimaryKeyNode':
 					return new QQNodeDocumento('DOCUMENTO_idDOCUMENTO', 'DOCUMENTOIdDOCUMENTO', 'Integer', $this);
@@ -1280,7 +1280,7 @@
      * @property-read QQNodeFase $FASEIdFASEObject
      *
      *
-     * @property-read QQReverseReferenceNodeVigenciaDocumento $VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+     * @property-read QQReverseReferenceNodeVigenciaDocumento $VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 
      * @property-read QQNodeDocumento $_PrimaryKeyNode
      **/
@@ -1298,8 +1298,8 @@
 					return new QQNode('FASE_idFASE', 'FASEIdFASE', 'integer', $this);
 				case 'FASEIdFASEObject':
 					return new QQNodeFase('FASE_idFASE', 'FASEIdFASEObject', 'integer', $this);
-				case 'VigenciaDocumentoAsLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
-					return new QQReverseReferenceNodeVigenciaDocumento($this, 'vigenciadocumentoaslistadedocumentodocumentoiddocumento', 'reverse_reference', 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO');
+				case 'VigenciaDocumentoAsDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
+					return new QQReverseReferenceNodeVigenciaDocumento($this, 'vigenciadocumentoasdocumentosfasedocumentoiddocumento', 'reverse_reference', 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO');
 
 				case '_PrimaryKeyNode':
 					return new QQNodeDocumento('DOCUMENTO_idDOCUMENTO', 'DOCUMENTOIdDOCUMENTO', 'integer', $this);
