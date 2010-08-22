@@ -13,7 +13,7 @@ require(__FORMBASE_CLASSES__ . '/CodigoPagoListFormBase.class.php');
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
- * 
+ *
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
  * permanent changes, it is STRONGLY RECOMMENDED to move both codigo_pago_list.php AND
  * codigo_pago_list.tpl.php out of this Form Drafts directory.
@@ -48,9 +48,12 @@ class CodigoPagoListForm extends CodigoPagoListFormBase {
 
         // Create the Other Columns (note that you can use strings for CODIGO_PAGO's properties, or you
         // can traverse down QQN::CODIGO_PAGO() to display fields that are down the hierarchy)
-        $this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->LICENCIAIdLICENCIAObject,'Name=Licencia De');
+        $this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->LICENCIAIdLICENCIAObject,'Name=Licencia');
         $this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->TIPODEPAGOIdTIPODEPAGOObject,'Name=Modalidad de Pago');
-        $this->dtgCodigoPagos->MetaAddColumn('Codigo');
+        $this->dtgCodigoPagos->MetaAddColumn('NumRef','Name=Numero de Referencia');
+        $this->dtgCodigoPagos->MetaAddColumn('Fecha');
+        $this->dtgCodigoPagos->MetaAddColumn('Divisa');
+        $this->dtgCodigoPagos->MetaAddColumn('Monto');
     }
 
 }
