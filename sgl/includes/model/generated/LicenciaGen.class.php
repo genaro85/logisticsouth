@@ -754,7 +754,7 @@
 						}
 
 						// Expanding reverse references: VigenciaDocumentoAsLICENCIAIdLICENCIA
-						$strAlias = $strAliasPrefix . 'vigenciadocumentoaslicenciaidlicencia__LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
+						$strAlias = $strAliasPrefix . 'vigenciadocumentoaslicenciaidlicencia__LICENCIA_idLICENCIA';
 						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
 							(!is_null($objDbRow->GetColumn($strAliasName)))) {
@@ -928,7 +928,7 @@
 			}
 
 			// Check for VigenciaDocumentoAsLICENCIAIdLICENCIA Virtual Binding
-			$strAlias = $strAliasPrefix . 'vigenciadocumentoaslicenciaidlicencia__LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
+			$strAlias = $strAliasPrefix . 'vigenciadocumentoaslicenciaidlicencia__LICENCIA_idLICENCIA';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (!is_null($objDbRow->GetColumn($strAliasName))) {
 				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
@@ -2690,7 +2690,7 @@
 		public function AssociateVigenciaDocumentoAsLICENCIAIdLICENCIA(VigenciaDocumento $objVigenciaDocumento) {
 			if ((is_null($this->intIdLICENCIA)))
 				throw new QUndefinedPrimaryKeyException('Unable to call AssociateVigenciaDocumentoAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-			if ((is_null($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)))
+			if ((is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)) || (is_null($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
 				throw new QUndefinedPrimaryKeyException('Unable to call AssociateVigenciaDocumentoAsLICENCIAIdLICENCIA on this Licencia with an unsaved VigenciaDocumento.');
 
 			// Get the Database Object for this Class
@@ -2703,8 +2703,8 @@
 				SET
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . '
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . '
 			');
 		}
 
@@ -2716,7 +2716,7 @@
 		public function UnassociateVigenciaDocumentoAsLICENCIAIdLICENCIA(VigenciaDocumento $objVigenciaDocumento) {
 			if ((is_null($this->intIdLICENCIA)))
 				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-			if ((is_null($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)))
+			if ((is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)) || (is_null($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
 				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLICENCIAIdLICENCIA on this Licencia with an unsaved VigenciaDocumento.');
 
 			// Get the Database Object for this Class
@@ -2729,8 +2729,8 @@
 				SET
 					`LICENCIA_idLICENCIA` = null
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 			');
 		}
@@ -2765,7 +2765,7 @@
 		public function DeleteAssociatedVigenciaDocumentoAsLICENCIAIdLICENCIA(VigenciaDocumento $objVigenciaDocumento) {
 			if ((is_null($this->intIdLICENCIA)))
 				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-			if ((is_null($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)))
+			if ((is_null($objVigenciaDocumento->LICENCIAIdLICENCIA)) || (is_null($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
 				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateVigenciaDocumentoAsLICENCIAIdLICENCIA on this Licencia with an unsaved VigenciaDocumento.');
 
 			// Get the Database Object for this Class
@@ -2776,8 +2776,8 @@
 				DELETE FROM
 					`VIGENCIA_DOCUMENTO`
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->LICENCIAIdLICENCIA) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 			');
 		}

@@ -13,7 +13,7 @@ require(__FORMBASE_CLASSES__ . '/VigenciaDocumentoListFormBase.class.php');
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
- * 
+ *
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
  * permanent changes, it is STRONGLY RECOMMENDED to move both vigencia_documento_list.php AND
  * vigencia_documento_list.tpl.php out of this Form Drafts directory.
@@ -48,10 +48,11 @@ class VigenciaDocumentoListForm extends VigenciaDocumentoListFormBase {
 
         // Create the Other Columns (note that you can use strings for VIGENCIA_DOCUMENTO's properties, or you
         // can traverse down QQN::VIGENCIA_DOCUMENTO() to display fields that are down the hierarchy)
-        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject, 'Name=Documento');
-        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject, 'Name=Licencia');
+        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject,'Name=Licencia');
+        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject,'Name=Documentos Fase');
         $this->dtgVigenciaDocumentos->MetaAddColumn('FechaOtorgado');
         $this->dtgVigenciaDocumentos->MetaAddColumn('FechaVencimieto');
+        $this->dtgVigenciaDocumentos->MetaAddColumn('NumRef');
     }
 
 }

@@ -197,7 +197,6 @@
 		public function lstTRANSPORTEIdTRANSPORTEObject_Create($strControlId = null) {
 			$this->lstTRANSPORTEIdTRANSPORTEObject = new QListBox($this->objParentObject, $strControlId);
 			$this->lstTRANSPORTEIdTRANSPORTEObject->Name = QApplication::Translate('T R A N S P O R T E Id T R A N S P O R T E Object');
-
 			$this->lstTRANSPORTEIdTRANSPORTEObject->Required = true;
 			if (!$this->blnEditMode)
 				$this->lstTRANSPORTEIdTRANSPORTEObject->AddItem(QApplication::Translate('- Select One -'), null);

@@ -5,7 +5,7 @@
 	// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 	// code re-generations do not overwrite your changes.
 
-	$strPageTitle = QApplication::Translate('Documentos por fase') . ' - ' . $this->mctDocumentosFase->TitleVerb;
+	$strPageTitle = QApplication::Translate('DocumentosFase') . ' - ' . $this->mctDocumentosFase->TitleVerb;
 	require(__CONFIGURATION__ . '/header.inc.php');
 ?>
 
@@ -13,7 +13,7 @@
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctDocumentosFase->TitleVerb); ?></h2>
-		<h1><?php _t('Documentos por fase')?></h1>
+		<h1><?php _t('DocumentosFase')?></h1>
 	</div>
 
 	<div id="formControls">

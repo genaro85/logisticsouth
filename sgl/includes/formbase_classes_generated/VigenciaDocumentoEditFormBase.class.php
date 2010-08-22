@@ -23,8 +23,8 @@
 		protected $mctVigenciaDocumento;
 
 		// Controls for VigenciaDocumento's Data Fields
-		protected $lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
 		protected $lstLICENCIAIdLICENCIAObject;
+		protected $lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
 		protected $calFechaOtorgado;
 		protected $calFechaVencimieto;
 		protected $txtNumRef;
@@ -65,8 +65,8 @@
 			$this->mctVigenciaDocumento = VigenciaDocumentoMetaControl::CreateFromPathInfo($this);
 
 			// Call MetaControl's methods to create qcontrols based on VigenciaDocumento's data fields
-			$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = $this->mctVigenciaDocumento->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject_Create();
 			$this->lstLICENCIAIdLICENCIAObject = $this->mctVigenciaDocumento->lstLICENCIAIdLICENCIAObject_Create();
+			$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = $this->mctVigenciaDocumento->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject_Create();
 			$this->calFechaOtorgado = $this->mctVigenciaDocumento->calFechaOtorgado_Create();
 			$this->calFechaVencimieto = $this->mctVigenciaDocumento->calFechaVencimieto_Create();
 			$this->txtNumRef = $this->mctVigenciaDocumento->txtNumRef_Create();

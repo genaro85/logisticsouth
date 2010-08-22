@@ -194,10 +194,10 @@
 		public function MetaAddEditLinkColumn($strLinkUrl, $strLinkHtml = 'Edit', $strColumnTitle = 'Edit', $intArgumentType = QMetaControlArgumentType::PathInfo) {
 			switch ($intArgumentType) {
 				case QMetaControlArgumentType::QueryString:
-					$strLinkUrl .= (strpos($strLinkUrl, '?') !== false ? '&' : '?').'intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO=<?=urlencode($_ITEM->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)?>&intLICENCIAIdLICENCIA=<?=urlencode($_ITEM->LICENCIAIdLICENCIA)?>';
+					$strLinkUrl .= (strpos($strLinkUrl, '?') !== false ? '&' : '?').'intLICENCIAIdLICENCIA=<?=urlencode($_ITEM->LICENCIAIdLICENCIA)?>&intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO=<?=urlencode($_ITEM->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)?>';
 					break;
 				case QMetaControlArgumentType::PathInfo:
-					$strLinkUrl .= '/<?=urlencode($_ITEM->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)?>/<?=urlencode($_ITEM->LICENCIAIdLICENCIA)?>';
+					$strLinkUrl .= '/<?=urlencode($_ITEM->LICENCIAIdLICENCIA)?>/<?=urlencode($_ITEM->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)?>';
 					break;
 				default:
 					throw new QCallerException('Unable to pass arguments with this intArgumentType: ' . $intArgumentType);
@@ -218,7 +218,7 @@
 		 * @param string $strColumnTitle the HTML of the link text
 		 */
 		public function MetaAddEditProxyColumn(QControlProxy $pxyControl, $strLinkHtml = 'Edit', $strColumnTitle = 'Edit') {
-			$strHtml = '<a href="#" <?= $_FORM->GetControl("' . $pxyControl->ControlId . '")->RenderAsEvents($_ITEM->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO . "," . $_ITEM->LICENCIAIdLICENCIA, false); ?>>' . $strLinkHtml . '</a>';
+			$strHtml = '<a href="#" <?= $_FORM->GetControl("' . $pxyControl->ControlId . '")->RenderAsEvents($_ITEM->LICENCIAIdLICENCIA . "," . $_ITEM->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, false); ?>>' . $strLinkHtml . '</a>';
 			$colEditColumn = new QDataGridColumn($strColumnTitle, $strHtml, 'HtmlEntities=False');
 			$this->AddColumn($colEditColumn);
 			return $colEditColumn;
@@ -289,10 +289,10 @@
 				} else
 					throw new QCallerException('Content QQNode has a root table of "' . $mixContent->_RootTableName . '". Must be a root of "VIGENCIA_DOCUMENTO".');
 			} else if (is_string($mixContent)) switch ($mixContent) {
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO': return QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject': return QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
 				case 'LICENCIAIdLICENCIA': return QQN::VigenciaDocumento()->LICENCIAIdLICENCIA;
 				case 'LICENCIAIdLICENCIAObject': return QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject;
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO': return QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject': return QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
 				case 'FechaOtorgado': return QQN::VigenciaDocumento()->FechaOtorgado;
 				case 'FechaVencimieto': return QQN::VigenciaDocumento()->FechaVencimieto;
 				case 'NumRef': return QQN::VigenciaDocumento()->NumRef;
