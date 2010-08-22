@@ -30,7 +30,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
     <div style="margin-left: 415px;"><?php $this->calCalendarFin->Render(); ?></div>
 
-<?php //$this->calFechaFinEstimada->RenderWithName(); ?>
+<?php //Eliminado $this->calFechaFinEstimada->RenderWithName(); ?>
 
 <?php $this->txtNumeroProforma->RenderWithName(); ?>
 

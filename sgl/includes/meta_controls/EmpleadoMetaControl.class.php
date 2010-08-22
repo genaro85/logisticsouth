@@ -28,6 +28,20 @@
 			}
 		}
 */
+		/**
+		 * Create and setup QTextBox txtPassword
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtPassword_Create($strControlId = null) {
+			$this->txtPassword = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPassword->Name = QApplication::Translate('Password');
+			$this->txtPassword->Text = $this->objEmpleado->Password;
+			$this->txtPassword->Required = true;
+			$this->txtPassword->MaxLength = Empleado::PasswordMaxLength;
+			$this->txtPassword->TextMode = QTextMode::Password;
+			return $this->txtPassword;
+		}
 
 	}
 ?>
