@@ -80,10 +80,11 @@
 
 			// Create the Other Columns (note that you can use strings for VIGENCIA_DOCUMENTO's properties, or you
 			// can traverse down QQN::VIGENCIA_DOCUMENTO() to display fields that are down the hierarchy)
-			$this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject);
 			$this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject);
+			$this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject);
 			$this->dtgVigenciaDocumentos->MetaAddColumn('FechaOtorgado');
 			$this->dtgVigenciaDocumentos->MetaAddColumn('FechaVencimieto');
+			$this->dtgVigenciaDocumentos->MetaAddColumn('NumRef');
 
 			// Setup the Create New button
 			$this->btnCreateNew = new QButton($this);
