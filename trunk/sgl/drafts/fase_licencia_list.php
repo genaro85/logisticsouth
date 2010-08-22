@@ -27,6 +27,33 @@
 //		protected function Form_Load() {}
 
 //		protected function Form_Create() {}
+            protected function Form_Create() {
+			parent::Form_Create();
+
+			// Instantiate the Meta DataGrid
+			$this->dtgFaseLicencias = new FaseLicenciaDataGrid($this);
+
+			// Style the DataGrid (if desired)
+			$this->dtgFaseLicencias->CssClass = 'datagrid';
+			$this->dtgFaseLicencias->AlternateRowStyle->CssClass = 'alternate';
+
+			// Add Pagination (if desired)
+			$this->dtgFaseLicencias->Paginator = new QPaginator($this->dtgFaseLicencias);
+			$this->dtgFaseLicencias->ItemsPerPage = 20;
+
+			// Use the MetaDataGrid functionality to add Columns for this datagrid
+
+			// Create an Edit Column
+			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/fase_licencia_edit.php';
+			$this->dtgFaseLicencias->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
+
+			// Create the Other Columns (note that you can use strings for FASE_LICENCIA's properties, or you
+			// can traverse down QQN::FASE_LICENCIA() to display fields that are down the hierarchy)
+			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->LICENCIAIdLICENCIAObject, 'Name=Licencia');
+			$this->dtgFaseLicencias->MetaAddColumn('FASEFechaInicio', 'Name=Fecha Inicio');
+			$this->dtgFaseLicencias->MetaAddColumn('FASEFechaFin', 'Name=Fecha Fin');
+			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->FASEIdFASEObject, 'Name=Fase');
+		}
 	}
 
 	// Go ahead and run this form object to generate the page and event handlers, implicitly using
