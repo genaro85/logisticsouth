@@ -21,7 +21,13 @@
 
 		<?php $this->lstTIPODEPAGOIdTIPODEPAGOObject->RenderWithName(); ?>
 
-		<?php $this->txtCodigo->RenderWithName(); ?>
+		<?php $this->txtNumRef->RenderWithName(); ?>
+
+		<?php $this->txtFecha->RenderWithName(); ?>
+
+		<?php $this->txtDivisa->RenderWithName(); ?>
+
+		<?php $this->txtMonto->RenderWithName(); ?>
 
 	</div>
 

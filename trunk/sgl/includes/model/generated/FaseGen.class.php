@@ -19,10 +19,12 @@
 	 * @property string $Nombre the value for strNombre (Not Null)
 	 * @property integer $Duracion the value for intDuracion 
 	 * @property string $Icono the value for strIcono (Not Null)
-	 * @property-read Etapa $_EtapaAsFASEIdFASE the value for the private _objEtapaAsFASEIdFASE (Read-Only) if set due to an expansion on the ETAPA.FASE_idFASE reverse relationship
-	 * @property-read Etapa[] $_EtapaAsFASEIdFASEArray the value for the private _objEtapaAsFASEIdFASEArray (Read-Only) if set due to an ExpandAsArray on the ETAPA.FASE_idFASE reverse relationship
-	 * @property-read ListaDeDocumento $_ListaDeDocumentoAsFASEIdFASE the value for the private _objListaDeDocumentoAsFASEIdFASE (Read-Only) if set due to an expansion on the LISTA_DE_DOCUMENTO.FASE_idFASE reverse relationship
-	 * @property-read ListaDeDocumento[] $_ListaDeDocumentoAsFASEIdFASEArray the value for the private _objListaDeDocumentoAsFASEIdFASEArray (Read-Only) if set due to an ExpandAsArray on the LISTA_DE_DOCUMENTO.FASE_idFASE reverse relationship
+	 * @property integer $PROCESOIdPROCESO the value for intPROCESOIdPROCESO (Not Null)
+	 * @property Proceso $PROCESOIdPROCESOObject the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
+	 * @property-read DocumentosFase $_DocumentosFaseAsFASEIdFASE the value for the private _objDocumentosFaseAsFASEIdFASE (Read-Only) if set due to an expansion on the DOCUMENTOS_FASE.FASE_idFASE reverse relationship
+	 * @property-read DocumentosFase[] $_DocumentosFaseAsFASEIdFASEArray the value for the private _objDocumentosFaseAsFASEIdFASEArray (Read-Only) if set due to an ExpandAsArray on the DOCUMENTOS_FASE.FASE_idFASE reverse relationship
+	 * @property-read FaseLicencia $_FaseLicenciaAsFASEIdFASE the value for the private _objFaseLicenciaAsFASEIdFASE (Read-Only) if set due to an expansion on the FASE_LICENCIA.FASE_idFASE reverse relationship
+	 * @property-read FaseLicencia[] $_FaseLicenciaAsFASEIdFASEArray the value for the private _objFaseLicenciaAsFASEIdFASEArray (Read-Only) if set due to an ExpandAsArray on the FASE_LICENCIA.FASE_idFASE reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class FaseGen extends QBaseClass implements IteratorAggregate {
@@ -65,36 +67,44 @@
 
 
 		/**
-		 * Private member variable that stores a reference to a single EtapaAsFASEIdFASE object
-		 * (of type Etapa), if this Fase object was restored with
-		 * an expansion on the ETAPA association table.
-		 * @var Etapa _objEtapaAsFASEIdFASE;
+		 * Protected member variable that maps to the database column FASE.PROCESO_idPROCESO
+		 * @var integer intPROCESOIdPROCESO
 		 */
-		private $_objEtapaAsFASEIdFASE;
+		protected $intPROCESOIdPROCESO;
+		const PROCESOIdPROCESODefault = null;
+
 
 		/**
-		 * Private member variable that stores a reference to an array of EtapaAsFASEIdFASE objects
-		 * (of type Etapa[]), if this Fase object was restored with
-		 * an ExpandAsArray on the ETAPA association table.
-		 * @var Etapa[] _objEtapaAsFASEIdFASEArray;
+		 * Private member variable that stores a reference to a single DocumentosFaseAsFASEIdFASE object
+		 * (of type DocumentosFase), if this Fase object was restored with
+		 * an expansion on the DOCUMENTOS_FASE association table.
+		 * @var DocumentosFase _objDocumentosFaseAsFASEIdFASE;
 		 */
-		private $_objEtapaAsFASEIdFASEArray = array();
+		private $_objDocumentosFaseAsFASEIdFASE;
 
 		/**
-		 * Private member variable that stores a reference to a single ListaDeDocumentoAsFASEIdFASE object
-		 * (of type ListaDeDocumento), if this Fase object was restored with
-		 * an expansion on the LISTA_DE_DOCUMENTO association table.
-		 * @var ListaDeDocumento _objListaDeDocumentoAsFASEIdFASE;
+		 * Private member variable that stores a reference to an array of DocumentosFaseAsFASEIdFASE objects
+		 * (of type DocumentosFase[]), if this Fase object was restored with
+		 * an ExpandAsArray on the DOCUMENTOS_FASE association table.
+		 * @var DocumentosFase[] _objDocumentosFaseAsFASEIdFASEArray;
 		 */
-		private $_objListaDeDocumentoAsFASEIdFASE;
+		private $_objDocumentosFaseAsFASEIdFASEArray = array();
 
 		/**
-		 * Private member variable that stores a reference to an array of ListaDeDocumentoAsFASEIdFASE objects
-		 * (of type ListaDeDocumento[]), if this Fase object was restored with
-		 * an ExpandAsArray on the LISTA_DE_DOCUMENTO association table.
-		 * @var ListaDeDocumento[] _objListaDeDocumentoAsFASEIdFASEArray;
+		 * Private member variable that stores a reference to a single FaseLicenciaAsFASEIdFASE object
+		 * (of type FaseLicencia), if this Fase object was restored with
+		 * an expansion on the FASE_LICENCIA association table.
+		 * @var FaseLicencia _objFaseLicenciaAsFASEIdFASE;
 		 */
-		private $_objListaDeDocumentoAsFASEIdFASEArray = array();
+		private $_objFaseLicenciaAsFASEIdFASE;
+
+		/**
+		 * Private member variable that stores a reference to an array of FaseLicenciaAsFASEIdFASE objects
+		 * (of type FaseLicencia[]), if this Fase object was restored with
+		 * an ExpandAsArray on the FASE_LICENCIA association table.
+		 * @var FaseLicencia[] _objFaseLicenciaAsFASEIdFASEArray;
+		 */
+		private $_objFaseLicenciaAsFASEIdFASEArray = array();
 
 		/**
 		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -118,6 +128,16 @@
 		// PROTECTED MEMBER OBJECTS
 		///////////////////////////////
 
+		/**
+		 * Protected member variable that contains the object pointed by the reference
+		 * in the database column FASE.PROCESO_idPROCESO.
+		 *
+		 * NOTE: Always use the PROCESOIdPROCESOObject property getter to correctly retrieve this Proceso object.
+		 * (Because this class implements late binding, this variable reference MAY be null.)
+		 * @var Proceso objPROCESOIdPROCESOObject
+		 */
+		protected $objPROCESOIdPROCESOObject;
+
 
 
 		/**
@@ -129,6 +149,7 @@
 			$this->strNombre = Fase::NombreDefault;
 			$this->intDuracion = Fase::DuracionDefault;
 			$this->strIcono = Fase::IconoDefault;
+			$this->intPROCESOIdPROCESO = Fase::PROCESOIdPROCESODefault;
 		}
 
 
@@ -400,6 +421,7 @@
 			$objBuilder->AddSelectItem($strTableName, 'nombre', $strAliasPrefix . 'nombre');
 			$objBuilder->AddSelectItem($strTableName, 'duracion', $strAliasPrefix . 'duracion');
 			$objBuilder->AddSelectItem($strTableName, 'icono', $strAliasPrefix . 'icono');
+			$objBuilder->AddSelectItem($strTableName, 'PROCESO_idPROCESO', $strAliasPrefix . 'PROCESO_idPROCESO');
 		}
 
 
@@ -437,36 +459,36 @@
 							$strAliasPrefix = 'FASE__';
 
 
-						// Expanding reverse references: EtapaAsFASEIdFASE
-						$strAlias = $strAliasPrefix . 'etapaasfaseidfase__idETAPA';
+						// Expanding reverse references: DocumentosFaseAsFASEIdFASE
+						$strAlias = $strAliasPrefix . 'documentosfaseasfaseidfase__DOCUMENTO_idDOCUMENTO';
 						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
 							(!is_null($objDbRow->GetColumn($strAliasName)))) {
-							if ($intPreviousChildItemCount = count($objPreviousItem->_objEtapaAsFASEIdFASEArray)) {
-								$objPreviousChildItems = $objPreviousItem->_objEtapaAsFASEIdFASEArray;
-								$objChildItem = Etapa::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapaasfaseidfase__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objDocumentosFaseAsFASEIdFASEArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objDocumentosFaseAsFASEIdFASEArray;
+								$objChildItem = DocumentosFase::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentosfaseasfaseidfase__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
 								if ($objChildItem) {
-									$objPreviousItem->_objEtapaAsFASEIdFASEArray[] = $objChildItem;
+									$objPreviousItem->_objDocumentosFaseAsFASEIdFASEArray[] = $objChildItem;
 								}
 							} else {
-								$objPreviousItem->_objEtapaAsFASEIdFASEArray[] = Etapa::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapaasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+								$objPreviousItem->_objDocumentosFaseAsFASEIdFASEArray[] = DocumentosFase::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentosfaseasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 							}
 							$blnExpandedViaArray = true;
 						}
 
-						// Expanding reverse references: ListaDeDocumentoAsFASEIdFASE
-						$strAlias = $strAliasPrefix . 'listadedocumentoasfaseidfase__DOCUMENTO_idDOCUMENTO';
+						// Expanding reverse references: FaseLicenciaAsFASEIdFASE
+						$strAlias = $strAliasPrefix . 'faselicenciaasfaseidfase__LICENCIA_idLICENCIA';
 						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
 							(!is_null($objDbRow->GetColumn($strAliasName)))) {
-							if ($intPreviousChildItemCount = count($objPreviousItem->_objListaDeDocumentoAsFASEIdFASEArray)) {
-								$objPreviousChildItems = $objPreviousItem->_objListaDeDocumentoAsFASEIdFASEArray;
-								$objChildItem = ListaDeDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'listadedocumentoasfaseidfase__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objFaseLicenciaAsFASEIdFASEArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objFaseLicenciaAsFASEIdFASEArray;
+								$objChildItem = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaasfaseidfase__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
 								if ($objChildItem) {
-									$objPreviousItem->_objListaDeDocumentoAsFASEIdFASEArray[] = $objChildItem;
+									$objPreviousItem->_objFaseLicenciaAsFASEIdFASEArray[] = $objChildItem;
 								}
 							} else {
-								$objPreviousItem->_objListaDeDocumentoAsFASEIdFASEArray[] = ListaDeDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'listadedocumentoasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+								$objPreviousItem->_objFaseLicenciaAsFASEIdFASEArray[] = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 							}
 							$blnExpandedViaArray = true;
 						}
@@ -493,16 +515,18 @@
 			$objToReturn->intDuracion = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$strAliasName = array_key_exists($strAliasPrefix . 'icono', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'icono'] : $strAliasPrefix . 'icono';
 			$objToReturn->strIcono = $objDbRow->GetColumn($strAliasName, 'Blob');
+			$strAliasName = array_key_exists($strAliasPrefix . 'PROCESO_idPROCESO', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'PROCESO_idPROCESO'] : $strAliasPrefix . 'PROCESO_idPROCESO';
+			$objToReturn->intPROCESOIdPROCESO = $objDbRow->GetColumn($strAliasName, 'Integer');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
 					if ($objToReturn->IdFASE != $objPreviousItem->IdFASE) {
 						continue;
 					}
-					if (array_diff($objPreviousItem->_objEtapaAsFASEIdFASEArray, $objToReturn->_objEtapaAsFASEIdFASEArray) != null) {
+					if (array_diff($objPreviousItem->_objDocumentosFaseAsFASEIdFASEArray, $objToReturn->_objDocumentosFaseAsFASEIdFASEArray) != null) {
 						continue;
 					}
-					if (array_diff($objPreviousItem->_objListaDeDocumentoAsFASEIdFASEArray, $objToReturn->_objListaDeDocumentoAsFASEIdFASEArray) != null) {
+					if (array_diff($objPreviousItem->_objFaseLicenciaAsFASEIdFASEArray, $objToReturn->_objFaseLicenciaAsFASEIdFASEArray) != null) {
 						continue;
 					}
 
@@ -523,27 +547,33 @@
 			if (!$strAliasPrefix)
 				$strAliasPrefix = 'FASE__';
 
+			// Check for PROCESOIdPROCESOObject Early Binding
+			$strAlias = $strAliasPrefix . 'PROCESO_idPROCESO__idPROCESO';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName)))
+				$objToReturn->objPROCESOIdPROCESOObject = Proceso::InstantiateDbRow($objDbRow, $strAliasPrefix . 'PROCESO_idPROCESO__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 
 
 
-			// Check for EtapaAsFASEIdFASE Virtual Binding
-			$strAlias = $strAliasPrefix . 'etapaasfaseidfase__idETAPA';
+
+			// Check for DocumentosFaseAsFASEIdFASE Virtual Binding
+			$strAlias = $strAliasPrefix . 'documentosfaseasfaseidfase__DOCUMENTO_idDOCUMENTO';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (!is_null($objDbRow->GetColumn($strAliasName))) {
 				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
-					$objToReturn->_objEtapaAsFASEIdFASEArray[] = Etapa::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapaasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objDocumentosFaseAsFASEIdFASEArray[] = DocumentosFase::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentosfaseasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 				else
-					$objToReturn->_objEtapaAsFASEIdFASE = Etapa::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapaasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objDocumentosFaseAsFASEIdFASE = DocumentosFase::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentosfaseasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 			}
 
-			// Check for ListaDeDocumentoAsFASEIdFASE Virtual Binding
-			$strAlias = $strAliasPrefix . 'listadedocumentoasfaseidfase__DOCUMENTO_idDOCUMENTO';
+			// Check for FaseLicenciaAsFASEIdFASE Virtual Binding
+			$strAlias = $strAliasPrefix . 'faselicenciaasfaseidfase__LICENCIA_idLICENCIA';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (!is_null($objDbRow->GetColumn($strAliasName))) {
 				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
-					$objToReturn->_objListaDeDocumentoAsFASEIdFASEArray[] = ListaDeDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'listadedocumentoasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objFaseLicenciaAsFASEIdFASEArray[] = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 				else
-					$objToReturn->_objListaDeDocumentoAsFASEIdFASE = ListaDeDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'listadedocumentoasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objFaseLicenciaAsFASEIdFASE = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaasfaseidfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 			}
 
 			return $objToReturn;
@@ -604,6 +634,38 @@
 				$objOptionalClauses
 			);
 		}
+			
+		/**
+		 * Load an array of Fase objects,
+		 * by PROCESOIdPROCESO Index(es)
+		 * @param integer $intPROCESOIdPROCESO
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Fase[]
+		*/
+		public static function LoadArrayByPROCESOIdPROCESO($intPROCESOIdPROCESO, $objOptionalClauses = null) {
+			// Call Fase::QueryArray to perform the LoadArrayByPROCESOIdPROCESO query
+			try {
+				return Fase::QueryArray(
+					QQ::Equal(QQN::Fase()->PROCESOIdPROCESO, $intPROCESOIdPROCESO),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count Fases
+		 * by PROCESOIdPROCESO Index(es)
+		 * @param integer $intPROCESOIdPROCESO
+		 * @return int
+		*/
+		public static function CountByPROCESOIdPROCESO($intPROCESOIdPROCESO) {
+			// Call Fase::QueryCount to perform the CountByPROCESOIdPROCESO query
+			return Fase::QueryCount(
+				QQ::Equal(QQN::Fase()->PROCESOIdPROCESO, $intPROCESOIdPROCESO)
+			);
+		}
 
 
 
@@ -637,11 +699,13 @@
 						INSERT INTO `FASE` (
 							`nombre`,
 							`duracion`,
-							`icono`
+							`icono`,
+							`PROCESO_idPROCESO`
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->strNombre) . ',
 							' . $objDatabase->SqlVariable($this->intDuracion) . ',
-							' . $objDatabase->SqlVariable($this->strIcono) . '
+							' . $objDatabase->SqlVariable($this->strIcono) . ',
+							' . $objDatabase->SqlVariable($this->intPROCESOIdPROCESO) . '
 						)
 					');
 
@@ -659,7 +723,8 @@
 						SET
 							`nombre` = ' . $objDatabase->SqlVariable($this->strNombre) . ',
 							`duracion` = ' . $objDatabase->SqlVariable($this->intDuracion) . ',
-							`icono` = ' . $objDatabase->SqlVariable($this->strIcono) . '
+							`icono` = ' . $objDatabase->SqlVariable($this->strIcono) . ',
+							`PROCESO_idPROCESO` = ' . $objDatabase->SqlVariable($this->intPROCESOIdPROCESO) . '
 						WHERE
 							`idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 					');
@@ -741,6 +806,7 @@
 			$this->strNombre = $objReloaded->strNombre;
 			$this->intDuracion = $objReloaded->intDuracion;
 			$this->strIcono = $objReloaded->strIcono;
+			$this->PROCESOIdPROCESO = $objReloaded->PROCESOIdPROCESO;
 		}
 
 
@@ -789,47 +855,68 @@
 					 */
 					return $this->strIcono;
 
+				case 'PROCESOIdPROCESO':
+					/**
+					 * Gets the value for intPROCESOIdPROCESO (Not Null)
+					 * @return integer
+					 */
+					return $this->intPROCESOIdPROCESO;
+
 
 				///////////////////
 				// Member Objects
 				///////////////////
+				case 'PROCESOIdPROCESOObject':
+					/**
+					 * Gets the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
+					 * @return Proceso
+					 */
+					try {
+						if ((!$this->objPROCESOIdPROCESOObject) && (!is_null($this->intPROCESOIdPROCESO)))
+							$this->objPROCESOIdPROCESOObject = Proceso::Load($this->intPROCESOIdPROCESO);
+						return $this->objPROCESOIdPROCESOObject;
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
 
 				////////////////////////////
 				// Virtual Object References (Many to Many and Reverse References)
 				// (If restored via a "Many-to" expansion)
 				////////////////////////////
 
-				case '_EtapaAsFASEIdFASE':
+				case '_DocumentosFaseAsFASEIdFASE':
 					/**
-					 * Gets the value for the private _objEtapaAsFASEIdFASE (Read-Only)
-					 * if set due to an expansion on the ETAPA.FASE_idFASE reverse relationship
-					 * @return Etapa
+					 * Gets the value for the private _objDocumentosFaseAsFASEIdFASE (Read-Only)
+					 * if set due to an expansion on the DOCUMENTOS_FASE.FASE_idFASE reverse relationship
+					 * @return DocumentosFase
 					 */
-					return $this->_objEtapaAsFASEIdFASE;
+					return $this->_objDocumentosFaseAsFASEIdFASE;
 
-				case '_EtapaAsFASEIdFASEArray':
+				case '_DocumentosFaseAsFASEIdFASEArray':
 					/**
-					 * Gets the value for the private _objEtapaAsFASEIdFASEArray (Read-Only)
-					 * if set due to an ExpandAsArray on the ETAPA.FASE_idFASE reverse relationship
-					 * @return Etapa[]
+					 * Gets the value for the private _objDocumentosFaseAsFASEIdFASEArray (Read-Only)
+					 * if set due to an ExpandAsArray on the DOCUMENTOS_FASE.FASE_idFASE reverse relationship
+					 * @return DocumentosFase[]
 					 */
-					return (array) $this->_objEtapaAsFASEIdFASEArray;
+					return (array) $this->_objDocumentosFaseAsFASEIdFASEArray;
 
-				case '_ListaDeDocumentoAsFASEIdFASE':
+				case '_FaseLicenciaAsFASEIdFASE':
 					/**
-					 * Gets the value for the private _objListaDeDocumentoAsFASEIdFASE (Read-Only)
-					 * if set due to an expansion on the LISTA_DE_DOCUMENTO.FASE_idFASE reverse relationship
-					 * @return ListaDeDocumento
+					 * Gets the value for the private _objFaseLicenciaAsFASEIdFASE (Read-Only)
+					 * if set due to an expansion on the FASE_LICENCIA.FASE_idFASE reverse relationship
+					 * @return FaseLicencia
 					 */
-					return $this->_objListaDeDocumentoAsFASEIdFASE;
+					return $this->_objFaseLicenciaAsFASEIdFASE;
 
-				case '_ListaDeDocumentoAsFASEIdFASEArray':
+				case '_FaseLicenciaAsFASEIdFASEArray':
 					/**
-					 * Gets the value for the private _objListaDeDocumentoAsFASEIdFASEArray (Read-Only)
-					 * if set due to an ExpandAsArray on the LISTA_DE_DOCUMENTO.FASE_idFASE reverse relationship
-					 * @return ListaDeDocumento[]
+					 * Gets the value for the private _objFaseLicenciaAsFASEIdFASEArray (Read-Only)
+					 * if set due to an ExpandAsArray on the FASE_LICENCIA.FASE_idFASE reverse relationship
+					 * @return FaseLicencia[]
 					 */
-					return (array) $this->_objListaDeDocumentoAsFASEIdFASEArray;
+					return (array) $this->_objFaseLicenciaAsFASEIdFASEArray;
 
 
 				case '__Restored':
@@ -897,10 +984,56 @@
 						throw $objExc;
 					}
 
+				case 'PROCESOIdPROCESO':
+					/**
+					 * Sets the value for intPROCESOIdPROCESO (Not Null)
+					 * @param integer $mixValue
+					 * @return integer
+					 */
+					try {
+						$this->objPROCESOIdPROCESOObject = null;
+						return ($this->intPROCESOIdPROCESO = QType::Cast($mixValue, QType::Integer));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
 
 				///////////////////
 				// Member Objects
 				///////////////////
+				case 'PROCESOIdPROCESOObject':
+					/**
+					 * Sets the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
+					 * @param Proceso $mixValue
+					 * @return Proceso
+					 */
+					if (is_null($mixValue)) {
+						$this->intPROCESOIdPROCESO = null;
+						$this->objPROCESOIdPROCESOObject = null;
+						return null;
+					} else {
+						// Make sure $mixValue actually is a Proceso object
+						try {
+							$mixValue = QType::Cast($mixValue, 'Proceso');
+						} catch (QInvalidCastException $objExc) {
+							$objExc->IncrementOffset();
+							throw $objExc;
+						} 
+
+						// Make sure $mixValue is a SAVED Proceso object
+						if (is_null($mixValue->IdPROCESO))
+							throw new QCallerException('Unable to set an unsaved PROCESOIdPROCESOObject for this Fase');
+
+						// Update Local Member Variables
+						$this->objPROCESOIdPROCESOObject = $mixValue;
+						$this->intPROCESOIdPROCESO = $mixValue->IdPROCESO;
+
+						// Return $mixValue
+						return $mixValue;
+					}
+					break;
+
 				default:
 					try {
 						return parent::__set($strName, $mixValue);
@@ -930,20 +1063,20 @@
 
 			
 		
-		// Related Objects' Methods for EtapaAsFASEIdFASE
+		// Related Objects' Methods for DocumentosFaseAsFASEIdFASE
 		//-------------------------------------------------------------------
 
 		/**
-		 * Gets all associated EtapasAsFASEIdFASE as an array of Etapa objects
+		 * Gets all associated DocumentosFasesAsFASEIdFASE as an array of DocumentosFase objects
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return Etapa[]
+		 * @return DocumentosFase[]
 		*/ 
-		public function GetEtapaAsFASEIdFASEArray($objOptionalClauses = null) {
+		public function GetDocumentosFaseAsFASEIdFASEArray($objOptionalClauses = null) {
 			if ((is_null($this->intIdFASE)))
 				return array();
 
 			try {
-				return Etapa::LoadArrayByFASEIdFASE($this->intIdFASE, $objOptionalClauses);
+				return DocumentosFase::LoadArrayByFASEIdFASE($this->intIdFASE, $objOptionalClauses);
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
 				throw $objExc;
@@ -951,26 +1084,26 @@
 		}
 
 		/**
-		 * Counts all associated EtapasAsFASEIdFASE
+		 * Counts all associated DocumentosFasesAsFASEIdFASE
 		 * @return int
 		*/ 
-		public function CountEtapasAsFASEIdFASE() {
+		public function CountDocumentosFasesAsFASEIdFASE() {
 			if ((is_null($this->intIdFASE)))
 				return 0;
 
-			return Etapa::CountByFASEIdFASE($this->intIdFASE);
+			return DocumentosFase::CountByFASEIdFASE($this->intIdFASE);
 		}
 
 		/**
-		 * Associates a EtapaAsFASEIdFASE
-		 * @param Etapa $objEtapa
+		 * Associates a DocumentosFaseAsFASEIdFASE
+		 * @param DocumentosFase $objDocumentosFase
 		 * @return void
 		*/ 
-		public function AssociateEtapaAsFASEIdFASE(Etapa $objEtapa) {
+		public function AssociateDocumentosFaseAsFASEIdFASE(DocumentosFase $objDocumentosFase) {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateEtapaAsFASEIdFASE on this unsaved Fase.');
-			if ((is_null($objEtapa->IdETAPA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateEtapaAsFASEIdFASE on this Fase with an unsaved Etapa.');
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateDocumentosFaseAsFASEIdFASE on this unsaved Fase.');
+			if ((is_null($objDocumentosFase->DOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateDocumentosFaseAsFASEIdFASE on this Fase with an unsaved DocumentosFase.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -978,24 +1111,24 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				UPDATE
-					`ETAPA`
+					`DOCUMENTOS_FASE`
 				SET
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 				WHERE
-					`idETAPA` = ' . $objDatabase->SqlVariable($objEtapa->IdETAPA) . '
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objDocumentosFase->DOCUMENTOIdDOCUMENTO) . '
 			');
 		}
 
 		/**
-		 * Unassociates a EtapaAsFASEIdFASE
-		 * @param Etapa $objEtapa
+		 * Unassociates a DocumentosFaseAsFASEIdFASE
+		 * @param DocumentosFase $objDocumentosFase
 		 * @return void
 		*/ 
-		public function UnassociateEtapaAsFASEIdFASE(Etapa $objEtapa) {
+		public function UnassociateDocumentosFaseAsFASEIdFASE(DocumentosFase $objDocumentosFase) {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaAsFASEIdFASE on this unsaved Fase.');
-			if ((is_null($objEtapa->IdETAPA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaAsFASEIdFASE on this Fase with an unsaved Etapa.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentosFaseAsFASEIdFASE on this unsaved Fase.');
+			if ((is_null($objDocumentosFase->DOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentosFaseAsFASEIdFASE on this Fase with an unsaved DocumentosFase.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1003,47 +1136,47 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				UPDATE
-					`ETAPA`
-				SET
-					`FASE_idFASE` = null
-				WHERE
-					`idETAPA` = ' . $objDatabase->SqlVariable($objEtapa->IdETAPA) . ' AND
-					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
-			');
-		}
-
-		/**
-		 * Unassociates all EtapasAsFASEIdFASE
-		 * @return void
-		*/ 
-		public function UnassociateAllEtapasAsFASEIdFASE() {
-			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaAsFASEIdFASE on this unsaved Fase.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Fase::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`ETAPA`
+					`DOCUMENTOS_FASE`
 				SET
 					`FASE_idFASE` = null
 				WHERE
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objDocumentosFase->DOCUMENTOIdDOCUMENTO) . ' AND
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 			');
 		}
 
 		/**
-		 * Deletes an associated EtapaAsFASEIdFASE
-		 * @param Etapa $objEtapa
+		 * Unassociates all DocumentosFasesAsFASEIdFASE
 		 * @return void
 		*/ 
-		public function DeleteAssociatedEtapaAsFASEIdFASE(Etapa $objEtapa) {
+		public function UnassociateAllDocumentosFasesAsFASEIdFASE() {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaAsFASEIdFASE on this unsaved Fase.');
-			if ((is_null($objEtapa->IdETAPA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaAsFASEIdFASE on this Fase with an unsaved Etapa.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentosFaseAsFASEIdFASE on this unsaved Fase.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Fase::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`DOCUMENTOS_FASE`
+				SET
+					`FASE_idFASE` = null
+				WHERE
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated DocumentosFaseAsFASEIdFASE
+		 * @param DocumentosFase $objDocumentosFase
+		 * @return void
+		*/ 
+		public function DeleteAssociatedDocumentosFaseAsFASEIdFASE(DocumentosFase $objDocumentosFase) {
+			if ((is_null($this->intIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentosFaseAsFASEIdFASE on this unsaved Fase.');
+			if ((is_null($objDocumentosFase->DOCUMENTOIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentosFaseAsFASEIdFASE on this Fase with an unsaved DocumentosFase.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1051,20 +1184,20 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`ETAPA`
+					`DOCUMENTOS_FASE`
 				WHERE
-					`idETAPA` = ' . $objDatabase->SqlVariable($objEtapa->IdETAPA) . ' AND
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objDocumentosFase->DOCUMENTOIdDOCUMENTO) . ' AND
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 			');
 		}
 
 		/**
-		 * Deletes all associated EtapasAsFASEIdFASE
+		 * Deletes all associated DocumentosFasesAsFASEIdFASE
 		 * @return void
 		*/ 
-		public function DeleteAllEtapasAsFASEIdFASE() {
+		public function DeleteAllDocumentosFasesAsFASEIdFASE() {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaAsFASEIdFASE on this unsaved Fase.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentosFaseAsFASEIdFASE on this unsaved Fase.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1072,7 +1205,7 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`ETAPA`
+					`DOCUMENTOS_FASE`
 				WHERE
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 			');
@@ -1080,20 +1213,20 @@
 
 			
 		
-		// Related Objects' Methods for ListaDeDocumentoAsFASEIdFASE
+		// Related Objects' Methods for FaseLicenciaAsFASEIdFASE
 		//-------------------------------------------------------------------
 
 		/**
-		 * Gets all associated ListaDeDocumentosAsFASEIdFASE as an array of ListaDeDocumento objects
+		 * Gets all associated FaseLicenciasAsFASEIdFASE as an array of FaseLicencia objects
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return ListaDeDocumento[]
+		 * @return FaseLicencia[]
 		*/ 
-		public function GetListaDeDocumentoAsFASEIdFASEArray($objOptionalClauses = null) {
+		public function GetFaseLicenciaAsFASEIdFASEArray($objOptionalClauses = null) {
 			if ((is_null($this->intIdFASE)))
 				return array();
 
 			try {
-				return ListaDeDocumento::LoadArrayByFASEIdFASE($this->intIdFASE, $objOptionalClauses);
+				return FaseLicencia::LoadArrayByFASEIdFASE($this->intIdFASE, $objOptionalClauses);
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
 				throw $objExc;
@@ -1101,26 +1234,26 @@
 		}
 
 		/**
-		 * Counts all associated ListaDeDocumentosAsFASEIdFASE
+		 * Counts all associated FaseLicenciasAsFASEIdFASE
 		 * @return int
 		*/ 
-		public function CountListaDeDocumentosAsFASEIdFASE() {
+		public function CountFaseLicenciasAsFASEIdFASE() {
 			if ((is_null($this->intIdFASE)))
 				return 0;
 
-			return ListaDeDocumento::CountByFASEIdFASE($this->intIdFASE);
+			return FaseLicencia::CountByFASEIdFASE($this->intIdFASE);
 		}
 
 		/**
-		 * Associates a ListaDeDocumentoAsFASEIdFASE
-		 * @param ListaDeDocumento $objListaDeDocumento
+		 * Associates a FaseLicenciaAsFASEIdFASE
+		 * @param FaseLicencia $objFaseLicencia
 		 * @return void
 		*/ 
-		public function AssociateListaDeDocumentoAsFASEIdFASE(ListaDeDocumento $objListaDeDocumento) {
+		public function AssociateFaseLicenciaAsFASEIdFASE(FaseLicencia $objFaseLicencia) {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateListaDeDocumentoAsFASEIdFASE on this unsaved Fase.');
-			if ((is_null($objListaDeDocumento->DOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateListaDeDocumentoAsFASEIdFASE on this Fase with an unsaved ListaDeDocumento.');
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateFaseLicenciaAsFASEIdFASE on this unsaved Fase.');
+			if ((is_null($objFaseLicencia->LICENCIAIdLICENCIA)) || (is_null($objFaseLicencia->FASEIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateFaseLicenciaAsFASEIdFASE on this Fase with an unsaved FaseLicencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1128,24 +1261,25 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				UPDATE
-					`LISTA_DE_DOCUMENTO`
+					`FASE_LICENCIA`
 				SET
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 				WHERE
-					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objListaDeDocumento->DOCUMENTOIdDOCUMENTO) . '
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objFaseLicencia->LICENCIAIdLICENCIA) . ' AND
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($objFaseLicencia->FASEIdFASE) . '
 			');
 		}
 
 		/**
-		 * Unassociates a ListaDeDocumentoAsFASEIdFASE
-		 * @param ListaDeDocumento $objListaDeDocumento
+		 * Unassociates a FaseLicenciaAsFASEIdFASE
+		 * @param FaseLicencia $objFaseLicencia
 		 * @return void
 		*/ 
-		public function UnassociateListaDeDocumentoAsFASEIdFASE(ListaDeDocumento $objListaDeDocumento) {
+		public function UnassociateFaseLicenciaAsFASEIdFASE(FaseLicencia $objFaseLicencia) {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateListaDeDocumentoAsFASEIdFASE on this unsaved Fase.');
-			if ((is_null($objListaDeDocumento->DOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateListaDeDocumentoAsFASEIdFASE on this Fase with an unsaved ListaDeDocumento.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsFASEIdFASE on this unsaved Fase.');
+			if ((is_null($objFaseLicencia->LICENCIAIdLICENCIA)) || (is_null($objFaseLicencia->FASEIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsFASEIdFASE on this Fase with an unsaved FaseLicencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1153,47 +1287,48 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				UPDATE
-					`LISTA_DE_DOCUMENTO`
-				SET
-					`FASE_idFASE` = null
-				WHERE
-					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objListaDeDocumento->DOCUMENTOIdDOCUMENTO) . ' AND
-					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
-			');
-		}
-
-		/**
-		 * Unassociates all ListaDeDocumentosAsFASEIdFASE
-		 * @return void
-		*/ 
-		public function UnassociateAllListaDeDocumentosAsFASEIdFASE() {
-			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateListaDeDocumentoAsFASEIdFASE on this unsaved Fase.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Fase::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`LISTA_DE_DOCUMENTO`
+					`FASE_LICENCIA`
 				SET
 					`FASE_idFASE` = null
 				WHERE
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objFaseLicencia->LICENCIAIdLICENCIA) . ' AND
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($objFaseLicencia->FASEIdFASE) . ' AND
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 			');
 		}
 
 		/**
-		 * Deletes an associated ListaDeDocumentoAsFASEIdFASE
-		 * @param ListaDeDocumento $objListaDeDocumento
+		 * Unassociates all FaseLicenciasAsFASEIdFASE
 		 * @return void
 		*/ 
-		public function DeleteAssociatedListaDeDocumentoAsFASEIdFASE(ListaDeDocumento $objListaDeDocumento) {
+		public function UnassociateAllFaseLicenciasAsFASEIdFASE() {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateListaDeDocumentoAsFASEIdFASE on this unsaved Fase.');
-			if ((is_null($objListaDeDocumento->DOCUMENTOIdDOCUMENTO)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateListaDeDocumentoAsFASEIdFASE on this Fase with an unsaved ListaDeDocumento.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsFASEIdFASE on this unsaved Fase.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Fase::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`FASE_LICENCIA`
+				SET
+					`FASE_idFASE` = null
+				WHERE
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated FaseLicenciaAsFASEIdFASE
+		 * @param FaseLicencia $objFaseLicencia
+		 * @return void
+		*/ 
+		public function DeleteAssociatedFaseLicenciaAsFASEIdFASE(FaseLicencia $objFaseLicencia) {
+			if ((is_null($this->intIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsFASEIdFASE on this unsaved Fase.');
+			if ((is_null($objFaseLicencia->LICENCIAIdLICENCIA)) || (is_null($objFaseLicencia->FASEIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsFASEIdFASE on this Fase with an unsaved FaseLicencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1201,20 +1336,21 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`LISTA_DE_DOCUMENTO`
+					`FASE_LICENCIA`
 				WHERE
-					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($objListaDeDocumento->DOCUMENTOIdDOCUMENTO) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objFaseLicencia->LICENCIAIdLICENCIA) . ' AND
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($objFaseLicencia->FASEIdFASE) . ' AND
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 			');
 		}
 
 		/**
-		 * Deletes all associated ListaDeDocumentosAsFASEIdFASE
+		 * Deletes all associated FaseLicenciasAsFASEIdFASE
 		 * @return void
 		*/ 
-		public function DeleteAllListaDeDocumentosAsFASEIdFASE() {
+		public function DeleteAllFaseLicenciasAsFASEIdFASE() {
 			if ((is_null($this->intIdFASE)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateListaDeDocumentoAsFASEIdFASE on this unsaved Fase.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsFASEIdFASE on this unsaved Fase.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Fase::GetDatabase();
@@ -1222,7 +1358,7 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`LISTA_DE_DOCUMENTO`
+					`FASE_LICENCIA`
 				WHERE
 					`FASE_idFASE` = ' . $objDatabase->SqlVariable($this->intIdFASE) . '
 			');
@@ -1242,6 +1378,7 @@
 			$strToReturn .= '<element name="Nombre" type="xsd:string"/>';
 			$strToReturn .= '<element name="Duracion" type="xsd:int"/>';
 			$strToReturn .= '<element name="Icono" type="xsd:string"/>';
+			$strToReturn .= '<element name="PROCESOIdPROCESOObject" type="xsd1:Proceso"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1250,6 +1387,7 @@
 		public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
 			if (!array_key_exists('Fase', $strComplexTypeArray)) {
 				$strComplexTypeArray['Fase'] = Fase::GetSoapComplexTypeXml();
+				Proceso::AlterSoapComplexTypeArray($strComplexTypeArray);
 			}
 		}
 
@@ -1272,6 +1410,9 @@
 				$objToReturn->intDuracion = $objSoapObject->Duracion;
 			if (property_exists($objSoapObject, 'Icono'))
 				$objToReturn->strIcono = $objSoapObject->Icono;
+			if ((property_exists($objSoapObject, 'PROCESOIdPROCESOObject')) &&
+				($objSoapObject->PROCESOIdPROCESOObject))
+				$objToReturn->PROCESOIdPROCESOObject = Proceso::GetObjectFromSoapObject($objSoapObject->PROCESOIdPROCESOObject);
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -1290,6 +1431,10 @@
 		}
 
 		public static function GetSoapObjectFromObject($objObject, $blnBindRelatedObjects) {
+			if ($objObject->objPROCESOIdPROCESOObject)
+				$objObject->objPROCESOIdPROCESOObject = Proceso::GetSoapObjectFromObject($objObject->objPROCESOIdPROCESOObject, false);
+			else if (!$blnBindRelatedObjects)
+				$objObject->intPROCESOIdPROCESO = null;
 			return $objObject;
 		}
 
@@ -1308,6 +1453,7 @@
 			$iArray['Nombre'] = $this->strNombre;
 			$iArray['Duracion'] = $this->intDuracion;
 			$iArray['Icono'] = $this->strIcono;
+			$iArray['PROCESOIdPROCESO'] = $this->intPROCESOIdPROCESO;
 			return new ArrayIterator($iArray);
 		}
 
@@ -1333,10 +1479,12 @@
      * @property-read QQNode $Nombre
      * @property-read QQNode $Duracion
      * @property-read QQNode $Icono
+     * @property-read QQNode $PROCESOIdPROCESO
+     * @property-read QQNodeProceso $PROCESOIdPROCESOObject
      *
      *
-     * @property-read QQReverseReferenceNodeEtapa $EtapaAsFASEIdFASE
-     * @property-read QQReverseReferenceNodeListaDeDocumento $ListaDeDocumentoAsFASEIdFASE
+     * @property-read QQReverseReferenceNodeDocumentosFase $DocumentosFaseAsFASEIdFASE
+     * @property-read QQReverseReferenceNodeFaseLicencia $FaseLicenciaAsFASEIdFASE
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1354,10 +1502,14 @@
 					return new QQNode('duracion', 'Duracion', 'Integer', $this);
 				case 'Icono':
 					return new QQNode('icono', 'Icono', 'Blob', $this);
-				case 'EtapaAsFASEIdFASE':
-					return new QQReverseReferenceNodeEtapa($this, 'etapaasfaseidfase', 'reverse_reference', 'FASE_idFASE');
-				case 'ListaDeDocumentoAsFASEIdFASE':
-					return new QQReverseReferenceNodeListaDeDocumento($this, 'listadedocumentoasfaseidfase', 'reverse_reference', 'FASE_idFASE');
+				case 'PROCESOIdPROCESO':
+					return new QQNode('PROCESO_idPROCESO', 'PROCESOIdPROCESO', 'Integer', $this);
+				case 'PROCESOIdPROCESOObject':
+					return new QQNodeProceso('PROCESO_idPROCESO', 'PROCESOIdPROCESOObject', 'Integer', $this);
+				case 'DocumentosFaseAsFASEIdFASE':
+					return new QQReverseReferenceNodeDocumentosFase($this, 'documentosfaseasfaseidfase', 'reverse_reference', 'FASE_idFASE');
+				case 'FaseLicenciaAsFASEIdFASE':
+					return new QQReverseReferenceNodeFaseLicencia($this, 'faselicenciaasfaseidfase', 'reverse_reference', 'FASE_idFASE');
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idFASE', 'IdFASE', 'Integer', $this);
@@ -1377,10 +1529,12 @@
      * @property-read QQNode $Nombre
      * @property-read QQNode $Duracion
      * @property-read QQNode $Icono
+     * @property-read QQNode $PROCESOIdPROCESO
+     * @property-read QQNodeProceso $PROCESOIdPROCESOObject
      *
      *
-     * @property-read QQReverseReferenceNodeEtapa $EtapaAsFASEIdFASE
-     * @property-read QQReverseReferenceNodeListaDeDocumento $ListaDeDocumentoAsFASEIdFASE
+     * @property-read QQReverseReferenceNodeDocumentosFase $DocumentosFaseAsFASEIdFASE
+     * @property-read QQReverseReferenceNodeFaseLicencia $FaseLicenciaAsFASEIdFASE
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1398,10 +1552,14 @@
 					return new QQNode('duracion', 'Duracion', 'integer', $this);
 				case 'Icono':
 					return new QQNode('icono', 'Icono', 'string', $this);
-				case 'EtapaAsFASEIdFASE':
-					return new QQReverseReferenceNodeEtapa($this, 'etapaasfaseidfase', 'reverse_reference', 'FASE_idFASE');
-				case 'ListaDeDocumentoAsFASEIdFASE':
-					return new QQReverseReferenceNodeListaDeDocumento($this, 'listadedocumentoasfaseidfase', 'reverse_reference', 'FASE_idFASE');
+				case 'PROCESOIdPROCESO':
+					return new QQNode('PROCESO_idPROCESO', 'PROCESOIdPROCESO', 'integer', $this);
+				case 'PROCESOIdPROCESOObject':
+					return new QQNodeProceso('PROCESO_idPROCESO', 'PROCESOIdPROCESOObject', 'integer', $this);
+				case 'DocumentosFaseAsFASEIdFASE':
+					return new QQReverseReferenceNodeDocumentosFase($this, 'documentosfaseasfaseidfase', 'reverse_reference', 'FASE_idFASE');
+				case 'FaseLicenciaAsFASEIdFASE':
+					return new QQReverseReferenceNodeFaseLicencia($this, 'faselicenciaasfaseidfase', 'reverse_reference', 'FASE_idFASE');
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idFASE', 'IdFASE', 'integer', $this);

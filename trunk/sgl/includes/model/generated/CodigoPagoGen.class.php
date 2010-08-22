@@ -17,7 +17,10 @@
 	 * @subpackage GeneratedDataObjects
 	 * @property integer $LICENCIAIdLICENCIA the value for intLICENCIAIdLICENCIA (PK)
 	 * @property integer $TIPODEPAGOIdTIPODEPAGO the value for intTIPODEPAGOIdTIPODEPAGO (PK)
-	 * @property string $Codigo the value for strCodigo 
+	 * @property string $NumRef the value for strNumRef 
+	 * @property string $Fecha the value for strFecha 
+	 * @property string $Divisa the value for strDivisa 
+	 * @property string $Monto the value for strMonto 
 	 * @property Licencia $LICENCIAIdLICENCIAObject the value for the Licencia object referenced by intLICENCIAIdLICENCIA (PK)
 	 * @property TipoDePago $TIPODEPAGOIdTIPODEPAGOObject the value for the TipoDePago object referenced by intTIPODEPAGOIdTIPODEPAGO (PK)
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
@@ -59,12 +62,39 @@
 		protected $__intTIPODEPAGOIdTIPODEPAGO;
 
 		/**
-		 * Protected member variable that maps to the database column CODIGO_PAGO.codigo
-		 * @var string strCodigo
+		 * Protected member variable that maps to the database column CODIGO_PAGO.numRef
+		 * @var string strNumRef
 		 */
-		protected $strCodigo;
-		const CodigoMaxLength = 45;
-		const CodigoDefault = null;
+		protected $strNumRef;
+		const NumRefMaxLength = 45;
+		const NumRefDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column CODIGO_PAGO.fecha
+		 * @var string strFecha
+		 */
+		protected $strFecha;
+		const FechaMaxLength = 45;
+		const FechaDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column CODIGO_PAGO.divisa
+		 * @var string strDivisa
+		 */
+		protected $strDivisa;
+		const DivisaMaxLength = 45;
+		const DivisaDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column CODIGO_PAGO.monto
+		 * @var string strMonto
+		 */
+		protected $strMonto;
+		const MontoMaxLength = 45;
+		const MontoDefault = null;
 
 
 		/**
@@ -118,7 +148,10 @@
 		{
 			$this->intLICENCIAIdLICENCIA = CodigoPago::LICENCIAIdLICENCIADefault;
 			$this->intTIPODEPAGOIdTIPODEPAGO = CodigoPago::TIPODEPAGOIdTIPODEPAGODefault;
-			$this->strCodigo = CodigoPago::CodigoDefault;
+			$this->strNumRef = CodigoPago::NumRefDefault;
+			$this->strFecha = CodigoPago::FechaDefault;
+			$this->strDivisa = CodigoPago::DivisaDefault;
+			$this->strMonto = CodigoPago::MontoDefault;
 		}
 
 
@@ -390,7 +423,10 @@
 
 			$objBuilder->AddSelectItem($strTableName, 'LICENCIA_idLICENCIA', $strAliasPrefix . 'LICENCIA_idLICENCIA');
 			$objBuilder->AddSelectItem($strTableName, 'TIPO_DE_PAGO_idTIPO_DE_PAGO', $strAliasPrefix . 'TIPO_DE_PAGO_idTIPO_DE_PAGO');
-			$objBuilder->AddSelectItem($strTableName, 'codigo', $strAliasPrefix . 'codigo');
+			$objBuilder->AddSelectItem($strTableName, 'numRef', $strAliasPrefix . 'numRef');
+			$objBuilder->AddSelectItem($strTableName, 'fecha', $strAliasPrefix . 'fecha');
+			$objBuilder->AddSelectItem($strTableName, 'divisa', $strAliasPrefix . 'divisa');
+			$objBuilder->AddSelectItem($strTableName, 'monto', $strAliasPrefix . 'monto');
 		}
 
 
@@ -427,8 +463,14 @@
 			$strAliasName = array_key_exists($strAliasPrefix . 'TIPO_DE_PAGO_idTIPO_DE_PAGO', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'TIPO_DE_PAGO_idTIPO_DE_PAGO'] : $strAliasPrefix . 'TIPO_DE_PAGO_idTIPO_DE_PAGO';
 			$objToReturn->intTIPODEPAGOIdTIPODEPAGO = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$objToReturn->__intTIPODEPAGOIdTIPODEPAGO = $objDbRow->GetColumn($strAliasName, 'Integer');
-			$strAliasName = array_key_exists($strAliasPrefix . 'codigo', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'codigo'] : $strAliasPrefix . 'codigo';
-			$objToReturn->strCodigo = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'numRef', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'numRef'] : $strAliasPrefix . 'numRef';
+			$objToReturn->strNumRef = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'fecha', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'fecha'] : $strAliasPrefix . 'fecha';
+			$objToReturn->strFecha = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'divisa', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'divisa'] : $strAliasPrefix . 'divisa';
+			$objToReturn->strDivisa = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'monto', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'monto'] : $strAliasPrefix . 'monto';
+			$objToReturn->strMonto = $objDbRow->GetColumn($strAliasName, 'VarChar');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
@@ -628,11 +670,17 @@
 						INSERT INTO `CODIGO_PAGO` (
 							`LICENCIA_idLICENCIA`,
 							`TIPO_DE_PAGO_idTIPO_DE_PAGO`,
-							`codigo`
+							`numRef`,
+							`fecha`,
+							`divisa`,
+							`monto`
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ',
 							' . $objDatabase->SqlVariable($this->intTIPODEPAGOIdTIPODEPAGO) . ',
-							' . $objDatabase->SqlVariable($this->strCodigo) . '
+							' . $objDatabase->SqlVariable($this->strNumRef) . ',
+							' . $objDatabase->SqlVariable($this->strFecha) . ',
+							' . $objDatabase->SqlVariable($this->strDivisa) . ',
+							' . $objDatabase->SqlVariable($this->strMonto) . '
 						)
 					');
 
@@ -649,7 +697,10 @@
 						SET
 							`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ',
 							`TIPO_DE_PAGO_idTIPO_DE_PAGO` = ' . $objDatabase->SqlVariable($this->intTIPODEPAGOIdTIPODEPAGO) . ',
-							`codigo` = ' . $objDatabase->SqlVariable($this->strCodigo) . '
+							`numRef` = ' . $objDatabase->SqlVariable($this->strNumRef) . ',
+							`fecha` = ' . $objDatabase->SqlVariable($this->strFecha) . ',
+							`divisa` = ' . $objDatabase->SqlVariable($this->strDivisa) . ',
+							`monto` = ' . $objDatabase->SqlVariable($this->strMonto) . '
 						WHERE
 							`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->__intLICENCIAIdLICENCIA) . ' AND
 							`TIPO_DE_PAGO_idTIPO_DE_PAGO` = ' . $objDatabase->SqlVariable($this->__intTIPODEPAGOIdTIPODEPAGO) . '
@@ -736,7 +787,10 @@
 			$this->__intLICENCIAIdLICENCIA = $this->intLICENCIAIdLICENCIA;
 			$this->TIPODEPAGOIdTIPODEPAGO = $objReloaded->TIPODEPAGOIdTIPODEPAGO;
 			$this->__intTIPODEPAGOIdTIPODEPAGO = $this->intTIPODEPAGOIdTIPODEPAGO;
-			$this->strCodigo = $objReloaded->strCodigo;
+			$this->strNumRef = $objReloaded->strNumRef;
+			$this->strFecha = $objReloaded->strFecha;
+			$this->strDivisa = $objReloaded->strDivisa;
+			$this->strMonto = $objReloaded->strMonto;
 		}
 
 
@@ -771,12 +825,33 @@
 					 */
 					return $this->intTIPODEPAGOIdTIPODEPAGO;
 
-				case 'Codigo':
+				case 'NumRef':
 					/**
-					 * Gets the value for strCodigo 
+					 * Gets the value for strNumRef 
 					 * @return string
 					 */
-					return $this->strCodigo;
+					return $this->strNumRef;
+
+				case 'Fecha':
+					/**
+					 * Gets the value for strFecha 
+					 * @return string
+					 */
+					return $this->strFecha;
+
+				case 'Divisa':
+					/**
+					 * Gets the value for strDivisa 
+					 * @return string
+					 */
+					return $this->strDivisa;
+
+				case 'Monto':
+					/**
+					 * Gets the value for strMonto 
+					 * @return string
+					 */
+					return $this->strMonto;
 
 
 				///////////////////
@@ -871,14 +946,53 @@
 						throw $objExc;
 					}
 
-				case 'Codigo':
+				case 'NumRef':
 					/**
-					 * Sets the value for strCodigo 
+					 * Sets the value for strNumRef 
 					 * @param string $mixValue
 					 * @return string
 					 */
 					try {
-						return ($this->strCodigo = QType::Cast($mixValue, QType::String));
+						return ($this->strNumRef = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Fecha':
+					/**
+					 * Sets the value for strFecha 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strFecha = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Divisa':
+					/**
+					 * Sets the value for strDivisa 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strDivisa = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Monto':
+					/**
+					 * Sets the value for strMonto 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strMonto = QType::Cast($mixValue, QType::String));
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -991,7 +1105,10 @@
 			$strToReturn = '<complexType name="CodigoPago"><sequence>';
 			$strToReturn .= '<element name="LICENCIAIdLICENCIAObject" type="xsd1:Licencia"/>';
 			$strToReturn .= '<element name="TIPODEPAGOIdTIPODEPAGOObject" type="xsd1:TipoDePago"/>';
-			$strToReturn .= '<element name="Codigo" type="xsd:string"/>';
+			$strToReturn .= '<element name="NumRef" type="xsd:string"/>';
+			$strToReturn .= '<element name="Fecha" type="xsd:string"/>';
+			$strToReturn .= '<element name="Divisa" type="xsd:string"/>';
+			$strToReturn .= '<element name="Monto" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1022,8 +1139,14 @@
 			if ((property_exists($objSoapObject, 'TIPODEPAGOIdTIPODEPAGOObject')) &&
 				($objSoapObject->TIPODEPAGOIdTIPODEPAGOObject))
 				$objToReturn->TIPODEPAGOIdTIPODEPAGOObject = TipoDePago::GetObjectFromSoapObject($objSoapObject->TIPODEPAGOIdTIPODEPAGOObject);
-			if (property_exists($objSoapObject, 'Codigo'))
-				$objToReturn->strCodigo = $objSoapObject->Codigo;
+			if (property_exists($objSoapObject, 'NumRef'))
+				$objToReturn->strNumRef = $objSoapObject->NumRef;
+			if (property_exists($objSoapObject, 'Fecha'))
+				$objToReturn->strFecha = $objSoapObject->Fecha;
+			if (property_exists($objSoapObject, 'Divisa'))
+				$objToReturn->strDivisa = $objSoapObject->Divisa;
+			if (property_exists($objSoapObject, 'Monto'))
+				$objToReturn->strMonto = $objSoapObject->Monto;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -1066,7 +1189,10 @@
 			///////////////////
 			$iArray['LICENCIAIdLICENCIA'] = $this->intLICENCIAIdLICENCIA;
 			$iArray['TIPODEPAGOIdTIPODEPAGO'] = $this->intTIPODEPAGOIdTIPODEPAGO;
-			$iArray['Codigo'] = $this->strCodigo;
+			$iArray['NumRef'] = $this->strNumRef;
+			$iArray['Fecha'] = $this->strFecha;
+			$iArray['Divisa'] = $this->strDivisa;
+			$iArray['Monto'] = $this->strMonto;
 			return new ArrayIterator($iArray);
 		}
 
@@ -1092,7 +1218,10 @@
      * @property-read QQNodeLicencia $LICENCIAIdLICENCIAObject
      * @property-read QQNode $TIPODEPAGOIdTIPODEPAGO
      * @property-read QQNodeTipoDePago $TIPODEPAGOIdTIPODEPAGOObject
-     * @property-read QQNode $Codigo
+     * @property-read QQNode $NumRef
+     * @property-read QQNode $Fecha
+     * @property-read QQNode $Divisa
+     * @property-read QQNode $Monto
      *
      *
 
@@ -1112,8 +1241,14 @@
 					return new QQNode('TIPO_DE_PAGO_idTIPO_DE_PAGO', 'TIPODEPAGOIdTIPODEPAGO', 'Integer', $this);
 				case 'TIPODEPAGOIdTIPODEPAGOObject':
 					return new QQNodeTipoDePago('TIPO_DE_PAGO_idTIPO_DE_PAGO', 'TIPODEPAGOIdTIPODEPAGOObject', 'Integer', $this);
-				case 'Codigo':
-					return new QQNode('codigo', 'Codigo', 'VarChar', $this);
+				case 'NumRef':
+					return new QQNode('numRef', 'NumRef', 'VarChar', $this);
+				case 'Fecha':
+					return new QQNode('fecha', 'Fecha', 'VarChar', $this);
+				case 'Divisa':
+					return new QQNode('divisa', 'Divisa', 'VarChar', $this);
+				case 'Monto':
+					return new QQNode('monto', 'Monto', 'VarChar', $this);
 
 				case '_PrimaryKeyNode':
 					return new QQNodeLicencia('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIA', 'Integer', $this);
@@ -1133,7 +1268,10 @@
      * @property-read QQNodeLicencia $LICENCIAIdLICENCIAObject
      * @property-read QQNode $TIPODEPAGOIdTIPODEPAGO
      * @property-read QQNodeTipoDePago $TIPODEPAGOIdTIPODEPAGOObject
-     * @property-read QQNode $Codigo
+     * @property-read QQNode $NumRef
+     * @property-read QQNode $Fecha
+     * @property-read QQNode $Divisa
+     * @property-read QQNode $Monto
      *
      *
 
@@ -1153,8 +1291,14 @@
 					return new QQNode('TIPO_DE_PAGO_idTIPO_DE_PAGO', 'TIPODEPAGOIdTIPODEPAGO', 'integer', $this);
 				case 'TIPODEPAGOIdTIPODEPAGOObject':
 					return new QQNodeTipoDePago('TIPO_DE_PAGO_idTIPO_DE_PAGO', 'TIPODEPAGOIdTIPODEPAGOObject', 'integer', $this);
-				case 'Codigo':
-					return new QQNode('codigo', 'Codigo', 'string', $this);
+				case 'NumRef':
+					return new QQNode('numRef', 'NumRef', 'string', $this);
+				case 'Fecha':
+					return new QQNode('fecha', 'Fecha', 'string', $this);
+				case 'Divisa':
+					return new QQNode('divisa', 'Divisa', 'string', $this);
+				case 'Monto':
+					return new QQNode('monto', 'Monto', 'string', $this);
 
 				case '_PrimaryKeyNode':
 					return new QQNodeLicencia('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIA', 'integer', $this);

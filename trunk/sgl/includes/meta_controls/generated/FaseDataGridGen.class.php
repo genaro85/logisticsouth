@@ -293,6 +293,8 @@
 				case 'Nombre': return QQN::Fase()->Nombre;
 				case 'Duracion': return QQN::Fase()->Duracion;
 				case 'Icono': return QQN::Fase()->Icono;
+				case 'PROCESOIdPROCESO': return QQN::Fase()->PROCESOIdPROCESO;
+				case 'PROCESOIdPROCESOObject': return QQN::Fase()->PROCESOIdPROCESOObject;
 				default: throw new QCallerException('Simple Property not found in FaseDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)
 				throw new QCallerException('Content QQNode cannot go through any "To Many" association nodes.');

@@ -22,8 +22,8 @@
 	 * @property-read QLabel $NombreLabel
 	 * @property QIntegerTextBox $DuracionControl
 	 * @property-read QLabel $DuracionLabel
-	 * @property QListBox $ListaDeDocumentoControl
-	 * @property-read QLabel $ListaDeDocumentoLabel
+	 * @property QListBox $DocumentosFaseControl
+	 * @property-read QLabel $DocumentosFaseLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -63,10 +63,10 @@
 		protected $lblDuracion;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
-		protected $lstListaDeDocumento;
+		protected $lstDocumentosFase;
 
 		// QLabel Controls (if applicable) to view Unique ReverseReferences and ManyToMany References
-		protected $lblListaDeDocumento;
+		protected $lblDocumentosFase;
 
 
 		/**
@@ -230,37 +230,37 @@
 		}
 
 		/**
-		 * Create and setup QListBox lstListaDeDocumento
+		 * Create and setup QListBox lstDocumentosFase
 		 * @param string $strControlId optional ControlId to use
 		 * @return QListBox
 		 */
-		public function lstListaDeDocumento_Create($strControlId = null) {
-			$this->lstListaDeDocumento = new QListBox($this->objParentObject, $strControlId);
-			$this->lstListaDeDocumento->Name = QApplication::Translate('Lista De Documento');
-			$this->lstListaDeDocumento->AddItem(QApplication::Translate('- Select One -'), null);
-			$objListaDeDocumentoArray = ListaDeDocumento::LoadAll();
-			if ($objListaDeDocumentoArray) foreach ($objListaDeDocumentoArray as $objListaDeDocumento) {
-				$objListItem = new QListItem($objListaDeDocumento->__toString(), $objListaDeDocumento->DOCUMENTOIdDOCUMENTO);
-				if ($objListaDeDocumento->DOCUMENTOIdDOCUMENTO == $this->objDocumento->IdDOCUMENTO)
+		public function lstDocumentosFase_Create($strControlId = null) {
+			$this->lstDocumentosFase = new QListBox($this->objParentObject, $strControlId);
+			$this->lstDocumentosFase->Name = QApplication::Translate('Documentos Fase');
+			$this->lstDocumentosFase->AddItem(QApplication::Translate('- Select One -'), null);
+			$objDocumentosFaseArray = DocumentosFase::LoadAll();
+			if ($objDocumentosFaseArray) foreach ($objDocumentosFaseArray as $objDocumentosFase) {
+				$objListItem = new QListItem($objDocumentosFase->__toString(), $objDocumentosFase->DOCUMENTOIdDOCUMENTO);
+				if ($objDocumentosFase->DOCUMENTOIdDOCUMENTO == $this->objDocumento->IdDOCUMENTO)
 					$objListItem->Selected = true;
-				$this->lstListaDeDocumento->AddItem($objListItem);
+				$this->lstDocumentosFase->AddItem($objListItem);
 			}
-			// Because ListaDeDocumento's ListaDeDocumento is not null, if a value is already selected, it cannot be changed.
-			if ($this->lstListaDeDocumento->SelectedValue)
-				$this->lstListaDeDocumento->Enabled = false;
-			return $this->lstListaDeDocumento;
+			// Because DocumentosFase's DocumentosFase is not null, if a value is already selected, it cannot be changed.
+			if ($this->lstDocumentosFase->SelectedValue)
+				$this->lstDocumentosFase->Enabled = false;
+			return $this->lstDocumentosFase;
 		}
 
 		/**
-		 * Create and setup QLabel lblListaDeDocumento
+		 * Create and setup QLabel lblDocumentosFase
 		 * @param string $strControlId optional ControlId to use
 		 * @return QLabel
 		 */
-		public function lblListaDeDocumento_Create($strControlId = null) {
-			$this->lblListaDeDocumento = new QLabel($this->objParentObject, $strControlId);
-			$this->lblListaDeDocumento->Name = QApplication::Translate('Lista De Documento');
-			$this->lblListaDeDocumento->Text = ($this->objDocumento->ListaDeDocumento) ? $this->objDocumento->ListaDeDocumento->__toString() : null;
-			return $this->lblListaDeDocumento;
+		public function lblDocumentosFase_Create($strControlId = null) {
+			$this->lblDocumentosFase = new QLabel($this->objParentObject, $strControlId);
+			$this->lblDocumentosFase->Name = QApplication::Translate('Documentos Fase');
+			$this->lblDocumentosFase->Text = ($this->objDocumento->DocumentosFase) ? $this->objDocumento->DocumentosFase->__toString() : null;
+			return $this->lblDocumentosFase;
 		}
 
 
@@ -282,23 +282,23 @@
 			if ($this->txtDuracion) $this->txtDuracion->Text = $this->objDocumento->Duracion;
 			if ($this->lblDuracion) $this->lblDuracion->Text = $this->objDocumento->Duracion;
 
-			if ($this->lstListaDeDocumento) {
-				$this->lstListaDeDocumento->RemoveAllItems();
-				$this->lstListaDeDocumento->AddItem(QApplication::Translate('- Select One -'), null);
-				$objListaDeDocumentoArray = ListaDeDocumento::LoadAll();
-				if ($objListaDeDocumentoArray) foreach ($objListaDeDocumentoArray as $objListaDeDocumento) {
-					$objListItem = new QListItem($objListaDeDocumento->__toString(), $objListaDeDocumento->DOCUMENTOIdDOCUMENTO);
-					if ($objListaDeDocumento->DOCUMENTOIdDOCUMENTO == $this->objDocumento->IdDOCUMENTO)
+			if ($this->lstDocumentosFase) {
+				$this->lstDocumentosFase->RemoveAllItems();
+				$this->lstDocumentosFase->AddItem(QApplication::Translate('- Select One -'), null);
+				$objDocumentosFaseArray = DocumentosFase::LoadAll();
+				if ($objDocumentosFaseArray) foreach ($objDocumentosFaseArray as $objDocumentosFase) {
+					$objListItem = new QListItem($objDocumentosFase->__toString(), $objDocumentosFase->DOCUMENTOIdDOCUMENTO);
+					if ($objDocumentosFase->DOCUMENTOIdDOCUMENTO == $this->objDocumento->IdDOCUMENTO)
 						$objListItem->Selected = true;
-					$this->lstListaDeDocumento->AddItem($objListItem);
+					$this->lstDocumentosFase->AddItem($objListItem);
 				}
-				// Because ListaDeDocumento's ListaDeDocumento is not null, if a value is already selected, it cannot be changed.
-				if ($this->lstListaDeDocumento->SelectedValue)
-					$this->lstListaDeDocumento->Enabled = false;
+				// Because DocumentosFase's DocumentosFase is not null, if a value is already selected, it cannot be changed.
+				if ($this->lstDocumentosFase->SelectedValue)
+					$this->lstDocumentosFase->Enabled = false;
 				else
-					$this->lstListaDeDocumento->Enabled = true;
+					$this->lstDocumentosFase->Enabled = true;
 			}
-			if ($this->lblListaDeDocumento) $this->lblListaDeDocumento->Text = ($this->objDocumento->ListaDeDocumento) ? $this->objDocumento->ListaDeDocumento->__toString() : null;
+			if ($this->lblDocumentosFase) $this->lblDocumentosFase->Text = ($this->objDocumento->DocumentosFase) ? $this->objDocumento->DocumentosFase->__toString() : null;
 
 		}
 
@@ -327,7 +327,7 @@
 				if ($this->txtDuracion) $this->objDocumento->Duracion = $this->txtDuracion->Text;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
-				if ($this->lstListaDeDocumento) $this->objDocumento->ListaDeDocumento = ListaDeDocumento::Load($this->lstListaDeDocumento->SelectedValue);
+				if ($this->lstDocumentosFase) $this->objDocumento->DocumentosFase = DocumentosFase::Load($this->lstDocumentosFase->SelectedValue);
 
 				// Save the Documento object
 				$this->objDocumento->Save();
@@ -386,12 +386,12 @@
 				case 'DuracionLabel':
 					if (!$this->lblDuracion) return $this->lblDuracion_Create();
 					return $this->lblDuracion;
-				case 'ListaDeDocumentoControl':
-					if (!$this->lstListaDeDocumento) return $this->lstListaDeDocumento_Create();
-					return $this->lstListaDeDocumento;
-				case 'ListaDeDocumentoLabel':
-					if (!$this->lblListaDeDocumento) return $this->lblListaDeDocumento_Create();
-					return $this->lblListaDeDocumento;
+				case 'DocumentosFaseControl':
+					if (!$this->lstDocumentosFase) return $this->lstDocumentosFase_Create();
+					return $this->lstDocumentosFase;
+				case 'DocumentosFaseLabel':
+					if (!$this->lblDocumentosFase) return $this->lblDocumentosFase_Create();
+					return $this->lblDocumentosFase;
 				default:
 					try {
 						return parent::__get($strName);
@@ -420,8 +420,8 @@
 						return ($this->txtNombre = QType::Cast($mixValue, 'QControl'));
 					case 'DuracionControl':
 						return ($this->txtDuracion = QType::Cast($mixValue, 'QControl'));
-					case 'ListaDeDocumentoControl':
-						return ($this->lstListaDeDocumento = QType::Cast($mixValue, 'QControl'));
+					case 'DocumentosFaseControl':
+						return ($this->lstDocumentosFase = QType::Cast($mixValue, 'QControl'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

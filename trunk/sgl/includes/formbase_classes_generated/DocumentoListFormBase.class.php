@@ -57,10 +57,10 @@
 
 			// Create the Other Columns (note that you can use strings for DOCUMENTO's properties, or you
 			// can traverse down QQN::DOCUMENTO() to display fields that are down the hierarchy)
-			//$this->dtgDocumentos->MetaAddColumn('IdDOCUMENTO');
+			$this->dtgDocumentos->MetaAddColumn('IdDOCUMENTO');
 			$this->dtgDocumentos->MetaAddColumn('Nombre');
 			$this->dtgDocumentos->MetaAddColumn('Duracion');
-			//$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->ListaDeDocumento);
+			$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DocumentosFase);
 		}
 	}
 ?>

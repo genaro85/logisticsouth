@@ -61,6 +61,7 @@
 			$this->dtgFases->MetaAddColumn('Nombre');
 			$this->dtgFases->MetaAddColumn('Duracion');
 			$this->dtgFases->MetaAddColumn('Icono');
+			$this->dtgFases->MetaAddColumn(QQN::Fase()->PROCESOIdPROCESOObject);
 		}
 	}
 ?>

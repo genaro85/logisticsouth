@@ -13,6 +13,8 @@
 
 		<?php $_CONTROL->txtIcono->RenderWithName(); ?>
 
+		<?php $_CONTROL->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+
 	</div>
 
 	<div id="formActions">

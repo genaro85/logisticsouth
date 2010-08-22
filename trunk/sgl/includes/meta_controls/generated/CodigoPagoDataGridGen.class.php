@@ -293,7 +293,10 @@
 				case 'LICENCIAIdLICENCIAObject': return QQN::CodigoPago()->LICENCIAIdLICENCIAObject;
 				case 'TIPODEPAGOIdTIPODEPAGO': return QQN::CodigoPago()->TIPODEPAGOIdTIPODEPAGO;
 				case 'TIPODEPAGOIdTIPODEPAGOObject': return QQN::CodigoPago()->TIPODEPAGOIdTIPODEPAGOObject;
-				case 'Codigo': return QQN::CodigoPago()->Codigo;
+				case 'NumRef': return QQN::CodigoPago()->NumRef;
+				case 'Fecha': return QQN::CodigoPago()->Fecha;
+				case 'Divisa': return QQN::CodigoPago()->Divisa;
+				case 'Monto': return QQN::CodigoPago()->Monto;
 				default: throw new QCallerException('Simple Property not found in CodigoPagoDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)
 				throw new QCallerException('Content QQNode cannot go through any "To Many" association nodes.');
