@@ -61,6 +61,7 @@
 			$this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject);
 			$this->dtgVigenciaDocumentos->MetaAddColumn('FechaOtorgado');
 			$this->dtgVigenciaDocumentos->MetaAddColumn('FechaVencimieto');
+			$this->dtgVigenciaDocumentos->MetaAddColumn('NumRef');
 		}
 	}
 ?>

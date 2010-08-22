@@ -28,7 +28,7 @@
 		protected $txtDuracion;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
-		protected $lstListaDeDocumento;
+		protected $lstDocumentosFase;
 
 		// Other Controls
 		/**
@@ -67,7 +67,7 @@
 			$this->lblIdDOCUMENTO = $this->mctDocumento->lblIdDOCUMENTO_Create();
 			$this->txtNombre = $this->mctDocumento->txtNombre_Create();
 			$this->txtDuracion = $this->mctDocumento->txtDuracion_Create();
-			$this->lstListaDeDocumento = $this->mctDocumento->lstListaDeDocumento_Create();
+			$this->lstDocumentosFase = $this->mctDocumento->lstDocumentosFase_Create();
 
 			// Create Buttons and Actions on this Form
 			$this->btnSave = new QButton($this);

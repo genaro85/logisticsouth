@@ -82,7 +82,10 @@
 			// can traverse down QQN::CODIGO_PAGO() to display fields that are down the hierarchy)
 			$this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->LICENCIAIdLICENCIAObject);
 			$this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->TIPODEPAGOIdTIPODEPAGOObject);
-			$this->dtgCodigoPagos->MetaAddColumn('Codigo');
+			$this->dtgCodigoPagos->MetaAddColumn('NumRef');
+			$this->dtgCodigoPagos->MetaAddColumn('Fecha');
+			$this->dtgCodigoPagos->MetaAddColumn('Divisa');
+			$this->dtgCodigoPagos->MetaAddColumn('Monto');
 
 			// Setup the Create New button
 			$this->btnCreateNew = new QButton($this);

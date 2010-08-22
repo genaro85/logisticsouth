@@ -24,6 +24,8 @@
 	 * @property-read QLabel $FechaOtorgadoLabel
 	 * @property QDateTimePicker $FechaVencimietoControl
 	 * @property-read QLabel $FechaVencimietoLabel
+	 * @property QTextBox $NumRefControl
+	 * @property-read QLabel $NumRefLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -61,12 +63,17 @@
 		 * @var QDateTimePicker dttFechaVencimieto
 		 */
 		protected $calFechaVencimieto;
+		/**
+		 * @var QTextBox strNumRef
+		 */
+		protected $txtNumRef;
 
 		// Controls that allow the viewing of VigenciaDocumento's individual data fields
 		protected $lblLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
 		protected $lblLICENCIAIdLICENCIA;
 		protected $lblFechaOtorgado;
 		protected $lblFechaVencimieto;
+		protected $lblNumRef;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 
@@ -179,7 +186,7 @@
 			$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->Required = true;
 			if (!$this->blnEditMode)
 				$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
-			$objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = ListaDeDocumento::LoadAll();
+			$objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
 			if ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray) foreach ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray as $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) {
 				$objListItem = new QListItem($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString(), $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
 				if (($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
@@ -296,6 +303,31 @@
 		protected $strFechaVencimietoDateTimeFormat;
 
 
+		/**
+		 * Create and setup QTextBox txtNumRef
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtNumRef_Create($strControlId = null) {
+			$this->txtNumRef = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtNumRef->Name = QApplication::Translate('Num Ref');
+			$this->txtNumRef->Text = $this->objVigenciaDocumento->NumRef;
+			$this->txtNumRef->MaxLength = VigenciaDocumento::NumRefMaxLength;
+			return $this->txtNumRef;
+		}
+
+		/**
+		 * Create and setup QLabel lblNumRef
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblNumRef_Create($strControlId = null) {
+			$this->lblNumRef = new QLabel($this->objParentObject, $strControlId);
+			$this->lblNumRef->Name = QApplication::Translate('Num Ref');
+			$this->lblNumRef->Text = $this->objVigenciaDocumento->NumRef;
+			return $this->lblNumRef;
+		}
+
 
 
 		/**
@@ -311,7 +343,7 @@
 					$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->RemoveAllItems();
 				if (!$this->blnEditMode)
 					$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
-				$objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = ListaDeDocumento::LoadAll();
+				$objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
 				if ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray) foreach ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray as $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) {
 					$objListItem = new QListItem($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString(), $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
 					if (($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
@@ -341,6 +373,9 @@
 			if ($this->calFechaVencimieto) $this->calFechaVencimieto->DateTime = $this->objVigenciaDocumento->FechaVencimieto;
 			if ($this->lblFechaVencimieto) $this->lblFechaVencimieto->Text = sprintf($this->objVigenciaDocumento->FechaVencimieto) ? $this->objVigenciaDocumento->FechaVencimieto->qFormat($this->strFechaVencimietoDateTimeFormat) : null;
 
+			if ($this->txtNumRef) $this->txtNumRef->Text = $this->objVigenciaDocumento->NumRef;
+			if ($this->lblNumRef) $this->lblNumRef->Text = $this->objVigenciaDocumento->NumRef;
+
 		}
 
 
@@ -368,6 +403,7 @@
 				if ($this->lstLICENCIAIdLICENCIAObject) $this->objVigenciaDocumento->LICENCIAIdLICENCIA = $this->lstLICENCIAIdLICENCIAObject->SelectedValue;
 				if ($this->calFechaOtorgado) $this->objVigenciaDocumento->FechaOtorgado = $this->calFechaOtorgado->DateTime;
 				if ($this->calFechaVencimieto) $this->objVigenciaDocumento->FechaVencimieto = $this->calFechaVencimieto->DateTime;
+				if ($this->txtNumRef) $this->objVigenciaDocumento->NumRef = $this->txtNumRef->Text;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 
@@ -434,6 +470,12 @@
 				case 'FechaVencimietoLabel':
 					if (!$this->lblFechaVencimieto) return $this->lblFechaVencimieto_Create();
 					return $this->lblFechaVencimieto;
+				case 'NumRefControl':
+					if (!$this->txtNumRef) return $this->txtNumRef_Create();
+					return $this->txtNumRef;
+				case 'NumRefLabel':
+					if (!$this->lblNumRef) return $this->lblNumRef_Create();
+					return $this->lblNumRef;
 				default:
 					try {
 						return parent::__get($strName);
@@ -464,6 +506,8 @@
 						return ($this->calFechaOtorgado = QType::Cast($mixValue, 'QControl'));
 					case 'FechaVencimietoControl':
 						return ($this->calFechaVencimieto = QType::Cast($mixValue, 'QControl'));
+					case 'NumRefControl':
+						return ($this->txtNumRef = QType::Cast($mixValue, 'QControl'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

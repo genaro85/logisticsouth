@@ -292,7 +292,7 @@
 				case 'IdDOCUMENTO': return QQN::Documento()->IdDOCUMENTO;
 				case 'Nombre': return QQN::Documento()->Nombre;
 				case 'Duracion': return QQN::Documento()->Duracion;
-				case 'ListaDeDocumento': return QQN::Documento()->ListaDeDocumento;
+				case 'DocumentosFase': return QQN::Documento()->DocumentosFase;
 
 				default: throw new QCallerException('Simple Property not found in DocumentoDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)

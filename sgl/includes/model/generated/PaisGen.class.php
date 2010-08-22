@@ -17,8 +17,14 @@
 	 * @subpackage GeneratedDataObjects
 	 * @property-read integer $IdPAIS the value for intIdPAIS (Read-Only PK)
 	 * @property string $Nombre the value for strNombre 
+	 * @property-read Importacion $_ImportacionAsPAISOrigen the value for the private _objImportacionAsPAISOrigen (Read-Only) if set due to an expansion on the IMPORTACION.PAIS_Origen reverse relationship
+	 * @property-read Importacion[] $_ImportacionAsPAISOrigenArray the value for the private _objImportacionAsPAISOrigenArray (Read-Only) if set due to an ExpandAsArray on the IMPORTACION.PAIS_Origen reverse relationship
+	 * @property-read Importacion $_ImportacionAsPAISDestino the value for the private _objImportacionAsPAISDestino (Read-Only) if set due to an expansion on the IMPORTACION.PAIS_Destino reverse relationship
+	 * @property-read Importacion[] $_ImportacionAsPAISDestinoArray the value for the private _objImportacionAsPAISDestinoArray (Read-Only) if set due to an ExpandAsArray on the IMPORTACION.PAIS_Destino reverse relationship
 	 * @property-read Proveedor $_ProveedorAsPAISIdPAIS the value for the private _objProveedorAsPAISIdPAIS (Read-Only) if set due to an expansion on the PROVEEDOR.PAIS_idPAIS reverse relationship
 	 * @property-read Proveedor[] $_ProveedorAsPAISIdPAISArray the value for the private _objProveedorAsPAISIdPAISArray (Read-Only) if set due to an ExpandAsArray on the PROVEEDOR.PAIS_idPAIS reverse relationship
+	 * @property-read Transporte $_TransporteAsPAISIdPAIS the value for the private _objTransporteAsPAISIdPAIS (Read-Only) if set due to an expansion on the TRANSPORTE.PAIS_idPAIS reverse relationship
+	 * @property-read Transporte[] $_TransporteAsPAISIdPAISArray the value for the private _objTransporteAsPAISIdPAISArray (Read-Only) if set due to an ExpandAsArray on the TRANSPORTE.PAIS_idPAIS reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class PaisGen extends QBaseClass implements IteratorAggregate {
@@ -45,6 +51,38 @@
 
 
 		/**
+		 * Private member variable that stores a reference to a single ImportacionAsPAISOrigen object
+		 * (of type Importacion), if this Pais object was restored with
+		 * an expansion on the IMPORTACION association table.
+		 * @var Importacion _objImportacionAsPAISOrigen;
+		 */
+		private $_objImportacionAsPAISOrigen;
+
+		/**
+		 * Private member variable that stores a reference to an array of ImportacionAsPAISOrigen objects
+		 * (of type Importacion[]), if this Pais object was restored with
+		 * an ExpandAsArray on the IMPORTACION association table.
+		 * @var Importacion[] _objImportacionAsPAISOrigenArray;
+		 */
+		private $_objImportacionAsPAISOrigenArray = array();
+
+		/**
+		 * Private member variable that stores a reference to a single ImportacionAsPAISDestino object
+		 * (of type Importacion), if this Pais object was restored with
+		 * an expansion on the IMPORTACION association table.
+		 * @var Importacion _objImportacionAsPAISDestino;
+		 */
+		private $_objImportacionAsPAISDestino;
+
+		/**
+		 * Private member variable that stores a reference to an array of ImportacionAsPAISDestino objects
+		 * (of type Importacion[]), if this Pais object was restored with
+		 * an ExpandAsArray on the IMPORTACION association table.
+		 * @var Importacion[] _objImportacionAsPAISDestinoArray;
+		 */
+		private $_objImportacionAsPAISDestinoArray = array();
+
+		/**
 		 * Private member variable that stores a reference to a single ProveedorAsPAISIdPAIS object
 		 * (of type Proveedor), if this Pais object was restored with
 		 * an expansion on the PROVEEDOR association table.
@@ -59,6 +97,22 @@
 		 * @var Proveedor[] _objProveedorAsPAISIdPAISArray;
 		 */
 		private $_objProveedorAsPAISIdPAISArray = array();
+
+		/**
+		 * Private member variable that stores a reference to a single TransporteAsPAISIdPAIS object
+		 * (of type Transporte), if this Pais object was restored with
+		 * an expansion on the TRANSPORTE association table.
+		 * @var Transporte _objTransporteAsPAISIdPAIS;
+		 */
+		private $_objTransporteAsPAISIdPAIS;
+
+		/**
+		 * Private member variable that stores a reference to an array of TransporteAsPAISIdPAIS objects
+		 * (of type Transporte[]), if this Pais object was restored with
+		 * an ExpandAsArray on the TRANSPORTE association table.
+		 * @var Transporte[] _objTransporteAsPAISIdPAISArray;
+		 */
+		private $_objTransporteAsPAISIdPAISArray = array();
 
 		/**
 		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
@@ -397,6 +451,40 @@
 							$strAliasPrefix = 'PAIS__';
 
 
+						// Expanding reverse references: ImportacionAsPAISOrigen
+						$strAlias = $strAliasPrefix . 'importacionaspaisorigen__TRANSPORTE_idTRANSPORTE';
+						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
+							(!is_null($objDbRow->GetColumn($strAliasName)))) {
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objImportacionAsPAISOrigenArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objImportacionAsPAISOrigenArray;
+								$objChildItem = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisorigen__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+								if ($objChildItem) {
+									$objPreviousItem->_objImportacionAsPAISOrigenArray[] = $objChildItem;
+								}
+							} else {
+								$objPreviousItem->_objImportacionAsPAISOrigenArray[] = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisorigen__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+							}
+							$blnExpandedViaArray = true;
+						}
+
+						// Expanding reverse references: ImportacionAsPAISDestino
+						$strAlias = $strAliasPrefix . 'importacionaspaisdestino__TRANSPORTE_idTRANSPORTE';
+						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
+							(!is_null($objDbRow->GetColumn($strAliasName)))) {
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objImportacionAsPAISDestinoArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objImportacionAsPAISDestinoArray;
+								$objChildItem = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisdestino__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+								if ($objChildItem) {
+									$objPreviousItem->_objImportacionAsPAISDestinoArray[] = $objChildItem;
+								}
+							} else {
+								$objPreviousItem->_objImportacionAsPAISDestinoArray[] = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisdestino__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+							}
+							$blnExpandedViaArray = true;
+						}
+
 						// Expanding reverse references: ProveedorAsPAISIdPAIS
 						$strAlias = $strAliasPrefix . 'proveedoraspaisidpais__idPROVEEDOR';
 						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
@@ -410,6 +498,23 @@
 								}
 							} else {
 								$objPreviousItem->_objProveedorAsPAISIdPAISArray[] = Proveedor::InstantiateDbRow($objDbRow, $strAliasPrefix . 'proveedoraspaisidpais__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+							}
+							$blnExpandedViaArray = true;
+						}
+
+						// Expanding reverse references: TransporteAsPAISIdPAIS
+						$strAlias = $strAliasPrefix . 'transporteaspaisidpais__idTRANSPORTE';
+						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
+							(!is_null($objDbRow->GetColumn($strAliasName)))) {
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objTransporteAsPAISIdPAISArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objTransporteAsPAISIdPAISArray;
+								$objChildItem = Transporte::InstantiateDbRow($objDbRow, $strAliasPrefix . 'transporteaspaisidpais__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+								if ($objChildItem) {
+									$objPreviousItem->_objTransporteAsPAISIdPAISArray[] = $objChildItem;
+								}
+							} else {
+								$objPreviousItem->_objTransporteAsPAISIdPAISArray[] = Transporte::InstantiateDbRow($objDbRow, $strAliasPrefix . 'transporteaspaisidpais__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 							}
 							$blnExpandedViaArray = true;
 						}
@@ -438,7 +543,16 @@
 					if ($objToReturn->IdPAIS != $objPreviousItem->IdPAIS) {
 						continue;
 					}
+					if (array_diff($objPreviousItem->_objImportacionAsPAISOrigenArray, $objToReturn->_objImportacionAsPAISOrigenArray) != null) {
+						continue;
+					}
+					if (array_diff($objPreviousItem->_objImportacionAsPAISDestinoArray, $objToReturn->_objImportacionAsPAISDestinoArray) != null) {
+						continue;
+					}
 					if (array_diff($objPreviousItem->_objProveedorAsPAISIdPAISArray, $objToReturn->_objProveedorAsPAISIdPAISArray) != null) {
+						continue;
+					}
+					if (array_diff($objPreviousItem->_objTransporteAsPAISIdPAISArray, $objToReturn->_objTransporteAsPAISIdPAISArray) != null) {
 						continue;
 					}
 
@@ -462,6 +576,26 @@
 
 
 
+			// Check for ImportacionAsPAISOrigen Virtual Binding
+			$strAlias = $strAliasPrefix . 'importacionaspaisorigen__TRANSPORTE_idTRANSPORTE';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName))) {
+				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
+					$objToReturn->_objImportacionAsPAISOrigenArray[] = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisorigen__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+				else
+					$objToReturn->_objImportacionAsPAISOrigen = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisorigen__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+			}
+
+			// Check for ImportacionAsPAISDestino Virtual Binding
+			$strAlias = $strAliasPrefix . 'importacionaspaisdestino__TRANSPORTE_idTRANSPORTE';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName))) {
+				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
+					$objToReturn->_objImportacionAsPAISDestinoArray[] = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisdestino__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+				else
+					$objToReturn->_objImportacionAsPAISDestino = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaspaisdestino__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+			}
+
 			// Check for ProveedorAsPAISIdPAIS Virtual Binding
 			$strAlias = $strAliasPrefix . 'proveedoraspaisidpais__idPROVEEDOR';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
@@ -470,6 +604,16 @@
 					$objToReturn->_objProveedorAsPAISIdPAISArray[] = Proveedor::InstantiateDbRow($objDbRow, $strAliasPrefix . 'proveedoraspaisidpais__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 				else
 					$objToReturn->_objProveedorAsPAISIdPAIS = Proveedor::InstantiateDbRow($objDbRow, $strAliasPrefix . 'proveedoraspaisidpais__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+			}
+
+			// Check for TransporteAsPAISIdPAIS Virtual Binding
+			$strAlias = $strAliasPrefix . 'transporteaspaisidpais__idTRANSPORTE';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName))) {
+				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
+					$objToReturn->_objTransporteAsPAISIdPAISArray[] = Transporte::InstantiateDbRow($objDbRow, $strAliasPrefix . 'transporteaspaisidpais__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+				else
+					$objToReturn->_objTransporteAsPAISIdPAIS = Transporte::InstantiateDbRow($objDbRow, $strAliasPrefix . 'transporteaspaisidpais__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 			}
 
 			return $objToReturn;
@@ -703,6 +847,38 @@
 				// (If restored via a "Many-to" expansion)
 				////////////////////////////
 
+				case '_ImportacionAsPAISOrigen':
+					/**
+					 * Gets the value for the private _objImportacionAsPAISOrigen (Read-Only)
+					 * if set due to an expansion on the IMPORTACION.PAIS_Origen reverse relationship
+					 * @return Importacion
+					 */
+					return $this->_objImportacionAsPAISOrigen;
+
+				case '_ImportacionAsPAISOrigenArray':
+					/**
+					 * Gets the value for the private _objImportacionAsPAISOrigenArray (Read-Only)
+					 * if set due to an ExpandAsArray on the IMPORTACION.PAIS_Origen reverse relationship
+					 * @return Importacion[]
+					 */
+					return (array) $this->_objImportacionAsPAISOrigenArray;
+
+				case '_ImportacionAsPAISDestino':
+					/**
+					 * Gets the value for the private _objImportacionAsPAISDestino (Read-Only)
+					 * if set due to an expansion on the IMPORTACION.PAIS_Destino reverse relationship
+					 * @return Importacion
+					 */
+					return $this->_objImportacionAsPAISDestino;
+
+				case '_ImportacionAsPAISDestinoArray':
+					/**
+					 * Gets the value for the private _objImportacionAsPAISDestinoArray (Read-Only)
+					 * if set due to an ExpandAsArray on the IMPORTACION.PAIS_Destino reverse relationship
+					 * @return Importacion[]
+					 */
+					return (array) $this->_objImportacionAsPAISDestinoArray;
+
 				case '_ProveedorAsPAISIdPAIS':
 					/**
 					 * Gets the value for the private _objProveedorAsPAISIdPAIS (Read-Only)
@@ -718,6 +894,22 @@
 					 * @return Proveedor[]
 					 */
 					return (array) $this->_objProveedorAsPAISIdPAISArray;
+
+				case '_TransporteAsPAISIdPAIS':
+					/**
+					 * Gets the value for the private _objTransporteAsPAISIdPAIS (Read-Only)
+					 * if set due to an expansion on the TRANSPORTE.PAIS_idPAIS reverse relationship
+					 * @return Transporte
+					 */
+					return $this->_objTransporteAsPAISIdPAIS;
+
+				case '_TransporteAsPAISIdPAISArray':
+					/**
+					 * Gets the value for the private _objTransporteAsPAISIdPAISArray (Read-Only)
+					 * if set due to an ExpandAsArray on the TRANSPORTE.PAIS_idPAIS reverse relationship
+					 * @return Transporte[]
+					 */
+					return (array) $this->_objTransporteAsPAISIdPAISArray;
 
 
 				case '__Restored':
@@ -789,6 +981,312 @@
 		///////////////////////////////
 		// ASSOCIATED OBJECTS' METHODS
 		///////////////////////////////
+
+			
+		
+		// Related Objects' Methods for ImportacionAsPAISOrigen
+		//-------------------------------------------------------------------
+
+		/**
+		 * Gets all associated ImportacionsAsPAISOrigen as an array of Importacion objects
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Importacion[]
+		*/ 
+		public function GetImportacionAsPAISOrigenArray($objOptionalClauses = null) {
+			if ((is_null($this->intIdPAIS)))
+				return array();
+
+			try {
+				return Importacion::LoadArrayByPAISOrigen($this->intIdPAIS, $objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Counts all associated ImportacionsAsPAISOrigen
+		 * @return int
+		*/ 
+		public function CountImportacionsAsPAISOrigen() {
+			if ((is_null($this->intIdPAIS)))
+				return 0;
+
+			return Importacion::CountByPAISOrigen($this->intIdPAIS);
+		}
+
+		/**
+		 * Associates a ImportacionAsPAISOrigen
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function AssociateImportacionAsPAISOrigen(Importacion $objImportacion) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateImportacionAsPAISOrigen on this unsaved Pais.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateImportacionAsPAISOrigen on this Pais with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`PAIS_Origen` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Unassociates a ImportacionAsPAISOrigen
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function UnassociateImportacionAsPAISOrigen(Importacion $objImportacion) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISOrigen on this unsaved Pais.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISOrigen on this Pais with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`PAIS_Origen` = null
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . ' AND
+					`PAIS_Origen` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Unassociates all ImportacionsAsPAISOrigen
+		 * @return void
+		*/ 
+		public function UnassociateAllImportacionsAsPAISOrigen() {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISOrigen on this unsaved Pais.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`PAIS_Origen` = null
+				WHERE
+					`PAIS_Origen` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated ImportacionAsPAISOrigen
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function DeleteAssociatedImportacionAsPAISOrigen(Importacion $objImportacion) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISOrigen on this unsaved Pais.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISOrigen on this Pais with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`IMPORTACION`
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . ' AND
+					`PAIS_Origen` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Deletes all associated ImportacionsAsPAISOrigen
+		 * @return void
+		*/ 
+		public function DeleteAllImportacionsAsPAISOrigen() {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISOrigen on this unsaved Pais.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`IMPORTACION`
+				WHERE
+					`PAIS_Origen` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+			
+		
+		// Related Objects' Methods for ImportacionAsPAISDestino
+		//-------------------------------------------------------------------
+
+		/**
+		 * Gets all associated ImportacionsAsPAISDestino as an array of Importacion objects
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Importacion[]
+		*/ 
+		public function GetImportacionAsPAISDestinoArray($objOptionalClauses = null) {
+			if ((is_null($this->intIdPAIS)))
+				return array();
+
+			try {
+				return Importacion::LoadArrayByPAISDestino($this->intIdPAIS, $objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Counts all associated ImportacionsAsPAISDestino
+		 * @return int
+		*/ 
+		public function CountImportacionsAsPAISDestino() {
+			if ((is_null($this->intIdPAIS)))
+				return 0;
+
+			return Importacion::CountByPAISDestino($this->intIdPAIS);
+		}
+
+		/**
+		 * Associates a ImportacionAsPAISDestino
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function AssociateImportacionAsPAISDestino(Importacion $objImportacion) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateImportacionAsPAISDestino on this unsaved Pais.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateImportacionAsPAISDestino on this Pais with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`PAIS_Destino` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Unassociates a ImportacionAsPAISDestino
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function UnassociateImportacionAsPAISDestino(Importacion $objImportacion) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISDestino on this unsaved Pais.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISDestino on this Pais with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`PAIS_Destino` = null
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . ' AND
+					`PAIS_Destino` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Unassociates all ImportacionsAsPAISDestino
+		 * @return void
+		*/ 
+		public function UnassociateAllImportacionsAsPAISDestino() {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISDestino on this unsaved Pais.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`PAIS_Destino` = null
+				WHERE
+					`PAIS_Destino` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated ImportacionAsPAISDestino
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function DeleteAssociatedImportacionAsPAISDestino(Importacion $objImportacion) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISDestino on this unsaved Pais.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISDestino on this Pais with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`IMPORTACION`
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . ' AND
+					`PAIS_Destino` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Deletes all associated ImportacionsAsPAISDestino
+		 * @return void
+		*/ 
+		public function DeleteAllImportacionsAsPAISDestino() {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsPAISDestino on this unsaved Pais.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`IMPORTACION`
+				WHERE
+					`PAIS_Destino` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
 
 			
 		
@@ -940,6 +1438,156 @@
 			');
 		}
 
+			
+		
+		// Related Objects' Methods for TransporteAsPAISIdPAIS
+		//-------------------------------------------------------------------
+
+		/**
+		 * Gets all associated TransportesAsPAISIdPAIS as an array of Transporte objects
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Transporte[]
+		*/ 
+		public function GetTransporteAsPAISIdPAISArray($objOptionalClauses = null) {
+			if ((is_null($this->intIdPAIS)))
+				return array();
+
+			try {
+				return Transporte::LoadArrayByPAISIdPAIS($this->intIdPAIS, $objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Counts all associated TransportesAsPAISIdPAIS
+		 * @return int
+		*/ 
+		public function CountTransportesAsPAISIdPAIS() {
+			if ((is_null($this->intIdPAIS)))
+				return 0;
+
+			return Transporte::CountByPAISIdPAIS($this->intIdPAIS);
+		}
+
+		/**
+		 * Associates a TransporteAsPAISIdPAIS
+		 * @param Transporte $objTransporte
+		 * @return void
+		*/ 
+		public function AssociateTransporteAsPAISIdPAIS(Transporte $objTransporte) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateTransporteAsPAISIdPAIS on this unsaved Pais.');
+			if ((is_null($objTransporte->IdTRANSPORTE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateTransporteAsPAISIdPAIS on this Pais with an unsaved Transporte.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`TRANSPORTE`
+				SET
+					`PAIS_idPAIS` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+				WHERE
+					`idTRANSPORTE` = ' . $objDatabase->SqlVariable($objTransporte->IdTRANSPORTE) . '
+			');
+		}
+
+		/**
+		 * Unassociates a TransporteAsPAISIdPAIS
+		 * @param Transporte $objTransporte
+		 * @return void
+		*/ 
+		public function UnassociateTransporteAsPAISIdPAIS(Transporte $objTransporte) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateTransporteAsPAISIdPAIS on this unsaved Pais.');
+			if ((is_null($objTransporte->IdTRANSPORTE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateTransporteAsPAISIdPAIS on this Pais with an unsaved Transporte.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`TRANSPORTE`
+				SET
+					`PAIS_idPAIS` = null
+				WHERE
+					`idTRANSPORTE` = ' . $objDatabase->SqlVariable($objTransporte->IdTRANSPORTE) . ' AND
+					`PAIS_idPAIS` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Unassociates all TransportesAsPAISIdPAIS
+		 * @return void
+		*/ 
+		public function UnassociateAllTransportesAsPAISIdPAIS() {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateTransporteAsPAISIdPAIS on this unsaved Pais.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`TRANSPORTE`
+				SET
+					`PAIS_idPAIS` = null
+				WHERE
+					`PAIS_idPAIS` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated TransporteAsPAISIdPAIS
+		 * @param Transporte $objTransporte
+		 * @return void
+		*/ 
+		public function DeleteAssociatedTransporteAsPAISIdPAIS(Transporte $objTransporte) {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateTransporteAsPAISIdPAIS on this unsaved Pais.');
+			if ((is_null($objTransporte->IdTRANSPORTE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateTransporteAsPAISIdPAIS on this Pais with an unsaved Transporte.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`TRANSPORTE`
+				WHERE
+					`idTRANSPORTE` = ' . $objDatabase->SqlVariable($objTransporte->IdTRANSPORTE) . ' AND
+					`PAIS_idPAIS` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
+		/**
+		 * Deletes all associated TransportesAsPAISIdPAIS
+		 * @return void
+		*/ 
+		public function DeleteAllTransportesAsPAISIdPAIS() {
+			if ((is_null($this->intIdPAIS)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateTransporteAsPAISIdPAIS on this unsaved Pais.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Pais::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`TRANSPORTE`
+				WHERE
+					`PAIS_idPAIS` = ' . $objDatabase->SqlVariable($this->intIdPAIS) . '
+			');
+		}
+
 
 
 
@@ -1037,7 +1685,10 @@
      * @property-read QQNode $Nombre
      *
      *
+     * @property-read QQReverseReferenceNodeImportacion $ImportacionAsPAISOrigen
+     * @property-read QQReverseReferenceNodeImportacion $ImportacionAsPAISDestino
      * @property-read QQReverseReferenceNodeProveedor $ProveedorAsPAISIdPAIS
+     * @property-read QQReverseReferenceNodeTransporte $TransporteAsPAISIdPAIS
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1051,8 +1702,14 @@
 					return new QQNode('idPAIS', 'IdPAIS', 'Integer', $this);
 				case 'Nombre':
 					return new QQNode('nombre', 'Nombre', 'VarChar', $this);
+				case 'ImportacionAsPAISOrigen':
+					return new QQReverseReferenceNodeImportacion($this, 'importacionaspaisorigen', 'reverse_reference', 'PAIS_Origen');
+				case 'ImportacionAsPAISDestino':
+					return new QQReverseReferenceNodeImportacion($this, 'importacionaspaisdestino', 'reverse_reference', 'PAIS_Destino');
 				case 'ProveedorAsPAISIdPAIS':
 					return new QQReverseReferenceNodeProveedor($this, 'proveedoraspaisidpais', 'reverse_reference', 'PAIS_idPAIS');
+				case 'TransporteAsPAISIdPAIS':
+					return new QQReverseReferenceNodeTransporte($this, 'transporteaspaisidpais', 'reverse_reference', 'PAIS_idPAIS');
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idPAIS', 'IdPAIS', 'Integer', $this);
@@ -1072,7 +1729,10 @@
      * @property-read QQNode $Nombre
      *
      *
+     * @property-read QQReverseReferenceNodeImportacion $ImportacionAsPAISOrigen
+     * @property-read QQReverseReferenceNodeImportacion $ImportacionAsPAISDestino
      * @property-read QQReverseReferenceNodeProveedor $ProveedorAsPAISIdPAIS
+     * @property-read QQReverseReferenceNodeTransporte $TransporteAsPAISIdPAIS
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1086,8 +1746,14 @@
 					return new QQNode('idPAIS', 'IdPAIS', 'integer', $this);
 				case 'Nombre':
 					return new QQNode('nombre', 'Nombre', 'string', $this);
+				case 'ImportacionAsPAISOrigen':
+					return new QQReverseReferenceNodeImportacion($this, 'importacionaspaisorigen', 'reverse_reference', 'PAIS_Origen');
+				case 'ImportacionAsPAISDestino':
+					return new QQReverseReferenceNodeImportacion($this, 'importacionaspaisdestino', 'reverse_reference', 'PAIS_Destino');
 				case 'ProveedorAsPAISIdPAIS':
 					return new QQReverseReferenceNodeProveedor($this, 'proveedoraspaisidpais', 'reverse_reference', 'PAIS_idPAIS');
+				case 'TransporteAsPAISIdPAIS':
+					return new QQReverseReferenceNodeTransporte($this, 'transporteaspaisidpais', 'reverse_reference', 'PAIS_idPAIS');
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idPAIS', 'IdPAIS', 'integer', $this);

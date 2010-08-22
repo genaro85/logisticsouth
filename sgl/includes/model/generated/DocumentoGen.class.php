@@ -18,7 +18,7 @@
 	 * @property-read integer $IdDOCUMENTO the value for intIdDOCUMENTO (Read-Only PK)
 	 * @property string $Nombre the value for strNombre (Not Null)
 	 * @property integer $Duracion the value for intDuracion 
-	 * @property ListaDeDocumento $ListaDeDocumento the value for the ListaDeDocumento object that uniquely references this Documento
+	 * @property DocumentosFase $DocumentosFase the value for the DocumentosFase object that uniquely references this Documento
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class DocumentoGen extends QBaseClass implements IteratorAggregate {
@@ -76,21 +76,21 @@
 
 		/**
 		 * Protected member variable that contains the object which points to
-		 * this object by the reference in the unique database column LISTA_DE_DOCUMENTO.DOCUMENTO_idDOCUMENTO.
+		 * this object by the reference in the unique database column DOCUMENTOS_FASE.DOCUMENTO_idDOCUMENTO.
 		 *
-		 * NOTE: Always use the ListaDeDocumento property getter to correctly retrieve this ListaDeDocumento object.
+		 * NOTE: Always use the DocumentosFase property getter to correctly retrieve this DocumentosFase object.
 		 * (Because this class implements late binding, this variable reference MAY be null.)
-		 * @var ListaDeDocumento objListaDeDocumento
+		 * @var DocumentosFase objDocumentosFase
 		 */
-		protected $objListaDeDocumento;
+		protected $objDocumentosFase;
 		
 		/**
-		 * Used internally to manage whether the adjoined ListaDeDocumento object
+		 * Used internally to manage whether the adjoined DocumentosFase object
 		 * needs to be updated on save.
 		 * 
 		 * NOTE: Do not manually update this value 
 		 */
-		protected $blnDirtyListaDeDocumento;
+		protected $blnDirtyDocumentosFase;
 
 
 
@@ -433,16 +433,16 @@
 				$strAliasPrefix = 'DOCUMENTO__';
 
 
-			// Check for ListaDeDocumento Unique ReverseReference Binding
-			$strAlias = $strAliasPrefix . 'listadedocumento__DOCUMENTO_idDOCUMENTO';
+			// Check for DocumentosFase Unique ReverseReference Binding
+			$strAlias = $strAliasPrefix . 'documentosfase__DOCUMENTO_idDOCUMENTO';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if ($objDbRow->ColumnExists($strAliasName)) {
 				if (!is_null($objDbRow->GetColumn($strAliasName)))
-					$objToReturn->objListaDeDocumento = ListaDeDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'listadedocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->objDocumentosFase = DocumentosFase::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentosfase__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 				else
 					// We ATTEMPTED to do an Early Bind but the Object Doesn't Exist
 					// Let's set to FALSE so that the object knows not to try and re-query again
-					$objToReturn->objListaDeDocumento = false;
+					$objToReturn->objDocumentosFase = false;
 			}
 
 
@@ -565,23 +565,23 @@
 
 		
 		
-				// Update the adjoined ListaDeDocumento object (if applicable)
+				// Update the adjoined DocumentosFase object (if applicable)
 				// TODO: Make this into hard-coded SQL queries
-				if ($this->blnDirtyListaDeDocumento) {
+				if ($this->blnDirtyDocumentosFase) {
 					// Unassociate the old one (if applicable)
-					if ($objAssociated = ListaDeDocumento::LoadByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO)) {
+					if ($objAssociated = DocumentosFase::LoadByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO)) {
 						$objAssociated->DOCUMENTOIdDOCUMENTO = null;
 						$objAssociated->Save();
 					}
 
 					// Associate the new one (if applicable)
-					if ($this->objListaDeDocumento) {
-						$this->objListaDeDocumento->DOCUMENTOIdDOCUMENTO = $this->intIdDOCUMENTO;
-						$this->objListaDeDocumento->Save();
+					if ($this->objDocumentosFase) {
+						$this->objDocumentosFase->DOCUMENTOIdDOCUMENTO = $this->intIdDOCUMENTO;
+						$this->objDocumentosFase->Save();
 					}
 
 					// Reset the "Dirty" flag
-					$this->blnDirtyListaDeDocumento = false;
+					$this->blnDirtyDocumentosFase = false;
 				}
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
@@ -609,11 +609,11 @@
 
 			
 			
-			// Update the adjoined ListaDeDocumento object (if applicable) and perform a delete
+			// Update the adjoined DocumentosFase object (if applicable) and perform a delete
 
 			// Optional -- if you **KNOW** that you do not want to EVER run any level of business logic on the disassocation,
 			// you *could* override Delete() so that this step can be a single hard coded query to optimize performance.
-			if ($objAssociated = ListaDeDocumento::LoadByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO)) {
+			if ($objAssociated = DocumentosFase::LoadByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO)) {
 				$objAssociated->Delete();
 			}
 
@@ -714,19 +714,19 @@
 				///////////////////
 		
 		
-				case 'ListaDeDocumento':
+				case 'DocumentosFase':
 					/**
-					 * Gets the value for the ListaDeDocumento object that uniquely references this Documento
-					 * by objListaDeDocumento (Unique)
-					 * @return ListaDeDocumento
+					 * Gets the value for the DocumentosFase object that uniquely references this Documento
+					 * by objDocumentosFase (Unique)
+					 * @return DocumentosFase
 					 */
 					try {
-						if ($this->objListaDeDocumento === false)
+						if ($this->objDocumentosFase === false)
 							// We've attempted early binding -- and the reverse reference object does not exist
 							return null;
-						if (!$this->objListaDeDocumento)
-							$this->objListaDeDocumento = ListaDeDocumento::LoadByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO);
-						return $this->objListaDeDocumento;
+						if (!$this->objDocumentosFase)
+							$this->objDocumentosFase = DocumentosFase::LoadByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO);
+						return $this->objDocumentosFase;
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -795,36 +795,36 @@
 				///////////////////
 				// Member Objects
 				///////////////////
-				case 'ListaDeDocumento':
+				case 'DocumentosFase':
 					/**
-					 * Sets the value for the ListaDeDocumento object referenced by objListaDeDocumento (Unique)
-					 * @param ListaDeDocumento $mixValue
-					 * @return ListaDeDocumento
+					 * Sets the value for the DocumentosFase object referenced by objDocumentosFase (Unique)
+					 * @param DocumentosFase $mixValue
+					 * @return DocumentosFase
 					 */
 					if (is_null($mixValue)) {
-						$this->objListaDeDocumento = null;
+						$this->objDocumentosFase = null;
 
-						// Make sure we update the adjoined ListaDeDocumento object the next time we call Save()
-						$this->blnDirtyListaDeDocumento = true;
+						// Make sure we update the adjoined DocumentosFase object the next time we call Save()
+						$this->blnDirtyDocumentosFase = true;
 
 						return null;
 					} else {
-						// Make sure $mixValue actually is a ListaDeDocumento object
+						// Make sure $mixValue actually is a DocumentosFase object
 						try {
-							$mixValue = QType::Cast($mixValue, 'ListaDeDocumento');
+							$mixValue = QType::Cast($mixValue, 'DocumentosFase');
 						} catch (QInvalidCastException $objExc) {
 							$objExc->IncrementOffset();
 							throw $objExc;
 						}
 
-						// Are we setting objListaDeDocumento to a DIFFERENT $mixValue?
-						if ((!$this->ListaDeDocumento) || ($this->ListaDeDocumento->DOCUMENTOIdDOCUMENTO != $mixValue->DOCUMENTOIdDOCUMENTO)) {
+						// Are we setting objDocumentosFase to a DIFFERENT $mixValue?
+						if ((!$this->DocumentosFase) || ($this->DocumentosFase->DOCUMENTOIdDOCUMENTO != $mixValue->DOCUMENTOIdDOCUMENTO)) {
 							// Yes -- therefore, set the "Dirty" flag to true
-							// to make sure we update the adjoined ListaDeDocumento object the next time we call Save()
-							$this->blnDirtyListaDeDocumento = true;
+							// to make sure we update the adjoined DocumentosFase object the next time we call Save()
+							$this->blnDirtyDocumentosFase = true;
 
 							// Update Local Member Variable
-							$this->objListaDeDocumento = $mixValue;
+							$this->objDocumentosFase = $mixValue;
 						} else {
 							// Nope -- therefore, make no changes
 						}
@@ -963,7 +963,7 @@
      * @property-read QQNode $Duracion
      *
      *
-     * @property-read QQReverseReferenceNodeListaDeDocumento $ListaDeDocumento
+     * @property-read QQReverseReferenceNodeDocumentosFase $DocumentosFase
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -979,8 +979,8 @@
 					return new QQNode('nombre', 'Nombre', 'VarChar', $this);
 				case 'Duracion':
 					return new QQNode('duracion', 'Duracion', 'Integer', $this);
-				case 'ListaDeDocumento':
-					return new QQReverseReferenceNodeListaDeDocumento($this, 'listadedocumento', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO', 'ListaDeDocumento');
+				case 'DocumentosFase':
+					return new QQReverseReferenceNodeDocumentosFase($this, 'documentosfase', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO', 'DocumentosFase');
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idDOCUMENTO', 'IdDOCUMENTO', 'Integer', $this);
@@ -1001,7 +1001,7 @@
      * @property-read QQNode $Duracion
      *
      *
-     * @property-read QQReverseReferenceNodeListaDeDocumento $ListaDeDocumento
+     * @property-read QQReverseReferenceNodeDocumentosFase $DocumentosFase
 
      * @property-read QQNode $_PrimaryKeyNode
      **/
@@ -1017,8 +1017,8 @@
 					return new QQNode('nombre', 'Nombre', 'string', $this);
 				case 'Duracion':
 					return new QQNode('duracion', 'Duracion', 'integer', $this);
-				case 'ListaDeDocumento':
-					return new QQReverseReferenceNodeListaDeDocumento($this, 'listadedocumento', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO', 'ListaDeDocumento');
+				case 'DocumentosFase':
+					return new QQReverseReferenceNodeDocumentosFase($this, 'documentosfase', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO', 'DocumentosFase');
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idDOCUMENTO', 'IdDOCUMENTO', 'integer', $this);

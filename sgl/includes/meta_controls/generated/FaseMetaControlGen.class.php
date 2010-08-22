@@ -24,6 +24,8 @@
 	 * @property-read QLabel $DuracionLabel
 	 * @property QTextBox $IconoControl
 	 * @property-read QLabel $IconoLabel
+	 * @property QListBox $PROCESOIdPROCESOControl
+	 * @property-read QLabel $PROCESOIdPROCESOLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -61,11 +63,16 @@
 		 * @var QTextBox strIcono
 		 */
 		protected $txtIcono;
+		/**
+		 * @var QListBox intPROCESOIdPROCESO
+		 */
+		protected $lstPROCESOIdPROCESOObject;
 
 		// Controls that allow the viewing of Fase's individual data fields
 		protected $lblNombre;
 		protected $lblDuracion;
 		protected $lblIcono;
+		protected $lblPROCESOIdPROCESO;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 
@@ -259,6 +266,40 @@
 			return $this->lblIcono;
 		}
 
+		/**
+		 * Create and setup QListBox lstPROCESOIdPROCESOObject
+		 * @param string $strControlId optional ControlId to use
+		 * @return QListBox
+		 */
+		public function lstPROCESOIdPROCESOObject_Create($strControlId = null) {
+			$this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('P R O C E S O Id P R O C E S O Object');
+			$this->lstPROCESOIdPROCESOObject->Required = true;
+			if (!$this->blnEditMode)
+				$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
+			if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
+				$objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
+				if (($this->objFase->PROCESOIdPROCESOObject) && ($this->objFase->PROCESOIdPROCESOObject->IdPROCESO == $objPROCESOIdPROCESOObject->IdPROCESO))
+					$objListItem->Selected = true;
+				$this->lstPROCESOIdPROCESOObject->AddItem($objListItem);
+			}
+			return $this->lstPROCESOIdPROCESOObject;
+		}
+
+		/**
+		 * Create and setup QLabel lblPROCESOIdPROCESO
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblPROCESOIdPROCESO_Create($strControlId = null) {
+			$this->lblPROCESOIdPROCESO = new QLabel($this->objParentObject, $strControlId);
+			$this->lblPROCESOIdPROCESO->Name = QApplication::Translate('P R O C E S O Id P R O C E S O Object');
+			$this->lblPROCESOIdPROCESO->Text = ($this->objFase->PROCESOIdPROCESOObject) ? $this->objFase->PROCESOIdPROCESOObject->__toString() : null;
+			$this->lblPROCESOIdPROCESO->Required = true;
+			return $this->lblPROCESOIdPROCESO;
+		}
+
 
 
 		/**
@@ -280,6 +321,20 @@
 
 			if ($this->txtIcono) $this->txtIcono->Text = $this->objFase->Icono;
 			if ($this->lblIcono) $this->lblIcono->Text = $this->objFase->Icono;
+
+			if ($this->lstPROCESOIdPROCESOObject) {
+					$this->lstPROCESOIdPROCESOObject->RemoveAllItems();
+				if (!$this->blnEditMode)
+					$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
+				$objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
+				if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
+					$objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
+					if (($this->objFase->PROCESOIdPROCESOObject) && ($this->objFase->PROCESOIdPROCESOObject->IdPROCESO == $objPROCESOIdPROCESOObject->IdPROCESO))
+						$objListItem->Selected = true;
+					$this->lstPROCESOIdPROCESOObject->AddItem($objListItem);
+				}
+			}
+			if ($this->lblPROCESOIdPROCESO) $this->lblPROCESOIdPROCESO->Text = ($this->objFase->PROCESOIdPROCESOObject) ? $this->objFase->PROCESOIdPROCESOObject->__toString() : null;
 
 		}
 
@@ -307,6 +362,7 @@
 				if ($this->txtNombre) $this->objFase->Nombre = $this->txtNombre->Text;
 				if ($this->txtDuracion) $this->objFase->Duracion = $this->txtDuracion->Text;
 				if ($this->txtIcono) $this->objFase->Icono = $this->txtIcono->Text;
+				if ($this->lstPROCESOIdPROCESOObject) $this->objFase->PROCESOIdPROCESO = $this->lstPROCESOIdPROCESOObject->SelectedValue;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 
@@ -373,6 +429,12 @@
 				case 'IconoLabel':
 					if (!$this->lblIcono) return $this->lblIcono_Create();
 					return $this->lblIcono;
+				case 'PROCESOIdPROCESOControl':
+					if (!$this->lstPROCESOIdPROCESOObject) return $this->lstPROCESOIdPROCESOObject_Create();
+					return $this->lstPROCESOIdPROCESOObject;
+				case 'PROCESOIdPROCESOLabel':
+					if (!$this->lblPROCESOIdPROCESO) return $this->lblPROCESOIdPROCESO_Create();
+					return $this->lblPROCESOIdPROCESO;
 				default:
 					try {
 						return parent::__get($strName);
@@ -403,6 +465,8 @@
 						return ($this->txtDuracion = QType::Cast($mixValue, 'QControl'));
 					case 'IconoControl':
 						return ($this->txtIcono = QType::Cast($mixValue, 'QControl'));
+					case 'PROCESOIdPROCESOControl':
+						return ($this->lstPROCESOIdPROCESOObject = QType::Cast($mixValue, 'QControl'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

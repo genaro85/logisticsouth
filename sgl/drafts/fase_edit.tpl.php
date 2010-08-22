@@ -17,13 +17,15 @@
 	</div>
 
 	<div id="formControls">
-		<?php //$this->lblIdFASE->RenderWithName(); ?>
+		<?php $this->lblIdFASE->RenderWithName(); ?>
 
 		<?php $this->txtNombre->RenderWithName(); ?>
 
 		<?php $this->txtDuracion->RenderWithName(); ?>
 
 		<?php $this->txtIcono->RenderWithName(); ?>
+
+		<?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
 
 	</div>
 

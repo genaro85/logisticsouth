@@ -25,7 +25,10 @@
 		// Controls for CodigoPago's Data Fields
 		protected $lstLICENCIAIdLICENCIAObject;
 		protected $lstTIPODEPAGOIdTIPODEPAGOObject;
-		protected $txtCodigo;
+		protected $txtNumRef;
+		protected $txtFecha;
+		protected $txtDivisa;
+		protected $txtMonto;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 
@@ -65,7 +68,10 @@
 			// Call MetaControl's methods to create qcontrols based on CodigoPago's data fields
 			$this->lstLICENCIAIdLICENCIAObject = $this->mctCodigoPago->lstLICENCIAIdLICENCIAObject_Create();
 			$this->lstTIPODEPAGOIdTIPODEPAGOObject = $this->mctCodigoPago->lstTIPODEPAGOIdTIPODEPAGOObject_Create();
-			$this->txtCodigo = $this->mctCodigoPago->txtCodigo_Create();
+			$this->txtNumRef = $this->mctCodigoPago->txtNumRef_Create();
+			$this->txtFecha = $this->mctCodigoPago->txtFecha_Create();
+			$this->txtDivisa = $this->mctCodigoPago->txtDivisa_Create();
+			$this->txtMonto = $this->mctCodigoPago->txtMonto_Create();
 
 			// Create Buttons and Actions on this Form
 			$this->btnSave = new QButton($this);

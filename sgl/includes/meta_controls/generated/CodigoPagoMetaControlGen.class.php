@@ -20,8 +20,14 @@
 	 * @property-read QLabel $LICENCIAIdLICENCIALabel
 	 * @property QListBox $TIPODEPAGOIdTIPODEPAGOControl
 	 * @property-read QLabel $TIPODEPAGOIdTIPODEPAGOLabel
-	 * @property QTextBox $CodigoControl
-	 * @property-read QLabel $CodigoLabel
+	 * @property QTextBox $NumRefControl
+	 * @property-read QLabel $NumRefLabel
+	 * @property QTextBox $FechaControl
+	 * @property-read QLabel $FechaLabel
+	 * @property QTextBox $DivisaControl
+	 * @property-read QLabel $DivisaLabel
+	 * @property QTextBox $MontoControl
+	 * @property-read QLabel $MontoLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -52,14 +58,29 @@
 		 */
 		protected $lstTIPODEPAGOIdTIPODEPAGOObject;
 		/**
-		 * @var QTextBox strCodigo
+		 * @var QTextBox strNumRef
 		 */
-		protected $txtCodigo;
+		protected $txtNumRef;
+		/**
+		 * @var QTextBox strFecha
+		 */
+		protected $txtFecha;
+		/**
+		 * @var QTextBox strDivisa
+		 */
+		protected $txtDivisa;
+		/**
+		 * @var QTextBox strMonto
+		 */
+		protected $txtMonto;
 
 		// Controls that allow the viewing of CodigoPago's individual data fields
 		protected $lblLICENCIAIdLICENCIA;
 		protected $lblTIPODEPAGOIdTIPODEPAGO;
-		protected $lblCodigo;
+		protected $lblNumRef;
+		protected $lblFecha;
+		protected $lblDivisa;
+		protected $lblMonto;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 
@@ -230,28 +251,103 @@
 		}
 
 		/**
-		 * Create and setup QTextBox txtCodigo
+		 * Create and setup QTextBox txtNumRef
 		 * @param string $strControlId optional ControlId to use
 		 * @return QTextBox
 		 */
-		public function txtCodigo_Create($strControlId = null) {
-			$this->txtCodigo = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtCodigo->Name = QApplication::Translate('Codigo');
-			$this->txtCodigo->Text = $this->objCodigoPago->Codigo;
-			$this->txtCodigo->MaxLength = CodigoPago::CodigoMaxLength;
-			return $this->txtCodigo;
+		public function txtNumRef_Create($strControlId = null) {
+			$this->txtNumRef = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtNumRef->Name = QApplication::Translate('Num Ref');
+			$this->txtNumRef->Text = $this->objCodigoPago->NumRef;
+			$this->txtNumRef->MaxLength = CodigoPago::NumRefMaxLength;
+			return $this->txtNumRef;
 		}
 
 		/**
-		 * Create and setup QLabel lblCodigo
+		 * Create and setup QLabel lblNumRef
 		 * @param string $strControlId optional ControlId to use
 		 * @return QLabel
 		 */
-		public function lblCodigo_Create($strControlId = null) {
-			$this->lblCodigo = new QLabel($this->objParentObject, $strControlId);
-			$this->lblCodigo->Name = QApplication::Translate('Codigo');
-			$this->lblCodigo->Text = $this->objCodigoPago->Codigo;
-			return $this->lblCodigo;
+		public function lblNumRef_Create($strControlId = null) {
+			$this->lblNumRef = new QLabel($this->objParentObject, $strControlId);
+			$this->lblNumRef->Name = QApplication::Translate('Num Ref');
+			$this->lblNumRef->Text = $this->objCodigoPago->NumRef;
+			return $this->lblNumRef;
+		}
+
+		/**
+		 * Create and setup QTextBox txtFecha
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtFecha_Create($strControlId = null) {
+			$this->txtFecha = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtFecha->Name = QApplication::Translate('Fecha');
+			$this->txtFecha->Text = $this->objCodigoPago->Fecha;
+			$this->txtFecha->MaxLength = CodigoPago::FechaMaxLength;
+			return $this->txtFecha;
+		}
+
+		/**
+		 * Create and setup QLabel lblFecha
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblFecha_Create($strControlId = null) {
+			$this->lblFecha = new QLabel($this->objParentObject, $strControlId);
+			$this->lblFecha->Name = QApplication::Translate('Fecha');
+			$this->lblFecha->Text = $this->objCodigoPago->Fecha;
+			return $this->lblFecha;
+		}
+
+		/**
+		 * Create and setup QTextBox txtDivisa
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtDivisa_Create($strControlId = null) {
+			$this->txtDivisa = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtDivisa->Name = QApplication::Translate('Divisa');
+			$this->txtDivisa->Text = $this->objCodigoPago->Divisa;
+			$this->txtDivisa->MaxLength = CodigoPago::DivisaMaxLength;
+			return $this->txtDivisa;
+		}
+
+		/**
+		 * Create and setup QLabel lblDivisa
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblDivisa_Create($strControlId = null) {
+			$this->lblDivisa = new QLabel($this->objParentObject, $strControlId);
+			$this->lblDivisa->Name = QApplication::Translate('Divisa');
+			$this->lblDivisa->Text = $this->objCodigoPago->Divisa;
+			return $this->lblDivisa;
+		}
+
+		/**
+		 * Create and setup QTextBox txtMonto
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtMonto_Create($strControlId = null) {
+			$this->txtMonto = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtMonto->Name = QApplication::Translate('Monto');
+			$this->txtMonto->Text = $this->objCodigoPago->Monto;
+			$this->txtMonto->MaxLength = CodigoPago::MontoMaxLength;
+			return $this->txtMonto;
+		}
+
+		/**
+		 * Create and setup QLabel lblMonto
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblMonto_Create($strControlId = null) {
+			$this->lblMonto = new QLabel($this->objParentObject, $strControlId);
+			$this->lblMonto->Name = QApplication::Translate('Monto');
+			$this->lblMonto->Text = $this->objCodigoPago->Monto;
+			return $this->lblMonto;
 		}
 
 
@@ -293,8 +389,17 @@
 			}
 			if ($this->lblTIPODEPAGOIdTIPODEPAGO) $this->lblTIPODEPAGOIdTIPODEPAGO->Text = ($this->objCodigoPago->TIPODEPAGOIdTIPODEPAGOObject) ? $this->objCodigoPago->TIPODEPAGOIdTIPODEPAGOObject->__toString() : null;
 
-			if ($this->txtCodigo) $this->txtCodigo->Text = $this->objCodigoPago->Codigo;
-			if ($this->lblCodigo) $this->lblCodigo->Text = $this->objCodigoPago->Codigo;
+			if ($this->txtNumRef) $this->txtNumRef->Text = $this->objCodigoPago->NumRef;
+			if ($this->lblNumRef) $this->lblNumRef->Text = $this->objCodigoPago->NumRef;
+
+			if ($this->txtFecha) $this->txtFecha->Text = $this->objCodigoPago->Fecha;
+			if ($this->lblFecha) $this->lblFecha->Text = $this->objCodigoPago->Fecha;
+
+			if ($this->txtDivisa) $this->txtDivisa->Text = $this->objCodigoPago->Divisa;
+			if ($this->lblDivisa) $this->lblDivisa->Text = $this->objCodigoPago->Divisa;
+
+			if ($this->txtMonto) $this->txtMonto->Text = $this->objCodigoPago->Monto;
+			if ($this->lblMonto) $this->lblMonto->Text = $this->objCodigoPago->Monto;
 
 		}
 
@@ -321,7 +426,10 @@
 				// Update any fields for controls that have been created
 				if ($this->lstLICENCIAIdLICENCIAObject) $this->objCodigoPago->LICENCIAIdLICENCIA = $this->lstLICENCIAIdLICENCIAObject->SelectedValue;
 				if ($this->lstTIPODEPAGOIdTIPODEPAGOObject) $this->objCodigoPago->TIPODEPAGOIdTIPODEPAGO = $this->lstTIPODEPAGOIdTIPODEPAGOObject->SelectedValue;
-				if ($this->txtCodigo) $this->objCodigoPago->Codigo = $this->txtCodigo->Text;
+				if ($this->txtNumRef) $this->objCodigoPago->NumRef = $this->txtNumRef->Text;
+				if ($this->txtFecha) $this->objCodigoPago->Fecha = $this->txtFecha->Text;
+				if ($this->txtDivisa) $this->objCodigoPago->Divisa = $this->txtDivisa->Text;
+				if ($this->txtMonto) $this->objCodigoPago->Monto = $this->txtMonto->Text;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 
@@ -376,12 +484,30 @@
 				case 'TIPODEPAGOIdTIPODEPAGOLabel':
 					if (!$this->lblTIPODEPAGOIdTIPODEPAGO) return $this->lblTIPODEPAGOIdTIPODEPAGO_Create();
 					return $this->lblTIPODEPAGOIdTIPODEPAGO;
-				case 'CodigoControl':
-					if (!$this->txtCodigo) return $this->txtCodigo_Create();
-					return $this->txtCodigo;
-				case 'CodigoLabel':
-					if (!$this->lblCodigo) return $this->lblCodigo_Create();
-					return $this->lblCodigo;
+				case 'NumRefControl':
+					if (!$this->txtNumRef) return $this->txtNumRef_Create();
+					return $this->txtNumRef;
+				case 'NumRefLabel':
+					if (!$this->lblNumRef) return $this->lblNumRef_Create();
+					return $this->lblNumRef;
+				case 'FechaControl':
+					if (!$this->txtFecha) return $this->txtFecha_Create();
+					return $this->txtFecha;
+				case 'FechaLabel':
+					if (!$this->lblFecha) return $this->lblFecha_Create();
+					return $this->lblFecha;
+				case 'DivisaControl':
+					if (!$this->txtDivisa) return $this->txtDivisa_Create();
+					return $this->txtDivisa;
+				case 'DivisaLabel':
+					if (!$this->lblDivisa) return $this->lblDivisa_Create();
+					return $this->lblDivisa;
+				case 'MontoControl':
+					if (!$this->txtMonto) return $this->txtMonto_Create();
+					return $this->txtMonto;
+				case 'MontoLabel':
+					if (!$this->lblMonto) return $this->lblMonto_Create();
+					return $this->lblMonto;
 				default:
 					try {
 						return parent::__get($strName);
@@ -408,8 +534,14 @@
 						return ($this->lstLICENCIAIdLICENCIAObject = QType::Cast($mixValue, 'QControl'));
 					case 'TIPODEPAGOIdTIPODEPAGOControl':
 						return ($this->lstTIPODEPAGOIdTIPODEPAGOObject = QType::Cast($mixValue, 'QControl'));
-					case 'CodigoControl':
-						return ($this->txtCodigo = QType::Cast($mixValue, 'QControl'));
+					case 'NumRefControl':
+						return ($this->txtNumRef = QType::Cast($mixValue, 'QControl'));
+					case 'FechaControl':
+						return ($this->txtFecha = QType::Cast($mixValue, 'QControl'));
+					case 'DivisaControl':
+						return ($this->txtDivisa = QType::Cast($mixValue, 'QControl'));
+					case 'MontoControl':
+						return ($this->txtMonto = QType::Cast($mixValue, 'QControl'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

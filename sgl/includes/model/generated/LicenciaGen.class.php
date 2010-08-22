@@ -35,8 +35,10 @@
 	 * @property Proceso $PROCESOIdPROCESOObject the value for the Proceso object referenced by intPROCESOIdPROCESO (Not Null)
 	 * @property-read CodigoPago $_CodigoPagoAsLICENCIAIdLICENCIA the value for the private _objCodigoPagoAsLICENCIAIdLICENCIA (Read-Only) if set due to an expansion on the CODIGO_PAGO.LICENCIA_idLICENCIA reverse relationship
 	 * @property-read CodigoPago[] $_CodigoPagoAsLICENCIAIdLICENCIAArray the value for the private _objCodigoPagoAsLICENCIAIdLICENCIAArray (Read-Only) if set due to an ExpandAsArray on the CODIGO_PAGO.LICENCIA_idLICENCIA reverse relationship
-	 * @property-read EtapaLicencia $_EtapaLicenciaAsLICENCIAIdLICENCIA the value for the private _objEtapaLicenciaAsLICENCIAIdLICENCIA (Read-Only) if set due to an expansion on the ETAPA_LICENCIA.LICENCIA_idLICENCIA reverse relationship
-	 * @property-read EtapaLicencia[] $_EtapaLicenciaAsLICENCIAIdLICENCIAArray the value for the private _objEtapaLicenciaAsLICENCIAIdLICENCIAArray (Read-Only) if set due to an ExpandAsArray on the ETAPA_LICENCIA.LICENCIA_idLICENCIA reverse relationship
+	 * @property-read FaseLicencia $_FaseLicenciaAsLICENCIAIdLICENCIA the value for the private _objFaseLicenciaAsLICENCIAIdLICENCIA (Read-Only) if set due to an expansion on the FASE_LICENCIA.LICENCIA_idLICENCIA reverse relationship
+	 * @property-read FaseLicencia[] $_FaseLicenciaAsLICENCIAIdLICENCIAArray the value for the private _objFaseLicenciaAsLICENCIAIdLICENCIAArray (Read-Only) if set due to an ExpandAsArray on the FASE_LICENCIA.LICENCIA_idLICENCIA reverse relationship
+	 * @property-read Importacion $_ImportacionAsLICENCIAIdLICENCIA the value for the private _objImportacionAsLICENCIAIdLICENCIA (Read-Only) if set due to an expansion on the IMPORTACION.LICENCIA_idLICENCIA reverse relationship
+	 * @property-read Importacion[] $_ImportacionAsLICENCIAIdLICENCIAArray the value for the private _objImportacionAsLICENCIAIdLICENCIAArray (Read-Only) if set due to an ExpandAsArray on the IMPORTACION.LICENCIA_idLICENCIA reverse relationship
 	 * @property-read ListaProducto $_ListaProductoAsLICENCIAIdLICENCIA the value for the private _objListaProductoAsLICENCIAIdLICENCIA (Read-Only) if set due to an expansion on the LISTA_PRODUCTO.LICENCIA_idLICENCIA reverse relationship
 	 * @property-read ListaProducto[] $_ListaProductoAsLICENCIAIdLICENCIAArray the value for the private _objListaProductoAsLICENCIAIdLICENCIAArray (Read-Only) if set due to an ExpandAsArray on the LISTA_PRODUCTO.LICENCIA_idLICENCIA reverse relationship
 	 * @property-read Responsable $_ResponsableAsLICENCIAIdLICENCIA the value for the private _objResponsableAsLICENCIAIdLICENCIA (Read-Only) if set due to an expansion on the RESPONSABLE.LICENCIA_idLICENCIA reverse relationship
@@ -194,20 +196,36 @@
 		private $_objCodigoPagoAsLICENCIAIdLICENCIAArray = array();
 
 		/**
-		 * Private member variable that stores a reference to a single EtapaLicenciaAsLICENCIAIdLICENCIA object
-		 * (of type EtapaLicencia), if this Licencia object was restored with
-		 * an expansion on the ETAPA_LICENCIA association table.
-		 * @var EtapaLicencia _objEtapaLicenciaAsLICENCIAIdLICENCIA;
+		 * Private member variable that stores a reference to a single FaseLicenciaAsLICENCIAIdLICENCIA object
+		 * (of type FaseLicencia), if this Licencia object was restored with
+		 * an expansion on the FASE_LICENCIA association table.
+		 * @var FaseLicencia _objFaseLicenciaAsLICENCIAIdLICENCIA;
 		 */
-		private $_objEtapaLicenciaAsLICENCIAIdLICENCIA;
+		private $_objFaseLicenciaAsLICENCIAIdLICENCIA;
 
 		/**
-		 * Private member variable that stores a reference to an array of EtapaLicenciaAsLICENCIAIdLICENCIA objects
-		 * (of type EtapaLicencia[]), if this Licencia object was restored with
-		 * an ExpandAsArray on the ETAPA_LICENCIA association table.
-		 * @var EtapaLicencia[] _objEtapaLicenciaAsLICENCIAIdLICENCIAArray;
+		 * Private member variable that stores a reference to an array of FaseLicenciaAsLICENCIAIdLICENCIA objects
+		 * (of type FaseLicencia[]), if this Licencia object was restored with
+		 * an ExpandAsArray on the FASE_LICENCIA association table.
+		 * @var FaseLicencia[] _objFaseLicenciaAsLICENCIAIdLICENCIAArray;
 		 */
-		private $_objEtapaLicenciaAsLICENCIAIdLICENCIAArray = array();
+		private $_objFaseLicenciaAsLICENCIAIdLICENCIAArray = array();
+
+		/**
+		 * Private member variable that stores a reference to a single ImportacionAsLICENCIAIdLICENCIA object
+		 * (of type Importacion), if this Licencia object was restored with
+		 * an expansion on the IMPORTACION association table.
+		 * @var Importacion _objImportacionAsLICENCIAIdLICENCIA;
+		 */
+		private $_objImportacionAsLICENCIAIdLICENCIA;
+
+		/**
+		 * Private member variable that stores a reference to an array of ImportacionAsLICENCIAIdLICENCIA objects
+		 * (of type Importacion[]), if this Licencia object was restored with
+		 * an ExpandAsArray on the IMPORTACION association table.
+		 * @var Importacion[] _objImportacionAsLICENCIAIdLICENCIAArray;
+		 */
+		private $_objImportacionAsLICENCIAIdLICENCIAArray = array();
 
 		/**
 		 * Private member variable that stores a reference to a single ListaProductoAsLICENCIAIdLICENCIA object
@@ -667,19 +685,36 @@
 							$blnExpandedViaArray = true;
 						}
 
-						// Expanding reverse references: EtapaLicenciaAsLICENCIAIdLICENCIA
-						$strAlias = $strAliasPrefix . 'etapalicenciaaslicenciaidlicencia__LICENCIA_idLICENCIA';
+						// Expanding reverse references: FaseLicenciaAsLICENCIAIdLICENCIA
+						$strAlias = $strAliasPrefix . 'faselicenciaaslicenciaidlicencia__LICENCIA_idLICENCIA';
 						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
 							(!is_null($objDbRow->GetColumn($strAliasName)))) {
-							if ($intPreviousChildItemCount = count($objPreviousItem->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray)) {
-								$objPreviousChildItems = $objPreviousItem->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray;
-								$objChildItem = EtapaLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapalicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objFaseLicenciaAsLICENCIAIdLICENCIAArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objFaseLicenciaAsLICENCIAIdLICENCIAArray;
+								$objChildItem = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
 								if ($objChildItem) {
-									$objPreviousItem->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray[] = $objChildItem;
+									$objPreviousItem->_objFaseLicenciaAsLICENCIAIdLICENCIAArray[] = $objChildItem;
 								}
 							} else {
-								$objPreviousItem->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray[] = EtapaLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapalicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+								$objPreviousItem->_objFaseLicenciaAsLICENCIAIdLICENCIAArray[] = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+							}
+							$blnExpandedViaArray = true;
+						}
+
+						// Expanding reverse references: ImportacionAsLICENCIAIdLICENCIA
+						$strAlias = $strAliasPrefix . 'importacionaslicenciaidlicencia__TRANSPORTE_idTRANSPORTE';
+						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
+							(!is_null($objDbRow->GetColumn($strAliasName)))) {
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objImportacionAsLICENCIAIdLICENCIAArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objImportacionAsLICENCIAIdLICENCIAArray;
+								$objChildItem = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaslicenciaidlicencia__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+								if ($objChildItem) {
+									$objPreviousItem->_objImportacionAsLICENCIAIdLICENCIAArray[] = $objChildItem;
+								}
+							} else {
+								$objPreviousItem->_objImportacionAsLICENCIAIdLICENCIAArray[] = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 							}
 							$blnExpandedViaArray = true;
 						}
@@ -788,7 +823,10 @@
 					if (array_diff($objPreviousItem->_objCodigoPagoAsLICENCIAIdLICENCIAArray, $objToReturn->_objCodigoPagoAsLICENCIAIdLICENCIAArray) != null) {
 						continue;
 					}
-					if (array_diff($objPreviousItem->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray, $objToReturn->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray) != null) {
+					if (array_diff($objPreviousItem->_objFaseLicenciaAsLICENCIAIdLICENCIAArray, $objToReturn->_objFaseLicenciaAsLICENCIAIdLICENCIAArray) != null) {
+						continue;
+					}
+					if (array_diff($objPreviousItem->_objImportacionAsLICENCIAIdLICENCIAArray, $objToReturn->_objImportacionAsLICENCIAIdLICENCIAArray) != null) {
 						continue;
 					}
 					if (array_diff($objPreviousItem->_objListaProductoAsLICENCIAIdLICENCIAArray, $objToReturn->_objListaProductoAsLICENCIAIdLICENCIAArray) != null) {
@@ -849,14 +887,24 @@
 					$objToReturn->_objCodigoPagoAsLICENCIAIdLICENCIA = CodigoPago::InstantiateDbRow($objDbRow, $strAliasPrefix . 'codigopagoaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 			}
 
-			// Check for EtapaLicenciaAsLICENCIAIdLICENCIA Virtual Binding
-			$strAlias = $strAliasPrefix . 'etapalicenciaaslicenciaidlicencia__LICENCIA_idLICENCIA';
+			// Check for FaseLicenciaAsLICENCIAIdLICENCIA Virtual Binding
+			$strAlias = $strAliasPrefix . 'faselicenciaaslicenciaidlicencia__LICENCIA_idLICENCIA';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (!is_null($objDbRow->GetColumn($strAliasName))) {
 				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
-					$objToReturn->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray[] = EtapaLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapalicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objFaseLicenciaAsLICENCIAIdLICENCIAArray[] = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 				else
-					$objToReturn->_objEtapaLicenciaAsLICENCIAIdLICENCIA = EtapaLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'etapalicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+					$objToReturn->_objFaseLicenciaAsLICENCIAIdLICENCIA = FaseLicencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'faselicenciaaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+			}
+
+			// Check for ImportacionAsLICENCIAIdLICENCIA Virtual Binding
+			$strAlias = $strAliasPrefix . 'importacionaslicenciaidlicencia__TRANSPORTE_idTRANSPORTE';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName))) {
+				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
+					$objToReturn->_objImportacionAsLICENCIAIdLICENCIAArray[] = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+				else
+					$objToReturn->_objImportacionAsLICENCIAIdLICENCIA = Importacion::InstantiateDbRow($objDbRow, $strAliasPrefix . 'importacionaslicenciaidlicencia__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 			}
 
 			// Check for ListaProductoAsLICENCIAIdLICENCIA Virtual Binding
@@ -1417,21 +1465,37 @@
 					 */
 					return (array) $this->_objCodigoPagoAsLICENCIAIdLICENCIAArray;
 
-				case '_EtapaLicenciaAsLICENCIAIdLICENCIA':
+				case '_FaseLicenciaAsLICENCIAIdLICENCIA':
 					/**
-					 * Gets the value for the private _objEtapaLicenciaAsLICENCIAIdLICENCIA (Read-Only)
-					 * if set due to an expansion on the ETAPA_LICENCIA.LICENCIA_idLICENCIA reverse relationship
-					 * @return EtapaLicencia
+					 * Gets the value for the private _objFaseLicenciaAsLICENCIAIdLICENCIA (Read-Only)
+					 * if set due to an expansion on the FASE_LICENCIA.LICENCIA_idLICENCIA reverse relationship
+					 * @return FaseLicencia
 					 */
-					return $this->_objEtapaLicenciaAsLICENCIAIdLICENCIA;
+					return $this->_objFaseLicenciaAsLICENCIAIdLICENCIA;
 
-				case '_EtapaLicenciaAsLICENCIAIdLICENCIAArray':
+				case '_FaseLicenciaAsLICENCIAIdLICENCIAArray':
 					/**
-					 * Gets the value for the private _objEtapaLicenciaAsLICENCIAIdLICENCIAArray (Read-Only)
-					 * if set due to an ExpandAsArray on the ETAPA_LICENCIA.LICENCIA_idLICENCIA reverse relationship
-					 * @return EtapaLicencia[]
+					 * Gets the value for the private _objFaseLicenciaAsLICENCIAIdLICENCIAArray (Read-Only)
+					 * if set due to an ExpandAsArray on the FASE_LICENCIA.LICENCIA_idLICENCIA reverse relationship
+					 * @return FaseLicencia[]
 					 */
-					return (array) $this->_objEtapaLicenciaAsLICENCIAIdLICENCIAArray;
+					return (array) $this->_objFaseLicenciaAsLICENCIAIdLICENCIAArray;
+
+				case '_ImportacionAsLICENCIAIdLICENCIA':
+					/**
+					 * Gets the value for the private _objImportacionAsLICENCIAIdLICENCIA (Read-Only)
+					 * if set due to an expansion on the IMPORTACION.LICENCIA_idLICENCIA reverse relationship
+					 * @return Importacion
+					 */
+					return $this->_objImportacionAsLICENCIAIdLICENCIA;
+
+				case '_ImportacionAsLICENCIAIdLICENCIAArray':
+					/**
+					 * Gets the value for the private _objImportacionAsLICENCIAIdLICENCIAArray (Read-Only)
+					 * if set due to an ExpandAsArray on the IMPORTACION.LICENCIA_idLICENCIA reverse relationship
+					 * @return Importacion[]
+					 */
+					return (array) $this->_objImportacionAsLICENCIAIdLICENCIAArray;
 
 				case '_ListaProductoAsLICENCIAIdLICENCIA':
 					/**
@@ -1975,20 +2039,20 @@
 
 			
 		
-		// Related Objects' Methods for EtapaLicenciaAsLICENCIAIdLICENCIA
+		// Related Objects' Methods for FaseLicenciaAsLICENCIAIdLICENCIA
 		//-------------------------------------------------------------------
 
 		/**
-		 * Gets all associated EtapaLicenciasAsLICENCIAIdLICENCIA as an array of EtapaLicencia objects
+		 * Gets all associated FaseLicenciasAsLICENCIAIdLICENCIA as an array of FaseLicencia objects
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return EtapaLicencia[]
+		 * @return FaseLicencia[]
 		*/ 
-		public function GetEtapaLicenciaAsLICENCIAIdLICENCIAArray($objOptionalClauses = null) {
+		public function GetFaseLicenciaAsLICENCIAIdLICENCIAArray($objOptionalClauses = null) {
 			if ((is_null($this->intIdLICENCIA)))
 				return array();
 
 			try {
-				return EtapaLicencia::LoadArrayByLICENCIAIdLICENCIA($this->intIdLICENCIA, $objOptionalClauses);
+				return FaseLicencia::LoadArrayByLICENCIAIdLICENCIA($this->intIdLICENCIA, $objOptionalClauses);
 			} catch (QCallerException $objExc) {
 				$objExc->IncrementOffset();
 				throw $objExc;
@@ -1996,26 +2060,26 @@
 		}
 
 		/**
-		 * Counts all associated EtapaLicenciasAsLICENCIAIdLICENCIA
+		 * Counts all associated FaseLicenciasAsLICENCIAIdLICENCIA
 		 * @return int
 		*/ 
-		public function CountEtapaLicenciasAsLICENCIAIdLICENCIA() {
+		public function CountFaseLicenciasAsLICENCIAIdLICENCIA() {
 			if ((is_null($this->intIdLICENCIA)))
 				return 0;
 
-			return EtapaLicencia::CountByLICENCIAIdLICENCIA($this->intIdLICENCIA);
+			return FaseLicencia::CountByLICENCIAIdLICENCIA($this->intIdLICENCIA);
 		}
 
 		/**
-		 * Associates a EtapaLicenciaAsLICENCIAIdLICENCIA
-		 * @param EtapaLicencia $objEtapaLicencia
+		 * Associates a FaseLicenciaAsLICENCIAIdLICENCIA
+		 * @param FaseLicencia $objFaseLicencia
 		 * @return void
 		*/ 
-		public function AssociateEtapaLicenciaAsLICENCIAIdLICENCIA(EtapaLicencia $objEtapaLicencia) {
+		public function AssociateFaseLicenciaAsLICENCIAIdLICENCIA(FaseLicencia $objFaseLicencia) {
 			if ((is_null($this->intIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateEtapaLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-			if ((is_null($objEtapaLicencia->LICENCIAIdLICENCIA)) || (is_null($objEtapaLicencia->ETAPAIdETAPA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call AssociateEtapaLicenciaAsLICENCIAIdLICENCIA on this Licencia with an unsaved EtapaLicencia.');
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateFaseLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+			if ((is_null($objFaseLicencia->LICENCIAIdLICENCIA)) || (is_null($objFaseLicencia->FASEIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateFaseLicenciaAsLICENCIAIdLICENCIA on this Licencia with an unsaved FaseLicencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Licencia::GetDatabase();
@@ -2023,25 +2087,25 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				UPDATE
-					`ETAPA_LICENCIA`
+					`FASE_LICENCIA`
 				SET
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 				WHERE
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objEtapaLicencia->LICENCIAIdLICENCIA) . ' AND
-					`ETAPA_idETAPA` = ' . $objDatabase->SqlVariable($objEtapaLicencia->ETAPAIdETAPA) . '
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objFaseLicencia->LICENCIAIdLICENCIA) . ' AND
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($objFaseLicencia->FASEIdFASE) . '
 			');
 		}
 
 		/**
-		 * Unassociates a EtapaLicenciaAsLICENCIAIdLICENCIA
-		 * @param EtapaLicencia $objEtapaLicencia
+		 * Unassociates a FaseLicenciaAsLICENCIAIdLICENCIA
+		 * @param FaseLicencia $objFaseLicencia
 		 * @return void
 		*/ 
-		public function UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA(EtapaLicencia $objEtapaLicencia) {
+		public function UnassociateFaseLicenciaAsLICENCIAIdLICENCIA(FaseLicencia $objFaseLicencia) {
 			if ((is_null($this->intIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-			if ((is_null($objEtapaLicencia->LICENCIAIdLICENCIA)) || (is_null($objEtapaLicencia->ETAPAIdETAPA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA on this Licencia with an unsaved EtapaLicencia.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+			if ((is_null($objFaseLicencia->LICENCIAIdLICENCIA)) || (is_null($objFaseLicencia->FASEIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsLICENCIAIdLICENCIA on this Licencia with an unsaved FaseLicencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Licencia::GetDatabase();
@@ -2049,48 +2113,48 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				UPDATE
-					`ETAPA_LICENCIA`
-				SET
-					`LICENCIA_idLICENCIA` = null
-				WHERE
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objEtapaLicencia->LICENCIAIdLICENCIA) . ' AND
-					`ETAPA_idETAPA` = ' . $objDatabase->SqlVariable($objEtapaLicencia->ETAPAIdETAPA) . ' AND
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
-			');
-		}
-
-		/**
-		 * Unassociates all EtapaLicenciasAsLICENCIAIdLICENCIA
-		 * @return void
-		*/ 
-		public function UnassociateAllEtapaLicenciasAsLICENCIAIdLICENCIA() {
-			if ((is_null($this->intIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-
-			// Get the Database Object for this Class
-			$objDatabase = Licencia::GetDatabase();
-
-			// Perform the SQL Query
-			$objDatabase->NonQuery('
-				UPDATE
-					`ETAPA_LICENCIA`
+					`FASE_LICENCIA`
 				SET
 					`LICENCIA_idLICENCIA` = null
 				WHERE
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objFaseLicencia->LICENCIAIdLICENCIA) . ' AND
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($objFaseLicencia->FASEIdFASE) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 			');
 		}
 
 		/**
-		 * Deletes an associated EtapaLicenciaAsLICENCIAIdLICENCIA
-		 * @param EtapaLicencia $objEtapaLicencia
+		 * Unassociates all FaseLicenciasAsLICENCIAIdLICENCIA
 		 * @return void
 		*/ 
-		public function DeleteAssociatedEtapaLicenciaAsLICENCIAIdLICENCIA(EtapaLicencia $objEtapaLicencia) {
+		public function UnassociateAllFaseLicenciasAsLICENCIAIdLICENCIA() {
 			if ((is_null($this->intIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
-			if ((is_null($objEtapaLicencia->LICENCIAIdLICENCIA)) || (is_null($objEtapaLicencia->ETAPAIdETAPA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA on this Licencia with an unsaved EtapaLicencia.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Licencia::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`FASE_LICENCIA`
+				SET
+					`LICENCIA_idLICENCIA` = null
+				WHERE
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated FaseLicenciaAsLICENCIAIdLICENCIA
+		 * @param FaseLicencia $objFaseLicencia
+		 * @return void
+		*/ 
+		public function DeleteAssociatedFaseLicenciaAsLICENCIAIdLICENCIA(FaseLicencia $objFaseLicencia) {
+			if ((is_null($this->intIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+			if ((is_null($objFaseLicencia->LICENCIAIdLICENCIA)) || (is_null($objFaseLicencia->FASEIdFASE)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsLICENCIAIdLICENCIA on this Licencia with an unsaved FaseLicencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Licencia::GetDatabase();
@@ -2098,21 +2162,21 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`ETAPA_LICENCIA`
+					`FASE_LICENCIA`
 				WHERE
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objEtapaLicencia->LICENCIAIdLICENCIA) . ' AND
-					`ETAPA_idETAPA` = ' . $objDatabase->SqlVariable($objEtapaLicencia->ETAPAIdETAPA) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objFaseLicencia->LICENCIAIdLICENCIA) . ' AND
+					`FASE_idFASE` = ' . $objDatabase->SqlVariable($objFaseLicencia->FASEIdFASE) . ' AND
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 			');
 		}
 
 		/**
-		 * Deletes all associated EtapaLicenciasAsLICENCIAIdLICENCIA
+		 * Deletes all associated FaseLicenciasAsLICENCIAIdLICENCIA
 		 * @return void
 		*/ 
-		public function DeleteAllEtapaLicenciasAsLICENCIAIdLICENCIA() {
+		public function DeleteAllFaseLicenciasAsLICENCIAIdLICENCIA() {
 			if ((is_null($this->intIdLICENCIA)))
-				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateEtapaLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateFaseLicenciaAsLICENCIAIdLICENCIA on this unsaved Licencia.');
 
 			// Get the Database Object for this Class
 			$objDatabase = Licencia::GetDatabase();
@@ -2120,7 +2184,160 @@
 			// Perform the SQL Query
 			$objDatabase->NonQuery('
 				DELETE FROM
-					`ETAPA_LICENCIA`
+					`FASE_LICENCIA`
+				WHERE
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
+			');
+		}
+
+			
+		
+		// Related Objects' Methods for ImportacionAsLICENCIAIdLICENCIA
+		//-------------------------------------------------------------------
+
+		/**
+		 * Gets all associated ImportacionsAsLICENCIAIdLICENCIA as an array of Importacion objects
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Importacion[]
+		*/ 
+		public function GetImportacionAsLICENCIAIdLICENCIAArray($objOptionalClauses = null) {
+			if ((is_null($this->intIdLICENCIA)))
+				return array();
+
+			try {
+				return Importacion::LoadArrayByLICENCIAIdLICENCIA($this->intIdLICENCIA, $objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Counts all associated ImportacionsAsLICENCIAIdLICENCIA
+		 * @return int
+		*/ 
+		public function CountImportacionsAsLICENCIAIdLICENCIA() {
+			if ((is_null($this->intIdLICENCIA)))
+				return 0;
+
+			return Importacion::CountByLICENCIAIdLICENCIA($this->intIdLICENCIA);
+		}
+
+		/**
+		 * Associates a ImportacionAsLICENCIAIdLICENCIA
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function AssociateImportacionAsLICENCIAIdLICENCIA(Importacion $objImportacion) {
+			if ((is_null($this->intIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateImportacionAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateImportacionAsLICENCIAIdLICENCIA on this Licencia with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Licencia::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Unassociates a ImportacionAsLICENCIAIdLICENCIA
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function UnassociateImportacionAsLICENCIAIdLICENCIA(Importacion $objImportacion) {
+			if ((is_null($this->intIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsLICENCIAIdLICENCIA on this Licencia with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Licencia::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`LICENCIA_idLICENCIA` = null
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Unassociates all ImportacionsAsLICENCIAIdLICENCIA
+		 * @return void
+		*/ 
+		public function UnassociateAllImportacionsAsLICENCIAIdLICENCIA() {
+			if ((is_null($this->intIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Licencia::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`IMPORTACION`
+				SET
+					`LICENCIA_idLICENCIA` = null
+				WHERE
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated ImportacionAsLICENCIAIdLICENCIA
+		 * @param Importacion $objImportacion
+		 * @return void
+		*/ 
+		public function DeleteAssociatedImportacionAsLICENCIAIdLICENCIA(Importacion $objImportacion) {
+			if ((is_null($this->intIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+			if ((is_null($objImportacion->TRANSPORTEIdTRANSPORTE)) || (is_null($objImportacion->LICENCIAIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsLICENCIAIdLICENCIA on this Licencia with an unsaved Importacion.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Licencia::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`IMPORTACION`
+				WHERE
+					`TRANSPORTE_idTRANSPORTE` = ' . $objDatabase->SqlVariable($objImportacion->TRANSPORTEIdTRANSPORTE) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($objImportacion->LICENCIAIdLICENCIA) . ' AND
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
+			');
+		}
+
+		/**
+		 * Deletes all associated ImportacionsAsLICENCIAIdLICENCIA
+		 * @return void
+		*/ 
+		public function DeleteAllImportacionsAsLICENCIAIdLICENCIA() {
+			if ((is_null($this->intIdLICENCIA)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateImportacionAsLICENCIAIdLICENCIA on this unsaved Licencia.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Licencia::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`IMPORTACION`
 				WHERE
 					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intIdLICENCIA) . '
 			');
@@ -2777,7 +2994,8 @@
      *
      *
      * @property-read QQReverseReferenceNodeCodigoPago $CodigoPagoAsLICENCIAIdLICENCIA
-     * @property-read QQReverseReferenceNodeEtapaLicencia $EtapaLicenciaAsLICENCIAIdLICENCIA
+     * @property-read QQReverseReferenceNodeFaseLicencia $FaseLicenciaAsLICENCIAIdLICENCIA
+     * @property-read QQReverseReferenceNodeImportacion $ImportacionAsLICENCIAIdLICENCIA
      * @property-read QQReverseReferenceNodeListaProducto $ListaProductoAsLICENCIAIdLICENCIA
      * @property-read QQReverseReferenceNodeResponsable $ResponsableAsLICENCIAIdLICENCIA
      * @property-read QQReverseReferenceNodeVigenciaDocumento $VigenciaDocumentoAsLICENCIAIdLICENCIA
@@ -2828,8 +3046,10 @@
 					return new QQNodeProceso('PROCESO_idPROCESO', 'PROCESOIdPROCESOObject', 'Integer', $this);
 				case 'CodigoPagoAsLICENCIAIdLICENCIA':
 					return new QQReverseReferenceNodeCodigoPago($this, 'codigopagoaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
-				case 'EtapaLicenciaAsLICENCIAIdLICENCIA':
-					return new QQReverseReferenceNodeEtapaLicencia($this, 'etapalicenciaaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
+				case 'FaseLicenciaAsLICENCIAIdLICENCIA':
+					return new QQReverseReferenceNodeFaseLicencia($this, 'faselicenciaaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
+				case 'ImportacionAsLICENCIAIdLICENCIA':
+					return new QQReverseReferenceNodeImportacion($this, 'importacionaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
 				case 'ListaProductoAsLICENCIAIdLICENCIA':
 					return new QQReverseReferenceNodeListaProducto($this, 'listaproductoaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
 				case 'ResponsableAsLICENCIAIdLICENCIA':
@@ -2872,7 +3092,8 @@
      *
      *
      * @property-read QQReverseReferenceNodeCodigoPago $CodigoPagoAsLICENCIAIdLICENCIA
-     * @property-read QQReverseReferenceNodeEtapaLicencia $EtapaLicenciaAsLICENCIAIdLICENCIA
+     * @property-read QQReverseReferenceNodeFaseLicencia $FaseLicenciaAsLICENCIAIdLICENCIA
+     * @property-read QQReverseReferenceNodeImportacion $ImportacionAsLICENCIAIdLICENCIA
      * @property-read QQReverseReferenceNodeListaProducto $ListaProductoAsLICENCIAIdLICENCIA
      * @property-read QQReverseReferenceNodeResponsable $ResponsableAsLICENCIAIdLICENCIA
      * @property-read QQReverseReferenceNodeVigenciaDocumento $VigenciaDocumentoAsLICENCIAIdLICENCIA
@@ -2923,8 +3144,10 @@
 					return new QQNodeProceso('PROCESO_idPROCESO', 'PROCESOIdPROCESOObject', 'integer', $this);
 				case 'CodigoPagoAsLICENCIAIdLICENCIA':
 					return new QQReverseReferenceNodeCodigoPago($this, 'codigopagoaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
-				case 'EtapaLicenciaAsLICENCIAIdLICENCIA':
-					return new QQReverseReferenceNodeEtapaLicencia($this, 'etapalicenciaaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
+				case 'FaseLicenciaAsLICENCIAIdLICENCIA':
+					return new QQReverseReferenceNodeFaseLicencia($this, 'faselicenciaaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
+				case 'ImportacionAsLICENCIAIdLICENCIA':
+					return new QQReverseReferenceNodeImportacion($this, 'importacionaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
 				case 'ListaProductoAsLICENCIAIdLICENCIA':
 					return new QQReverseReferenceNodeListaProducto($this, 'listaproductoaslicenciaidlicencia', 'reverse_reference', 'LICENCIA_idLICENCIA');
 				case 'ResponsableAsLICENCIAIdLICENCIA':

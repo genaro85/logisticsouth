@@ -9,7 +9,13 @@
 
 		<?php $_CONTROL->lstTIPODEPAGOIdTIPODEPAGOObject->RenderWithName(); ?>
 
-		<?php $_CONTROL->txtCodigo->RenderWithName(); ?>
+		<?php $_CONTROL->txtNumRef->RenderWithName(); ?>
+
+		<?php $_CONTROL->txtFecha->RenderWithName(); ?>
+
+		<?php $_CONTROL->txtDivisa->RenderWithName(); ?>
+
+		<?php $_CONTROL->txtMonto->RenderWithName(); ?>
 
 	</div>
 

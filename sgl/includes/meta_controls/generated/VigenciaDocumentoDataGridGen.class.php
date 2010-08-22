@@ -295,6 +295,7 @@
 				case 'LICENCIAIdLICENCIAObject': return QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject;
 				case 'FechaOtorgado': return QQN::VigenciaDocumento()->FechaOtorgado;
 				case 'FechaVencimieto': return QQN::VigenciaDocumento()->FechaVencimieto;
+				case 'NumRef': return QQN::VigenciaDocumento()->NumRef;
 				default: throw new QCallerException('Simple Property not found in VigenciaDocumentoDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)
 				throw new QCallerException('Content QQNode cannot go through any "To Many" association nodes.');

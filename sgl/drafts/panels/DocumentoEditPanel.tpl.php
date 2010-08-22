@@ -11,7 +11,7 @@
 
 		<?php $_CONTROL->txtDuracion->RenderWithName(); ?>
 
-		<?php $_CONTROL->lstListaDeDocumento->RenderWithName(); ?>
+		<?php $_CONTROL->lstDocumentosFase->RenderWithName(); ?>
 
 	</div>
 

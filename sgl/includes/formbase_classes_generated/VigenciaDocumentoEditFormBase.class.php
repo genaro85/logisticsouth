@@ -27,6 +27,7 @@
 		protected $lstLICENCIAIdLICENCIAObject;
 		protected $calFechaOtorgado;
 		protected $calFechaVencimieto;
+		protected $txtNumRef;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 
@@ -68,6 +69,7 @@
 			$this->lstLICENCIAIdLICENCIAObject = $this->mctVigenciaDocumento->lstLICENCIAIdLICENCIAObject_Create();
 			$this->calFechaOtorgado = $this->mctVigenciaDocumento->calFechaOtorgado_Create();
 			$this->calFechaVencimieto = $this->mctVigenciaDocumento->calFechaVencimieto_Create();
+			$this->txtNumRef = $this->mctVigenciaDocumento->txtNumRef_Create();
 
 			// Create Buttons and Actions on this Form
 			$this->btnSave = new QButton($this);

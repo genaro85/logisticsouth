@@ -32,7 +32,9 @@ require(__CONFIGURATION__ . '/header.inc.php');
     <?php $this->calFechaVencimieto->RenderWithName(); ?>
     <div style="margin-left: 415px;"><?php $this->calCalendar5->Render(); ?></div>
 
-</div>
+		<?php $this->txtNumRef->RenderWithName(); ?>
+
+	</div>
 
 <div id="formActions">
     <div id="save"><?php $this->btnSave->Render(); ?></div>
