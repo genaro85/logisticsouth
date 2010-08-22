@@ -23,10 +23,11 @@
 		protected $mctVigenciaDocumento;
 
 		// Controls for VigenciaDocumento's Data Fields
-		public $lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
 		public $lstLICENCIAIdLICENCIAObject;
+		public $lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
 		public $calFechaOtorgado;
 		public $calFechaVencimieto;
+		public $txtNumRef;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 
@@ -47,7 +48,7 @@
 		// Callback
 		protected $strClosePanelMethod;
 
-		public function __construct($objParentObject, $strClosePanelMethod, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = null, $intLICENCIAIdLICENCIA = null, $strControlId = null) {
+		public function __construct($objParentObject, $strClosePanelMethod, $intLICENCIAIdLICENCIA = null, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = null, $strControlId = null) {
 			// Call the Parent
 			try {
 				parent::__construct($objParentObject, $strControlId);
@@ -62,13 +63,14 @@
 
 			// Construct the VigenciaDocumentoMetaControl
 			// MAKE SURE we specify "$this" as the MetaControl's (and thus all subsequent controls') parent
-			$this->mctVigenciaDocumento = VigenciaDocumentoMetaControl::Create($this, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLICENCIAIdLICENCIA);
+			$this->mctVigenciaDocumento = VigenciaDocumentoMetaControl::Create($this, $intLICENCIAIdLICENCIA, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO);
 
 			// Call MetaControl's methods to create qcontrols based on VigenciaDocumento's data fields
-			$this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = $this->mctVigenciaDocumento->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject_Create();
 			$this->lstLICENCIAIdLICENCIAObject = $this->mctVigenciaDocumento->lstLICENCIAIdLICENCIAObject_Create();
+			$this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = $this->mctVigenciaDocumento->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject_Create();
 			$this->calFechaOtorgado = $this->mctVigenciaDocumento->calFechaOtorgado_Create();
 			$this->calFechaVencimieto = $this->mctVigenciaDocumento->calFechaVencimieto_Create();
+			$this->txtNumRef = $this->mctVigenciaDocumento->txtNumRef_Create();
 
 			// Create Buttons and Actions on this Form
 			$this->btnSave = new QButton($this);

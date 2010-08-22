@@ -20,6 +20,13 @@
 		QApplicationBase::$ClassFile['documentometacontrol'] = __META_CONTROLS__ . '/DocumentoMetaControl.class.php';
 		QApplicationBase::$ClassFile['documentodatagrid'] = __META_CONTROLS__ . '/DocumentoDataGrid.class.php';
 
+	// ClassPaths for the DocumentosFase class
+		QApplicationBase::$ClassFile['documentosfase'] = __MODEL__ . '/DocumentosFase.class.php';
+		QApplicationBase::$ClassFile['qqnodedocumentosfase'] = __MODEL__ . '/DocumentosFase.class.php';
+		QApplicationBase::$ClassFile['qqreversereferencenodedocumentosfase'] = __MODEL__ . '/DocumentosFase.class.php';
+		QApplicationBase::$ClassFile['documentosfasemetacontrol'] = __META_CONTROLS__ . '/DocumentosFaseMetaControl.class.php';
+		QApplicationBase::$ClassFile['documentosfasedatagrid'] = __META_CONTROLS__ . '/DocumentosFaseDataGrid.class.php';
+
 	// ClassPaths for the Empleado class
 		QApplicationBase::$ClassFile['empleado'] = __MODEL__ . '/Empleado.class.php';
 		QApplicationBase::$ClassFile['qqnodeempleado'] = __MODEL__ . '/Empleado.class.php';
@@ -34,20 +41,6 @@
 		QApplicationBase::$ClassFile['empresametacontrol'] = __META_CONTROLS__ . '/EmpresaMetaControl.class.php';
 		QApplicationBase::$ClassFile['empresadatagrid'] = __META_CONTROLS__ . '/EmpresaDataGrid.class.php';
 
-	// ClassPaths for the Etapa class
-		QApplicationBase::$ClassFile['etapa'] = __MODEL__ . '/Etapa.class.php';
-		QApplicationBase::$ClassFile['qqnodeetapa'] = __MODEL__ . '/Etapa.class.php';
-		QApplicationBase::$ClassFile['qqreversereferencenodeetapa'] = __MODEL__ . '/Etapa.class.php';
-		QApplicationBase::$ClassFile['etapametacontrol'] = __META_CONTROLS__ . '/EtapaMetaControl.class.php';
-		QApplicationBase::$ClassFile['etapadatagrid'] = __META_CONTROLS__ . '/EtapaDataGrid.class.php';
-
-	// ClassPaths for the EtapaLicencia class
-		QApplicationBase::$ClassFile['etapalicencia'] = __MODEL__ . '/EtapaLicencia.class.php';
-		QApplicationBase::$ClassFile['qqnodeetapalicencia'] = __MODEL__ . '/EtapaLicencia.class.php';
-		QApplicationBase::$ClassFile['qqreversereferencenodeetapalicencia'] = __MODEL__ . '/EtapaLicencia.class.php';
-		QApplicationBase::$ClassFile['etapalicenciametacontrol'] = __META_CONTROLS__ . '/EtapaLicenciaMetaControl.class.php';
-		QApplicationBase::$ClassFile['etapalicenciadatagrid'] = __META_CONTROLS__ . '/EtapaLicenciaDataGrid.class.php';
-
 	// ClassPaths for the Fase class
 		QApplicationBase::$ClassFile['fase'] = __MODEL__ . '/Fase.class.php';
 		QApplicationBase::$ClassFile['qqnodefase'] = __MODEL__ . '/Fase.class.php';
@@ -55,19 +48,26 @@
 		QApplicationBase::$ClassFile['fasemetacontrol'] = __META_CONTROLS__ . '/FaseMetaControl.class.php';
 		QApplicationBase::$ClassFile['fasedatagrid'] = __META_CONTROLS__ . '/FaseDataGrid.class.php';
 
+	// ClassPaths for the FaseLicencia class
+		QApplicationBase::$ClassFile['faselicencia'] = __MODEL__ . '/FaseLicencia.class.php';
+		QApplicationBase::$ClassFile['qqnodefaselicencia'] = __MODEL__ . '/FaseLicencia.class.php';
+		QApplicationBase::$ClassFile['qqreversereferencenodefaselicencia'] = __MODEL__ . '/FaseLicencia.class.php';
+		QApplicationBase::$ClassFile['faselicenciametacontrol'] = __META_CONTROLS__ . '/FaseLicenciaMetaControl.class.php';
+		QApplicationBase::$ClassFile['faselicenciadatagrid'] = __META_CONTROLS__ . '/FaseLicenciaDataGrid.class.php';
+
+	// ClassPaths for the Importacion class
+		QApplicationBase::$ClassFile['importacion'] = __MODEL__ . '/Importacion.class.php';
+		QApplicationBase::$ClassFile['qqnodeimportacion'] = __MODEL__ . '/Importacion.class.php';
+		QApplicationBase::$ClassFile['qqreversereferencenodeimportacion'] = __MODEL__ . '/Importacion.class.php';
+		QApplicationBase::$ClassFile['importacionmetacontrol'] = __META_CONTROLS__ . '/ImportacionMetaControl.class.php';
+		QApplicationBase::$ClassFile['importaciondatagrid'] = __META_CONTROLS__ . '/ImportacionDataGrid.class.php';
+
 	// ClassPaths for the Licencia class
 		QApplicationBase::$ClassFile['licencia'] = __MODEL__ . '/Licencia.class.php';
 		QApplicationBase::$ClassFile['qqnodelicencia'] = __MODEL__ . '/Licencia.class.php';
 		QApplicationBase::$ClassFile['qqreversereferencenodelicencia'] = __MODEL__ . '/Licencia.class.php';
 		QApplicationBase::$ClassFile['licenciametacontrol'] = __META_CONTROLS__ . '/LicenciaMetaControl.class.php';
 		QApplicationBase::$ClassFile['licenciadatagrid'] = __META_CONTROLS__ . '/LicenciaDataGrid.class.php';
-
-	// ClassPaths for the ListaDeDocumento class
-		QApplicationBase::$ClassFile['listadedocumento'] = __MODEL__ . '/ListaDeDocumento.class.php';
-		QApplicationBase::$ClassFile['qqnodelistadedocumento'] = __MODEL__ . '/ListaDeDocumento.class.php';
-		QApplicationBase::$ClassFile['qqreversereferencenodelistadedocumento'] = __MODEL__ . '/ListaDeDocumento.class.php';
-		QApplicationBase::$ClassFile['listadedocumentometacontrol'] = __META_CONTROLS__ . '/ListaDeDocumentoMetaControl.class.php';
-		QApplicationBase::$ClassFile['listadedocumentodatagrid'] = __META_CONTROLS__ . '/ListaDeDocumentoDataGrid.class.php';
 
 	// ClassPaths for the ListaProducto class
 		QApplicationBase::$ClassFile['listaproducto'] = __MODEL__ . '/ListaProducto.class.php';
@@ -117,6 +117,13 @@
 		QApplicationBase::$ClassFile['qqreversereferencenodetipodepago'] = __MODEL__ . '/TipoDePago.class.php';
 		QApplicationBase::$ClassFile['tipodepagometacontrol'] = __META_CONTROLS__ . '/TipoDePagoMetaControl.class.php';
 		QApplicationBase::$ClassFile['tipodepagodatagrid'] = __META_CONTROLS__ . '/TipoDePagoDataGrid.class.php';
+
+	// ClassPaths for the Transporte class
+		QApplicationBase::$ClassFile['transporte'] = __MODEL__ . '/Transporte.class.php';
+		QApplicationBase::$ClassFile['qqnodetransporte'] = __MODEL__ . '/Transporte.class.php';
+		QApplicationBase::$ClassFile['qqreversereferencenodetransporte'] = __MODEL__ . '/Transporte.class.php';
+		QApplicationBase::$ClassFile['transportemetacontrol'] = __META_CONTROLS__ . '/TransporteMetaControl.class.php';
+		QApplicationBase::$ClassFile['transportedatagrid'] = __META_CONTROLS__ . '/TransporteDataGrid.class.php';
 
 	// ClassPaths for the VigenciaDocumento class
 		QApplicationBase::$ClassFile['vigenciadocumento'] = __MODEL__ . '/VigenciaDocumento.class.php';

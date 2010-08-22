@@ -15,12 +15,13 @@
 	 * 
 	 * @package My QCubed Application
 	 * @subpackage GeneratedDataObjects
-	 * @property integer $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO the value for intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (PK)
 	 * @property integer $LICENCIAIdLICENCIA the value for intLICENCIAIdLICENCIA (PK)
+	 * @property integer $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO the value for intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (PK)
 	 * @property QDateTime $FechaOtorgado the value for dttFechaOtorgado 
 	 * @property QDateTime $FechaVencimieto the value for dttFechaVencimieto 
-	 * @property ListaDeDocumento $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject the value for the ListaDeDocumento object referenced by intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (PK)
+	 * @property string $NumRef the value for strNumRef 
 	 * @property Licencia $LICENCIAIdLICENCIAObject the value for the Licencia object referenced by intLICENCIAIdLICENCIA (PK)
+	 * @property DocumentosFase $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject the value for the DocumentosFase object referenced by intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (PK)
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class VigenciaDocumentoGen extends QBaseClass implements IteratorAggregate {
@@ -29,21 +30,6 @@
 		// PROTECTED MEMBER VARIABLES and TEXT FIELD MAXLENGTHS (if applicable)
 		///////////////////////////////////////////////////////////////////////
 		
-		/**
-		 * Protected member variable that maps to the database PK column VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO
-		 * @var integer intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-		 */
-		protected $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-		const LISTADEDOCUMENTODOCUMENTOIdDOCUMENTODefault = null;
-
-
-		/**
-		 * Protected internal member variable that stores the original version of the PK column value (if restored)
-		 * Used by Save() to update a PK column during UPDATE
-		 * @var integer __intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-		 */
-		protected $__intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-
 		/**
 		 * Protected member variable that maps to the database PK column VIGENCIA_DOCUMENTO.LICENCIA_idLICENCIA
 		 * @var integer intLICENCIAIdLICENCIA
@@ -60,6 +46,21 @@
 		protected $__intLICENCIAIdLICENCIA;
 
 		/**
+		 * Protected member variable that maps to the database PK column VIGENCIA_DOCUMENTO.DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO
+		 * @var integer intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 */
+		protected $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
+		const DOCUMENTOSFASEDOCUMENTOIdDOCUMENTODefault = null;
+
+
+		/**
+		 * Protected internal member variable that stores the original version of the PK column value (if restored)
+		 * Used by Save() to update a PK column during UPDATE
+		 * @var integer __intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
+		 */
+		protected $__intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
+
+		/**
 		 * Protected member variable that maps to the database column VIGENCIA_DOCUMENTO.fechaOtorgado
 		 * @var QDateTime dttFechaOtorgado
 		 */
@@ -73,6 +74,15 @@
 		 */
 		protected $dttFechaVencimieto;
 		const FechaVencimietoDefault = null;
+
+
+		/**
+		 * Protected member variable that maps to the database column VIGENCIA_DOCUMENTO.numRef
+		 * @var string strNumRef
+		 */
+		protected $strNumRef;
+		const NumRefMaxLength = 45;
+		const NumRefDefault = null;
 
 
 		/**
@@ -99,16 +109,6 @@
 
 		/**
 		 * Protected member variable that contains the object pointed by the reference
-		 * in the database column VIGENCIA_DOCUMENTO.LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO.
-		 *
-		 * NOTE: Always use the LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject property getter to correctly retrieve this ListaDeDocumento object.
-		 * (Because this class implements late binding, this variable reference MAY be null.)
-		 * @var ListaDeDocumento objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject
-		 */
-		protected $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
-
-		/**
-		 * Protected member variable that contains the object pointed by the reference
 		 * in the database column VIGENCIA_DOCUMENTO.LICENCIA_idLICENCIA.
 		 *
 		 * NOTE: Always use the LICENCIAIdLICENCIAObject property getter to correctly retrieve this Licencia object.
@@ -117,6 +117,16 @@
 		 */
 		protected $objLICENCIAIdLICENCIAObject;
 
+		/**
+		 * Protected member variable that contains the object pointed by the reference
+		 * in the database column VIGENCIA_DOCUMENTO.DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO.
+		 *
+		 * NOTE: Always use the DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject property getter to correctly retrieve this DocumentosFase object.
+		 * (Because this class implements late binding, this variable reference MAY be null.)
+		 * @var DocumentosFase objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject
+		 */
+		protected $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
+
 
 
 		/**
@@ -124,10 +134,11 @@
 		 */
 		public function Initialize()
 		{
-			$this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = VigenciaDocumento::LISTADEDOCUMENTODOCUMENTOIdDOCUMENTODefault;
 			$this->intLICENCIAIdLICENCIA = VigenciaDocumento::LICENCIAIdLICENCIADefault;
+			$this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = VigenciaDocumento::DOCUMENTOSFASEDOCUMENTOIdDOCUMENTODefault;
 			$this->dttFechaOtorgado = (VigenciaDocumento::FechaOtorgadoDefault === null)?null:new QDateTime(VigenciaDocumento::FechaOtorgadoDefault);
 			$this->dttFechaVencimieto = (VigenciaDocumento::FechaVencimietoDefault === null)?null:new QDateTime(VigenciaDocumento::FechaVencimietoDefault);
+			$this->strNumRef = VigenciaDocumento::NumRefDefault;
 		}
 
 
@@ -145,17 +156,17 @@
 
 		/**
 		 * Load a VigenciaDocumento from PK Info
-		 * @param integer $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
 		 * @param integer $intLICENCIAIdLICENCIA
+		 * @param integer $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
 		 * @return VigenciaDocumento
 		 */
-		public static function Load($intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLICENCIAIdLICENCIA, $objOptionalClauses = null) {
+		public static function Load($intLICENCIAIdLICENCIA, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $objOptionalClauses = null) {
 			// Use QuerySingle to Perform the Query
 			return VigenciaDocumento::QuerySingle(
 				QQ::AndCondition(
-					QQ::Equal(QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO),
-					QQ::Equal(QQN::VigenciaDocumento()->LICENCIAIdLICENCIA, $intLICENCIAIdLICENCIA)
+					QQ::Equal(QQN::VigenciaDocumento()->LICENCIAIdLICENCIA, $intLICENCIAIdLICENCIA),
+					QQ::Equal(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)
 				),
 				$objOptionalClauses
 			);
@@ -397,10 +408,11 @@
 				$strAliasPrefix = '';
 			}
 
-			$objBuilder->AddSelectItem($strTableName, 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', $strAliasPrefix . 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO');
 			$objBuilder->AddSelectItem($strTableName, 'LICENCIA_idLICENCIA', $strAliasPrefix . 'LICENCIA_idLICENCIA');
+			$objBuilder->AddSelectItem($strTableName, 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO', $strAliasPrefix . 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO');
 			$objBuilder->AddSelectItem($strTableName, 'fechaOtorgado', $strAliasPrefix . 'fechaOtorgado');
 			$objBuilder->AddSelectItem($strTableName, 'fechaVencimieto', $strAliasPrefix . 'fechaVencimieto');
+			$objBuilder->AddSelectItem($strTableName, 'numRef', $strAliasPrefix . 'numRef');
 		}
 
 
@@ -431,23 +443,25 @@
 			$objToReturn = new VigenciaDocumento();
 			$objToReturn->__blnRestored = true;
 
-			$strAliasName = array_key_exists($strAliasPrefix . 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO'] : $strAliasPrefix . 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
-			$objToReturn->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $objDbRow->GetColumn($strAliasName, 'Integer');
-			$objToReturn->__intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$strAliasName = array_key_exists($strAliasPrefix . 'LICENCIA_idLICENCIA', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'LICENCIA_idLICENCIA'] : $strAliasPrefix . 'LICENCIA_idLICENCIA';
 			$objToReturn->intLICENCIAIdLICENCIA = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$objToReturn->__intLICENCIAIdLICENCIA = $objDbRow->GetColumn($strAliasName, 'Integer');
+			$strAliasName = array_key_exists($strAliasPrefix . 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO'] : $strAliasPrefix . 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO';
+			$objToReturn->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $objDbRow->GetColumn($strAliasName, 'Integer');
+			$objToReturn->__intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$strAliasName = array_key_exists($strAliasPrefix . 'fechaOtorgado', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'fechaOtorgado'] : $strAliasPrefix . 'fechaOtorgado';
 			$objToReturn->dttFechaOtorgado = $objDbRow->GetColumn($strAliasName, 'Date');
 			$strAliasName = array_key_exists($strAliasPrefix . 'fechaVencimieto', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'fechaVencimieto'] : $strAliasPrefix . 'fechaVencimieto';
 			$objToReturn->dttFechaVencimieto = $objDbRow->GetColumn($strAliasName, 'Date');
+			$strAliasName = array_key_exists($strAliasPrefix . 'numRef', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'numRef'] : $strAliasPrefix . 'numRef';
+			$objToReturn->strNumRef = $objDbRow->GetColumn($strAliasName, 'VarChar');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
-					if ($objToReturn->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO != $objPreviousItem->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) {
+					if ($objToReturn->LICENCIAIdLICENCIA != $objPreviousItem->LICENCIAIdLICENCIA) {
 						continue;
 					}
-					if ($objToReturn->LICENCIAIdLICENCIA != $objPreviousItem->LICENCIAIdLICENCIA) {
+					if ($objToReturn->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO != $objPreviousItem->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) {
 						continue;
 					}
 
@@ -468,17 +482,17 @@
 			if (!$strAliasPrefix)
 				$strAliasPrefix = 'VIGENCIA_DOCUMENTO__';
 
-			// Check for LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject Early Binding
-			$strAlias = $strAliasPrefix . 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO__DOCUMENTO_idDOCUMENTO';
-			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
-			if (!is_null($objDbRow->GetColumn($strAliasName)))
-				$objToReturn->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = ListaDeDocumento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
-
 			// Check for LICENCIAIdLICENCIAObject Early Binding
 			$strAlias = $strAliasPrefix . 'LICENCIA_idLICENCIA__idLICENCIA';
 			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
 			if (!is_null($objDbRow->GetColumn($strAliasName)))
 				$objToReturn->objLICENCIAIdLICENCIAObject = Licencia::InstantiateDbRow($objDbRow, $strAliasPrefix . 'LICENCIA_idLICENCIA__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+
+			// Check for DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject Early Binding
+			$strAlias = $strAliasPrefix . 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO__DOCUMENTO_idDOCUMENTO';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName)))
+				$objToReturn->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = DocumentosFase::InstantiateDbRow($objDbRow, $strAliasPrefix . 'DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
 
 
 
@@ -528,51 +542,19 @@
 			
 		/**
 		 * Load a single VigenciaDocumento object,
-		 * by LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, LICENCIAIdLICENCIA Index(es)
-		 * @param integer $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
+		 * by LICENCIAIdLICENCIA, DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO Index(es)
 		 * @param integer $intLICENCIAIdLICENCIA
+		 * @param integer $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
 		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
 		 * @return VigenciaDocumento
 		*/
-		public static function LoadByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOLICENCIAIdLICENCIA($intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLICENCIAIdLICENCIA, $objOptionalClauses = null) {
+		public static function LoadByLICENCIAIdLICENCIADOCUMENTOSFASEDOCUMENTOIdDOCUMENTO($intLICENCIAIdLICENCIA, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $objOptionalClauses = null) {
 			return VigenciaDocumento::QuerySingle(
 				QQ::AndCondition(
-					QQ::Equal(QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO),
-					QQ::Equal(QQN::VigenciaDocumento()->LICENCIAIdLICENCIA, $intLICENCIAIdLICENCIA)
+					QQ::Equal(QQN::VigenciaDocumento()->LICENCIAIdLICENCIA, $intLICENCIAIdLICENCIA),
+					QQ::Equal(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)
 				),
 				$objOptionalClauses
-			);
-		}
-			
-		/**
-		 * Load an array of VigenciaDocumento objects,
-		 * by LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO Index(es)
-		 * @param integer $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
-		 * @return VigenciaDocumento[]
-		*/
-		public static function LoadArrayByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO($intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $objOptionalClauses = null) {
-			// Call VigenciaDocumento::QueryArray to perform the LoadArrayByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO query
-			try {
-				return VigenciaDocumento::QueryArray(
-					QQ::Equal(QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO),
-					$objOptionalClauses);
-			} catch (QCallerException $objExc) {
-				$objExc->IncrementOffset();
-				throw $objExc;
-			}
-		}
-
-		/**
-		 * Count VigenciaDocumentos
-		 * by LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO Index(es)
-		 * @param integer $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-		 * @return int
-		*/
-		public static function CountByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO($intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) {
-			// Call VigenciaDocumento::QueryCount to perform the CountByLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO query
-			return VigenciaDocumento::QueryCount(
-				QQ::Equal(QQN::VigenciaDocumento()->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)
 			);
 		}
 			
@@ -607,6 +589,38 @@
 				QQ::Equal(QQN::VigenciaDocumento()->LICENCIAIdLICENCIA, $intLICENCIAIdLICENCIA)
 			);
 		}
+			
+		/**
+		 * Load an array of VigenciaDocumento objects,
+		 * by DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO Index(es)
+		 * @param integer $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return VigenciaDocumento[]
+		*/
+		public static function LoadArrayByDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO($intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $objOptionalClauses = null) {
+			// Call VigenciaDocumento::QueryArray to perform the LoadArrayByDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO query
+			try {
+				return VigenciaDocumento::QueryArray(
+					QQ::Equal(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count VigenciaDocumentos
+		 * by DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO Index(es)
+		 * @param integer $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+		 * @return int
+		*/
+		public static function CountByDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO($intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) {
+			// Call VigenciaDocumento::QueryCount to perform the CountByDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO query
+			return VigenciaDocumento::QueryCount(
+				QQ::Equal(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO, $intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)
+			);
+		}
 
 
 
@@ -638,15 +652,17 @@
 					// Perform an INSERT query
 					$objDatabase->NonQuery('
 						INSERT INTO `VIGENCIA_DOCUMENTO` (
-							`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO`,
 							`LICENCIA_idLICENCIA`,
+							`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO`,
 							`fechaOtorgado`,
-							`fechaVencimieto`
+							`fechaVencimieto`,
+							`numRef`
 						) VALUES (
-							' . $objDatabase->SqlVariable($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ',
 							' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ',
+							' . $objDatabase->SqlVariable($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . ',
 							' . $objDatabase->SqlVariable($this->dttFechaOtorgado) . ',
-							' . $objDatabase->SqlVariable($this->dttFechaVencimieto) . '
+							' . $objDatabase->SqlVariable($this->dttFechaVencimieto) . ',
+							' . $objDatabase->SqlVariable($this->strNumRef) . '
 						)
 					');
 
@@ -661,13 +677,14 @@
 						UPDATE
 							`VIGENCIA_DOCUMENTO`
 						SET
-							`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ',
 							`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ',
+							`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . ',
 							`fechaOtorgado` = ' . $objDatabase->SqlVariable($this->dttFechaOtorgado) . ',
-							`fechaVencimieto` = ' . $objDatabase->SqlVariable($this->dttFechaVencimieto) . '
+							`fechaVencimieto` = ' . $objDatabase->SqlVariable($this->dttFechaVencimieto) . ',
+							`numRef` = ' . $objDatabase->SqlVariable($this->strNumRef) . '
 						WHERE
-							`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->__intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
-							`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->__intLICENCIAIdLICENCIA) . '
+							`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->__intLICENCIAIdLICENCIA) . ' AND
+							`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->__intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . '
 					');
 				}
 
@@ -678,8 +695,8 @@
 
 			// Update __blnRestored and any Non-Identity PK Columns (if applicable)
 			$this->__blnRestored = true;
-			$this->__intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
 			$this->__intLICENCIAIdLICENCIA = $this->intLICENCIAIdLICENCIA;
+			$this->__intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 
 
 			// Return 
@@ -691,7 +708,7 @@
 		 * @return void
 		 */
 		public function Delete() {
-			if ((is_null($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)) || (is_null($this->intLICENCIAIdLICENCIA)))
+			if ((is_null($this->intLICENCIAIdLICENCIA)) || (is_null($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
 				throw new QUndefinedPrimaryKeyException('Cannot delete this VigenciaDocumento with an unset primary key.');
 
 			// Get the Database Object for this Class
@@ -703,8 +720,8 @@
 				DELETE FROM
 					`VIGENCIA_DOCUMENTO`
 				WHERE
-					`LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO) . ' AND
-					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . '');
+					`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ' AND
+					`DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO) . '');
 		}
 
 		/**
@@ -744,15 +761,16 @@
 				throw new QCallerException('Cannot call Reload() on a new, unsaved VigenciaDocumento object.');
 
 			// Reload the Object
-			$objReloaded = VigenciaDocumento::Load($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO, $this->intLICENCIAIdLICENCIA);
+			$objReloaded = VigenciaDocumento::Load($this->intLICENCIAIdLICENCIA, $this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO);
 
 			// Update $this's local variables to match
-			$this->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $objReloaded->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-			$this->__intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
 			$this->LICENCIAIdLICENCIA = $objReloaded->LICENCIAIdLICENCIA;
 			$this->__intLICENCIAIdLICENCIA = $this->intLICENCIAIdLICENCIA;
+			$this->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $objReloaded->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
+			$this->__intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 			$this->dttFechaOtorgado = $objReloaded->dttFechaOtorgado;
 			$this->dttFechaVencimieto = $objReloaded->dttFechaVencimieto;
+			$this->strNumRef = $objReloaded->strNumRef;
 		}
 
 
@@ -773,19 +791,19 @@
 				///////////////////
 				// Member Variables
 				///////////////////
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
-					/**
-					 * Gets the value for intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (PK)
-					 * @return integer
-					 */
-					return $this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
-
 				case 'LICENCIAIdLICENCIA':
 					/**
 					 * Gets the value for intLICENCIAIdLICENCIA (PK)
 					 * @return integer
 					 */
 					return $this->intLICENCIAIdLICENCIA;
+
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
+					/**
+					 * Gets the value for intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (PK)
+					 * @return integer
+					 */
+					return $this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 
 				case 'FechaOtorgado':
 					/**
@@ -801,24 +819,17 @@
 					 */
 					return $this->dttFechaVencimieto;
 
+				case 'NumRef':
+					/**
+					 * Gets the value for strNumRef 
+					 * @return string
+					 */
+					return $this->strNumRef;
+
 
 				///////////////////
 				// Member Objects
 				///////////////////
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject':
-					/**
-					 * Gets the value for the ListaDeDocumento object referenced by intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (PK)
-					 * @return ListaDeDocumento
-					 */
-					try {
-						if ((!$this->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) && (!is_null($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO)))
-							$this->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = ListaDeDocumento::Load($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO);
-						return $this->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
-					} catch (QCallerException $objExc) {
-						$objExc->IncrementOffset();
-						throw $objExc;
-					}
-
 				case 'LICENCIAIdLICENCIAObject':
 					/**
 					 * Gets the value for the Licencia object referenced by intLICENCIAIdLICENCIA (PK)
@@ -828,6 +839,20 @@
 						if ((!$this->objLICENCIAIdLICENCIAObject) && (!is_null($this->intLICENCIAIdLICENCIA)))
 							$this->objLICENCIAIdLICENCIAObject = Licencia::Load($this->intLICENCIAIdLICENCIA);
 						return $this->objLICENCIAIdLICENCIAObject;
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject':
+					/**
+					 * Gets the value for the DocumentosFase object referenced by intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (PK)
+					 * @return DocumentosFase
+					 */
+					try {
+						if ((!$this->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) && (!is_null($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO)))
+							$this->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = DocumentosFase::Load($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO);
+						return $this->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -866,20 +891,6 @@
 				///////////////////
 				// Member Variables
 				///////////////////
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
-					/**
-					 * Sets the value for intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (PK)
-					 * @param integer $mixValue
-					 * @return integer
-					 */
-					try {
-						$this->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = null;
-						return ($this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = QType::Cast($mixValue, QType::Integer));
-					} catch (QCallerException $objExc) {
-						$objExc->IncrementOffset();
-						throw $objExc;
-					}
-
 				case 'LICENCIAIdLICENCIA':
 					/**
 					 * Sets the value for intLICENCIAIdLICENCIA (PK)
@@ -889,6 +900,20 @@
 					try {
 						$this->objLICENCIAIdLICENCIAObject = null;
 						return ($this->intLICENCIAIdLICENCIA = QType::Cast($mixValue, QType::Integer));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
+					/**
+					 * Sets the value for intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (PK)
+					 * @param integer $mixValue
+					 * @return integer
+					 */
+					try {
+						$this->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = null;
+						return ($this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = QType::Cast($mixValue, QType::Integer));
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -920,42 +945,23 @@
 						throw $objExc;
 					}
 
+				case 'NumRef':
+					/**
+					 * Sets the value for strNumRef 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strNumRef = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
 
 				///////////////////
 				// Member Objects
 				///////////////////
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject':
-					/**
-					 * Sets the value for the ListaDeDocumento object referenced by intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO (PK)
-					 * @param ListaDeDocumento $mixValue
-					 * @return ListaDeDocumento
-					 */
-					if (is_null($mixValue)) {
-						$this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = null;
-						$this->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = null;
-						return null;
-					} else {
-						// Make sure $mixValue actually is a ListaDeDocumento object
-						try {
-							$mixValue = QType::Cast($mixValue, 'ListaDeDocumento');
-						} catch (QInvalidCastException $objExc) {
-							$objExc->IncrementOffset();
-							throw $objExc;
-						} 
-
-						// Make sure $mixValue is a SAVED ListaDeDocumento object
-						if (is_null($mixValue->DOCUMENTOIdDOCUMENTO))
-							throw new QCallerException('Unable to set an unsaved LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject for this VigenciaDocumento');
-
-						// Update Local Member Variables
-						$this->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = $mixValue;
-						$this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = $mixValue->DOCUMENTOIdDOCUMENTO;
-
-						// Return $mixValue
-						return $mixValue;
-					}
-					break;
-
 				case 'LICENCIAIdLICENCIAObject':
 					/**
 					 * Sets the value for the Licencia object referenced by intLICENCIAIdLICENCIA (PK)
@@ -982,6 +988,38 @@
 						// Update Local Member Variables
 						$this->objLICENCIAIdLICENCIAObject = $mixValue;
 						$this->intLICENCIAIdLICENCIA = $mixValue->IdLICENCIA;
+
+						// Return $mixValue
+						return $mixValue;
+					}
+					break;
+
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject':
+					/**
+					 * Sets the value for the DocumentosFase object referenced by intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO (PK)
+					 * @param DocumentosFase $mixValue
+					 * @return DocumentosFase
+					 */
+					if (is_null($mixValue)) {
+						$this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = null;
+						$this->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = null;
+						return null;
+					} else {
+						// Make sure $mixValue actually is a DocumentosFase object
+						try {
+							$mixValue = QType::Cast($mixValue, 'DocumentosFase');
+						} catch (QInvalidCastException $objExc) {
+							$objExc->IncrementOffset();
+							throw $objExc;
+						} 
+
+						// Make sure $mixValue is a SAVED DocumentosFase object
+						if (is_null($mixValue->DOCUMENTOIdDOCUMENTO))
+							throw new QCallerException('Unable to set an unsaved DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject for this VigenciaDocumento');
+
+						// Update Local Member Variables
+						$this->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = $mixValue;
+						$this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = $mixValue->DOCUMENTOIdDOCUMENTO;
 
 						// Return $mixValue
 						return $mixValue;
@@ -1025,10 +1063,11 @@
 
 		public static function GetSoapComplexTypeXml() {
 			$strToReturn = '<complexType name="VigenciaDocumento"><sequence>';
-			$strToReturn .= '<element name="LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject" type="xsd1:ListaDeDocumento"/>';
 			$strToReturn .= '<element name="LICENCIAIdLICENCIAObject" type="xsd1:Licencia"/>';
+			$strToReturn .= '<element name="DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject" type="xsd1:DocumentosFase"/>';
 			$strToReturn .= '<element name="FechaOtorgado" type="xsd:dateTime"/>';
 			$strToReturn .= '<element name="FechaVencimieto" type="xsd:dateTime"/>';
+			$strToReturn .= '<element name="NumRef" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1037,8 +1076,8 @@
 		public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
 			if (!array_key_exists('VigenciaDocumento', $strComplexTypeArray)) {
 				$strComplexTypeArray['VigenciaDocumento'] = VigenciaDocumento::GetSoapComplexTypeXml();
-				ListaDeDocumento::AlterSoapComplexTypeArray($strComplexTypeArray);
 				Licencia::AlterSoapComplexTypeArray($strComplexTypeArray);
+				DocumentosFase::AlterSoapComplexTypeArray($strComplexTypeArray);
 			}
 		}
 
@@ -1053,16 +1092,18 @@
 
 		public static function GetObjectFromSoapObject($objSoapObject) {
 			$objToReturn = new VigenciaDocumento();
-			if ((property_exists($objSoapObject, 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject')) &&
-				($objSoapObject->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject))
-				$objToReturn->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = ListaDeDocumento::GetObjectFromSoapObject($objSoapObject->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject);
 			if ((property_exists($objSoapObject, 'LICENCIAIdLICENCIAObject')) &&
 				($objSoapObject->LICENCIAIdLICENCIAObject))
 				$objToReturn->LICENCIAIdLICENCIAObject = Licencia::GetObjectFromSoapObject($objSoapObject->LICENCIAIdLICENCIAObject);
+			if ((property_exists($objSoapObject, 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject')) &&
+				($objSoapObject->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject))
+				$objToReturn->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = DocumentosFase::GetObjectFromSoapObject($objSoapObject->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject);
 			if (property_exists($objSoapObject, 'FechaOtorgado'))
 				$objToReturn->dttFechaOtorgado = new QDateTime($objSoapObject->FechaOtorgado);
 			if (property_exists($objSoapObject, 'FechaVencimieto'))
 				$objToReturn->dttFechaVencimieto = new QDateTime($objSoapObject->FechaVencimieto);
+			if (property_exists($objSoapObject, 'NumRef'))
+				$objToReturn->strNumRef = $objSoapObject->NumRef;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -1081,14 +1122,14 @@
 		}
 
 		public static function GetSoapObjectFromObject($objObject, $blnBindRelatedObjects) {
-			if ($objObject->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject)
-				$objObject->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = ListaDeDocumento::GetSoapObjectFromObject($objObject->objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject, false);
-			else if (!$blnBindRelatedObjects)
-				$objObject->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO = null;
 			if ($objObject->objLICENCIAIdLICENCIAObject)
 				$objObject->objLICENCIAIdLICENCIAObject = Licencia::GetSoapObjectFromObject($objObject->objLICENCIAIdLICENCIAObject, false);
 			else if (!$blnBindRelatedObjects)
 				$objObject->intLICENCIAIdLICENCIA = null;
+			if ($objObject->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject)
+				$objObject->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject = DocumentosFase::GetSoapObjectFromObject($objObject->objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject, false);
+			else if (!$blnBindRelatedObjects)
+				$objObject->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO = null;
 			if ($objObject->dttFechaOtorgado)
 				$objObject->dttFechaOtorgado = $objObject->dttFechaOtorgado->qFormat(QDateTime::FormatSoap);
 			if ($objObject->dttFechaVencimieto)
@@ -1107,10 +1148,11 @@
 			///////////////////
 			// Member Variables
 			///////////////////
-			$iArray['LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO'] = $this->intLISTADEDOCUMENTODOCUMENTOIdDOCUMENTO;
 			$iArray['LICENCIAIdLICENCIA'] = $this->intLICENCIAIdLICENCIA;
+			$iArray['DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO'] = $this->intDOCUMENTOSFASEDOCUMENTOIdDOCUMENTO;
 			$iArray['FechaOtorgado'] = $this->dttFechaOtorgado;
 			$iArray['FechaVencimieto'] = $this->dttFechaVencimieto;
+			$iArray['NumRef'] = $this->strNumRef;
 			return new ArrayIterator($iArray);
 		}
 
@@ -1132,38 +1174,41 @@
     /**
      * @uses QQNode
      *
-     * @property-read QQNode $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-     * @property-read QQNodeListaDeDocumento $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject
      * @property-read QQNode $LICENCIAIdLICENCIA
      * @property-read QQNodeLicencia $LICENCIAIdLICENCIAObject
+     * @property-read QQNode $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+     * @property-read QQNodeDocumentosFase $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject
      * @property-read QQNode $FechaOtorgado
      * @property-read QQNode $FechaVencimieto
+     * @property-read QQNode $NumRef
      *
      *
 
-     * @property-read QQNodeListaDeDocumento $_PrimaryKeyNode
+     * @property-read QQNodeLicencia $_PrimaryKeyNode
      **/
 	class QQNodeVigenciaDocumento extends QQNode {
 		protected $strTableName = 'VIGENCIA_DOCUMENTO';
-		protected $strPrimaryKey = 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
+		protected $strPrimaryKey = 'LICENCIA_idLICENCIA';
 		protected $strClassName = 'VigenciaDocumento';
 		public function __get($strName) {
 			switch ($strName) {
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
-					return new QQNode('LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO', 'Integer', $this);
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject':
-					return new QQNodeListaDeDocumento('LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject', 'Integer', $this);
 				case 'LICENCIAIdLICENCIA':
 					return new QQNode('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIA', 'Integer', $this);
 				case 'LICENCIAIdLICENCIAObject':
 					return new QQNodeLicencia('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIAObject', 'Integer', $this);
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
+					return new QQNode('DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO', 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO', 'Integer', $this);
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject':
+					return new QQNodeDocumentosFase('DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO', 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject', 'Integer', $this);
 				case 'FechaOtorgado':
 					return new QQNode('fechaOtorgado', 'FechaOtorgado', 'Date', $this);
 				case 'FechaVencimieto':
 					return new QQNode('fechaVencimieto', 'FechaVencimieto', 'Date', $this);
+				case 'NumRef':
+					return new QQNode('numRef', 'NumRef', 'VarChar', $this);
 
 				case '_PrimaryKeyNode':
-					return new QQNodeListaDeDocumento('LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO', 'Integer', $this);
+					return new QQNodeLicencia('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIA', 'Integer', $this);
 				default:
 					try {
 						return parent::__get($strName);
@@ -1176,38 +1221,41 @@
 	}
 
     /**
-     * @property-read QQNode $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO
-     * @property-read QQNodeListaDeDocumento $LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject
      * @property-read QQNode $LICENCIAIdLICENCIA
      * @property-read QQNodeLicencia $LICENCIAIdLICENCIAObject
+     * @property-read QQNode $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO
+     * @property-read QQNodeDocumentosFase $DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject
      * @property-read QQNode $FechaOtorgado
      * @property-read QQNode $FechaVencimieto
+     * @property-read QQNode $NumRef
      *
      *
 
-     * @property-read QQNodeListaDeDocumento $_PrimaryKeyNode
+     * @property-read QQNodeLicencia $_PrimaryKeyNode
      **/
 	class QQReverseReferenceNodeVigenciaDocumento extends QQReverseReferenceNode {
 		protected $strTableName = 'VIGENCIA_DOCUMENTO';
-		protected $strPrimaryKey = 'LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO';
+		protected $strPrimaryKey = 'LICENCIA_idLICENCIA';
 		protected $strClassName = 'VigenciaDocumento';
 		public function __get($strName) {
 			switch ($strName) {
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO':
-					return new QQNode('LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO', 'integer', $this);
-				case 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject':
-					return new QQNodeListaDeDocumento('LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject', 'integer', $this);
 				case 'LICENCIAIdLICENCIA':
 					return new QQNode('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIA', 'integer', $this);
 				case 'LICENCIAIdLICENCIAObject':
 					return new QQNodeLicencia('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIAObject', 'integer', $this);
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO':
+					return new QQNode('DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO', 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTO', 'integer', $this);
+				case 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject':
+					return new QQNodeDocumentosFase('DOCUMENTOS_FASE_DOCUMENTO_idDOCUMENTO', 'DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject', 'integer', $this);
 				case 'FechaOtorgado':
 					return new QQNode('fechaOtorgado', 'FechaOtorgado', 'QDateTime', $this);
 				case 'FechaVencimieto':
 					return new QQNode('fechaVencimieto', 'FechaVencimieto', 'QDateTime', $this);
+				case 'NumRef':
+					return new QQNode('numRef', 'NumRef', 'string', $this);
 
 				case '_PrimaryKeyNode':
-					return new QQNodeListaDeDocumento('LISTA_DE_DOCUMENTO_DOCUMENTO_idDOCUMENTO', 'LISTADEDOCUMENTODOCUMENTOIdDOCUMENTO', 'integer', $this);
+					return new QQNodeLicencia('LICENCIA_idLICENCIA', 'LICENCIAIdLICENCIA', 'integer', $this);
 				default:
 					try {
 						return parent::__get($strName);

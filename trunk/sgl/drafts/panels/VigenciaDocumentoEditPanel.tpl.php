@@ -5,13 +5,15 @@
 	// code re-generations do not overwrite your changes.
 ?>
 	<div id="formControls">
-		<?php $_CONTROL->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
-
 		<?php $_CONTROL->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
+
+		<?php $_CONTROL->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
 
 		<?php $_CONTROL->calFechaOtorgado->RenderWithName(); ?>
 
 		<?php $_CONTROL->calFechaVencimieto->RenderWithName(); ?>
+
+		<?php $_CONTROL->txtNumRef->RenderWithName(); ?>
 
 	</div>
 
