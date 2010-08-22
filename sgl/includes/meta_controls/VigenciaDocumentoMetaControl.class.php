@@ -23,26 +23,6 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
     // Initialize fields with default values from database definition
 
     /**
-     * Create and setup QListBox lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject
-     * @param string $strControlId optional ControlId to use
-     * @return QListBox
-     */
-    public function lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject_Create($strControlId = null) {
-        $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject = new QListBox($this->objParentObject, $strControlId);
-        $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->Name = QApplication::Translate('Documentos de la Fase');
-        $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->Required = true;
-        if (!$this->blnEditMode)
-            $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
-        $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray = ListaDeDocumento::LoadAll();
-        if ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray) foreach ($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObjectArray as $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) {
-                $objListItem = new QListItem($objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->__toString(), $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
-                if (($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->LISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
-                    $objListItem->Selected = true;
-                $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
-            }
-        return $this->lstLISTADEDOCUMENTODOCUMENTOIdDOCUMENTOObject;
-    }
-    /**
      * Create and setup QListBox lstLICENCIAIdLICENCIAObject
      * @param string $strControlId optional ControlId to use
      * @return QListBox
