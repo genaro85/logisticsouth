@@ -52,7 +52,7 @@ class LicenciaListForm extends LicenciaListFormBase {
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->Nombre, 'Name=Proveedor');
         $this->dtgLicencias->MetaAddColumn('FechaInicio','Name=Fecha Inicio');
-        $this->dtgLicencias->MetaAddColumn('FechaFin','Name=Fehca Fin');
+        $this->dtgLicencias->MetaAddColumn('FechaFin','Name=Fecha Fin');
         //$this->dtgLicencias->MetaAddColumn('FechaFinEstimada');
         $this->dtgLicencias->MetaAddColumn('NumeroProforma', 'Name=Número de Proforma');
         $this->dtgLicencias->MetaAddColumn('NumeroCNP','Name=Número de C.N.P');
