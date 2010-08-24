@@ -208,7 +208,7 @@ table.datagrid .column1	{
 
 }
 table.datagrid td {
-    color:#678197;
+    color:black;
     border-bottom:1px solid #e5eff8;
     border-left:1px solid #e5eff8;
     padding:.3em 1em;
@@ -264,9 +264,9 @@ span.paginator span.break { color: #FF6A00; margin: 0 5px 0 5px; }
 span.paginator span.ellipsis { color: #FF6A00; }
 
 /* QCalendar */
-div.calendar { width: 200px; border: 1px solid #111; background-color: #ccf; }
-div.calendar div.navigator { background-color: #111; overflow: auto; height: 100%; color: #fff; padding: 2px 6px 2px 6px; }
-div.calendar div.navigator div.left { float: left; }
+div.calendar { width: 200px; border: 1px solid black; background-color: white; color: black;}
+div.calendar div.navigator { background-color: #FF6A00; overflow: auto; height: 100%; color: white; padding: 2px 6px 2px 6px; }
+div.calendar div.navigator div.left { float: left;  }
 div.calendar div.navigator div.month { float: left; width: 80px; text-align: center; font-weight: bold; font-size: 11px; }
 div.calendar div.navigator div.year { float: right; }
 div.calendar div.navigator div.year span { font-size: 11px; font-weight: bold; margin-left: 6px; margin-right: 6px; }
@@ -278,10 +278,10 @@ div.calendar td { text-align: center; border-width: 0 0 1px 0; border-style: sol
 div.calendar td.lastRow { border-width: 0;}
 div.calendar td a { text-decoration: none; color: #000; display: block; padding: 2px 6px 2px 6px; }
 div.calendar td.today { background-color: #ccc; }
-div.calendar td.nonMonth a { color: #FF6A00; }
+div.calendar td.nonMonth a { color: silver; }
 div.calendar td.selected { background-color: #c9a; font-weight: bold; }
-div.calendar td a:hover { background-color: #F6F6F6; color: #000; }
-div.calendar div.options { text-align: center; background-color: #111; }
+div.calendar td a:hover { background-color: #FF6A00; color: #000; }
+div.calendar div.options { text-align: center; background-color: #FF6A00; }
 div.calendar div.options a { color: #fff; font-size: 10px; text-decoration: none;}
 div.calendar div.options a:hover { text-decoration: underline; }
 
@@ -453,7 +453,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
 a.headerLink:link, a.headerLink:visited { color: #FFF;}
 a.headerLink:active, a.headerLink:hover { color: #F6F6F6; text-decoration:underline;}
 
-#content { padding: 10px; clear:both; float:none; width:960px; margin:0px auto 50px auto;text-align:left;}
+#content { padding: 10px; clear:both; float:none; width:960px; margin:0px auto 50px auto;text-align:left;overflow: auto;}
 
 div#draftList { }
 div#draftList h1 { margin: 0; font: 20px 'Georgia', 'Times New Roman', 'Times'; font-weight: bold; }
