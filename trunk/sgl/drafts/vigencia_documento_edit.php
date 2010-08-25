@@ -75,6 +75,33 @@ class VigenciaDocumentoEditForm extends VigenciaDocumentoEditFormBase {
         $this->btnDelete->Visible = $this->mctVigenciaDocumento->EditMode;
     }
 
+    protected function Form_Validate() {
+        // By default, we report that Custom Validations passed
+        if ($this->calFechaOtorgado->DateTime > $this->calFechaVencimieto->DateTime) {
+            $this->calFechaVencimieto->Warning = "La fecha de vencimiento debe ser posterior a la fecha de otorgamiento";
+            return false;
+        }
+
+        $blnToReturn = true;
+
+        // Custom Validation Rules
+        // TODO: Be sure to set $blnToReturn to false if any custom validation fails!
+        $blnFocused = false;
+        foreach ($this->GetErrorControls() as $objControl) {
+
+            // Set Focus to the top-most invalid control
+            if (!$blnFocused) {
+                $objControl->Focus();
+                $blnFocused = true;
+            }
+
+            // Blink on ALL invalid controls
+            $objControl->Blink();
+        }
+
+        return $blnToReturn;
+    }
+
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using

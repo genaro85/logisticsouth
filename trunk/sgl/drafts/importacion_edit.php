@@ -75,6 +75,34 @@ class ImportacionEditForm extends ImportacionEditFormBase {
         $this->btnDelete->Visible = $this->mctImportacion->EditMode;
     }
 
+    protected function Form_Validate() {
+// By default, we report that Custom Validations passed
+        if ($this->calFechaDeSalida->DateTime > $this->calFechaLlegada->DateTime) {
+            $this->calFechaLlegada->Warning = "La fecha de llegada debe ser posterior a la fecha de salida";
+            return false;
+        }
+
+
+        $blnToReturn = true;
+
+// Custom Validation Rules
+// TODO: Be sure to set $blnToReturn to false if any custom validation fails!
+
+
+        $blnFocused = false;
+        foreach ($this->GetErrorControls() as $objControl) {
+// Set Focus to the top-most invalid control
+            if (!$blnFocused) {
+                $objControl->Focus();
+                $blnFocused = true;
+            }
+
+// Blink on ALL invalid controls
+            $objControl->Blink();
+        }
+
+        return $blnToReturn;
+    }
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using
