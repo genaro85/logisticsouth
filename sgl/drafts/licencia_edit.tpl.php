@@ -24,7 +24,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
 <?php $this->calFechaInicio->RenderWithName(); ?>
 
-    <div style="margin-left: 415px;"><?php $this->calCalendar->Render(); ?></div>
+    <div style="margin-left: 415px;"><?php $this->calCalendarIni->Render(); ?></div>
 
 <?php $this->calFechaFin->RenderWithName(); ?>
 
