@@ -82,6 +82,13 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
         return $this->txtPassword;
     }
 
+    public function txtEmail_Create($strControlId = null) {
+        $this->txtEmail = new QEmailTextBox($this->objParentObject, $strControlId);
+        $this->txtEmail->Name = QApplication::Translate('Email');
+        $this->txtEmail->Text = $this->objEmpresa->Email;
+        $this->txtEmail->MaxLength = Empresa::EmailMaxLength;
+        return $this->txtEmail;
+    }
 }
 
 ?>
