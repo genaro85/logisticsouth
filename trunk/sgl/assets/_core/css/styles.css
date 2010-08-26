@@ -15,6 +15,45 @@ html>body, html>body #page {
 }
 
 
+.bg {background: url(../images/button4.gif);text-decoration:none;}
+.menu {padding:0 0 0 25%; margin:0; list-style:none; height:40px; background:#fff url(../images/button1a.gif) repeat-x; position:relative; font-family:arial, verdana, sans-serif; text-decoration:none;}
+.menu li.top {display:block; float:left; position:relative;text-decoration:none;}
+.menu li a.current {padding:0 16px 0 20px; display:block; float:left;  height:40px; line-height:33px; color:black; text-decoration:none; font-size:12px;text-align:center; font-weight:bold; cursor:pointer; background: url(../images/button4.gif) no-repeat;}
+.menu li a.top_link {display:block; float:left; height:40px; line-height:33px; color:white; text-decoration:none; font-size:12px; font-weight:bold; padding:0 0 0 12px; cursor:pointer;}
+.menu li a.top_link span {float:left; font-weight:bold; display:block; padding:0 24px 0 12px; height:40px;text-decoration:none;}
+.menu li a.top_link span.down {float:left; display:block; padding:0 24px 0 12px; height:40px; background:url(../images/down.gif) no-repeat right top;text-decoration:none;}
+.menu li a.top_link:hover {color:#000; background: url(../images/button4.gif) no-repeat; text-decoration:none;}
+.menu li a.top_link:hover span {background:url(../images/button4.gif) no-repeat right top; text-decoration:none;}
+.menu li a.top_link:hover span.down {background:url(../images/button4a.gif) no-repeat right top; text-decoration:none;}
+
+.menu li:hover > a.top_link {color:#000; background: url(../images/button4.gif) no-repeat;text-decoration:none;}
+.menu li:hover > a.top_link span {background:url(../images/button4.gif) no-repeat right top;text-decoration:none;}
+.menu li:hover > a.top_link span.down {background:url(../images/button4a.gif) no-repeat right top;text-decoration:none;}
+
+.menu table {border-collapse:collapse; width:0; height:0; position:absolute; top:0; left:0;text-decoration:none;}
+
+.menu a:hover {visibility:visible;text-decoration:none;}
+.menu li:hover {position:relative; z-index:200;text-decoration:none;}
+
+.menu ul,
+.menu :hover ul ul,
+.menu :hover ul :hover ul ul,
+.menu :hover ul :hover ul :hover ul ul,
+.menu :hover ul :hover ul :hover ul :hover ul ul {position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;text-decoration:none;}
+
+.menu :hover ul.sub {left:2px; top:40px; right:2px; background: #fff; padding:3px 0; border:1px solid #999999; white-space:nowrap; width:200px; height:auto;text-decoration:none;}
+.menu :hover ul.sub li {display:block; height:20px; position:relative; float:left; width:250px;}
+.menu :hover ul.sub li a {font-weight:normal;display:block; font-size:11px; height:20px; width:192px; line-height:20px; text-indent:5px; color:#000; text-decoration:none; border:3px solid #fff; border-width:0 0 0 3px;}
+.menu :hover ul.sub li a.fly {background:#fff url(../images/arrow.gif) 80px 7px no-repeat;text-decoration:none;}
+.menu :hover ul.sub li a:hover {background:#999999; color:#fff;text-decoration:none;}
+.menu :hover ul.sub li a.fly:hover {background:#999999 url(../images/arrow_over.gif) 80px 7px no-repeat; color:#fff;text-decoration:none;}
+.menu :hover ul li:hover > a.fly {background:#999999 url(../images/arrow_over.gif) 80px 7px no-repeat; color:#fff;text-decoration:none;}
+
+.menu :hover ul :hover ul,
+.menu :hover ul :hover ul :hover ul,
+.menu :hover ul :hover ul :hover ul :hover ul,
+.menu :hover ul :hover ul :hover ul :hover ul :hover ul
+{left:90px; top:-4px; background: #fff; padding:3px 0; border:1px solid 999999; white-space:nowrap; width:93px; z-index:200; height:auto;text-decoration:none;}
 
 
 a:link {color:#FF6A00;}
@@ -475,21 +514,21 @@ div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; back
 
 /* ----- FOOTER ----- */
 #footer {
-	height:144px; 
-	background:url(images/footerbg.gif) 0 0 repeat-x #3B3B3B; 
-	position:relative; 
-	margin:0 auto;  
-	color:#fff; 
-	font:13px/22px "Trebuchet MS",Arial, Helvetica, sans-serif; 
-	clear:both; 
-	padding:30px 0 0;
+    height:144px;
+    background:url(../images/footerbg.gif) 0 0 repeat-x #3B3B3B;
+    position:relative;
+    margin:0 auto;
+    color:#fff;
+    font:13px/22px "Trebuchet MS",Arial, Helvetica, sans-serif;
+    clear:both;
+    padding:30px 0 0;
 }
 
 #footerLeft {  
-	width:546px;
-	position:absolute;
-	top:-3px;
-	left:79px;
+    width:546px;
+    position:absolute;
+    top:-3px;
+    left:79px;
 }
 #footerLeft a img { border: 0px;}
 #footerLeft li{float:left; list-style: none; }
@@ -504,22 +543,22 @@ div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; back
 #footerRight { width: 50%; text-align: right; float:right; padding-right:5px;}
 #footerRight div { height:18px; line-height: 18px; }
 #footerRight .templateworld{	
-	background:#3B3B3B;
-	color:#fff;
-	display:block;
-	position:absolute;
-	top:64px;
-	left:90px;
+    background:#3B3B3B;
+    color:#fff;
+    display:block;
+    position:absolute;
+    top:64px;
+    left:90px;
 }
 #footerRight .templateworld a{background:#3B3B3B; color:#fff; text-decoration:none;}
 #footerRight .templateworld a:hover{text-decoration:underline;}
 #footerRight p.copyright{
-	width:300px;
-	/*background: url(../images/copyrightbg.gif) 0 0 repeat-x #3B3B3B;*/
-	color:#fff;
-	position:absolute;
-	top:25px;
-	left:89px;
+    width:300px;
+    /*background: url(../images/copyrightbg.gif) 0 0 repeat-x #3B3B3B;*/
+    color:#fff;
+    position:absolute;
+    top:25px;
+    left:89px;
 }
 .footerSmall { font-size: 10px; line-height: 18px;}
 a.footerLink { background-color:#FF6A00; color: #FFF; border-bottom: 1px dotted #FFF;}
@@ -527,21 +566,21 @@ a.footerLink { background-color:#FF6A00; color: #FFF; border-bottom: 1px dotted 
 #footerPan{width:778px; position:relative; margin:0 auto;}
 
 #footerlogoPan{
-	display:block;
-	width:215px;
-	height:40px;
-	position:absolute;
-	top:52px;
-	left:60%;
+    display:block;
+    width:215px;
+    height:40px;
+    position:absolute;
+    top:52px;
+    left:60%;
     background-image: url(../images/footerlogo.gif);
-	text-align:right;
+    text-align:right;
 }
 #footerPanhtml{width:70px; height:24px; display:block; position:absolute; top:49px; left:5px;}
-#footerPanhtml a{width:65px; height:24px; display:block; background:url(images/html-normal.gif) 0 0 no-repeat #3B3B3B; color:#fff; font-size:13px; line-height:23px; font-weight:bold; text-decoration:none;text-transform:uppercase; padding:0 0 0 5px;}
-#footerPanhtml a:hover{background:url(images/html-hover.gif) 0 0 no-repeat #3B3B3B; color:#fff;}
+#footerPanhtml a{width:65px; height:24px; display:block; background:url(../images/html-normal.gif) 0 0 no-repeat #3B3B3B; color:#fff; font-size:13px; line-height:23px; font-weight:bold; text-decoration:none;text-transform:uppercase; padding:0 0 0 5px;}
+#footerPanhtml a:hover{background:url(../images/html-hover.gif) 0 0 no-repeat #3B3B3B; color:#fff;}
 #footerPancss{width:58px; height:24px; display:block; position:absolute; top:50px; left:80px;}
-#footerPancss a{width:49px; height:24px; display:block; background:url(images/css-normal.gif) 0 0 no-repeat #3B3B3C; color:#3B3B3B; font-size:13px; line-height:24px; font-weight:bold; text-decoration:none; text-transform:uppercase; padding:0 0 0 10px;}
-#footerPancss a:hover{background:url(images/css-hover.gif) 0 0 no-repeat #3B3B3B; color:#3B3B3C; text-decoration:none;}
+#footerPancss a{width:49px; height:24px; display:block; background:url(../images/css-normal.gif) 0 0 no-repeat #3B3B3C; color:#3B3B3B; font-size:13px; line-height:24px; font-weight:bold; text-decoration:none; text-transform:uppercase; padding:0 0 0 10px;}
+#footerPancss a:hover{background:url(../images/css-hover.gif) 0 0 no-repeat #3B3B3B; color:#3B3B3C; text-decoration:none;}
 
 /* ----- End FOOTER ----- */
 

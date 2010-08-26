@@ -8,4 +8,8 @@
 QApplicationBase::$ClassFile['qphonetextbox'] = __PLUGINS__ . '/QPhoneTextBox/includes/QPhoneTextBox.class.php';
 //// END QPhoneTextBox
 
+//// BEGIN QEmailTextBox
+QApplicationBase::$ClassFile['qemailtextbox'] = __PLUGINS__ . '/QEmailTextBox/includes/QEmailTextBox.class.php';
+//// END QEmailTextBox
+
 ?>
