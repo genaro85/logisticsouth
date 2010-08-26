@@ -29,7 +29,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
       $this->objEmpresa->Initialize();
       }
       }
-    */
+     */
     public function txtNombre_Create($strControlId = null) {
         $this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
         $this->txtNombre->Name = QApplication::Translate('Nombre*');
@@ -81,5 +81,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
         $this->txtPassword->TextMode = QTextMode::Password;
         return $this->txtPassword;
     }
+
 }
+
 ?>
