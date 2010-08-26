@@ -37,7 +37,7 @@
 		};
 
 		objControl.setDate = function(intYear, intMonth, intDay) {
-			this.dateTimeTextBox.value = qcodo.monthNamesAbbreviated[intMonth] + " " + intDay + " " + intYear;
+			this.dateTimeTextBox.value = intDay + " " + qcodo.monthNamesAbbreviated[intMonth] + " " + intYear;
 			this.hideCalendar();
 			//fire onchange event on textbox (make sure it exists first)
 			if (this.dateTimeTextBox.onchange) {this.dateTimeTextBox.onchange()};

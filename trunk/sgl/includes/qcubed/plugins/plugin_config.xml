@@ -2,4 +2,24 @@
 <plugins>
 	
 
+<plugin>
+	<name><![CDATA[QPhoneTextBox]]></name>
+	<description><![CDATA[A sublcass of QTextBox, this control validates the input based on the North American phone format of (xxx) xxx-xxxx, and reformats the input if it is entered differently.]]></description>
+	<version>0.1</version>
+	<platform_version>1.1</platform_version>
+	<author name="Alex Weinstein, a.k.a. alex94040" email="alex94040 [at] yahoo [dot] com"/>
+	<files>
+		<file type="control" filename="includes/QPhoneTextBox.class.php" />
+		<file type="js" filename="js/phonetextbox.js" />
+		<file type="example" filename="example/phonetextbox.php" />
+		<file type="example" filename="example/phonetextbox.tpl.php" />
+	</files>
+	<includes>
+		<include_files classname="QPhoneTextBox" filename="includes/QPhoneTextBox.class.php" />
+	</includes>
+	<examples>
+		<example filename="example/phonetextbox.php" description="QPhoneTextBox: validate and format phone numbers" />
+	</examples>
+</plugin>
+
 </plugins>

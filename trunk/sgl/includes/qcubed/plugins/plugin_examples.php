@@ -4,4 +4,8 @@
  * QCubed framework. Please do not modify.
  */
 
+//// BEGIN QPhoneTextBox
+Examples::AddPluginExampleFile('QPhoneTextBox', 'example/phonetextbox.php QPhoneTextBox: validate and format phone numbers');
+//// END QPhoneTextBox
+
 ?>

@@ -128,7 +128,7 @@
 		else {
 			QApplication::$CountryCode = 'es';
 			QApplication::$LanguageCode = 'es';
-                        QDateTime::$DefaultFormat = 'DD MMM YYYY';
+                        QDateTime::$DefaultFormat = 'DD MMMM YYYY';
 			QI18n::Initialize();
 		}
 	}
