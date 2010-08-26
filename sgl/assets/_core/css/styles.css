@@ -223,7 +223,7 @@ table.datagrid th {
     padding:.3em 1em;
 }
 table.datagrid thead th {
-    background:#f4f9fe url(graphics/bg-body.gif) repeat-x;
+    background:#f4f9fe;
     text-align:center;
     font:bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
     color:#FF6A00;

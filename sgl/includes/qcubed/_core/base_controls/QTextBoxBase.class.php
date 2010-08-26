@@ -304,6 +304,7 @@
 						$objExc->IncrementOffset();
 						throw $objExc;
 					}
+                                 
 				case "LabelForRequired":
 					try {
 						$this->strLabelForRequired = QType::Cast($mixValue, QType::String);

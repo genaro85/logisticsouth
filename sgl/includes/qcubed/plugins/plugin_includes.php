@@ -4,4 +4,8 @@
  * QCubed framework. Please do not modify.
  */
 
+//// BEGIN QPhoneTextBox
+QApplicationBase::$ClassFile['qphonetextbox'] = __PLUGINS__ . '/QPhoneTextBox/includes/QPhoneTextBox.class.php';
+//// END QPhoneTextBox
+
 ?>

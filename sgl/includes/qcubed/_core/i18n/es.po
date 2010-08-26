@@ -141,3 +141,33 @@ MsgStr "Inactivo"
 
 MsgId "January"
 MsgStr "Enero"
+
+MsgId "February"
+MsgStr "Febrero"
+
+MsgId "March"
+MsgStr "Marzo"
+
+MsgId "April"
+MsgStr "Abril"
+
+MsgId "May"
+MsgStr "Mayo"
+
+MsgId "June"
+MsgStr "Junio"
+
+MsgId "August"
+MsgStr "Agosto"
+
+MsgId "September"
+MsgStr "Septiembre"
+
+MsgId "October"
+MsgStr "Octubre"
+
+MsgId "November"
+MsgStr "Noviembre"
+
+MsgId "Dicember"
+MsgStr "Diciembre"

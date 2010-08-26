@@ -15,7 +15,7 @@ require(__META_CONTROLS_GEN__ . '/EmpresaMetaControlGen.class.php');
  *
  * This file is intended to be modified.  Subsequent code regenerations will NOT modify
  * or overwrite this file.
- * 
+ *
  * @package My QCubed Application
  * @subpackage MetaControls
  */
@@ -29,7 +29,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
       $this->objEmpresa->Initialize();
       }
       }
-     */
+    */
     public function txtNombre_Create($strControlId = null) {
         $this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
         $this->txtNombre->Name = QApplication::Translate('Nombre*');
@@ -58,7 +58,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
     }
 
     public function txtTelefono_Create($strControlId = null) {
-        $this->txtTelefono = new QTextBox($this->objParentObject, 58, $strControlId);
+        $this->txtTelefono = new QPhoneTextBox($this->objParentObject, $strControlId);
         $this->txtTelefono->Name = QApplication::Translate('Teléfono');
         $this->txtTelefono->Text = $this->objEmpresa->Telefono;
         $this->txtTelefono->MaxLength = Empresa::TelefonoMaxLength;

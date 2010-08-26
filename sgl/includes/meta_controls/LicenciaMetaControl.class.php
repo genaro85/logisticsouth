@@ -15,7 +15,7 @@ require(__META_CONTROLS_GEN__ . '/LicenciaMetaControlGen.class.php');
  *
  * This file is intended to be modified.  Subsequent code regenerations will NOT modify
  * or overwrite this file.
- * 
+ *
  * @package My QCubed Application
  * @subpackage MetaControls
  */
@@ -29,7 +29,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
       $this->objLicencia->Initialize();
       }
       }
-     */
+    */
 
     public function lstEMPRESAIdEMPRESAObject_Create($strControlId = null) {
         $this->lstEMPRESAIdEMPRESAObject = new QListBox($this->objParentObject, $strControlId);
@@ -72,10 +72,6 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
         if ($this->objLicencia->FechaInicio)
             $this->calFechaInicio->Text = $this->objLicencia->FechaInicio->__toString();
         $this->calFechaInicio->Required = true;
-        $this->calFechaInicio->Text = '- Select One -';
-
-
-
         return $this->calFechaInicio;
     }
 
@@ -141,12 +137,12 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
     }
 
     public function txtTipo_Create($strControlId = null) {
-			$this->txtTipo = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtTipo->Name = QApplication::Translate('Tipo de Licencia');
-			$this->txtTipo->Text = $this->objLicencia->Tipo;
-			$this->txtTipo->MaxLength = Licencia::TipoMaxLength;
-			return $this->txtTipo;
-		}
+        $this->txtTipo = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtTipo->Name = QApplication::Translate('Tipo de Licencia');
+        $this->txtTipo->Text = $this->objLicencia->Tipo;
+        $this->txtTipo->MaxLength = Licencia::TipoMaxLength;
+        return $this->txtTipo;
+    }
 
     public function txtFlete_Create($strControlId = null) {
         $this->txtFlete = new QFloatTextBox($this->objParentObject, $strControlId);
@@ -156,28 +152,28 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
     }
 
     public function txtSeguro_Create($strControlId = null) {
-			$this->txtSeguro = new QTextBox($this->objParentObject, $strControlId);
-			$this->txtSeguro->Name = QApplication::Translate('Seguro de Mercancia');
-			$this->txtSeguro->Text = $this->objLicencia->Seguro;
-			$this->txtSeguro->MaxLength = Licencia::SeguroMaxLength;
-			return $this->txtSeguro;
-		}
+        $this->txtSeguro = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtSeguro->Name = QApplication::Translate('Seguro de Mercancia');
+        $this->txtSeguro->Text = $this->objLicencia->Seguro;
+        $this->txtSeguro->MaxLength = Licencia::SeguroMaxLength;
+        return $this->txtSeguro;
+    }
 
     public function lstPROCESOIdPROCESOObject_Create($strControlId = null) {
-			$this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
-			$this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('Proceso a Utilizar*');
-			$this->lstPROCESOIdPROCESOObject->Required = true;
-			if (!$this->blnEditMode)
-				$this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
-			$objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
-			if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
-				$objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
-				if (($this->objLicencia->PROCESOIdPROCESOObject) && ($this->objLicencia->PROCESOIdPROCESOObject->IdPROCESO == $objPROCESOIdPROCESOObject->IdPROCESO))
-					$objListItem->Selected = true;
-				$this->lstPROCESOIdPROCESOObject->AddItem($objListItem);
-			}
-			return $this->lstPROCESOIdPROCESOObject;
-		}
+        $this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
+        $this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('Proceso a Utilizar*');
+        $this->lstPROCESOIdPROCESOObject->Required = true;
+        if (!$this->blnEditMode)
+            $this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
+        $objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
+        if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
+                $objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
+                if (($this->objLicencia->PROCESOIdPROCESOObject) && ($this->objLicencia->PROCESOIdPROCESOObject->IdPROCESO == $objPROCESOIdPROCESOObject->IdPROCESO))
+                    $objListItem->Selected = true;
+                $this->lstPROCESOIdPROCESOObject->AddItem($objListItem);
+            }
+        return $this->lstPROCESOIdPROCESOObject;
+    }
 
 }
 ?>

@@ -18,7 +18,7 @@
 		const Now = 'now';
 		const FormatIso = 'YYYY-MM-DD hhhh:mm:ss';
 		const FormatIsoCompressed = 'YYYYMMDDhhhhmmss';
-		const FormatDisplayDate = 'MMM DD YYYY';
+		const FormatDisplayDate = 'DD/MM/YYYY';
 		const FormatDisplayDateFull = 'DDD, MMMM D, YYYY';
 		const FormatDisplayDateTime = 'MMM DD YYYY hh:mm zz';
 		const FormatDisplayDateTimeFull = 'DDDD, MMMM D, YYYY, h:mm:ss zz';
