@@ -295,6 +295,7 @@
 				case 'Cedula': return QQN::Empleado()->Cedula;
 				case 'Login': return QQN::Empleado()->Login;
 				case 'Password': return QQN::Empleado()->Password;
+				case 'Email': return QQN::Empleado()->Email;
 				default: throw new QCallerException('Simple Property not found in EmpleadoDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)
 				throw new QCallerException('Content QQNode cannot go through any "To Many" association nodes.');

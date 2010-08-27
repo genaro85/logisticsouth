@@ -22,6 +22,8 @@
 	 * @property-read QLabel $NombreLabel
 	 * @property QIntegerTextBox $DuracionControl
 	 * @property-read QLabel $DuracionLabel
+	 * @property QListBox $DOCUMENTOIdDOCUMENTOControl
+	 * @property-read QLabel $DOCUMENTOIdDOCUMENTOLabel
 	 * @property QListBox $DocumentosFaseControl
 	 * @property-read QLabel $DocumentosFaseLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
@@ -57,10 +59,15 @@
 		 * @var QIntegerTextBox intDuracion
 		 */
 		protected $txtDuracion;
+		/**
+		 * @var QListBox intDOCUMENTOIdDOCUMENTO
+		 */
+		protected $lstDOCUMENTOIdDOCUMENTOObject;
 
 		// Controls that allow the viewing of Documento's individual data fields
 		protected $lblNombre;
 		protected $lblDuracion;
+		protected $lblDOCUMENTOIdDOCUMENTO;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 		protected $lstDocumentosFase;
@@ -230,6 +237,37 @@
 		}
 
 		/**
+		 * Create and setup QListBox lstDOCUMENTOIdDOCUMENTOObject
+		 * @param string $strControlId optional ControlId to use
+		 * @return QListBox
+		 */
+		public function lstDOCUMENTOIdDOCUMENTOObject_Create($strControlId = null) {
+			$this->lstDOCUMENTOIdDOCUMENTOObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstDOCUMENTOIdDOCUMENTOObject->Name = QApplication::Translate('D O C U M E N T O Id D O C U M E N T O Object');
+			$this->lstDOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objDOCUMENTOIdDOCUMENTOObjectArray = Documento::LoadAll();
+			if ($objDOCUMENTOIdDOCUMENTOObjectArray) foreach ($objDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOIdDOCUMENTOObject) {
+				$objListItem = new QListItem($objDOCUMENTOIdDOCUMENTOObject->__toString(), $objDOCUMENTOIdDOCUMENTOObject->IdDOCUMENTO);
+				if (($this->objDocumento->DOCUMENTOIdDOCUMENTOObject) && ($this->objDocumento->DOCUMENTOIdDOCUMENTOObject->IdDOCUMENTO == $objDOCUMENTOIdDOCUMENTOObject->IdDOCUMENTO))
+					$objListItem->Selected = true;
+				$this->lstDOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
+			}
+			return $this->lstDOCUMENTOIdDOCUMENTOObject;
+		}
+
+		/**
+		 * Create and setup QLabel lblDOCUMENTOIdDOCUMENTO
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblDOCUMENTOIdDOCUMENTO_Create($strControlId = null) {
+			$this->lblDOCUMENTOIdDOCUMENTO = new QLabel($this->objParentObject, $strControlId);
+			$this->lblDOCUMENTOIdDOCUMENTO->Name = QApplication::Translate('D O C U M E N T O Id D O C U M E N T O Object');
+			$this->lblDOCUMENTOIdDOCUMENTO->Text = ($this->objDocumento->DOCUMENTOIdDOCUMENTOObject) ? $this->objDocumento->DOCUMENTOIdDOCUMENTOObject->__toString() : null;
+			return $this->lblDOCUMENTOIdDOCUMENTO;
+		}
+
+		/**
 		 * Create and setup QListBox lstDocumentosFase
 		 * @param string $strControlId optional ControlId to use
 		 * @return QListBox
@@ -282,6 +320,19 @@
 			if ($this->txtDuracion) $this->txtDuracion->Text = $this->objDocumento->Duracion;
 			if ($this->lblDuracion) $this->lblDuracion->Text = $this->objDocumento->Duracion;
 
+			if ($this->lstDOCUMENTOIdDOCUMENTOObject) {
+					$this->lstDOCUMENTOIdDOCUMENTOObject->RemoveAllItems();
+				$this->lstDOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
+				$objDOCUMENTOIdDOCUMENTOObjectArray = Documento::LoadAll();
+				if ($objDOCUMENTOIdDOCUMENTOObjectArray) foreach ($objDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOIdDOCUMENTOObject) {
+					$objListItem = new QListItem($objDOCUMENTOIdDOCUMENTOObject->__toString(), $objDOCUMENTOIdDOCUMENTOObject->IdDOCUMENTO);
+					if (($this->objDocumento->DOCUMENTOIdDOCUMENTOObject) && ($this->objDocumento->DOCUMENTOIdDOCUMENTOObject->IdDOCUMENTO == $objDOCUMENTOIdDOCUMENTOObject->IdDOCUMENTO))
+						$objListItem->Selected = true;
+					$this->lstDOCUMENTOIdDOCUMENTOObject->AddItem($objListItem);
+				}
+			}
+			if ($this->lblDOCUMENTOIdDOCUMENTO) $this->lblDOCUMENTOIdDOCUMENTO->Text = ($this->objDocumento->DOCUMENTOIdDOCUMENTOObject) ? $this->objDocumento->DOCUMENTOIdDOCUMENTOObject->__toString() : null;
+
 			if ($this->lstDocumentosFase) {
 				$this->lstDocumentosFase->RemoveAllItems();
 				$this->lstDocumentosFase->AddItem(QApplication::Translate('- Select One -'), null);
@@ -325,6 +376,7 @@
 				// Update any fields for controls that have been created
 				if ($this->txtNombre) $this->objDocumento->Nombre = $this->txtNombre->Text;
 				if ($this->txtDuracion) $this->objDocumento->Duracion = $this->txtDuracion->Text;
+				if ($this->lstDOCUMENTOIdDOCUMENTOObject) $this->objDocumento->DOCUMENTOIdDOCUMENTO = $this->lstDOCUMENTOIdDOCUMENTOObject->SelectedValue;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 				if ($this->lstDocumentosFase) $this->objDocumento->DocumentosFase = DocumentosFase::Load($this->lstDocumentosFase->SelectedValue);
@@ -386,6 +438,12 @@
 				case 'DuracionLabel':
 					if (!$this->lblDuracion) return $this->lblDuracion_Create();
 					return $this->lblDuracion;
+				case 'DOCUMENTOIdDOCUMENTOControl':
+					if (!$this->lstDOCUMENTOIdDOCUMENTOObject) return $this->lstDOCUMENTOIdDOCUMENTOObject_Create();
+					return $this->lstDOCUMENTOIdDOCUMENTOObject;
+				case 'DOCUMENTOIdDOCUMENTOLabel':
+					if (!$this->lblDOCUMENTOIdDOCUMENTO) return $this->lblDOCUMENTOIdDOCUMENTO_Create();
+					return $this->lblDOCUMENTOIdDOCUMENTO;
 				case 'DocumentosFaseControl':
 					if (!$this->lstDocumentosFase) return $this->lstDocumentosFase_Create();
 					return $this->lstDocumentosFase;
@@ -420,6 +478,8 @@
 						return ($this->txtNombre = QType::Cast($mixValue, 'QControl'));
 					case 'DuracionControl':
 						return ($this->txtDuracion = QType::Cast($mixValue, 'QControl'));
+					case 'DOCUMENTOIdDOCUMENTOControl':
+						return ($this->lstDOCUMENTOIdDOCUMENTOObject = QType::Cast($mixValue, 'QControl'));
 					case 'DocumentosFaseControl':
 						return ($this->lstDocumentosFase = QType::Cast($mixValue, 'QControl'));
 					default:

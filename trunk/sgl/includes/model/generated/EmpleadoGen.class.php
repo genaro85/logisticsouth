@@ -21,6 +21,7 @@
 	 * @property string $Cedula the value for strCedula 
 	 * @property string $Login the value for strLogin (Not Null)
 	 * @property string $Password the value for strPassword (Not Null)
+	 * @property string $Email the value for strEmail 
 	 * @property-read Responsable $_ResponsableAsEMPLEADOIdEMPLEADO the value for the private _objResponsableAsEMPLEADOIdEMPLEADO (Read-Only) if set due to an expansion on the RESPONSABLE.EMPLEADO_idEMPLEADO reverse relationship
 	 * @property-read Responsable[] $_ResponsableAsEMPLEADOIdEMPLEADOArray the value for the private _objResponsableAsEMPLEADOIdEMPLEADOArray (Read-Only) if set due to an ExpandAsArray on the RESPONSABLE.EMPLEADO_idEMPLEADO reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
@@ -85,6 +86,15 @@
 
 
 		/**
+		 * Protected member variable that maps to the database column EMPLEADO.email
+		 * @var string strEmail
+		 */
+		protected $strEmail;
+		const EmailMaxLength = 45;
+		const EmailDefault = null;
+
+
+		/**
 		 * Private member variable that stores a reference to a single ResponsableAsEMPLEADOIdEMPLEADO object
 		 * (of type Responsable), if this Empleado object was restored with
 		 * an expansion on the RESPONSABLE association table.
@@ -135,6 +145,7 @@
 			$this->strCedula = Empleado::CedulaDefault;
 			$this->strLogin = Empleado::LoginDefault;
 			$this->strPassword = Empleado::PasswordDefault;
+			$this->strEmail = Empleado::EmailDefault;
 		}
 
 
@@ -408,6 +419,7 @@
 			$objBuilder->AddSelectItem($strTableName, 'cedula', $strAliasPrefix . 'cedula');
 			$objBuilder->AddSelectItem($strTableName, 'login', $strAliasPrefix . 'login');
 			$objBuilder->AddSelectItem($strTableName, 'password', $strAliasPrefix . 'password');
+			$objBuilder->AddSelectItem($strTableName, 'email', $strAliasPrefix . 'email');
 		}
 
 
@@ -488,6 +500,8 @@
 			$objToReturn->strLogin = $objDbRow->GetColumn($strAliasName, 'VarChar');
 			$strAliasName = array_key_exists($strAliasPrefix . 'password', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'password'] : $strAliasPrefix . 'password';
 			$objToReturn->strPassword = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'email', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'email'] : $strAliasPrefix . 'email';
+			$objToReturn->strEmail = $objDbRow->GetColumn($strAliasName, 'VarChar');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
@@ -621,13 +635,15 @@
 							`apellido`,
 							`cedula`,
 							`login`,
-							`password`
+							`password`,
+							`email`
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->strNombre) . ',
 							' . $objDatabase->SqlVariable($this->strApellido) . ',
 							' . $objDatabase->SqlVariable($this->strCedula) . ',
 							' . $objDatabase->SqlVariable($this->strLogin) . ',
-							' . $objDatabase->SqlVariable($this->strPassword) . '
+							' . $objDatabase->SqlVariable($this->strPassword) . ',
+							' . $objDatabase->SqlVariable($this->strEmail) . '
 						)
 					');
 
@@ -647,7 +663,8 @@
 							`apellido` = ' . $objDatabase->SqlVariable($this->strApellido) . ',
 							`cedula` = ' . $objDatabase->SqlVariable($this->strCedula) . ',
 							`login` = ' . $objDatabase->SqlVariable($this->strLogin) . ',
-							`password` = ' . $objDatabase->SqlVariable($this->strPassword) . '
+							`password` = ' . $objDatabase->SqlVariable($this->strPassword) . ',
+							`email` = ' . $objDatabase->SqlVariable($this->strEmail) . '
 						WHERE
 							`idEMPLEADO` = ' . $objDatabase->SqlVariable($this->intIdEMPLEADO) . '
 					');
@@ -731,6 +748,7 @@
 			$this->strCedula = $objReloaded->strCedula;
 			$this->strLogin = $objReloaded->strLogin;
 			$this->strPassword = $objReloaded->strPassword;
+			$this->strEmail = $objReloaded->strEmail;
 		}
 
 
@@ -792,6 +810,13 @@
 					 * @return string
 					 */
 					return $this->strPassword;
+
+				case 'Email':
+					/**
+					 * Gets the value for strEmail 
+					 * @return string
+					 */
+					return $this->strEmail;
 
 
 				///////////////////
@@ -906,6 +931,19 @@
 					 */
 					try {
 						return ($this->strPassword = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
+				case 'Email':
+					/**
+					 * Sets the value for strEmail 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strEmail = QType::Cast($mixValue, QType::String));
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -1111,6 +1149,7 @@
 			$strToReturn .= '<element name="Cedula" type="xsd:string"/>';
 			$strToReturn .= '<element name="Login" type="xsd:string"/>';
 			$strToReturn .= '<element name="Password" type="xsd:string"/>';
+			$strToReturn .= '<element name="Email" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -1145,6 +1184,8 @@
 				$objToReturn->strLogin = $objSoapObject->Login;
 			if (property_exists($objSoapObject, 'Password'))
 				$objToReturn->strPassword = $objSoapObject->Password;
+			if (property_exists($objSoapObject, 'Email'))
+				$objToReturn->strEmail = $objSoapObject->Email;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -1183,6 +1224,7 @@
 			$iArray['Cedula'] = $this->strCedula;
 			$iArray['Login'] = $this->strLogin;
 			$iArray['Password'] = $this->strPassword;
+			$iArray['Email'] = $this->strEmail;
 			return new ArrayIterator($iArray);
 		}
 
@@ -1210,6 +1252,7 @@
      * @property-read QQNode $Cedula
      * @property-read QQNode $Login
      * @property-read QQNode $Password
+     * @property-read QQNode $Email
      *
      *
      * @property-read QQReverseReferenceNodeResponsable $ResponsableAsEMPLEADOIdEMPLEADO
@@ -1234,6 +1277,8 @@
 					return new QQNode('login', 'Login', 'VarChar', $this);
 				case 'Password':
 					return new QQNode('password', 'Password', 'VarChar', $this);
+				case 'Email':
+					return new QQNode('email', 'Email', 'VarChar', $this);
 				case 'ResponsableAsEMPLEADOIdEMPLEADO':
 					return new QQReverseReferenceNodeResponsable($this, 'responsableasempleadoidempleado', 'reverse_reference', 'EMPLEADO_idEMPLEADO');
 
@@ -1257,6 +1302,7 @@
      * @property-read QQNode $Cedula
      * @property-read QQNode $Login
      * @property-read QQNode $Password
+     * @property-read QQNode $Email
      *
      *
      * @property-read QQReverseReferenceNodeResponsable $ResponsableAsEMPLEADOIdEMPLEADO
@@ -1281,6 +1327,8 @@
 					return new QQNode('login', 'Login', 'string', $this);
 				case 'Password':
 					return new QQNode('password', 'Password', 'string', $this);
+				case 'Email':
+					return new QQNode('email', 'Email', 'string', $this);
 				case 'ResponsableAsEMPLEADOIdEMPLEADO':
 					return new QQReverseReferenceNodeResponsable($this, 'responsableasempleadoidempleado', 'reverse_reference', 'EMPLEADO_idEMPLEADO');
 

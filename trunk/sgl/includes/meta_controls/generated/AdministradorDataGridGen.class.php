@@ -295,6 +295,7 @@
 				case 'Cedula': return QQN::Administrador()->Cedula;
 				case 'Login': return QQN::Administrador()->Login;
 				case 'Password': return QQN::Administrador()->Password;
+				case 'Email': return QQN::Administrador()->Email;
 				default: throw new QCallerException('Simple Property not found in AdministradorDataGrid content: ' . $mixContent);
 			} else if ($mixContent instanceof QQAssociationNode)
 				throw new QCallerException('Content QQNode cannot go through any "To Many" association nodes.');

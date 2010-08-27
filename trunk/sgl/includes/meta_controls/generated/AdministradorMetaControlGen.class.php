@@ -28,6 +28,8 @@
 	 * @property-read QLabel $LoginLabel
 	 * @property QTextBox $PasswordControl
 	 * @property-read QLabel $PasswordLabel
+	 * @property QTextBox $EmailControl
+	 * @property-read QLabel $EmailLabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -73,6 +75,10 @@
 		 * @var QTextBox strPassword
 		 */
 		protected $txtPassword;
+		/**
+		 * @var QTextBox strEmail
+		 */
+		protected $txtEmail;
 
 		// Controls that allow the viewing of Administrador's individual data fields
 		protected $lblNombre;
@@ -80,6 +86,7 @@
 		protected $lblCedula;
 		protected $lblLogin;
 		protected $lblPassword;
+		protected $lblEmail;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 
@@ -326,6 +333,31 @@
 			return $this->lblPassword;
 		}
 
+		/**
+		 * Create and setup QTextBox txtEmail
+		 * @param string $strControlId optional ControlId to use
+		 * @return QTextBox
+		 */
+		public function txtEmail_Create($strControlId = null) {
+			$this->txtEmail = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtEmail->Name = QApplication::Translate('Email');
+			$this->txtEmail->Text = $this->objAdministrador->Email;
+			$this->txtEmail->MaxLength = Administrador::EmailMaxLength;
+			return $this->txtEmail;
+		}
+
+		/**
+		 * Create and setup QLabel lblEmail
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblEmail_Create($strControlId = null) {
+			$this->lblEmail = new QLabel($this->objParentObject, $strControlId);
+			$this->lblEmail->Name = QApplication::Translate('Email');
+			$this->lblEmail->Text = $this->objAdministrador->Email;
+			return $this->lblEmail;
+		}
+
 
 
 		/**
@@ -353,6 +385,9 @@
 
 			if ($this->txtPassword) $this->txtPassword->Text = $this->objAdministrador->Password;
 			if ($this->lblPassword) $this->lblPassword->Text = $this->objAdministrador->Password;
+
+			if ($this->txtEmail) $this->txtEmail->Text = $this->objAdministrador->Email;
+			if ($this->lblEmail) $this->lblEmail->Text = $this->objAdministrador->Email;
 
 		}
 
@@ -382,6 +417,7 @@
 				if ($this->txtCedula) $this->objAdministrador->Cedula = $this->txtCedula->Text;
 				if ($this->txtLogin) $this->objAdministrador->Login = $this->txtLogin->Text;
 				if ($this->txtPassword) $this->objAdministrador->Password = $this->txtPassword->Text;
+				if ($this->txtEmail) $this->objAdministrador->Email = $this->txtEmail->Text;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 
@@ -460,6 +496,12 @@
 				case 'PasswordLabel':
 					if (!$this->lblPassword) return $this->lblPassword_Create();
 					return $this->lblPassword;
+				case 'EmailControl':
+					if (!$this->txtEmail) return $this->txtEmail_Create();
+					return $this->txtEmail;
+				case 'EmailLabel':
+					if (!$this->lblEmail) return $this->lblEmail_Create();
+					return $this->lblEmail;
 				default:
 					try {
 						return parent::__get($strName);
@@ -494,6 +536,8 @@
 						return ($this->txtLogin = QType::Cast($mixValue, 'QControl'));
 					case 'PasswordControl':
 						return ($this->txtPassword = QType::Cast($mixValue, 'QControl'));
+					case 'EmailControl':
+						return ($this->txtEmail = QType::Cast($mixValue, 'QControl'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

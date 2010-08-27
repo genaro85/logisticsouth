@@ -17,6 +17,8 @@
 
 		<?php $_CONTROL->txtPassword->RenderWithName(); ?>
 
+		<?php $_CONTROL->txtEmail->RenderWithName(); ?>
+
 	</div>
 
 	<div id="formActions">

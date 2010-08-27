@@ -29,6 +29,7 @@
 		protected $txtCedula;
 		protected $txtLogin;
 		protected $txtPassword;
+		protected $txtEmail;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 
@@ -72,6 +73,7 @@
 			$this->txtCedula = $this->mctAdministrador->txtCedula_Create();
 			$this->txtLogin = $this->mctAdministrador->txtLogin_Create();
 			$this->txtPassword = $this->mctAdministrador->txtPassword_Create();
+			$this->txtEmail = $this->mctAdministrador->txtEmail_Create();
 
 			// Create Buttons and Actions on this Form
 			$this->btnSave = new QButton($this);
