@@ -44,5 +44,12 @@ class FaseMetaControl extends FaseMetaControlGen {
         return $this->lstPROCESOIdPROCESOObject;
     }
 
+    public function txtDuracion_Create($strControlId = null) {
+			$this->txtDuracion = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtDuracion->Name = QApplication::Translate('Duracion (en días)');
+			$this->txtDuracion->Text = $this->objFase->Duracion;
+			return $this->txtDuracion;
+		}
+
 }
 ?>
