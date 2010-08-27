@@ -19,14 +19,14 @@ require(__CONFIGURATION__ . '/header.inc.php');
 <div id="formControls">
     <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
 
+    <?php $this->lstFASEIdFASEObject->RenderWithName(); ?>
+
     <?php $this->calFASEFechaInicio->RenderWithName(); ?>
     <div style="margin-left: 415px;"><?php $this->calCalendar6->Render(); ?></div>
 
     <?php $this->calFASEFechaFin->RenderWithName(); ?>
     <div style="margin-left: 415px;"><?php $this->calCalendar7->Render(); ?></div>
-
-    <?php $this->lstFASEIdFASEObject->RenderWithName(); ?>
-
+    
 </div>
 
 <div id="formActions">

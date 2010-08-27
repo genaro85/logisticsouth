@@ -30,13 +30,37 @@ class TransporteMetaControl extends TransporteMetaControlGen {
       }
       }
      */
+    public function txtDireccion_Create($strControlId = null) {
+        $this->txtDireccion = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtDireccion->Name = QApplication::Translate('Dirección');
+        $this->txtDireccion->Text = $this->objTransporte->Direccion;
+        $this->txtDireccion->MaxLength = Transporte::DireccionMaxLength;
+        return $this->txtDireccion;
+    }
 
     public function txtTelefono_Create($strControlId = null) {
         $this->txtTelefono = new QPhoneTextBox($this->objParentObject, $strControlId);
-        $this->txtTelefono->Name = QApplication::Translate('Telefono');
+        $this->txtTelefono->Name = QApplication::Translate('Teléfono');
         $this->txtTelefono->Text = $this->objTransporte->Telefono;
         $this->txtTelefono->MaxLength = Transporte::TelefonoMaxLength;
         return $this->txtTelefono;
+    }
+
+    public function lstPAISIdPAISObject_Create($strControlId = null) {
+        $this->lstPAISIdPAISObject = new QListBox($this->objParentObject, $strControlId);
+        $this->lstPAISIdPAISObject->Name = QApplication::Translate('Pais');
+        $this->lstPAISIdPAISObject->Required = true;
+        if (!$this->blnEditMode)
+            $this->lstPAISIdPAISObject->AddItem(QApplication::Translate('- Select One -'), null);
+        $objPAISIdPAISObjectArray = Pais::LoadAll();
+        if ($objPAISIdPAISObjectArray)
+            foreach ($objPAISIdPAISObjectArray as $objPAISIdPAISObject) {
+                $objListItem = new QListItem($objPAISIdPAISObject->__toString(), $objPAISIdPAISObject->IdPAIS);
+                if (($this->objTransporte->PAISIdPAISObject) && ($this->objTransporte->PAISIdPAISObject->IdPAIS == $objPAISIdPAISObject->IdPAIS))
+                    $objListItem->Selected = true;
+                $this->lstPAISIdPAISObject->AddItem($objListItem);
+            }
+        return $this->lstPAISIdPAISObject;
     }
 
 }

@@ -20,13 +20,9 @@ require(__META_CONTROLS_GEN__ . '/VigenciaDocumentoMetaControlGen.class.php');
  * @subpackage MetaControls
  */
 class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
+
     // Initialize fields with default values from database definition
 
-    /**
-     * Create and setup QListBox lstLICENCIAIdLICENCIAObject
-     * @param string $strControlId optional ControlId to use
-     * @return QListBox
-     */
     public function lstLICENCIAIdLICENCIAObject_Create($strControlId = null) {
         $this->lstLICENCIAIdLICENCIAObject = new QListBox($this->objParentObject, $strControlId);
         $this->lstLICENCIAIdLICENCIAObject->Name = QApplication::Translate('Licencia');
@@ -34,7 +30,8 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstLICENCIAIdLICENCIAObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objLICENCIAIdLICENCIAObjectArray = Licencia::LoadAll();
-        if ($objLICENCIAIdLICENCIAObjectArray) foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
+        if ($objLICENCIAIdLICENCIAObjectArray)
+            foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
                 $objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString(), $objLICENCIAIdLICENCIAObject->IdLICENCIA);
                 if (($this->objVigenciaDocumento->LICENCIAIdLICENCIAObject) && ($this->objVigenciaDocumento->LICENCIAIdLICENCIAObject->IdLICENCIA == $objLICENCIAIdLICENCIAObject->IdLICENCIA))
                     $objListItem->Selected = true;
@@ -50,7 +47,8 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray = DocumentosFase::LoadAll();
-        if ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray) foreach ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) {
+        if ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray)
+            foreach ($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObjectArray as $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) {
                 $objListItem = new QListItem($objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->__toString(), $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO);
                 if (($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject) && ($this->objVigenciaDocumento->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO == $objDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTO))
                     $objListItem->Selected = true;
@@ -59,12 +57,6 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
         return $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject;
     }
 
-
-    /**
-     * Create and setup QDateTimePicker calFechaOtorgado
-     * @param string $strControlId optional ControlId to use
-     * @return QDateTimePicker
-     */
     public function calFechaOtorgado_Create($strControlId = null) {
         $this->calFechaOtorgado = new QDateTimeTextBox($this->objParentObject, $strControlId);
         $this->calFechaOtorgado->Name = QApplication::Translate('Fecha Otorgado');
@@ -73,11 +65,6 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
         return $this->calFechaOtorgado;
     }
 
-    /**
-     * Create and setup QDateTimePicker calFechaVencimieto
-     * @param string $strControlId optional ControlId to use
-     * @return QDateTimePicker
-     */
     public function calFechaVencimieto_Create($strControlId = null) {
         $this->calFechaVencimieto = new QDateTimeTextBox($this->objParentObject, $strControlId);
         $this->calFechaVencimieto->Name = QApplication::Translate('Fecha Vencimieto');
@@ -86,13 +73,14 @@ class VigenciaDocumentoMetaControl extends VigenciaDocumentoMetaControlGen {
         return $this->calFechaVencimieto;
     }
 
-    /*
-      public function __construct($objParentObject, VigenciaDocumento $objVigenciaDocumento) {
-      parent::__construct($objParentObject,$objVigenciaDocumento);
-      if ( !$this->blnEditMode ){
-      $this->objVigenciaDocumento->Initialize();
-      }
-      }
-    */
+    public function txtNumRef_Create($strControlId = null) {
+        $this->txtNumRef = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtNumRef->Name = QApplication::Translate('Número de Referencia');
+        $this->txtNumRef->Text = $this->objVigenciaDocumento->NumRef;
+        $this->txtNumRef->MaxLength = VigenciaDocumento::NumRefMaxLength;
+        return $this->txtNumRef;
+    }
+
 }
+
 ?>

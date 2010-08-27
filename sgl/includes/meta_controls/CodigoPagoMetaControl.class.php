@@ -64,11 +64,6 @@ class CodigoPagoMetaControl extends CodigoPagoMetaControlGen {
         return $this->lstTIPODEPAGOIdTIPODEPAGOObject;
     }
 
-    /**
-     * Create and setup QTextBox txtDivisa
-     * @param string $strControlId optional ControlId to use
-     * @return QTextBox
-     */
     public function txtDivisa_Create($strControlId = null) {
         $this->txtDivisa = new QListBox($this->objParentObject, $strControlId);
         $this->txtDivisa->Name = QApplication::Translate('Divisa');

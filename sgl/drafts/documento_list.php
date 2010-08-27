@@ -1,4 +1,5 @@
 <?php
+
 // Load the QCubed Development Framework
 require('../qcubed.inc.php');
 
@@ -21,11 +22,10 @@ require(__FORMBASE_CLASSES__ . '/DocumentoListFormBase.class.php');
  * @subpackage Drafts
  */
 class DocumentoListForm extends DocumentoListFormBase {
+
     // Override Form Event Handlers as Needed
 //		protected function Form_Run() {}
-
 //		protected function Form_Load() {}
-
 //		protected function Form_Create() {}
 
     protected function Form_Create() {
@@ -43,7 +43,6 @@ class DocumentoListForm extends DocumentoListFormBase {
         $this->dtgDocumentos->ItemsPerPage = 20;
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
-
         // Create an Edit Column
         $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/documento_edit.php';
         $this->dtgDocumentos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
@@ -53,9 +52,10 @@ class DocumentoListForm extends DocumentoListFormBase {
         //$this->dtgDocumentos->MetaAddColumn('IdDOCUMENTO');
         $this->dtgDocumentos->MetaAddColumn('Nombre');
         $this->dtgDocumentos->MetaAddColumn('Duracion');
-        //$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->ListaDeDocumento);
+        $this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DOCUMENTOIdDOCUMENTOObject, 'Name=Documento Predecesor');
+        //$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DocumentosFase);
     }
-    
+
 }
 
 // Go ahead and run this form object to generate the page and event handlers, implicitly using

@@ -50,9 +50,9 @@
 			// Create the Other Columns (note that you can use strings for FASE_LICENCIA's properties, or you
 			// can traverse down QQN::FASE_LICENCIA() to display fields that are down the hierarchy)
 			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->LICENCIAIdLICENCIAObject, 'Name=Licencia');
+			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->FASEIdFASEObject, 'Name=Fase');
 			$this->dtgFaseLicencias->MetaAddColumn('FASEFechaInicio', 'Name=Fecha Inicio');
 			$this->dtgFaseLicencias->MetaAddColumn('FASEFechaFin', 'Name=Fecha Fin');
-			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->FASEIdFASEObject, 'Name=Fase');
 		}
 	}
 

@@ -27,6 +27,34 @@
 //		protected function Form_Load() {}
 
 //		protected function Form_Create() {}
+            protected function Form_Create() {
+			parent::Form_Create();
+
+			// Instantiate the Meta DataGrid
+			$this->dtgTransportes = new TransporteDataGrid($this);
+
+			// Style the DataGrid (if desired)
+			$this->dtgTransportes->CssClass = 'datagrid';
+			$this->dtgTransportes->AlternateRowStyle->CssClass = 'alternate';
+
+			// Add Pagination (if desired)
+			$this->dtgTransportes->Paginator = new QPaginator($this->dtgTransportes);
+			$this->dtgTransportes->ItemsPerPage = 20;
+
+			// Use the MetaDataGrid functionality to add Columns for this datagrid
+
+			// Create an Edit Column
+			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/transporte_edit.php';
+			$this->dtgTransportes->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
+
+			// Create the Other Columns (note that you can use strings for TRANSPORTE's properties, or you
+			// can traverse down QQN::TRANSPORTE() to display fields that are down the hierarchy)
+			//$this->dtgTransportes->MetaAddColumn('IdTRANSPORTE');
+			$this->dtgTransportes->MetaAddColumn('Nombre');
+			$this->dtgTransportes->MetaAddColumn('Direccion', 'Name=Dirección');
+			$this->dtgTransportes->MetaAddColumn('Telefono', 'Name=Teléfono');
+			$this->dtgTransportes->MetaAddColumn(QQN::Transporte()->PAISIdPAISObject, 'Name=País');
+		}
 	}
 
 	// Go ahead and run this form object to generate the page and event handlers, implicitly using
