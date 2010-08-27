@@ -29,5 +29,12 @@
 		}
 */
 
+            public function txtDuracion_Create($strControlId = null) {
+			$this->txtDuracion = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtDuracion->Name = QApplication::Translate('Duracion (en días)');
+			$this->txtDuracion->Text = $this->objProceso->Duracion;
+			$this->txtDuracion->Required = true;
+			return $this->txtDuracion;
+		}
 	}
 ?>

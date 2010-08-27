@@ -15,7 +15,7 @@ require(__META_CONTROLS_GEN__ . '/ProveedorMetaControlGen.class.php');
  *
  * This file is intended to be modified.  Subsequent code regenerations will NOT modify
  * or overwrite this file.
- * 
+ *
  * @package My QCubed Application
  * @subpackage MetaControls
  */
@@ -29,7 +29,7 @@ class ProveedorMetaControl extends ProveedorMetaControlGen {
       $this->objProveedor->Initialize();
       }
       }
-     */
+    */
     public function txtNombre_Create($strControlId = null) {
         $this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
         $this->txtNombre->Name = QApplication::Translate('Nombre*');
@@ -73,6 +73,13 @@ class ProveedorMetaControl extends ProveedorMetaControlGen {
         return $this->txtTelefono;
     }
 
+    public function txtEmail_Create($strControlId = null) {
+        $this->txtEmail = new QEmailTextBox($this->objParentObject, $strControlId);
+        $this->txtEmail->Name = QApplication::Translate('Email');
+        $this->txtEmail->Text = $this->objProveedor->Email;
+        $this->txtEmail->MaxLength = Proveedor::EmailMaxLength;
+        return $this->txtEmail;
+    }
 }
 
 ?>
