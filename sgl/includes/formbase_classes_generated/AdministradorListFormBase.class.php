@@ -63,6 +63,7 @@
 			$this->dtgAdministradors->MetaAddColumn('Cedula');
 			$this->dtgAdministradors->MetaAddColumn('Login');
 			$this->dtgAdministradors->MetaAddColumn('Password');
+			$this->dtgAdministradors->MetaAddColumn('Email');
 		}
 	}
 ?>

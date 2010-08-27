@@ -17,7 +17,7 @@
 	 * @subpackage GeneratedDataObjects
 	 * @property integer $LICENCIAIdLICENCIA the value for intLICENCIAIdLICENCIA (PK)
 	 * @property integer $PRODUCTOIdPRODUCTO the value for intPRODUCTOIdPRODUCTO (PK)
-	 * @property string $PRODUCTOCantidad the value for strPRODUCTOCantidad (Not Null)
+	 * @property integer $PRODUCTOCantidad the value for intPRODUCTOCantidad (Not Null)
 	 * @property integer $PRODUCTOVolumen the value for intPRODUCTOVolumen (Not Null)
 	 * @property string $PRODUCTOUnidad the value for strPRODUCTOUnidad (Not Null)
 	 * @property string $PRODUCTOCostoUnitario the value for strPRODUCTOCostoUnitario 
@@ -63,10 +63,9 @@
 
 		/**
 		 * Protected member variable that maps to the database column LISTA_PRODUCTO.PRODUCTO_cantidad
-		 * @var string strPRODUCTOCantidad
+		 * @var integer intPRODUCTOCantidad
 		 */
-		protected $strPRODUCTOCantidad;
-		const PRODUCTOCantidadMaxLength = 45;
+		protected $intPRODUCTOCantidad;
 		const PRODUCTOCantidadDefault = null;
 
 
@@ -147,7 +146,7 @@
 		{
 			$this->intLICENCIAIdLICENCIA = ListaProducto::LICENCIAIdLICENCIADefault;
 			$this->intPRODUCTOIdPRODUCTO = ListaProducto::PRODUCTOIdPRODUCTODefault;
-			$this->strPRODUCTOCantidad = ListaProducto::PRODUCTOCantidadDefault;
+			$this->intPRODUCTOCantidad = ListaProducto::PRODUCTOCantidadDefault;
 			$this->intPRODUCTOVolumen = ListaProducto::PRODUCTOVolumenDefault;
 			$this->strPRODUCTOUnidad = ListaProducto::PRODUCTOUnidadDefault;
 			$this->strPRODUCTOCostoUnitario = ListaProducto::PRODUCTOCostoUnitarioDefault;
@@ -463,7 +462,7 @@
 			$objToReturn->intPRODUCTOIdPRODUCTO = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$objToReturn->__intPRODUCTOIdPRODUCTO = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$strAliasName = array_key_exists($strAliasPrefix . 'PRODUCTO_cantidad', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'PRODUCTO_cantidad'] : $strAliasPrefix . 'PRODUCTO_cantidad';
-			$objToReturn->strPRODUCTOCantidad = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$objToReturn->intPRODUCTOCantidad = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$strAliasName = array_key_exists($strAliasPrefix . 'PRODUCTO_volumen', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'PRODUCTO_volumen'] : $strAliasPrefix . 'PRODUCTO_volumen';
 			$objToReturn->intPRODUCTOVolumen = $objDbRow->GetColumn($strAliasName, 'Integer');
 			$strAliasName = array_key_exists($strAliasPrefix . 'PRODUCTO_unidad', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'PRODUCTO_unidad'] : $strAliasPrefix . 'PRODUCTO_unidad';
@@ -676,7 +675,7 @@
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ',
 							' . $objDatabase->SqlVariable($this->intPRODUCTOIdPRODUCTO) . ',
-							' . $objDatabase->SqlVariable($this->strPRODUCTOCantidad) . ',
+							' . $objDatabase->SqlVariable($this->intPRODUCTOCantidad) . ',
 							' . $objDatabase->SqlVariable($this->intPRODUCTOVolumen) . ',
 							' . $objDatabase->SqlVariable($this->strPRODUCTOUnidad) . ',
 							' . $objDatabase->SqlVariable($this->strPRODUCTOCostoUnitario) . '
@@ -696,7 +695,7 @@
 						SET
 							`LICENCIA_idLICENCIA` = ' . $objDatabase->SqlVariable($this->intLICENCIAIdLICENCIA) . ',
 							`PRODUCTO_idPRODUCTO` = ' . $objDatabase->SqlVariable($this->intPRODUCTOIdPRODUCTO) . ',
-							`PRODUCTO_cantidad` = ' . $objDatabase->SqlVariable($this->strPRODUCTOCantidad) . ',
+							`PRODUCTO_cantidad` = ' . $objDatabase->SqlVariable($this->intPRODUCTOCantidad) . ',
 							`PRODUCTO_volumen` = ' . $objDatabase->SqlVariable($this->intPRODUCTOVolumen) . ',
 							`PRODUCTO_unidad` = ' . $objDatabase->SqlVariable($this->strPRODUCTOUnidad) . ',
 							`PRODUCTO_costoUnitario` = ' . $objDatabase->SqlVariable($this->strPRODUCTOCostoUnitario) . '
@@ -786,7 +785,7 @@
 			$this->__intLICENCIAIdLICENCIA = $this->intLICENCIAIdLICENCIA;
 			$this->PRODUCTOIdPRODUCTO = $objReloaded->PRODUCTOIdPRODUCTO;
 			$this->__intPRODUCTOIdPRODUCTO = $this->intPRODUCTOIdPRODUCTO;
-			$this->strPRODUCTOCantidad = $objReloaded->strPRODUCTOCantidad;
+			$this->intPRODUCTOCantidad = $objReloaded->intPRODUCTOCantidad;
 			$this->intPRODUCTOVolumen = $objReloaded->intPRODUCTOVolumen;
 			$this->strPRODUCTOUnidad = $objReloaded->strPRODUCTOUnidad;
 			$this->strPRODUCTOCostoUnitario = $objReloaded->strPRODUCTOCostoUnitario;
@@ -826,10 +825,10 @@
 
 				case 'PRODUCTOCantidad':
 					/**
-					 * Gets the value for strPRODUCTOCantidad (Not Null)
-					 * @return string
+					 * Gets the value for intPRODUCTOCantidad (Not Null)
+					 * @return integer
 					 */
-					return $this->strPRODUCTOCantidad;
+					return $this->intPRODUCTOCantidad;
 
 				case 'PRODUCTOVolumen':
 					/**
@@ -947,12 +946,12 @@
 
 				case 'PRODUCTOCantidad':
 					/**
-					 * Sets the value for strPRODUCTOCantidad (Not Null)
-					 * @param string $mixValue
-					 * @return string
+					 * Sets the value for intPRODUCTOCantidad (Not Null)
+					 * @param integer $mixValue
+					 * @return integer
 					 */
 					try {
-						return ($this->strPRODUCTOCantidad = QType::Cast($mixValue, QType::String));
+						return ($this->intPRODUCTOCantidad = QType::Cast($mixValue, QType::Integer));
 					} catch (QCallerException $objExc) {
 						$objExc->IncrementOffset();
 						throw $objExc;
@@ -1104,7 +1103,7 @@
 			$strToReturn = '<complexType name="ListaProducto"><sequence>';
 			$strToReturn .= '<element name="LICENCIAIdLICENCIAObject" type="xsd1:Licencia"/>';
 			$strToReturn .= '<element name="PRODUCTOIdPRODUCTOObject" type="xsd1:Producto"/>';
-			$strToReturn .= '<element name="PRODUCTOCantidad" type="xsd:string"/>';
+			$strToReturn .= '<element name="PRODUCTOCantidad" type="xsd:int"/>';
 			$strToReturn .= '<element name="PRODUCTOVolumen" type="xsd:int"/>';
 			$strToReturn .= '<element name="PRODUCTOUnidad" type="xsd:string"/>';
 			$strToReturn .= '<element name="PRODUCTOCostoUnitario" type="xsd:string"/>';
@@ -1139,7 +1138,7 @@
 				($objSoapObject->PRODUCTOIdPRODUCTOObject))
 				$objToReturn->PRODUCTOIdPRODUCTOObject = Producto::GetObjectFromSoapObject($objSoapObject->PRODUCTOIdPRODUCTOObject);
 			if (property_exists($objSoapObject, 'PRODUCTOCantidad'))
-				$objToReturn->strPRODUCTOCantidad = $objSoapObject->PRODUCTOCantidad;
+				$objToReturn->intPRODUCTOCantidad = $objSoapObject->PRODUCTOCantidad;
 			if (property_exists($objSoapObject, 'PRODUCTOVolumen'))
 				$objToReturn->intPRODUCTOVolumen = $objSoapObject->PRODUCTOVolumen;
 			if (property_exists($objSoapObject, 'PRODUCTOUnidad'))
@@ -1188,7 +1187,7 @@
 			///////////////////
 			$iArray['LICENCIAIdLICENCIA'] = $this->intLICENCIAIdLICENCIA;
 			$iArray['PRODUCTOIdPRODUCTO'] = $this->intPRODUCTOIdPRODUCTO;
-			$iArray['PRODUCTOCantidad'] = $this->strPRODUCTOCantidad;
+			$iArray['PRODUCTOCantidad'] = $this->intPRODUCTOCantidad;
 			$iArray['PRODUCTOVolumen'] = $this->intPRODUCTOVolumen;
 			$iArray['PRODUCTOUnidad'] = $this->strPRODUCTOUnidad;
 			$iArray['PRODUCTOCostoUnitario'] = $this->strPRODUCTOCostoUnitario;
@@ -1241,7 +1240,7 @@
 				case 'PRODUCTOIdPRODUCTOObject':
 					return new QQNodeProducto('PRODUCTO_idPRODUCTO', 'PRODUCTOIdPRODUCTOObject', 'Integer', $this);
 				case 'PRODUCTOCantidad':
-					return new QQNode('PRODUCTO_cantidad', 'PRODUCTOCantidad', 'VarChar', $this);
+					return new QQNode('PRODUCTO_cantidad', 'PRODUCTOCantidad', 'Integer', $this);
 				case 'PRODUCTOVolumen':
 					return new QQNode('PRODUCTO_volumen', 'PRODUCTOVolumen', 'Integer', $this);
 				case 'PRODUCTOUnidad':
@@ -1291,7 +1290,7 @@
 				case 'PRODUCTOIdPRODUCTOObject':
 					return new QQNodeProducto('PRODUCTO_idPRODUCTO', 'PRODUCTOIdPRODUCTOObject', 'integer', $this);
 				case 'PRODUCTOCantidad':
-					return new QQNode('PRODUCTO_cantidad', 'PRODUCTOCantidad', 'string', $this);
+					return new QQNode('PRODUCTO_cantidad', 'PRODUCTOCantidad', 'integer', $this);
 				case 'PRODUCTOVolumen':
 					return new QQNode('PRODUCTO_volumen', 'PRODUCTOVolumen', 'integer', $this);
 				case 'PRODUCTOUnidad':

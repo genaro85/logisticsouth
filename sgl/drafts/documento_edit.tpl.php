@@ -23,6 +23,8 @@
 
 		<?php $this->txtDuracion->RenderWithName(); ?>
 
+		<?php $this->lstDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
+
 		<?php $this->lstDocumentosFase->RenderWithName(); ?>
 
 	</div>

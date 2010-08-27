@@ -20,7 +20,7 @@
 	 * @property-read QLabel $LICENCIAIdLICENCIALabel
 	 * @property QListBox $PRODUCTOIdPRODUCTOControl
 	 * @property-read QLabel $PRODUCTOIdPRODUCTOLabel
-	 * @property QTextBox $PRODUCTOCantidadControl
+	 * @property QIntegerTextBox $PRODUCTOCantidadControl
 	 * @property-read QLabel $PRODUCTOCantidadLabel
 	 * @property QIntegerTextBox $PRODUCTOVolumenControl
 	 * @property-read QLabel $PRODUCTOVolumenLabel
@@ -58,7 +58,7 @@
 		 */
 		protected $lstPRODUCTOIdPRODUCTOObject;
 		/**
-		 * @var QTextBox strPRODUCTOCantidad
+		 * @var QIntegerTextBox intPRODUCTOCantidad
 		 */
 		protected $txtPRODUCTOCantidad;
 		/**
@@ -251,29 +251,30 @@
 		}
 
 		/**
-		 * Create and setup QTextBox txtPRODUCTOCantidad
+		 * Create and setup QIntegerTextBox txtPRODUCTOCantidad
 		 * @param string $strControlId optional ControlId to use
-		 * @return QTextBox
+		 * @return QIntegerTextBox
 		 */
 		public function txtPRODUCTOCantidad_Create($strControlId = null) {
-			$this->txtPRODUCTOCantidad = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtPRODUCTOCantidad = new QIntegerTextBox($this->objParentObject, $strControlId);
 			$this->txtPRODUCTOCantidad->Name = QApplication::Translate('P R O D U C T O Cantidad');
 			$this->txtPRODUCTOCantidad->Text = $this->objListaProducto->PRODUCTOCantidad;
 			$this->txtPRODUCTOCantidad->Required = true;
-			$this->txtPRODUCTOCantidad->MaxLength = ListaProducto::PRODUCTOCantidadMaxLength;
 			return $this->txtPRODUCTOCantidad;
 		}
 
 		/**
 		 * Create and setup QLabel lblPRODUCTOCantidad
 		 * @param string $strControlId optional ControlId to use
+		 * @param string $strFormat optional sprintf format to use
 		 * @return QLabel
 		 */
-		public function lblPRODUCTOCantidad_Create($strControlId = null) {
+		public function lblPRODUCTOCantidad_Create($strControlId = null, $strFormat = null) {
 			$this->lblPRODUCTOCantidad = new QLabel($this->objParentObject, $strControlId);
 			$this->lblPRODUCTOCantidad->Name = QApplication::Translate('P R O D U C T O Cantidad');
 			$this->lblPRODUCTOCantidad->Text = $this->objListaProducto->PRODUCTOCantidad;
 			$this->lblPRODUCTOCantidad->Required = true;
+			$this->lblPRODUCTOCantidad->Format = $strFormat;
 			return $this->lblPRODUCTOCantidad;
 		}
 

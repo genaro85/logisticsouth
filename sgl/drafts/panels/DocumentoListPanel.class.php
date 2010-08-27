@@ -83,6 +83,7 @@
 			$this->dtgDocumentos->MetaAddColumn('IdDOCUMENTO');
 			$this->dtgDocumentos->MetaAddColumn('Nombre');
 			$this->dtgDocumentos->MetaAddColumn('Duracion');
+			$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DOCUMENTOIdDOCUMENTOObject);
 			$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DocumentosFase);
 
 			// Setup the Create New button

@@ -21,6 +21,7 @@
 	 * @property string $Cedula the value for strCedula 
 	 * @property string $Login the value for strLogin (Not Null)
 	 * @property string $Password the value for strPassword (Not Null)
+	 * @property string $Email the value for strEmail 
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class AdministradorGen extends QBaseClass implements IteratorAggregate {
@@ -83,6 +84,15 @@
 
 
 		/**
+		 * Protected member variable that maps to the database column ADMINISTRADOR.email
+		 * @var string strEmail
+		 */
+		protected $strEmail;
+		const EmailMaxLength = 45;
+		const EmailDefault = null;
+
+
+		/**
 		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
 		 * columns from the run-time database query result for this object).  Used by InstantiateDbRow and
 		 * GetVirtualAttribute.
@@ -117,6 +127,7 @@
 			$this->strCedula = Administrador::CedulaDefault;
 			$this->strLogin = Administrador::LoginDefault;
 			$this->strPassword = Administrador::PasswordDefault;
+			$this->strEmail = Administrador::EmailDefault;
 		}
 
 
@@ -390,6 +401,7 @@
 			$objBuilder->AddSelectItem($strTableName, 'cedula', $strAliasPrefix . 'cedula');
 			$objBuilder->AddSelectItem($strTableName, 'login', $strAliasPrefix . 'login');
 			$objBuilder->AddSelectItem($strTableName, 'password', $strAliasPrefix . 'password');
+			$objBuilder->AddSelectItem($strTableName, 'email', $strAliasPrefix . 'email');
 		}
 
 
@@ -432,6 +444,8 @@
 			$objToReturn->strLogin = $objDbRow->GetColumn($strAliasName, 'VarChar');
 			$strAliasName = array_key_exists($strAliasPrefix . 'password', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'password'] : $strAliasPrefix . 'password';
 			$objToReturn->strPassword = $objDbRow->GetColumn($strAliasName, 'VarChar');
+			$strAliasName = array_key_exists($strAliasPrefix . 'email', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'email'] : $strAliasPrefix . 'email';
+			$objToReturn->strEmail = $objDbRow->GetColumn($strAliasName, 'VarChar');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
@@ -552,13 +566,15 @@
 							`apellido`,
 							`cedula`,
 							`login`,
-							`password`
+							`password`,
+							`email`
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->strNombre) . ',
 							' . $objDatabase->SqlVariable($this->strApellido) . ',
 							' . $objDatabase->SqlVariable($this->strCedula) . ',
 							' . $objDatabase->SqlVariable($this->strLogin) . ',
-							' . $objDatabase->SqlVariable($this->strPassword) . '
+							' . $objDatabase->SqlVariable($this->strPassword) . ',
+							' . $objDatabase->SqlVariable($this->strEmail) . '
 						)
 					');
 
@@ -578,7 +594,8 @@
 							`apellido` = ' . $objDatabase->SqlVariable($this->strApellido) . ',
 							`cedula` = ' . $objDatabase->SqlVariable($this->strCedula) . ',
 							`login` = ' . $objDatabase->SqlVariable($this->strLogin) . ',
-							`password` = ' . $objDatabase->SqlVariable($this->strPassword) . '
+							`password` = ' . $objDatabase->SqlVariable($this->strPassword) . ',
+							`email` = ' . $objDatabase->SqlVariable($this->strEmail) . '
 						WHERE
 							`idADMINISTRADOR` = ' . $objDatabase->SqlVariable($this->intIdADMINISTRADOR) . '
 					');
@@ -662,6 +679,7 @@
 			$this->strCedula = $objReloaded->strCedula;
 			$this->strLogin = $objReloaded->strLogin;
 			$this->strPassword = $objReloaded->strPassword;
+			$this->strEmail = $objReloaded->strEmail;
 		}
 
 
@@ -723,6 +741,13 @@
 					 * @return string
 					 */
 					return $this->strPassword;
+
+				case 'Email':
+					/**
+					 * Gets the value for strEmail 
+					 * @return string
+					 */
+					return $this->strEmail;
 
 
 				///////////////////
@@ -826,6 +851,19 @@
 						throw $objExc;
 					}
 
+				case 'Email':
+					/**
+					 * Sets the value for strEmail 
+					 * @param string $mixValue
+					 * @return string
+					 */
+					try {
+						return ($this->strEmail = QType::Cast($mixValue, QType::String));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
 
 				///////////////////
 				// Member Objects
@@ -873,6 +911,7 @@
 			$strToReturn .= '<element name="Cedula" type="xsd:string"/>';
 			$strToReturn .= '<element name="Login" type="xsd:string"/>';
 			$strToReturn .= '<element name="Password" type="xsd:string"/>';
+			$strToReturn .= '<element name="Email" type="xsd:string"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -907,6 +946,8 @@
 				$objToReturn->strLogin = $objSoapObject->Login;
 			if (property_exists($objSoapObject, 'Password'))
 				$objToReturn->strPassword = $objSoapObject->Password;
+			if (property_exists($objSoapObject, 'Email'))
+				$objToReturn->strEmail = $objSoapObject->Email;
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -945,6 +986,7 @@
 			$iArray['Cedula'] = $this->strCedula;
 			$iArray['Login'] = $this->strLogin;
 			$iArray['Password'] = $this->strPassword;
+			$iArray['Email'] = $this->strEmail;
 			return new ArrayIterator($iArray);
 		}
 
@@ -972,6 +1014,7 @@
      * @property-read QQNode $Cedula
      * @property-read QQNode $Login
      * @property-read QQNode $Password
+     * @property-read QQNode $Email
      *
      *
 
@@ -995,6 +1038,8 @@
 					return new QQNode('login', 'Login', 'VarChar', $this);
 				case 'Password':
 					return new QQNode('password', 'Password', 'VarChar', $this);
+				case 'Email':
+					return new QQNode('email', 'Email', 'VarChar', $this);
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idADMINISTRADOR', 'IdADMINISTRADOR', 'Integer', $this);
@@ -1016,6 +1061,7 @@
      * @property-read QQNode $Cedula
      * @property-read QQNode $Login
      * @property-read QQNode $Password
+     * @property-read QQNode $Email
      *
      *
 
@@ -1039,6 +1085,8 @@
 					return new QQNode('login', 'Login', 'string', $this);
 				case 'Password':
 					return new QQNode('password', 'Password', 'string', $this);
+				case 'Email':
+					return new QQNode('email', 'Email', 'string', $this);
 
 				case '_PrimaryKeyNode':
 					return new QQNode('idADMINISTRADOR', 'IdADMINISTRADOR', 'integer', $this);

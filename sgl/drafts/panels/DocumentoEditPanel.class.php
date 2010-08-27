@@ -26,6 +26,7 @@
 		public $lblIdDOCUMENTO;
 		public $txtNombre;
 		public $txtDuracion;
+		public $lstDOCUMENTOIdDOCUMENTOObject;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 		public $lstDocumentosFase;
@@ -68,6 +69,7 @@
 			$this->lblIdDOCUMENTO = $this->mctDocumento->lblIdDOCUMENTO_Create();
 			$this->txtNombre = $this->mctDocumento->txtNombre_Create();
 			$this->txtDuracion = $this->mctDocumento->txtDuracion_Create();
+			$this->lstDOCUMENTOIdDOCUMENTOObject = $this->mctDocumento->lstDOCUMENTOIdDOCUMENTOObject_Create();
 			$this->lstDocumentosFase = $this->mctDocumento->lstDocumentosFase_Create();
 
 			// Create Buttons and Actions on this Form

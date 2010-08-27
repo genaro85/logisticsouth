@@ -86,6 +86,7 @@
 			$this->dtgEmpleados->MetaAddColumn('Cedula');
 			$this->dtgEmpleados->MetaAddColumn('Login');
 			$this->dtgEmpleados->MetaAddColumn('Password');
+			$this->dtgEmpleados->MetaAddColumn('Email');
 
 			// Setup the Create New button
 			$this->btnCreateNew = new QButton($this);

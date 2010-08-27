@@ -18,7 +18,11 @@
 	 * @property-read integer $IdDOCUMENTO the value for intIdDOCUMENTO (Read-Only PK)
 	 * @property string $Nombre the value for strNombre (Not Null)
 	 * @property integer $Duracion the value for intDuracion 
+	 * @property integer $DOCUMENTOIdDOCUMENTO the value for intDOCUMENTOIdDOCUMENTO 
+	 * @property Documento $DOCUMENTOIdDOCUMENTOObject the value for the Documento object referenced by intDOCUMENTOIdDOCUMENTO 
 	 * @property DocumentosFase $DocumentosFase the value for the DocumentosFase object that uniquely references this Documento
+	 * @property-read Documento $_DocumentoAsDOCUMENTOIdDOCUMENTO the value for the private _objDocumentoAsDOCUMENTOIdDOCUMENTO (Read-Only) if set due to an expansion on the DOCUMENTO.DOCUMENTO_idDOCUMENTO reverse relationship
+	 * @property-read Documento[] $_DocumentoAsDOCUMENTOIdDOCUMENTOArray the value for the private _objDocumentoAsDOCUMENTOIdDOCUMENTOArray (Read-Only) if set due to an ExpandAsArray on the DOCUMENTO.DOCUMENTO_idDOCUMENTO reverse relationship
 	 * @property-read boolean $__Restored whether or not this object was restored from the database (as opposed to created new)
 	 */
 	class DocumentoGen extends QBaseClass implements IteratorAggregate {
@@ -53,6 +57,30 @@
 
 
 		/**
+		 * Protected member variable that maps to the database column DOCUMENTO.DOCUMENTO_idDOCUMENTO
+		 * @var integer intDOCUMENTOIdDOCUMENTO
+		 */
+		protected $intDOCUMENTOIdDOCUMENTO;
+		const DOCUMENTOIdDOCUMENTODefault = null;
+
+
+		/**
+		 * Private member variable that stores a reference to a single DocumentoAsDOCUMENTOIdDOCUMENTO object
+		 * (of type Documento), if this Documento object was restored with
+		 * an expansion on the DOCUMENTO association table.
+		 * @var Documento _objDocumentoAsDOCUMENTOIdDOCUMENTO;
+		 */
+		private $_objDocumentoAsDOCUMENTOIdDOCUMENTO;
+
+		/**
+		 * Private member variable that stores a reference to an array of DocumentoAsDOCUMENTOIdDOCUMENTO objects
+		 * (of type Documento[]), if this Documento object was restored with
+		 * an ExpandAsArray on the DOCUMENTO association table.
+		 * @var Documento[] _objDocumentoAsDOCUMENTOIdDOCUMENTOArray;
+		 */
+		private $_objDocumentoAsDOCUMENTOIdDOCUMENTOArray = array();
+
+		/**
 		 * Protected array of virtual attributes for this object (e.g. extra/other calculated and/or non-object bound
 		 * columns from the run-time database query result for this object).  Used by InstantiateDbRow and
 		 * GetVirtualAttribute.
@@ -73,6 +101,16 @@
 		///////////////////////////////
 		// PROTECTED MEMBER OBJECTS
 		///////////////////////////////
+
+		/**
+		 * Protected member variable that contains the object pointed by the reference
+		 * in the database column DOCUMENTO.DOCUMENTO_idDOCUMENTO.
+		 *
+		 * NOTE: Always use the DOCUMENTOIdDOCUMENTOObject property getter to correctly retrieve this Documento object.
+		 * (Because this class implements late binding, this variable reference MAY be null.)
+		 * @var Documento objDOCUMENTOIdDOCUMENTOObject
+		 */
+		protected $objDOCUMENTOIdDOCUMENTOObject;
 
 		/**
 		 * Protected member variable that contains the object which points to
@@ -102,6 +140,7 @@
 			$this->intIdDOCUMENTO = Documento::IdDOCUMENTODefault;
 			$this->strNombre = Documento::NombreDefault;
 			$this->intDuracion = Documento::DuracionDefault;
+			$this->intDOCUMENTOIdDOCUMENTO = Documento::DOCUMENTOIdDOCUMENTODefault;
 		}
 
 
@@ -372,6 +411,7 @@
 			$objBuilder->AddSelectItem($strTableName, 'idDOCUMENTO', $strAliasPrefix . 'idDOCUMENTO');
 			$objBuilder->AddSelectItem($strTableName, 'nombre', $strAliasPrefix . 'nombre');
 			$objBuilder->AddSelectItem($strTableName, 'duracion', $strAliasPrefix . 'duracion');
+			$objBuilder->AddSelectItem($strTableName, 'DOCUMENTO_idDOCUMENTO', $strAliasPrefix . 'DOCUMENTO_idDOCUMENTO');
 		}
 
 
@@ -397,6 +437,44 @@
 			if (!$objDbRow) {
 				return null;
 			}
+			// See if we're doing an array expansion on the previous item
+			$strAlias = $strAliasPrefix . 'idDOCUMENTO';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (($strExpandAsArrayNodes) && is_array($arrPreviousItems) && count($arrPreviousItems)) {
+				foreach ($arrPreviousItems as $objPreviousItem) {            
+					if ($objPreviousItem->intIdDOCUMENTO == $objDbRow->GetColumn($strAliasName, 'Integer')) {        
+						// We are.  Now, prepare to check for ExpandAsArray clauses
+						$blnExpandedViaArray = false;
+						if (!$strAliasPrefix)
+							$strAliasPrefix = 'DOCUMENTO__';
+
+
+						// Expanding reverse references: DocumentoAsDOCUMENTOIdDOCUMENTO
+						$strAlias = $strAliasPrefix . 'documentoasdocumentoiddocumento__idDOCUMENTO';
+						$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+						if ((array_key_exists($strAlias, $strExpandAsArrayNodes)) &&
+							(!is_null($objDbRow->GetColumn($strAliasName)))) {
+							if ($intPreviousChildItemCount = count($objPreviousItem->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray)) {
+								$objPreviousChildItems = $objPreviousItem->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray;
+								$objChildItem = Documento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentoasdocumentoiddocumento__', $strExpandAsArrayNodes, $objPreviousChildItems, $strColumnAliasArray);
+								if ($objChildItem) {
+									$objPreviousItem->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray[] = $objChildItem;
+								}
+							} else {
+								$objPreviousItem->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray[] = Documento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentoasdocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+							}
+							$blnExpandedViaArray = true;
+						}
+
+						// Either return false to signal array expansion, or check-to-reset the Alias prefix and move on
+						if ($blnExpandedViaArray) {
+							return false;
+						} else if ($strAliasPrefix == 'DOCUMENTO__') {
+							$strAliasPrefix = null;
+						}
+					}
+				}
+			}
 
 			// Create a new instance of the Documento object
 			$objToReturn = new Documento();
@@ -408,10 +486,15 @@
 			$objToReturn->strNombre = $objDbRow->GetColumn($strAliasName, 'VarChar');
 			$strAliasName = array_key_exists($strAliasPrefix . 'duracion', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'duracion'] : $strAliasPrefix . 'duracion';
 			$objToReturn->intDuracion = $objDbRow->GetColumn($strAliasName, 'Integer');
+			$strAliasName = array_key_exists($strAliasPrefix . 'DOCUMENTO_idDOCUMENTO', $strColumnAliasArray) ? $strColumnAliasArray[$strAliasPrefix . 'DOCUMENTO_idDOCUMENTO'] : $strAliasPrefix . 'DOCUMENTO_idDOCUMENTO';
+			$objToReturn->intDOCUMENTOIdDOCUMENTO = $objDbRow->GetColumn($strAliasName, 'Integer');
 
 			if (isset($arrPreviousItems) && is_array($arrPreviousItems)) {
 				foreach ($arrPreviousItems as $objPreviousItem) {
 					if ($objToReturn->IdDOCUMENTO != $objPreviousItem->IdDOCUMENTO) {
+						continue;
+					}
+					if (array_diff($objPreviousItem->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray, $objToReturn->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray) != null) {
 						continue;
 					}
 
@@ -432,6 +515,12 @@
 			if (!$strAliasPrefix)
 				$strAliasPrefix = 'DOCUMENTO__';
 
+			// Check for DOCUMENTOIdDOCUMENTOObject Early Binding
+			$strAlias = $strAliasPrefix . 'DOCUMENTO_idDOCUMENTO__idDOCUMENTO';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName)))
+				$objToReturn->objDOCUMENTOIdDOCUMENTOObject = Documento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'DOCUMENTO_idDOCUMENTO__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+
 
 			// Check for DocumentosFase Unique ReverseReference Binding
 			$strAlias = $strAliasPrefix . 'documentosfase__DOCUMENTO_idDOCUMENTO';
@@ -446,6 +535,16 @@
 			}
 
 
+
+			// Check for DocumentoAsDOCUMENTOIdDOCUMENTO Virtual Binding
+			$strAlias = $strAliasPrefix . 'documentoasdocumentoiddocumento__idDOCUMENTO';
+			$strAliasName = array_key_exists($strAlias, $strColumnAliasArray) ? $strColumnAliasArray[$strAlias] : $strAlias;
+			if (!is_null($objDbRow->GetColumn($strAliasName))) {
+				if (($strExpandAsArrayNodes) && (array_key_exists($strAlias, $strExpandAsArrayNodes)))
+					$objToReturn->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray[] = Documento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentoasdocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+				else
+					$objToReturn->_objDocumentoAsDOCUMENTOIdDOCUMENTO = Documento::InstantiateDbRow($objDbRow, $strAliasPrefix . 'documentoasdocumentoiddocumento__', $strExpandAsArrayNodes, null, $strColumnAliasArray);
+			}
 
 			return $objToReturn;
 		}
@@ -505,6 +604,38 @@
 				$objOptionalClauses
 			);
 		}
+			
+		/**
+		 * Load an array of Documento objects,
+		 * by DOCUMENTOIdDOCUMENTO Index(es)
+		 * @param integer $intDOCUMENTOIdDOCUMENTO
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Documento[]
+		*/
+		public static function LoadArrayByDOCUMENTOIdDOCUMENTO($intDOCUMENTOIdDOCUMENTO, $objOptionalClauses = null) {
+			// Call Documento::QueryArray to perform the LoadArrayByDOCUMENTOIdDOCUMENTO query
+			try {
+				return Documento::QueryArray(
+					QQ::Equal(QQN::Documento()->DOCUMENTOIdDOCUMENTO, $intDOCUMENTOIdDOCUMENTO),
+					$objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Count Documentos
+		 * by DOCUMENTOIdDOCUMENTO Index(es)
+		 * @param integer $intDOCUMENTOIdDOCUMENTO
+		 * @return int
+		*/
+		public static function CountByDOCUMENTOIdDOCUMENTO($intDOCUMENTOIdDOCUMENTO) {
+			// Call Documento::QueryCount to perform the CountByDOCUMENTOIdDOCUMENTO query
+			return Documento::QueryCount(
+				QQ::Equal(QQN::Documento()->DOCUMENTOIdDOCUMENTO, $intDOCUMENTOIdDOCUMENTO)
+			);
+		}
 
 
 
@@ -537,10 +668,12 @@
 					$objDatabase->NonQuery('
 						INSERT INTO `DOCUMENTO` (
 							`nombre`,
-							`duracion`
+							`duracion`,
+							`DOCUMENTO_idDOCUMENTO`
 						) VALUES (
 							' . $objDatabase->SqlVariable($this->strNombre) . ',
-							' . $objDatabase->SqlVariable($this->intDuracion) . '
+							' . $objDatabase->SqlVariable($this->intDuracion) . ',
+							' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
 						)
 					');
 
@@ -557,7 +690,8 @@
 							`DOCUMENTO`
 						SET
 							`nombre` = ' . $objDatabase->SqlVariable($this->strNombre) . ',
-							`duracion` = ' . $objDatabase->SqlVariable($this->intDuracion) . '
+							`duracion` = ' . $objDatabase->SqlVariable($this->intDuracion) . ',
+							`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intDOCUMENTOIdDOCUMENTO) . '
 						WHERE
 							`idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intIdDOCUMENTO) . '
 					');
@@ -667,6 +801,7 @@
 			// Update $this's local variables to match
 			$this->strNombre = $objReloaded->strNombre;
 			$this->intDuracion = $objReloaded->intDuracion;
+			$this->DOCUMENTOIdDOCUMENTO = $objReloaded->DOCUMENTOIdDOCUMENTO;
 		}
 
 
@@ -708,10 +843,31 @@
 					 */
 					return $this->intDuracion;
 
+				case 'DOCUMENTOIdDOCUMENTO':
+					/**
+					 * Gets the value for intDOCUMENTOIdDOCUMENTO 
+					 * @return integer
+					 */
+					return $this->intDOCUMENTOIdDOCUMENTO;
+
 
 				///////////////////
 				// Member Objects
 				///////////////////
+				case 'DOCUMENTOIdDOCUMENTOObject':
+					/**
+					 * Gets the value for the Documento object referenced by intDOCUMENTOIdDOCUMENTO 
+					 * @return Documento
+					 */
+					try {
+						if ((!$this->objDOCUMENTOIdDOCUMENTOObject) && (!is_null($this->intDOCUMENTOIdDOCUMENTO)))
+							$this->objDOCUMENTOIdDOCUMENTOObject = Documento::Load($this->intDOCUMENTOIdDOCUMENTO);
+						return $this->objDOCUMENTOIdDOCUMENTOObject;
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
 		
 		
 				case 'DocumentosFase':
@@ -737,6 +893,22 @@
 				// Virtual Object References (Many to Many and Reverse References)
 				// (If restored via a "Many-to" expansion)
 				////////////////////////////
+
+				case '_DocumentoAsDOCUMENTOIdDOCUMENTO':
+					/**
+					 * Gets the value for the private _objDocumentoAsDOCUMENTOIdDOCUMENTO (Read-Only)
+					 * if set due to an expansion on the DOCUMENTO.DOCUMENTO_idDOCUMENTO reverse relationship
+					 * @return Documento
+					 */
+					return $this->_objDocumentoAsDOCUMENTOIdDOCUMENTO;
+
+				case '_DocumentoAsDOCUMENTOIdDOCUMENTOArray':
+					/**
+					 * Gets the value for the private _objDocumentoAsDOCUMENTOIdDOCUMENTOArray (Read-Only)
+					 * if set due to an ExpandAsArray on the DOCUMENTO.DOCUMENTO_idDOCUMENTO reverse relationship
+					 * @return Documento[]
+					 */
+					return (array) $this->_objDocumentoAsDOCUMENTOIdDOCUMENTOArray;
 
 
 				case '__Restored':
@@ -791,10 +963,56 @@
 						throw $objExc;
 					}
 
+				case 'DOCUMENTOIdDOCUMENTO':
+					/**
+					 * Sets the value for intDOCUMENTOIdDOCUMENTO 
+					 * @param integer $mixValue
+					 * @return integer
+					 */
+					try {
+						$this->objDOCUMENTOIdDOCUMENTOObject = null;
+						return ($this->intDOCUMENTOIdDOCUMENTO = QType::Cast($mixValue, QType::Integer));
+					} catch (QCallerException $objExc) {
+						$objExc->IncrementOffset();
+						throw $objExc;
+					}
+
 
 				///////////////////
 				// Member Objects
 				///////////////////
+				case 'DOCUMENTOIdDOCUMENTOObject':
+					/**
+					 * Sets the value for the Documento object referenced by intDOCUMENTOIdDOCUMENTO 
+					 * @param Documento $mixValue
+					 * @return Documento
+					 */
+					if (is_null($mixValue)) {
+						$this->intDOCUMENTOIdDOCUMENTO = null;
+						$this->objDOCUMENTOIdDOCUMENTOObject = null;
+						return null;
+					} else {
+						// Make sure $mixValue actually is a Documento object
+						try {
+							$mixValue = QType::Cast($mixValue, 'Documento');
+						} catch (QInvalidCastException $objExc) {
+							$objExc->IncrementOffset();
+							throw $objExc;
+						} 
+
+						// Make sure $mixValue is a SAVED Documento object
+						if (is_null($mixValue->IdDOCUMENTO))
+							throw new QCallerException('Unable to set an unsaved DOCUMENTOIdDOCUMENTOObject for this Documento');
+
+						// Update Local Member Variables
+						$this->objDOCUMENTOIdDOCUMENTOObject = $mixValue;
+						$this->intDOCUMENTOIdDOCUMENTO = $mixValue->IdDOCUMENTO;
+
+						// Return $mixValue
+						return $mixValue;
+					}
+					break;
+
 				case 'DocumentosFase':
 					/**
 					 * Sets the value for the DocumentosFase object referenced by objDocumentosFase (Unique)
@@ -861,6 +1079,156 @@
 		// ASSOCIATED OBJECTS' METHODS
 		///////////////////////////////
 
+			
+		
+		// Related Objects' Methods for DocumentoAsDOCUMENTOIdDOCUMENTO
+		//-------------------------------------------------------------------
+
+		/**
+		 * Gets all associated DocumentosAsDOCUMENTOIdDOCUMENTO as an array of Documento objects
+		 * @param QQClause[] $objOptionalClauses additional optional QQClause objects for this query
+		 * @return Documento[]
+		*/ 
+		public function GetDocumentoAsDOCUMENTOIdDOCUMENTOArray($objOptionalClauses = null) {
+			if ((is_null($this->intIdDOCUMENTO)))
+				return array();
+
+			try {
+				return Documento::LoadArrayByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO, $objOptionalClauses);
+			} catch (QCallerException $objExc) {
+				$objExc->IncrementOffset();
+				throw $objExc;
+			}
+		}
+
+		/**
+		 * Counts all associated DocumentosAsDOCUMENTOIdDOCUMENTO
+		 * @return int
+		*/ 
+		public function CountDocumentosAsDOCUMENTOIdDOCUMENTO() {
+			if ((is_null($this->intIdDOCUMENTO)))
+				return 0;
+
+			return Documento::CountByDOCUMENTOIdDOCUMENTO($this->intIdDOCUMENTO);
+		}
+
+		/**
+		 * Associates a DocumentoAsDOCUMENTOIdDOCUMENTO
+		 * @param Documento $objDocumento
+		 * @return void
+		*/ 
+		public function AssociateDocumentoAsDOCUMENTOIdDOCUMENTO(Documento $objDocumento) {
+			if ((is_null($this->intIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateDocumentoAsDOCUMENTOIdDOCUMENTO on this unsaved Documento.');
+			if ((is_null($objDocumento->IdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call AssociateDocumentoAsDOCUMENTOIdDOCUMENTO on this Documento with an unsaved Documento.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Documento::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`DOCUMENTO`
+				SET
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intIdDOCUMENTO) . '
+				WHERE
+					`idDOCUMENTO` = ' . $objDatabase->SqlVariable($objDocumento->IdDOCUMENTO) . '
+			');
+		}
+
+		/**
+		 * Unassociates a DocumentoAsDOCUMENTOIdDOCUMENTO
+		 * @param Documento $objDocumento
+		 * @return void
+		*/ 
+		public function UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO(Documento $objDocumento) {
+			if ((is_null($this->intIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO on this unsaved Documento.');
+			if ((is_null($objDocumento->IdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO on this Documento with an unsaved Documento.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Documento::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`DOCUMENTO`
+				SET
+					`DOCUMENTO_idDOCUMENTO` = null
+				WHERE
+					`idDOCUMENTO` = ' . $objDatabase->SqlVariable($objDocumento->IdDOCUMENTO) . ' AND
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intIdDOCUMENTO) . '
+			');
+		}
+
+		/**
+		 * Unassociates all DocumentosAsDOCUMENTOIdDOCUMENTO
+		 * @return void
+		*/ 
+		public function UnassociateAllDocumentosAsDOCUMENTOIdDOCUMENTO() {
+			if ((is_null($this->intIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO on this unsaved Documento.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Documento::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				UPDATE
+					`DOCUMENTO`
+				SET
+					`DOCUMENTO_idDOCUMENTO` = null
+				WHERE
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intIdDOCUMENTO) . '
+			');
+		}
+
+		/**
+		 * Deletes an associated DocumentoAsDOCUMENTOIdDOCUMENTO
+		 * @param Documento $objDocumento
+		 * @return void
+		*/ 
+		public function DeleteAssociatedDocumentoAsDOCUMENTOIdDOCUMENTO(Documento $objDocumento) {
+			if ((is_null($this->intIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO on this unsaved Documento.');
+			if ((is_null($objDocumento->IdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO on this Documento with an unsaved Documento.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Documento::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`DOCUMENTO`
+				WHERE
+					`idDOCUMENTO` = ' . $objDatabase->SqlVariable($objDocumento->IdDOCUMENTO) . ' AND
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intIdDOCUMENTO) . '
+			');
+		}
+
+		/**
+		 * Deletes all associated DocumentosAsDOCUMENTOIdDOCUMENTO
+		 * @return void
+		*/ 
+		public function DeleteAllDocumentosAsDOCUMENTOIdDOCUMENTO() {
+			if ((is_null($this->intIdDOCUMENTO)))
+				throw new QUndefinedPrimaryKeyException('Unable to call UnassociateDocumentoAsDOCUMENTOIdDOCUMENTO on this unsaved Documento.');
+
+			// Get the Database Object for this Class
+			$objDatabase = Documento::GetDatabase();
+
+			// Perform the SQL Query
+			$objDatabase->NonQuery('
+				DELETE FROM
+					`DOCUMENTO`
+				WHERE
+					`DOCUMENTO_idDOCUMENTO` = ' . $objDatabase->SqlVariable($this->intIdDOCUMENTO) . '
+			');
+		}
+
 
 
 
@@ -874,6 +1242,7 @@
 			$strToReturn .= '<element name="IdDOCUMENTO" type="xsd:int"/>';
 			$strToReturn .= '<element name="Nombre" type="xsd:string"/>';
 			$strToReturn .= '<element name="Duracion" type="xsd:int"/>';
+			$strToReturn .= '<element name="DOCUMENTOIdDOCUMENTOObject" type="xsd1:Documento"/>';
 			$strToReturn .= '<element name="__blnRestored" type="xsd:boolean"/>';
 			$strToReturn .= '</sequence></complexType>';
 			return $strToReturn;
@@ -882,6 +1251,7 @@
 		public static function AlterSoapComplexTypeArray(&$strComplexTypeArray) {
 			if (!array_key_exists('Documento', $strComplexTypeArray)) {
 				$strComplexTypeArray['Documento'] = Documento::GetSoapComplexTypeXml();
+				Documento::AlterSoapComplexTypeArray($strComplexTypeArray);
 			}
 		}
 
@@ -902,6 +1272,9 @@
 				$objToReturn->strNombre = $objSoapObject->Nombre;
 			if (property_exists($objSoapObject, 'Duracion'))
 				$objToReturn->intDuracion = $objSoapObject->Duracion;
+			if ((property_exists($objSoapObject, 'DOCUMENTOIdDOCUMENTOObject')) &&
+				($objSoapObject->DOCUMENTOIdDOCUMENTOObject))
+				$objToReturn->DOCUMENTOIdDOCUMENTOObject = Documento::GetObjectFromSoapObject($objSoapObject->DOCUMENTOIdDOCUMENTOObject);
 			if (property_exists($objSoapObject, '__blnRestored'))
 				$objToReturn->__blnRestored = $objSoapObject->__blnRestored;
 			return $objToReturn;
@@ -920,6 +1293,10 @@
 		}
 
 		public static function GetSoapObjectFromObject($objObject, $blnBindRelatedObjects) {
+			if ($objObject->objDOCUMENTOIdDOCUMENTOObject)
+				$objObject->objDOCUMENTOIdDOCUMENTOObject = Documento::GetSoapObjectFromObject($objObject->objDOCUMENTOIdDOCUMENTOObject, false);
+			else if (!$blnBindRelatedObjects)
+				$objObject->intDOCUMENTOIdDOCUMENTO = null;
 			return $objObject;
 		}
 
@@ -937,6 +1314,7 @@
 			$iArray['IdDOCUMENTO'] = $this->intIdDOCUMENTO;
 			$iArray['Nombre'] = $this->strNombre;
 			$iArray['Duracion'] = $this->intDuracion;
+			$iArray['DOCUMENTOIdDOCUMENTO'] = $this->intDOCUMENTOIdDOCUMENTO;
 			return new ArrayIterator($iArray);
 		}
 
@@ -961,8 +1339,11 @@
      * @property-read QQNode $IdDOCUMENTO
      * @property-read QQNode $Nombre
      * @property-read QQNode $Duracion
+     * @property-read QQNode $DOCUMENTOIdDOCUMENTO
+     * @property-read QQNodeDocumento $DOCUMENTOIdDOCUMENTOObject
      *
      *
+     * @property-read QQReverseReferenceNodeDocumento $DocumentoAsDOCUMENTOIdDOCUMENTO
      * @property-read QQReverseReferenceNodeDocumentosFase $DocumentosFase
 
      * @property-read QQNode $_PrimaryKeyNode
@@ -979,6 +1360,12 @@
 					return new QQNode('nombre', 'Nombre', 'VarChar', $this);
 				case 'Duracion':
 					return new QQNode('duracion', 'Duracion', 'Integer', $this);
+				case 'DOCUMENTOIdDOCUMENTO':
+					return new QQNode('DOCUMENTO_idDOCUMENTO', 'DOCUMENTOIdDOCUMENTO', 'Integer', $this);
+				case 'DOCUMENTOIdDOCUMENTOObject':
+					return new QQNodeDocumento('DOCUMENTO_idDOCUMENTO', 'DOCUMENTOIdDOCUMENTOObject', 'Integer', $this);
+				case 'DocumentoAsDOCUMENTOIdDOCUMENTO':
+					return new QQReverseReferenceNodeDocumento($this, 'documentoasdocumentoiddocumento', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO');
 				case 'DocumentosFase':
 					return new QQReverseReferenceNodeDocumentosFase($this, 'documentosfase', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO', 'DocumentosFase');
 
@@ -999,8 +1386,11 @@
      * @property-read QQNode $IdDOCUMENTO
      * @property-read QQNode $Nombre
      * @property-read QQNode $Duracion
+     * @property-read QQNode $DOCUMENTOIdDOCUMENTO
+     * @property-read QQNodeDocumento $DOCUMENTOIdDOCUMENTOObject
      *
      *
+     * @property-read QQReverseReferenceNodeDocumento $DocumentoAsDOCUMENTOIdDOCUMENTO
      * @property-read QQReverseReferenceNodeDocumentosFase $DocumentosFase
 
      * @property-read QQNode $_PrimaryKeyNode
@@ -1017,6 +1407,12 @@
 					return new QQNode('nombre', 'Nombre', 'string', $this);
 				case 'Duracion':
 					return new QQNode('duracion', 'Duracion', 'integer', $this);
+				case 'DOCUMENTOIdDOCUMENTO':
+					return new QQNode('DOCUMENTO_idDOCUMENTO', 'DOCUMENTOIdDOCUMENTO', 'integer', $this);
+				case 'DOCUMENTOIdDOCUMENTOObject':
+					return new QQNodeDocumento('DOCUMENTO_idDOCUMENTO', 'DOCUMENTOIdDOCUMENTOObject', 'integer', $this);
+				case 'DocumentoAsDOCUMENTOIdDOCUMENTO':
+					return new QQReverseReferenceNodeDocumento($this, 'documentoasdocumentoiddocumento', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO');
 				case 'DocumentosFase':
 					return new QQReverseReferenceNodeDocumentosFase($this, 'documentosfase', 'reverse_reference', 'DOCUMENTO_idDOCUMENTO', 'DocumentosFase');
 

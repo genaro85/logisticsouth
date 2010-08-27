@@ -28,6 +28,38 @@
 			}
 		}
 */
+            public function txtNombre_Create($strControlId = null) {
+			$this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
+			$this->txtNombre->Name = QApplication::Translate('Nombre');
+			$this->txtNombre->Text = $this->objDocumento->Nombre;
+			$this->txtNombre->Required = true;
+			$this->txtNombre->MaxLength = Documento::NombreMaxLength;
+			return $this->txtNombre;
+		}
+
+                public function txtDuracion_Create($strControlId = null) {
+			$this->txtDuracion = new QIntegerTextBox($this->objParentObject, $strControlId);
+			$this->txtDuracion->Name = QApplication::Translate('Duracion (en días)');
+			$this->txtDuracion->Text = $this->objDocumento->Duracion;
+			return $this->txtDuracion;
+		}
+
+                public function lstDocumentosFase_Create($strControlId = null) {
+			$this->lstDocumentosFase = new QListBox($this->objParentObject, $strControlId);
+			$this->lstDocumentosFase->Name = QApplication::Translate('Documentos Fase');
+			$this->lstDocumentosFase->AddItem(QApplication::Translate('- Select One -'), null);
+			$objDocumentosFaseArray = DocumentosFase::LoadAll();
+			if ($objDocumentosFaseArray) foreach ($objDocumentosFaseArray as $objDocumentosFase) {
+				$objListItem = new QListItem($objDocumentosFase->__toString(), $objDocumentosFase->DOCUMENTOIdDOCUMENTO);
+				if ($objDocumentosFase->DOCUMENTOIdDOCUMENTO == $this->objDocumento->IdDOCUMENTO)
+					$objListItem->Selected = true;
+				$this->lstDocumentosFase->AddItem($objListItem);
+			}
+			// Because DocumentosFase's DocumentosFase is not null, if a value is already selected, it cannot be changed.
+			if ($this->lstDocumentosFase->SelectedValue)
+				$this->lstDocumentosFase->Enabled = false;
+			return $this->lstDocumentosFase;
+		}
 
 	}
 ?>

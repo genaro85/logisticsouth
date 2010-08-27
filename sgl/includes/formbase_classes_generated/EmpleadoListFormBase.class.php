@@ -63,6 +63,7 @@
 			$this->dtgEmpleados->MetaAddColumn('Cedula');
 			$this->dtgEmpleados->MetaAddColumn('Login');
 			$this->dtgEmpleados->MetaAddColumn('Password');
+			$this->dtgEmpleados->MetaAddColumn('Email');
 		}
 	}
 ?>
