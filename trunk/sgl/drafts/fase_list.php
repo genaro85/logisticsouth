@@ -1,4 +1,5 @@
 <?php
+
 // Load the QCubed Development Framework
 require('../qcubed.inc.php');
 
@@ -21,11 +22,10 @@ require(__FORMBASE_CLASSES__ . '/FaseListFormBase.class.php');
  * @subpackage Drafts
  */
 class FaseListForm extends FaseListFormBase {
+
     // Override Form Event Handlers as Needed
 //		protected function Form_Run() {}
-
 //		protected function Form_Load() {}
-
 //		protected function Form_Create() {}
 
     protected function Form_Create() {
@@ -43,7 +43,6 @@ class FaseListForm extends FaseListFormBase {
         $this->dtgFases->ItemsPerPage = 20;
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
-
         // Create an Edit Column
         $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/fase_edit.php';
         $this->dtgFases->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
@@ -51,6 +50,7 @@ class FaseListForm extends FaseListFormBase {
         // Create the Other Columns (note that you can use strings for FASE's properties, or you
         // can traverse down QQN::FASE() to display fields that are down the hierarchy)
         //$this->dtgFases->MetaAddColumn('IdFASE');
+        $this->dtgFases->MetaAddColumn(QQN::Fase()->PROCESOIdPROCESOObject, 'Name=Proceso');
         $this->dtgFases->MetaAddColumn('Nombre');
         $this->dtgFases->MetaAddColumn('Duracion');
         $this->dtgFases->MetaAddColumn('Icono');

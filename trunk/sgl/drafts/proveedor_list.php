@@ -46,10 +46,10 @@ class ProveedorListForm extends ProveedorListFormBase {
         // can traverse down QQN::PROVEEDOR() to display fields that are down the hierarchy)
         //$this->dtgProveedors->MetaAddColumn('IdPROVEEDOR');
         $this->dtgProveedors->MetaAddColumn('Nombre');
-        $this->dtgProveedors->MetaAddColumn('Direccion');
-        $this->dtgProveedors->MetaAddColumn('Telefono');
+        $this->dtgProveedors->MetaAddColumn('Direccion', 'Name=Dirección');
+        $this->dtgProveedors->MetaAddColumn('Telefono', 'Name=Teléfono');
         $this->dtgProveedors->MetaAddColumn('Email');
-        $this->dtgProveedors->MetaAddColumn(QQN::Proveedor()->PAISIdPAISObject->Nombre, 'Name=Pais');
+        $this->dtgProveedors->MetaAddColumn(QQN::Proveedor()->PAISIdPAISObject->Nombre, 'Name=País');
     }
 
 // Override Form Event Handlers as Needed

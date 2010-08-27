@@ -49,7 +49,7 @@
 			// Create the Other Columns (note that you can use strings for TIPO_DE_PAGO's properties, or you
 			// can traverse down QQN::TIPO_DE_PAGO() to display fields that are down the hierarchy)
 			//$this->dtgTipoDePagos->MetaAddColumn('IdTIPODEPAGO');
-			$this->dtgTipoDePagos->MetaAddColumn('Nombre', 'Name=Modalidad');
+			$this->dtgTipoDePagos->MetaAddColumn('Nombre');
                 }
 	}
 

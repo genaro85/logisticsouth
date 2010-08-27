@@ -44,7 +44,7 @@ class EmpleadoListForm extends EmpleadoListFormBase {
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
         $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/empleado_edit.php';
-        $this->dtgEmpleados->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Editar');
+        $this->dtgEmpleados->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
         // Create the Other Columns (note that you can use strings for EMPLEADO's properties, or you
         // can traverse down QQN::EMPLEADO() to display fields that are down the hierarchy)
@@ -53,7 +53,8 @@ class EmpleadoListForm extends EmpleadoListFormBase {
         $this->dtgEmpleados->MetaAddColumn('Apellido');
         $this->dtgEmpleados->MetaAddColumn('Cedula');
         $this->dtgEmpleados->MetaAddColumn('Login');
-        //$this->dtgEmpleados->MetaAddColumn('Password');
+        $this->dtgEmpleados->MetaAddColumn('Password');
+        $this->dtgEmpleados->MetaAddColumn('Email');
     }
 
 }

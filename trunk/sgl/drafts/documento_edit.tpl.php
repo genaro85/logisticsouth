@@ -17,15 +17,15 @@
 	</div>
 
 	<div id="formControls">
-		<?php $this->lblIdDOCUMENTO->RenderWithName(); ?>
+		<?php //$this->lblIdDOCUMENTO->RenderWithName(); ?>
 
 		<?php $this->txtNombre->RenderWithName(); ?>
 
 		<?php $this->txtDuracion->RenderWithName(); ?>
 
-		<?php $this->lstDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
+		<?php //$this->lstDocumentosFase->RenderWithName(); ?>
 
-		<?php $this->lstDocumentosFase->RenderWithName(); ?>
+                <?php $this->lstDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
 
 	</div>
 

@@ -1,4 +1,5 @@
 <?php
+
 require(__META_CONTROLS_GEN__ . '/ImportacionMetaControlGen.class.php');
 
 /**
@@ -19,15 +20,16 @@ require(__META_CONTROLS_GEN__ . '/ImportacionMetaControlGen.class.php');
  * @subpackage MetaControls
  */
 class ImportacionMetaControl extends ImportacionMetaControlGen {
+
     // Initialize fields with default values from database definition
     /*
-		public function __construct($objParentObject, Importacion $objImportacion) {
-			parent::__construct($objParentObject,$objImportacion);
-			if ( !$this->blnEditMode ){
-				$this->objImportacion->Initialize();
-			}
-		}
-    */
+      public function __construct($objParentObject, Importacion $objImportacion) {
+      parent::__construct($objParentObject,$objImportacion);
+      if ( !$this->blnEditMode ){
+      $this->objImportacion->Initialize();
+      }
+      }
+     */
     public function lstTRANSPORTEIdTRANSPORTEObject_Create($strControlId = null) {
         $this->lstTRANSPORTEIdTRANSPORTEObject = new QListBox($this->objParentObject, $strControlId);
         $this->lstTRANSPORTEIdTRANSPORTEObject->Name = QApplication::Translate('Transporte');
@@ -36,7 +38,8 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstTRANSPORTEIdTRANSPORTEObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objTRANSPORTEIdTRANSPORTEObjectArray = Transporte::LoadAll();
-        if ($objTRANSPORTEIdTRANSPORTEObjectArray) foreach ($objTRANSPORTEIdTRANSPORTEObjectArray as $objTRANSPORTEIdTRANSPORTEObject) {
+        if ($objTRANSPORTEIdTRANSPORTEObjectArray)
+            foreach ($objTRANSPORTEIdTRANSPORTEObjectArray as $objTRANSPORTEIdTRANSPORTEObject) {
                 $objListItem = new QListItem($objTRANSPORTEIdTRANSPORTEObject->__toString(), $objTRANSPORTEIdTRANSPORTEObject->IdTRANSPORTE);
                 if (($this->objImportacion->TRANSPORTEIdTRANSPORTEObject) && ($this->objImportacion->TRANSPORTEIdTRANSPORTEObject->IdTRANSPORTE == $objTRANSPORTEIdTRANSPORTEObject->IdTRANSPORTE))
                     $objListItem->Selected = true;
@@ -44,6 +47,7 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
             }
         return $this->lstTRANSPORTEIdTRANSPORTEObject;
     }
+
     public function lstLICENCIAIdLICENCIAObject_Create($strControlId = null) {
         $this->lstLICENCIAIdLICENCIAObject = new QListBox($this->objParentObject, $strControlId);
         $this->lstLICENCIAIdLICENCIAObject->Name = QApplication::Translate('Licencia');
@@ -51,7 +55,8 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstLICENCIAIdLICENCIAObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objLICENCIAIdLICENCIAObjectArray = Licencia::LoadAll();
-        if ($objLICENCIAIdLICENCIAObjectArray) foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
+        if ($objLICENCIAIdLICENCIAObjectArray)
+            foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
                 $objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString(), $objLICENCIAIdLICENCIAObject->IdLICENCIA);
                 if (($this->objImportacion->LICENCIAIdLICENCIAObject) && ($this->objImportacion->LICENCIAIdLICENCIAObject->IdLICENCIA == $objLICENCIAIdLICENCIAObject->IdLICENCIA))
                     $objListItem->Selected = true;
@@ -59,6 +64,7 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
             }
         return $this->lstLICENCIAIdLICENCIAObject;
     }
+
     public function calFechaDeSalida_Create($strControlId = null) {
         $this->calFechaDeSalida = new QDateTimeTextBox($this->objParentObject, $strControlId);
         $this->calFechaDeSalida->Name = QApplication::Translate('Fecha De Salida');
@@ -66,6 +72,7 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
             $this->calFechaDeSalida->Text = $this->objImportacion->FechaDeSalida->__toString();
         return $this->calFechaDeSalida;
     }
+
     public function calFechaLlegada_Create($strControlId = null) {
         $this->calFechaLlegada = new QDateTimeTextBox($this->objParentObject, $strControlId);
         $this->calFechaLlegada->Name = QApplication::Translate('Fecha De Llegada');
@@ -73,14 +80,22 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
             $this->calFechaLlegada->Text = $this->objImportacion->FechaLlegada->__toString();
         return $this->calFechaLlegada;
     }
+
     public function txtTipo_Create($strControlId = null) {
-        $this->txtTipo = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtTipo = new QListBox($this->objParentObject, $strControlId);
         $this->txtTipo->Name = QApplication::Translate('Tipo');
-        $this->txtTipo->Text = $this->objImportacion->Tipo;
-        $this->txtTipo->Required = true;
-        $this->txtTipo->MaxLength = Importacion::TipoMaxLength;
+        $this->txtTipo->AddItem(QApplication::Translate('- Select One -'), null);
+        $ListaEstatus = array(1 => 'Marítimo', 2 => 'Aereo', 3 => 'Terrestre');
+        if ($ListaEstatus)
+            foreach ($ListaEstatus as $objMat) {
+                $objListItem = new QListItem($objMat, $objMat);
+                if ($this->objImportacion->Tipo == $objMat)
+                    $objListItem->Selected = true;
+                $this->txtTipo->AddItem($objListItem);
+            }
         return $this->txtTipo;
     }
+
     public function lstPAISOrigenObject_Create($strControlId = null) {
         $this->lstPAISOrigenObject = new QListBox($this->objParentObject, $strControlId);
         $this->lstPAISOrigenObject->Name = QApplication::Translate('Pais de Origen');
@@ -88,7 +103,8 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstPAISOrigenObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objPAISOrigenObjectArray = Pais::LoadAll();
-        if ($objPAISOrigenObjectArray) foreach ($objPAISOrigenObjectArray as $objPAISOrigenObject) {
+        if ($objPAISOrigenObjectArray)
+            foreach ($objPAISOrigenObjectArray as $objPAISOrigenObject) {
                 $objListItem = new QListItem($objPAISOrigenObject->__toString(), $objPAISOrigenObject->IdPAIS);
                 if (($this->objImportacion->PAISOrigenObject) && ($this->objImportacion->PAISOrigenObject->IdPAIS == $objPAISOrigenObject->IdPAIS))
                     $objListItem->Selected = true;
@@ -96,6 +112,7 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
             }
         return $this->lstPAISOrigenObject;
     }
+
     public function lstPAISDestinoObject_Create($strControlId = null) {
         $this->lstPAISDestinoObject = new QListBox($this->objParentObject, $strControlId);
         $this->lstPAISDestinoObject->Name = QApplication::Translate('Pais de Destino');
@@ -103,7 +120,8 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstPAISDestinoObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objPAISDestinoObjectArray = Pais::LoadAll();
-        if ($objPAISDestinoObjectArray) foreach ($objPAISDestinoObjectArray as $objPAISDestinoObject) {
+        if ($objPAISDestinoObjectArray)
+            foreach ($objPAISDestinoObjectArray as $objPAISDestinoObject) {
                 $objListItem = new QListItem($objPAISDestinoObject->__toString(), $objPAISDestinoObject->IdPAIS);
                 if (($this->objImportacion->PAISDestinoObject) && ($this->objImportacion->PAISDestinoObject->IdPAIS == $objPAISDestinoObject->IdPAIS))
                     $objListItem->Selected = true;
@@ -112,6 +130,6 @@ class ImportacionMetaControl extends ImportacionMetaControlGen {
         return $this->lstPAISDestinoObject;
     }
 
-
 }
+
 ?>
