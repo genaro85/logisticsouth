@@ -1,9 +1,8 @@
 <?php
 require_once('../qcubed.inc.php');
 
-require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+require(__CONFIGURATION__ . '/header.inc.php');
 ?>
-
 
 <div id="body1"><form action="" method="post" >
         <table width="514" border="0
