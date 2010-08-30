@@ -49,6 +49,7 @@ class LicenciaListForm extends LicenciaListFormBase {
         // Create the Other Columns (note that you can use strings for LICENCIA's properties, or you
         // can traverse down QQN::LICENCIA() to display fields that are down the hierarchy)
         //$this->dtgLicencias->MetaAddColumn('IdLICENCIA');
+        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROCESOIdPROCESOObject->Nombre,'Name=Proceso a Utilizar');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->Nombre, 'Name=Proveedor');
         $this->dtgLicencias->MetaAddColumn('FechaInicio','Name=Fecha Inicio');
@@ -62,7 +63,7 @@ class LicenciaListForm extends LicenciaListFormBase {
         $this->dtgLicencias->MetaAddColumn('Tipo', 'Name=Tipo de Licencia');
         $this->dtgLicencias->MetaAddColumn('Flete', 'Name=Costo de Transporte');
         $this->dtgLicencias->MetaAddColumn('Seguro', 'Name=Seguro de Mercancia');
-        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROCESOIdPROCESOObject->Nombre,'Name=Proceso a Utilizar');
+        
     }
 
 }

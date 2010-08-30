@@ -81,8 +81,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
         //TODO QUE HACE ESTE IF?
         if ($this->objLicencia->FechaFin)
             $this->calFechaFin->Text = $this->objLicencia->FechaFin->__toString();
-        $this->calFechaInicio->Required = false;
-
+        
         return $this->calFechaFin;
     }
 
