@@ -33,7 +33,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function lstEMPRESAIdEMPRESAObject_Create($strControlId = null) {
         $this->lstEMPRESAIdEMPRESAObject = new QListBox($this->objParentObject, $strControlId);
-        $this->lstEMPRESAIdEMPRESAObject->Name = QApplication::Translate('Empresa*');
+        $this->lstEMPRESAIdEMPRESAObject->Name = QApplication::Translate('Empresa');
         $this->lstEMPRESAIdEMPRESAObject->Required = true;
         if (!$this->blnEditMode)
             $this->lstEMPRESAIdEMPRESAObject->AddItem(QApplication::Translate('- Select One -'), null);
@@ -50,7 +50,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function lstPROVEEDORIdPROVEEDORObject_Create($strControlId = null) {
         $this->lstPROVEEDORIdPROVEEDORObject = new QListBox($this->objParentObject, $strControlId);
-        $this->lstPROVEEDORIdPROVEEDORObject->Name = QApplication::Translate('Proveedor*');
+        $this->lstPROVEEDORIdPROVEEDORObject->Name = QApplication::Translate('Proveedor');
         $this->lstPROVEEDORIdPROVEEDORObject->Required = true;
         if (!$this->blnEditMode)
             $this->lstPROVEEDORIdPROVEEDORObject->AddItem(QApplication::Translate('- Select One -'), null);
@@ -68,7 +68,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
     public function calFechaInicio_Create($strControlId = null) {
 
         $this->calFechaInicio = new QDateTimeTextBox($this->objParentObject, $strControlId);   //Cambias el tipo de QDateTimePicker a QDateTimeTextBox
-        $this->calFechaInicio->Name = QApplication::Translate('Fecha Inicio*');      //Nombre del campo
+        $this->calFechaInicio->Name = QApplication::Translate('Fecha Inicio');      //Nombre del campo
         if ($this->objLicencia->FechaInicio)
             $this->calFechaInicio->Text = $this->objLicencia->FechaInicio->__toString();
         $this->calFechaInicio->Required = true;
@@ -88,7 +88,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtNumeroProforma_Create($strControlId = null) {
         $this->txtNumeroProforma = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtNumeroProforma->Name = QApplication::Translate('Número de Proforma*');
+        $this->txtNumeroProforma->Name = QApplication::Translate('Número de Proforma');
         $this->txtNumeroProforma->Text = $this->objLicencia->NumeroProforma;
         $this->txtNumeroProforma->Required = true;
         $this->txtNumeroProforma->MaxLength = Licencia::NumeroProformaMaxLength;
@@ -114,7 +114,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtStatus_Create($strControlId = null) {
         $this->txtStatus = new QListBox($this->objParentObject, $strControlId);
-        $this->txtStatus->Name = QApplication::Translate('Estado de Licencia*');
+        $this->txtStatus->Name = QApplication::Translate('Estado de Licencia');
         $this->txtStatus->AddItem(QApplication::Translate('- Select One -'), null);  //Campo Null Seleccionar Uno
         $ListaEstatus = array(1 => 'En Proceso', 2 => 'Cerrada');                //Lista de Estatus
         if ($ListaEstatus)
@@ -161,7 +161,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function lstPROCESOIdPROCESOObject_Create($strControlId = null) {
         $this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
-        $this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('Proceso a Utilizar*');
+        $this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('Proceso a Utilizar');
         $this->lstPROCESOIdPROCESOObject->Required = true;
         if (!$this->blnEditMode)
             $this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
