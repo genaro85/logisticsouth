@@ -8,11 +8,8 @@
                     	<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
                     <div id="footerLeft">
                         <ul>
-                        <li><a href="#">Home</a>| </li>
-                        <li><a href="#">Noticias</a> | </li>
-                        <li><a href="#"> Licencias</a>| </li>
-                        <li><a href="#">Forum</a> | </li>
-                        <li><a href="#">Soluciones</a> |</li>
+                        <li><a href="#">Inicio</a>| </li>
+                        <li><a href="#">Acerca de</a> | </li>
                         <li><a href="#">Contactos</a></li>
                         </ul>
                     </div>
