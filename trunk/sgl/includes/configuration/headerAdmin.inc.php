@@ -17,9 +17,13 @@
             </div>
         </div>
         <ul class="menu">
-            <li class="top"><a href="" target="_self" class="top_link"><span>Home</span></a>
+            <li class="top"><a href="" target="_self" class="top_link"><span>Inicio</span></a>
             </li>
-            <li class="top"><a href="" target="_self" class="top_link"><span>Licencias</span></a>
+            <li class="top"><a href="" target="_self" class="top_link"><span>Acerca de</span></a>
+            </li>
+            <li class="top"><a href="" target="_self" class="top_link"><span>Contacto</span></a>
+            </li>
+            <!--<li class="top"><a href="" target="_self" class="top_link"><span>Licencias</span></a>
                 <ul class="sub">
                     <li><a href="" target="_self">Licencia</a></li>
                     <li><a href="" target="_self">Codigo Pago</a></li>
@@ -53,7 +57,7 @@
                     <li><a href="" target="_self">Empleado</a></li>
                     <li><a href="" target="_self">Responsable</a></li>
                 </ul>
-            </li>
+            </li>-->
         </ul>
         <div id="content">
 

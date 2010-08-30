@@ -17,8 +17,7 @@
             </div>
         </div>
         <ul class="menu">
-            <li class="top"><a href="" target="_self" class="top_link"><span>Home</span></a>
-            </li>
+            <li class="top"><a href="" target="_self" class="top_link"><span>Inicio</span></a>
             <li class="top"><a href="" target="_self" class="top_link"><span>Licencias</span></a>
                 <ul class="sub">
                     <li><a href="" target="_self">Licencia</a></li>
