@@ -49,20 +49,20 @@ class LicenciaListForm extends LicenciaListFormBase {
         // Create the Other Columns (note that you can use strings for LICENCIA's properties, or you
         // can traverse down QQN::LICENCIA() to display fields that are down the hierarchy)
         //$this->dtgLicencias->MetaAddColumn('IdLICENCIA');
-        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROCESOIdPROCESOObject->Nombre,'Name=Proceso a Utilizar');
+        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROCESOIdPROCESOObject->Nombre,'Name=Proceso');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->Nombre, 'Name=Proveedor');
-        $this->dtgLicencias->MetaAddColumn('FechaInicio','Name=Fecha Inicio');
-        $this->dtgLicencias->MetaAddColumn('FechaFin','Name=Fecha Fin');
+        $this->dtgLicencias->MetaAddColumn('FechaInicio','Name=Inicio');
+        $this->dtgLicencias->MetaAddColumn('FechaFin','Name=Fin');
         //$this->dtgLicencias->MetaAddColumn('FechaFinEstimada');
-        $this->dtgLicencias->MetaAddColumn('NumeroProforma', 'Name=Número de Proforma');
-        $this->dtgLicencias->MetaAddColumn('NumeroCNP','Name=Número de C.N.P');
-        $this->dtgLicencias->MetaAddColumn('VencimientoCNP','Name=Vencimiento C.N.P');
-        $this->dtgLicencias->MetaAddColumn('Status','Name=Estdo de Licencia');
-        $this->dtgLicencias->MetaAddColumn('FormaPago','Name=Modalidad de Pago');
-        $this->dtgLicencias->MetaAddColumn('Tipo', 'Name=Tipo de Licencia');
-        $this->dtgLicencias->MetaAddColumn('Flete', 'Name=Costo de Transporte');
-        $this->dtgLicencias->MetaAddColumn('Seguro', 'Name=Seguro de Mercancia');
+        $this->dtgLicencias->MetaAddColumn('NumeroProforma', 'Name=Nº Proforma');
+        $this->dtgLicencias->MetaAddColumn('NumeroCNP','Name=Nº C.N.P');
+        $this->dtgLicencias->MetaAddColumn('VencimientoCNP','Name=Venc. C.N.P');
+        $this->dtgLicencias->MetaAddColumn('Status','Name=Estdo');
+        $this->dtgLicencias->MetaAddColumn('FormaPago','Name=Forma de Pago');
+        $this->dtgLicencias->MetaAddColumn('Tipo', 'Name=Tipo');
+        $this->dtgLicencias->MetaAddColumn('Flete', 'Name=Flete');
+        $this->dtgLicencias->MetaAddColumn('Seguro', 'Name=Seguro');
         
     }
 
