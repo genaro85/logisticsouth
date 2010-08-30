@@ -18,6 +18,8 @@ require(__CONFIGURATION__ . '/header.inc.php');
 <div id="formControls">
 <?php // $this->lblIdLICENCIA->RenderWithName();  ?>
 
+<?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+    
 <?php $this->lstEMPRESAIdEMPRESAObject->RenderWithName(); ?>
 
 <?php $this->lstPROVEEDORIdPROVEEDORObject->RenderWithName(); ?>
@@ -50,7 +52,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
 <?php $this->txtSeguro->RenderWithName(); ?>
 
-<?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+
 
 </div>
 
