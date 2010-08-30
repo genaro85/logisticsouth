@@ -5,8 +5,9 @@ html,body {
     color:#FFF;
     padding:0px;
     margin:0px;
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Helvetica,Arial,sans-serif;
     font-size: 13px;
+    letter-spacing: 1px;
     line-height: 15px;
 }
 
@@ -16,7 +17,7 @@ html>body, html>body #page {
 
 
 .bg {background: url(../images/button4.gif);text-decoration:none;}
-.menu {padding:0 0 0 25%; margin:0; list-style:none; height:40px; background:#fff url(../images/button1a.gif) repeat-x; position:relative; font-family:arial, verdana, sans-serif; text-decoration:none;}
+.menu {padding:0 0 0 25%; margin:0; list-style:none; height:40px; background:#fff url(../images/button1a.gif) repeat-x; position:relative; font-family: Arial,Helvetica,sans-serif; text-decoration:none;}
 .menu li.top {display:block; float:left; position:relative;text-decoration:none;}
 .menu li a.current {padding:0 16px 0 20px; display:block; float:left;  height:40px; line-height:33px; color:black; text-decoration:none; font-size:12px;text-align:center; font-weight:bold; cursor:pointer; background: url(../images/button4.gif) no-repeat;}
 .menu li a.top_link {display:block; float:left; height:40px; line-height:33px; color:white; text-decoration:none; font-size:12px; font-weight:bold; padding:0 0 0 12px; cursor:pointer;}
@@ -56,11 +57,11 @@ html>body, html>body #page {
 {left:90px; top:-4px; background: #fff; padding:3px 0; border:1px solid 999999; white-space:nowrap; width:93px; z-index:200; height:auto;text-decoration:none;}
 
 
-a:link {color:#FF6A00;}
-a:visited {color: #FF6A00;}
+a:link {color:#FFF;}
+a:visited {color: #c4c6c8;}
 a:link, a:visited { text-decoration:none; /*border-bottom: 1px dotted #FF6A00;*/}
-a:hover { text-decoration:none; border-bottom: 1px solid #000;}
-pre { font-family: 'Lucida Console', 'Courier New', 'Courier', 'FreeMono', monospaced; font-size: 11px; line-height: 13px; }
+a:hover { text-decoration:none; border-bottom: 1px solid #FFF;}
+pre { font-family: Arial,Helvetica,sans-serif/*'Lucida Console', 'Courier New', 'Courier', 'FreeMono', monospaced*/; font-size: 11px; line-height: 13px; }
 
 h1, h2, h3, h4, h5, h6, p, pre, blockquote, cite, label, dl, ul, ol, fieldset, address {
     clear: both;
@@ -74,8 +75,38 @@ h1, h2, h3, h4, h5, h6 {
     margin: .5em 0 .3em 0;
 }
 
-h2 {font:28px Helvetica, Verdana, Arial, sans-serif; color: #231f20 }
-h1 {font:20px Helvetica, Verdana, Arial, sans-serif; color: white; font-weight: bold;  }
+h2 {font:16px Helvetica, Verdana, Arial, sans-serif; color: #FFF/*#231f20*/;
+    text-shadow:2px 2px 2px #414042;
+}
+h1 {font:24px Helvetica, Verdana, Arial, sans-serif; color: white; font-weight: bold;
+    padding: 0 0 0 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-shadow:2px 2px 2px #414042;
+    /* Legacy browsers */
+    background:#dcddde url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    background: #dcddde;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFafb1b4, endColorstr=#FFdcddde);
+    /* Opera */
+    background: #dcddde url("gradient-bg.svg");
+    /* Recent browsers */
+    background-image: -moz-linear-gradient(
+            top,
+            #afb1b4,
+            #dcddde
+    );
+    background-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            from(#afb1b4),
+            to(#dcddde)
+    );
+}
 h3 { font-size: 1.4em; }
 h4 { font-size: 1.2em; }
 h5 { font-size: 1.1em; }
@@ -200,7 +231,7 @@ input.textbox:focus, textarea.textbox:focus {background-color: #fff; border-colo
 
 select.listbox { font: 12px 'Arial', 'Helvetica'; width: 208px; background-color: #F6F6F6; border: 1px solid #111; color:#111;}
 select.listbox:focus { background-color: #fff; border-color: #FF6A00;}
-a.listboxReset { font-family: verdana, arial, helvetica; font-size: 8pt; text-decoration: none; color: #FF6A00; }
+a.listboxReset { font-family: Arial,Helvetica,sans-serif; font-size: 8pt; text-decoration: none; color: #FF6A00; }
 a.listboxReset:hover { text-decoration: underline; }
 
 /**
@@ -226,7 +257,7 @@ span.datetimepicker select.hour { width: 65px; margin-left: 12px; margin-right: 
 span.datetimepicker select.minute { width: 45px; margin-left: 2px; margin-right: 2px; }
 span.datetimepicker select.second { width: 45px; margin-left: 2px; }
 
-/* QDataGrid */
+/* QDataGrid - TABLA*/
 table.datagrid{
     border-top:1px solid #e5eff8;
     border-right:1px solid #e5eff8;
@@ -247,7 +278,7 @@ table.datagrid .column1	{
 
 }
 table.datagrid td {
-    color:black;
+    color:white;
     border-bottom:1px solid #e5eff8;
     border-left:1px solid #e5eff8;
     padding:.3em 1em;
@@ -262,20 +293,42 @@ table.datagrid th {
     padding:.3em 1em;
 }
 table.datagrid thead th {
-    background:#f4f9fe;
+    width: 960px;
+    /* Legacy browsers */
+    background: #3b3b3c url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    background: #3b3b3c;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FF67686b, endColorstr=#FF3b3b3c);
+    /* Opera */
+    background: #3b3b3c url("gradient-bg.svg");
+    /* Recent browsers */
+    background-image: -moz-linear-gradient(
+            top,
+            #67686b,
+            #3b3b3c
+    );
+    background-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            from(#67686b),
+            to(#3b3b3c)
+    );
     text-align:center;
-    font:bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
-    color:#FF6A00;
-
+    color: #FFF;
+    font:bold 1em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
 }
 table.datagrid tfoot th {
     text-align:center;
     background:#f4f9fe;
 }
 table.datagrid tfoot th strong {
-    font:bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+    font:bold 1em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
     margin:.5em .5em .5em 0;
-    color:#FF6A00;
+    color:#FFF;
 }
 table.datagrid tfoot th em {
     color:#f03b58;
@@ -288,19 +341,29 @@ table.datagrid .textbox{
     width: 100px;
 }
 
+table.datagrid .button{
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background: -moz-linear-gradient(21% 100% 90deg,#FF9300, #CB3400, #FF9300 70%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF9300), to(#CB3400), color-stop(.6,#FF9300))
+}
 
-
+table.datagrid a {
+    color: white;
+}
 
 /* QPaginator */
 span.paginator { margin: 0; padding: 0;  }
 span.paginator span { list-style-type:none; display: inline; padding: 0; margin: 0; }
-span.paginator span.page a { text-decoration: none; color: #000000; padding: 0 3px 0 3px; margin: 0 2px 0 2px;}
-span.paginator span.page a:hover { background-color: #F6F6F6; }
+span.paginator span.page a { text-decoration: none; color: #FFF; padding: 0 3px 0 3px; margin: 0 2px 0 2px;}
+span.paginator span.page a:hover { background-color: #c4c6c8; }
 span.paginator span.arrow { font-weight: bold; color: #ccc; margin: 0; padding: 0 3px 0 3px; }
-span.paginator span.arrow a { font-weight: bold; color: #000; text-decoration: none; }
-span.paginator span.selected { font-weight: bold; background-color: #F6F6F6; padding: 0 3px 0 3px; margin: 0 2px 0 2px; border: 1px; border-style: solid; }
-span.paginator span.break { color: #FF6A00; margin: 0 5px 0 5px; }
-span.paginator span.ellipsis { color: #FF6A00; }
+span.paginator span.arrow a { font-weight: bold; color: #FFF; text-decoration: none; }
+span.paginator span.selected { font-weight: bold; background-color: #c4c6c8; padding: 0 3px 0 3px; margin: 0 2px 0 2px; border: 1px; border-style: solid; }
+span.paginator span.break { color: #FFF; margin: 0 5px 0 5px; }
+span.paginator span.ellipsis { color: #FFF; }
 
 /* QCalendar */
 div.calendar { width: 200px; border: 1px solid black; background-color: white; color: black;}
@@ -499,9 +562,38 @@ div#draftList { }
 div#draftList h1 { margin: 0; font: 20px 'Georgia', 'Times New Roman', 'Times'; font-weight: bold; }
 div#draftList p { margin-top: 6px; margin-bottom: 18px;}
 
-div#formControls { padding: 0 0 0 20px; }
-
-div#formActions {background:#FF6A00 url(../images/bg_barra.png) repeat-x ; padding: 10px; height: 20px; margin-top: 18px; border:0px solid #111; }
+/* Formulario */
+/*div#formControls { padding: 0 0 0 20px; background-color: #c4c6c8}*/
+div#formControls {
+    padding: 0 0 0 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    /* Legacy browsers */
+    background: #3b3b3c url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    background: #3b3b3c;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FF67686b, endColorstr=#FF3b3b3c);
+    /* Opera */
+    background: #3b3b3c url("gradient-bg.svg");
+    /* Recent browsers */
+    background-image: -moz-linear-gradient(
+            top,
+            #67686b,
+            #3b3b3c
+    );
+    background-image: -webkit-gradient(
+            linear,
+            left top, left bottom,
+            from(#67686b),
+            to(#3b3b3c)
+    );
+}
+	
+div#formActions {background:#3b3b3c repeat-x ; padding: 10px; height: 20px; margin-top: 2px; border:0px solid #111; }
 div#formActions div#save { float: left; }
 div#formActions div#cancel { margin-left: 10px; float: left; }
 div#formActions div#delete { float: right; }
@@ -525,7 +617,7 @@ div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; back
     padding:30px 0 0;
 }
 
-#footerLeft {  
+#footerLeft {
     width:546px;
     position:absolute;
     top:-3px;
@@ -549,7 +641,7 @@ div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; back
     display:block;
     position:absolute;
     top:64px;
-    left:90px;
+    left:140px;
 }
 #footerRight .templateworld a{background:#3B3B3B; color:#fff; text-decoration:none;}
 #footerRight .templateworld a:hover{text-decoration:underline;}
@@ -559,12 +651,12 @@ div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; back
     color:#fff;
     position:absolute;
     top:25px;
-    left:89px;
+    left:115px;
 }
 .footerSmall { font-size: 10px; line-height: 18px;}
 a.footerLink { background-color:#FF6A00; color: #FFF; border-bottom: 1px dotted #FFF;}
 
-#footerPan{width:778px; position:relative; margin:0 auto;}
+#footerPan{width:778px; position:relative; margin:0 auto; margin-left: 32%;}
 
 #footerlogoPan{
     display:block;
@@ -592,7 +684,7 @@ p.create a { font-weight: bold; }
 .codeDisplay {background-color: #F6F6F6; width: 400px; height: 400px; overflow: auto; margin: 10px; padding: 10px;}
 
 .instructions { background-color: #F6F6F6; padding: 20px; margin:20px auto; line-height: 20px; max-height: 300px; width:90%; overflow: auto; text-align:left;border:1px solid #111;}
-.instruction_title { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 22px; font-weight: bold; color: #FF6A00; margin-bottom: 20px;}
+.instruction_title { font-family: Arial,Helvetica,sans-serif; font-size: 22px; font-weight: bold; color: #FF6A00; margin-bottom: 20px;}
 
 .main_navigator { text-align: center; background-color: #111; padding: 5px 20px; color: #ffcc99; width:90%; margin:auto;border:1px solid #111;}
 a.main_navlink { color: #EEE; font-weight: normal; }
@@ -609,7 +701,14 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 .textbox { width: 250px; font:bold 1.2em Helvetica,"Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif; text-align:left;}
 .listbox { width: 250px; font:bold 1.2em Helvetica,"Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif; text-align:left;}
 .button { font: 12px Helvetica, Verdana, Arial, sans-serif;font-weight: bold; border:1px solid #111; background-color:black; color:#FFF; padding:3px;}
-#formActions .button {background:-moz-linear-gradient(top,#FF6A00,#F90);background:-webkit-gradient(linear,left top, left bottom,from(#FF6A00),to(#F90)); color: black;}
+#formActions .button {
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background: -moz-linear-gradient(21% 100% 90deg,#FF9300, #CB3400, #FF9300 70%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF9300), to(#CB3400), color-stop(.6,#FF9300))
+}
 
 .paginator_inactive_step { font-weight: bold; color: #aaaaaa; }
 .paginator_active_step { font-weight: bold; color: #000000; text-decoration: none; }
@@ -853,7 +952,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
     color:#231F20;
     font-weight:normal;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     line-height: normal;
 }
 #bodymiddlePan p.lasttext{padding:0 0 25px 0; color:white;}
