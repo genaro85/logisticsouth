@@ -29,9 +29,15 @@ INSERT INTO `proveedor` VALUES ('1', 'BRASILEAN', 'SAO PAULO', '', '', '1');
 -- ----------------------------
 --  Records of `DOCUMENTO`
 -- ----------------------------
-INSERT INTO `DOCUMENTO` VALUES ('1', 'CNP Cadivi', '180', null), ('2', 'CNP Seniat', '180', null), ('3', 'AAD', '180', '1'), ('4', 'Carta de Credito', null, '3');
+INSERT INTO `DOCUMENTO` VALUES ('1', 'CNP Cadivi', '180', null);
+INSERT INTO `DOCUMENTO` VALUES ('2', 'CNP Seniat', '180', null);
+INSERT INTO `DOCUMENTO` VALUES ('3', 'AAD', '180', '1');
+INSERT INTO `DOCUMENTO` VALUES ('4', 'Carta de Credito', null, '3');
 
 -- ----------------------------
 --  Records of `DOCUMENTOS_FASE`
 -- ----------------------------
-INSERT INTO `DOCUMENTOS_FASE` VALUES ('1', '1'), ('3', '1'), ('4', '1'), ('2', '2');
+INSERT INTO `DOCUMENTOS_FASE` VALUES ('1', '1');
+INSERT INTO `DOCUMENTOS_FASE` VALUES ('3', '1');
+INSERT INTO `DOCUMENTOS_FASE` VALUES ('4', '1');
+INSERT INTO `DOCUMENTOS_FASE` VALUES ('2', '2');
