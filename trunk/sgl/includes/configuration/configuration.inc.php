@@ -20,7 +20,7 @@ if (!defined('SERVER_INSTANCE')) {
 			 * Of course, you can also feel free to remove QApplication::CheckRemoteAdmin() call on any of these pages,
 			 * which will completely ignore ALLOW_REMOTE_ADMIN altogether.
         */
-            define('ALLOW_REMOTE_ADMIN', false);
+            define('ALLOW_REMOTE_ADMIN', true);
 
 
 
@@ -121,6 +121,8 @@ if (!defined('SERVER_INSTANCE')) {
 
             // Destination for generated form drafts and panel drafts
             define ('__FORM_DRAFTS__', __SUBDIRECTORY__ . '/drafts');
+            define ('__FORM_ADMINISTRADOR__', __SUBDIRECTORY__ . '/administrador');
+            define ('__FORM_EMPLEADO__', __SUBDIRECTORY__ . '/empleado');
             define ('__PANEL_DRAFTS__', __SUBDIRECTORY__ . '/drafts/panels');
             define ('__FORMBASE_CLASSES__', __INCLUDES__ . '/formbase_classes_generated');
 
