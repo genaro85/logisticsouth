@@ -103,6 +103,9 @@ class ImportacionEditForm extends ImportacionEditFormBase {
 
         return $blnToReturn;
     }
+    protected function RedirectToListPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/importacion_list.php');
+    }
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using

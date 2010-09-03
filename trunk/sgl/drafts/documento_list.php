@@ -44,7 +44,7 @@ class DocumentoListForm extends DocumentoListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/documento_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/documento_edit.php';
         $this->dtgDocumentos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
         // Create the Other Columns (note that you can use strings for DOCUMENTO's properties, or you

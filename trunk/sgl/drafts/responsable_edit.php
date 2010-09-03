@@ -13,7 +13,7 @@ require(__FORMBASE_CLASSES__ . '/ResponsableEditFormBase.class.php');
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
- * 
+ *
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
  * permanent changes, it is STRONGLY RECOMMENDED to move both responsable_edit.php AND
  * responsable_edit.tpl.php out of this Form Drafts directory.
@@ -92,6 +92,9 @@ class ResponsableEditForm extends ResponsableEditFormBase {
         }
 
         return $blnToReturn;
+    }
+    protected function RedirectToListPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/responsable_list.php');
     }
 
 }

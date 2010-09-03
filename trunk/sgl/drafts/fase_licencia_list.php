@@ -44,13 +44,13 @@
 			// Use the MetaDataGrid functionality to add Columns for this datagrid
 
 			// Create an Edit Column
-			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/fase_licencia_edit.php';
+			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/fase_licencia_edit.php';
 			$this->dtgFaseLicencias->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
 			// Create the Other Columns (note that you can use strings for FASE_LICENCIA's properties, or you
 			// can traverse down QQN::FASE_LICENCIA() to display fields that are down the hierarchy)
-			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->LICENCIAIdLICENCIAObject, 'Name=Licencia');
-			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->FASEIdFASEObject, 'Name=Fase');
+			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->LICENCIAIdLICENCIAObject->NumeroProforma, 'Name=Licencia');
+			$this->dtgFaseLicencias->MetaAddColumn(QQN::FaseLicencia()->FASEIdFASEObject->Nombre, 'Name=Fase');
 			$this->dtgFaseLicencias->MetaAddColumn('FASEFechaInicio', 'Name=Fecha Inicio');
 			$this->dtgFaseLicencias->MetaAddColumn('FASEFechaFin', 'Name=Fecha Fin');
 		}

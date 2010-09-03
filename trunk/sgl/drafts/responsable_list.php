@@ -43,7 +43,7 @@ class ResponsableListForm extends ResponsableListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/responsable_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/responsable_edit.php';
         $this->dtgResponsables->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Editar');
 
         // Create the Other Columns (note that you can use strings for RESPONSABLE's properties, or you

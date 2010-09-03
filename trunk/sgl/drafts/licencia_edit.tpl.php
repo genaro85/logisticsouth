@@ -5,7 +5,7 @@
 // code re-generations do not overwrite your changes.
 
 $strPageTitle = QApplication::Translate('Licencia') . ' - ' . $this->mctLicencia->TitleVerb;
-require(__CONFIGURATION__ . '/header.inc.php');
+require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
 <?php $this->RenderBegin() ?>

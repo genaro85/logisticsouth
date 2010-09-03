@@ -44,7 +44,7 @@
 			// Use the MetaDataGrid functionality to add Columns for this datagrid
 
 			// Create an Edit Column
-			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/transporte_edit.php';
+			$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/transporte_edit.php';
 			$this->dtgTransportes->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
 			// Create the Other Columns (note that you can use strings for TRANSPORTE's properties, or you

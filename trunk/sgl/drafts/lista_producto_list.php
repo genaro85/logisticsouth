@@ -43,15 +43,15 @@ class ListaProductoListForm extends ListaProductoListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/lista_producto_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/lista_producto_edit.php';
         $this->dtgListaProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Editar');
 
         // Create the Other Columns (note that you can use strings for LISTA_PRODUCTO's properties, or you
         // can traverse down QQN::LISTA_PRODUCTO() to display fields that are down the hierarchy)
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject,'Name=Licencia');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject,'Name=Producto');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->CodigoArancelario,'Name=Codigo Arancelario');
         $this->dtgListaProductos->MetaAddColumn('PRODUCTOCantidad', 'Name=Cantidad');
-        $this->dtgListaProductos->MetaAddColumn('PRODUCTOVolumen', 'Name=Volumen');
         $this->dtgListaProductos->MetaAddColumn('PRODUCTOUnidad', 'Name=Unidad');
         $this->dtgListaProductos->MetaAddColumn('PRODUCTOCostoUnitario', 'Name=Costo Unitario');
     }

@@ -43,12 +43,12 @@ class VigenciaDocumentoListForm extends VigenciaDocumentoListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/vigencia_documento_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/vigencia_documento_edit.php';
         $this->dtgVigenciaDocumentos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
         // Create the Other Columns (note that you can use strings for VIGENCIA_DOCUMENTO's properties, or you
         // can traverse down QQN::VIGENCIA_DOCUMENTO() to display fields that are down the hierarchy)
-        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject,'Name=Licencia');
+        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject->NumeroProforma,'Name=Licencia');
         $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTOObject->Nombre,'Name=Documento');
         $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->FASEIdFASEObject->Nombre,'Name=Fase');
         $this->dtgVigenciaDocumentos->MetaAddColumn('FechaOtorgado');
