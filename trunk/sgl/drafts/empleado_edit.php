@@ -28,7 +28,7 @@ class EmpleadoEditForm extends EmpleadoEditFormBase {
 //		protected function Form_Load() {}
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/empleado_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/empleado_list.php');
     }
 
 }

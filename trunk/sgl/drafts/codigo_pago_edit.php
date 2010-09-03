@@ -29,7 +29,7 @@ class CodigoPagoEditForm extends CodigoPagoEditFormBase {
 //		protected function Form_Create() {}
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/codigo_pago_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/codigo_pago_list.php');
     }
 }
 

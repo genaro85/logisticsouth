@@ -29,7 +29,7 @@ class EmpresaEditForm extends EmpresaEditFormBase {
 //		protected function Form_Create() {}
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/empresa_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/empresa_list.php');
     }
 }
 

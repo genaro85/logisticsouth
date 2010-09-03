@@ -28,7 +28,7 @@ class PaisEditForm extends PaisEditFormBase {
 
 //		protected function Form_Create() {}
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/pais_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/pais_list.php');
     }
 }
 
