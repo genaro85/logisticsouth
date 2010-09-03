@@ -5,7 +5,7 @@
 // code re-generations do not overwrite your changes.
 
 $strPageTitle = QApplication::Translate('Responsable') . ' - ' . $this->mctResponsable->TitleVerb;
-require(__CONFIGURATION__ . '/header.inc.php');
+require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
 <?php $this->RenderBegin() ?>
@@ -18,12 +18,12 @@ require(__CONFIGURATION__ . '/header.inc.php');
 <div id="formControls">
     <?php $this->lstEMPLEADOIdEMPLEADOObject->RenderWithName(); ?>
     <p class="create">
-        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/empleado_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('Empleado'); ?></a>
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empleado_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('Empleado'); ?></a>
     </p>
     
     <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
     <p class="create">
-	<a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/licencia_edit.php"><?php _t('Crear una nueva'); ?> <?php _t('Licencia');?></a>
+	<a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Crear una nueva'); ?> <?php _t('Licencia');?></a>
     </p>
 
     <?php $this->calFechaInicio->RenderWithName(); ?>

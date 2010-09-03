@@ -101,6 +101,10 @@ class VigenciaDocumentoEditForm extends VigenciaDocumentoEditFormBase {
 
         return $blnToReturn;
     }
+    
+    protected function RedirectToListPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/vigencia_documento_list.php');
+    }
 
 }
 

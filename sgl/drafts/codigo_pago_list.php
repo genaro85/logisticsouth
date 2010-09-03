@@ -43,7 +43,7 @@ class CodigoPagoListForm extends CodigoPagoListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/codigo_pago_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/codigo_pago_edit.php';
         $this->dtgCodigoPagos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
         // Create the Other Columns (note that you can use strings for CODIGO_PAGO's properties, or you

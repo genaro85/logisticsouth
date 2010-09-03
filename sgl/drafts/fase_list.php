@@ -44,13 +44,13 @@ class FaseListForm extends FaseListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/fase_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/fase_edit.php';
         $this->dtgFases->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
         // Create the Other Columns (note that you can use strings for FASE's properties, or you
         // can traverse down QQN::FASE() to display fields that are down the hierarchy)
         //$this->dtgFases->MetaAddColumn('IdFASE');
-        $this->dtgFases->MetaAddColumn(QQN::Fase()->PROCESOIdPROCESOObject, 'Name=Proceso');
+        $this->dtgFases->MetaAddColumn(QQN::Fase()->PROCESOIdPROCESOObject->Nombre, 'Name=Proceso');
         $this->dtgFases->MetaAddColumn('Nombre');
         $this->dtgFases->MetaAddColumn('Duracion');
         $this->dtgFases->MetaAddColumn('Icono');

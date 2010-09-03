@@ -5,13 +5,13 @@
 // code re-generations do not overwrite your changes.
 
 $strPageTitle = QApplication::Translate('Responsables') . ' - ' . QApplication::Translate('Listar Todos');
-require(__CONFIGURATION__ . '/header.inc.php');
+require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
 <?php $this->RenderBegin() ?>
 
 <div id="titleBar">
-    <h2 id="right"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/index.php">&laquo; <?php _t('Go to "Form Drafts"'); ?></a></h2>
+    <h2 id="right"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/index.php">&laquo; <?php _t('Go to "Form Drafts"'); ?></a></h2>
     <h2><?php _t('Listar Todos'); ?></h2>
     <h1><?php _t('Responsables'); ?></h1>
 </div>
@@ -19,7 +19,7 @@ require(__CONFIGURATION__ . '/header.inc.php');
 <?php $this->dtgResponsables->Render(); ?>
 
 <p class="create">
-    <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/responsable_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('Responsable'); ?></a>
+    <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/responsable_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('Responsable'); ?></a>
 </p>
 
 <?php $this->RenderEnd() ?>

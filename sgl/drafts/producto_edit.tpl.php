@@ -5,7 +5,7 @@
 // code re-generations do not overwrite your changes.
 
 $strPageTitle = QApplication::Translate('Producto') . ' - ' . $this->mctProducto->TitleVerb;
-require(__CONFIGURATION__ . '/header.inc.php');
+require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
 <?php $this->RenderBegin() ?>
@@ -24,9 +24,9 @@ require(__CONFIGURATION__ . '/header.inc.php');
 
     <?php $this->txtNumeroRegSanitario->RenderWithName(); ?>
 
-    <?php $this->txtVolumen->RenderWithName(); ?>
+    <?php //$this->txtVolumen->RenderWithName(); ?>
 
-    <?php $this->txtUnidad->RenderWithName(); ?>
+    <?php //$this->txtUnidad->RenderWithName(); ?>
 
 </div>
 

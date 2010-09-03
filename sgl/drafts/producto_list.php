@@ -43,7 +43,7 @@ class ProductoListForm extends ProductoListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/producto_edit.php';
+        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/producto_edit.php';
         $this->dtgProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Editar');
 
         // Create the Other Columns (note that you can use strings for PRODUCTO's properties, or you

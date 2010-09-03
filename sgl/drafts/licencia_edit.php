@@ -96,11 +96,11 @@ class LicenciaEditForm extends LicenciaEditFormBase {
         $date = $this->calFechaInicio->DateTime;
 
         //$newdate = strtotime ( '+180 day' , strtotime ( $date ) ) ;
-            if ($this->lstPROCESOIdPROCESOObject->Text) {
-                $Proceso = Proceso::LoadByIdPROCESO((int)$this->lstPROCESOIdPROCESOObject->Text);
-                $newdate = date( 'j M Y' , strtotime ( '+'.$Proceso->Duracion.' day' ,strtotime($date)));
-                $this->calFechaFin->Text= $newdate;
-            }
+        if ($this->lstPROCESOIdPROCESOObject->Text) {
+            $Proceso = Proceso::LoadByIdPROCESO((int)$this->lstPROCESOIdPROCESOObject->Text);
+            $newdate = date( 'j M Y' , strtotime ( '+'.$Proceso->Duracion.' day' ,strtotime($date)));
+            $this->calFechaFin->Text= $newdate;
+        }
 
     }
 
@@ -131,6 +131,10 @@ class LicenciaEditForm extends LicenciaEditFormBase {
         }
 
         return $blnToReturn;
+    }
+
+    protected function RedirectToListPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/licencia_list.php');
     }
 
 }

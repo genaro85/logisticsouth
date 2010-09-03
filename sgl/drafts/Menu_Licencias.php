@@ -1,7 +1,7 @@
 <?php
 require_once('../qcubed.inc.php');
 
-require(__CONFIGURATION__ . '/header.inc.php');
+require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
 <div id="body1"><form action="" method="post" >
