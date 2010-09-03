@@ -28,7 +28,7 @@ class ProveedorEditForm extends ProveedorEditFormBase {
 
 //		protected function Form_Create() {}
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/proveedor_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/proveedor_list.php');
     }
 }
 

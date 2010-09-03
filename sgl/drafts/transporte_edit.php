@@ -28,7 +28,7 @@ class TransporteEditForm extends TransporteEditFormBase {
 
 //		protected function Form_Create() {}
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/transporte_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/transporte_list.php');
     }
 }
 

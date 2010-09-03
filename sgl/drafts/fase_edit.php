@@ -29,7 +29,7 @@ class FaseEditForm extends FaseEditFormBase {
 //		protected function Form_Create() {}
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/fase_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/fase_list.php');
     }
 }
 

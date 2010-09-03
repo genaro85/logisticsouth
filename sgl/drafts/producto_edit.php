@@ -59,7 +59,7 @@ class ProductoEditForm extends ProductoEditFormBase {
         $this->btnDelete->Visible = $this->mctProducto->EditMode;
     }
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/producto_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/producto_list.php');
     }
 }
 

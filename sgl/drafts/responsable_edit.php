@@ -94,7 +94,7 @@ class ResponsableEditForm extends ResponsableEditFormBase {
         return $blnToReturn;
     }
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/responsable_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/responsable_list.php');
     }
 
 }

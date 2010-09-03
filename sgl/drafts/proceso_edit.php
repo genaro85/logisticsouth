@@ -29,7 +29,7 @@ class ProcesoEditForm extends ProcesoEditFormBase {
 //		protected function Form_Create() {}
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/proceso_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/proceso_list.php');
     }
 }
 

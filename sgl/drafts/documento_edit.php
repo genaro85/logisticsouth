@@ -29,7 +29,7 @@ class DocumentoEditForm extends DocumentoEditFormBase {
 //		protected function Form_Create() {}
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/documento_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/documento_list.php');
     }
 }
 

@@ -13,7 +13,7 @@ require(__FORMBASE_CLASSES__ . '/ListaProductoEditFormBase.class.php');
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
- * 
+ *
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
  * permanent changes, it is STRONGLY RECOMMENDED to move both lista_producto_edit.php AND
  * lista_producto_edit.tpl.php out of this Form Drafts directory.
@@ -58,7 +58,9 @@ class ListaProductoEditForm extends ListaProductoEditFormBase {
         $this->btnDelete->AddAction(new QClickEvent(), new QAjaxAction('btnDelete_Click'));
         $this->btnDelete->Visible = $this->mctListaProducto->EditMode;
     }
-
+    protected function RedirectToListPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__ . '/lista_producto_list.php');
+    }
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using
