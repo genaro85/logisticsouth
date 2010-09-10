@@ -52,7 +52,7 @@ class DocumentoListForm extends DocumentoListFormBase {
         //$this->dtgDocumentos->MetaAddColumn('IdDOCUMENTO');
         $this->dtgDocumentos->MetaAddColumn('Nombre');
         $this->dtgDocumentos->MetaAddColumn('Duracion');
-        $this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DOCUMENTOIdDOCUMENTOObject, 'Name=Documento Predecesor');
+        $this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DOCUMENTOIdDOCUMENTOObject->Nombre, 'Name=Documento Predecesor');
         //$this->dtgDocumentos->MetaAddColumn(QQN::Documento()->DocumentosFase);
     }
 

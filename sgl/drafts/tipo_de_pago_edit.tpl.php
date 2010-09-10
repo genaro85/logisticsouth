@@ -5,7 +5,7 @@
 	// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 	// code re-generations do not overwrite your changes.
 
-	$strPageTitle = QApplication::Translate('TipoDePago') . ' - ' . $this->mctTipoDePago->TitleVerb;
+	$strPageTitle = QApplication::Translate('Tipo de Pago') . ' - ' . $this->mctTipoDePago->TitleVerb;
 	require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
@@ -13,7 +13,7 @@
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctTipoDePago->TitleVerb); ?></h2>
-		<h1><?php _t('TipoDePago')?></h1>
+		<h1><?php _t('Tipo de Pago')?></h1>
 	</div>
 
 	<div id="formControls">

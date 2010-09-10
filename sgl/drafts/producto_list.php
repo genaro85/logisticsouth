@@ -52,8 +52,8 @@ class ProductoListForm extends ProductoListFormBase {
         $this->dtgProductos->MetaAddColumn('CodigoArancelario', 'Name=Código Arancelario');
         $this->dtgProductos->MetaAddColumn('Descripcion');
         $this->dtgProductos->MetaAddColumn('NumeroRegSanitario', 'Name=Num. Reg. Sanitario');
-        $this->dtgProductos->MetaAddColumn('Volumen');
-        $this->dtgProductos->MetaAddColumn('Unidad');
+        //$this->dtgProductos->MetaAddColumn('Volumen');
+        //$this->dtgProductos->MetaAddColumn('Unidad');
     }
 
 }
