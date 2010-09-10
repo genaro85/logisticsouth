@@ -38,8 +38,9 @@ class PaisMetaControl extends PaisMetaControlGen {
      */
     public function txtNombre_Create($strControlId = null) {
         $this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtNombre->Name = QApplication::Translate('Pais:');
+        $this->txtNombre->Name = QApplication::Translate('Pais');
         $this->txtNombre->Text = $this->objPais->Nombre;
+        $this->txtDireccion->Required = true;
         $this->txtNombre->MaxLength = Pais::NombreMaxLength;
         return $this->txtNombre;
     }

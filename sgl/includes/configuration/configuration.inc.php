@@ -123,6 +123,8 @@ if (!defined('SERVER_INSTANCE')) {
             define ('__FORM_DRAFTS__', __SUBDIRECTORY__ . '/drafts');
             define ('__FORM_ADMINISTRADOR__', __SUBDIRECTORY__ . '/administrador');
             define ('__FORM_EMPLEADO__', __SUBDIRECTORY__ . '/empleado');
+            define ('__ARCHIVE_DIRECTORY__', __DOCROOT__ . __SUBDIRECTORY__ . '/archivos');
+            define ('__ARCHIVE_DIRECTORY_PARTIAL__', __SUBDIRECTORY__ . '/archivos');
             define ('__PANEL_DRAFTS__', __SUBDIRECTORY__ . '/drafts/panels');
             define ('__FORMBASE_CLASSES__', __INCLUDES__ . '/formbase_classes_generated');
 
@@ -138,7 +140,7 @@ if (!defined('SERVER_INSTANCE')) {
             define ('__JQUERY_EFFECTS__',   '/jquery/jquery-ui-1.7.2.custom.min.js');
 
             // Location of the QCubed-specific web-based development tools, like codegen.php
-            define ('__DEVTOOLS__', __PHP_ASSETS__ . '/_devtools');
+//            define ('__DEVTOOLS__', __PHP_ASSETS__ . '/_devtools');
 
             // Location of the Examples site
             define ('__EXAMPLES__', __PHP_ASSETS__ . '/examples');
