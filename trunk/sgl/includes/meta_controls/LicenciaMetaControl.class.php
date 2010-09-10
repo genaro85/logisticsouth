@@ -104,7 +104,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function calVencimientoCNP_Create($strControlId = null) {
         $this->calVencimientoCNP = new QDateTimeTextBox($this->objParentObject, $strControlId);
-        $this->calVencimientoCNP->Name = QApplication::Translate('Vencimiento C.N.P');
+        $this->calVencimientoCNP->Name = QApplication::Translate('Prorroga C.N.P');
         if ($this->objLicencia->VencimientoCNP)
             $this->calVencimientoCNP->Text = $this->objLicencia->VencimientoCNP->__toString();
         $this->calVencimientoCNP->Required = false;

@@ -45,11 +45,29 @@ class FaseMetaControl extends FaseMetaControlGen {
     }
 
     public function txtDuracion_Create($strControlId = null) {
-			$this->txtDuracion = new QIntegerTextBox($this->objParentObject, $strControlId);
-			$this->txtDuracion->Name = QApplication::Translate('Duracion (en días)');
-			$this->txtDuracion->Text = $this->objFase->Duracion;
-			return $this->txtDuracion;
-		}
+        $this->txtDuracion = new QIntegerTextBox($this->objParentObject, $strControlId);
+        $this->txtDuracion->Name = QApplication::Translate('Duracion (en días)');
+        $this->txtDuracion->Text = $this->objFase->Duracion;
+        return $this->txtDuracion;
+    }
+
+
+
+    public function txtIcono_Create($strControlId = null) {
+
+        $this->txtIcono = new QFileAsset($this->objParentObject, $strControlId);
+        $this->txtIcono->TemporaryUploadPath = __ARCHIVE_DIRECTORY__;
+        if ($this->objFase->Icono) {
+            $this->txtIcono->SetFile(__ARCHIVE_DIRECTORY__.$this->objFase->Icono);
+        }
+        $this->txtIcono->ClickToView = true;
+        $this->txtIcono->CssClass = 'file_asset';
+        $this->txtIcono->imgFileIcon->CssClass = 'file_asset_icon';
+        $this->txtIcono->Name = QApplication::Translate('Icon');
+
+        return $this->txtIcono;
+    }
+
 
 }
 ?>

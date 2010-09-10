@@ -32,7 +32,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
      */
     public function txtNombre_Create($strControlId = null) {
         $this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtNombre->Name = QApplication::Translate('Nombre*');
+        $this->txtNombre->Name = QApplication::Translate('Nombre');
         $this->txtNombre->Text = $this->objEmpresa->Nombre;
         $this->txtNombre->Required = true;
         $this->txtNombre->MaxLength = Empresa::NombreMaxLength;
@@ -41,7 +41,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
 
     public function txtRif_Create($strControlId = null) {
         $this->txtRif = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtRif->Name = QApplication::Translate('R.I.F.*');
+        $this->txtRif->Name = QApplication::Translate('R.I.F.');
         $this->txtRif->Text = $this->objEmpresa->Rif;
         $this->txtRif->Required = true;
         $this->txtRif->MaxLength = Empresa::RifMaxLength;
@@ -50,7 +50,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
 
     public function txtDireccion_Create($strControlId = null) {
         $this->txtDireccion = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtDireccion->Name = QApplication::Translate('Dirección*');
+        $this->txtDireccion->Name = QApplication::Translate('Dirección');
         $this->txtDireccion->Text = $this->objEmpresa->Direccion;
         $this->txtDireccion->Required = true;
         $this->txtDireccion->TextMode = QTextMode::MultiLine;
