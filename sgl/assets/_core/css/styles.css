@@ -13,6 +13,7 @@ html,body {
 
 html>body, html>body #page {
     height: auto;
+
 }
 
 
@@ -96,16 +97,16 @@ h1 {font:24px Helvetica, Verdana, Arial, sans-serif; color: white; font-weight: 
     background: #dcddde url("gradient-bg.svg");
     /* Recent browsers */
     background-image: -moz-linear-gradient(
-            top,
-            #afb1b4,
-            #dcddde
-    );
+        top,
+        #afb1b4,
+        #dcddde
+        );
     background-image: -webkit-gradient(
-            linear,
-            left top, left bottom,
-            from(#afb1b4),
-            to(#dcddde)
-    );
+        linear,
+        left top, left bottom,
+        from(#afb1b4),
+        to(#dcddde)
+        );
 }
 h3 { font-size: 1.4em; }
 h4 { font-size: 1.2em; }
@@ -183,6 +184,8 @@ select, textarea {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
 }
+
+
 
 /* list element margins and default styles */
 
@@ -307,16 +310,16 @@ table.datagrid thead th {
     background: #3b3b3c url("gradient-bg.svg");
     /* Recent browsers */
     background-image: -moz-linear-gradient(
-            top,
-            #67686b,
-            #3b3b3c
-    );
+        top,
+        #67686b,
+        #3b3b3c
+        );
     background-image: -webkit-gradient(
-            linear,
-            left top, left bottom,
-            from(#67686b),
-            to(#3b3b3c)
-    );
+        linear,
+        left top, left bottom,
+        from(#67686b),
+        to(#3b3b3c)
+        );
     text-align:center;
     color: #FFF;
     font:bold 1em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
@@ -581,18 +584,18 @@ div#formControls {
     background: #3b3b3c url("gradient-bg.svg");
     /* Recent browsers */
     background-image: -moz-linear-gradient(
-            top,
-            #67686b,
-            #3b3b3c
-    );
+        top,
+        #67686b,
+        #3b3b3c
+        );
     background-image: -webkit-gradient(
-            linear,
-            left top, left bottom,
-            from(#67686b),
-            to(#3b3b3c)
-    );
+        linear,
+        left top, left bottom,
+        from(#67686b),
+        to(#3b3b3c)
+        );
 }
-	
+
 div#formActions {background:#3b3b3c repeat-x ; padding: 10px; height: 20px; margin-top: 2px; border:0px solid #111; }
 div#formActions div#save { float: left; }
 div#formActions div#cancel { margin-left: 10px; float: left; }
@@ -751,6 +754,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 
 /*----DIVISOR PANEL----*/
 #divisor{width:690px; height:220px;}
+#divisor2{width:690px; height:40px;}
 
 
 /*----Licencia Panel----*/
@@ -1094,4 +1098,61 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #bottomBorderPan ul li{width:225px; height:22px; margin:0 10px 0 0;}
 #bottomBorderPan ul li a{width:200px; height:22px; display:block; background:url(../images/arrow-normal.gif) 0 8px no-repeat #ccc; color:#3D3C2C; font:14px/22px Arial, Helvetica, sans-serif; text-decoration:none; padding:0 0 0 16px;}
 #bottomBorderPan ul li a:hover{background:url(../images/arrow-hover.gif) 0 8px no-repeat #BDBDBD; color:#3D3C2C; text-decoration:none;}
+
+#check{
+    height: 50px;
+    background: url(../images/check.png) 50% no-repeat;
+}
+
+#notcheck{
+    height: 50px;
+    background: url(../images/notchecked.png) 50% no-repeat;
+}
+
+tr.tablafase {background-color:#807F7F;}
+
+
+tr.tablafecha {background-color:green;}
+tr.tablafecha td{border: 1px solid #807F7F; height: 50px;}
+
+.th1 {background-color:#807F7F;border: 1px solid #807F7F; text-align: center; width:150px; border:0px; text-decoration: none;}
+
+tr.tablafecha:hover{background-color:orange;}
+
+thead.seglic{
+    background: #3b3b3c url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    background: #3b3b3c;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FF67686b, endColorstr=#FF3b3b3c);
+    /* Opera */
+    background: #3b3b3c url("gradient-bg.svg");
+    /* Recent browsers */
+    background-image: -moz-linear-gradient(
+        top,
+        #67686b,
+        #3b3b3c
+        );
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(#67686b),
+        to(#3b3b3c)
+        );
+    text-align:center;
+    color: #FFF;
+    font:bold 1em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+
+thead.seglic td{border: 1px solid #807F7F;}
+
+
+#estatus{
+    width: 300px;
+    height: 20px;
+    background-color: green;
+}
 
