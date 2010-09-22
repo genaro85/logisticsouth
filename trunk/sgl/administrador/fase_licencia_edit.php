@@ -32,24 +32,31 @@ class FaseLicenciaEditForm extends FaseLicenciaEditFormBase {
     protected function Form_Create() {
         parent::Form_Create();
 
+        $this->calCalendar6 = new QCalendar($this, $this->calFASEFechaInicio);
+        $this->calCalendar7 = new QCalendar($this, $this->calFASEFechaFin);
+
         // Use the CreateFromPathInfo shortcut (this can also be done manually using the FaseLicenciaMetaControl constructor)
         // MAKE SURE we specify "$this" as the MetaControl's (and thus all subsequent controls') parent
         $this->mctFaseLicencia = FaseLicenciaMetaControl::CreateFromPathInfo($this);
 
         // Call MetaControl's methods to create qcontrols based on FaseLicencia's data fields
         $this->lstLICENCIAIdLICENCIAObject = $this->mctFaseLicencia->lstLICENCIAIdLICENCIAObject_Create();
-        $this->calCalendar6 = new QCalendar($this, $this->calFASEFechaInicio);
-        $this->calCalendar7 = new QCalendar($this, $this->calFASEFechaFin);
+
+        $this->lstFASEIdFASEObject = $this->mctFaseLicencia->lstFASEIdFASEObject_Create();
+        $this->calFASEFechaInicio = $this->mctFaseLicencia->calFASEFechaInicio_Create();
+        $this->calFASEFechaFin = $this->mctFaseLicencia->calFASEFechaFin_Create();
 
         // Calendar Actions
-        $this->calFASEFechaInicio->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFASEFechaInicio));
+        $this->calCalendar6 = new QCalendar($this, $this->calFASEFechaInicio);
+        $this->calFASEFechaInicio->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFASEFechaInicio));		//Creo el evento cuando haga clic sobre calCotFecha
         $this->calFASEFechaInicio->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar6));
 
-        $this->calFASEFechaFin->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFASEFechaFin));
+        $this->calCalendar7 = new QCalendar($this, $this->calFASEFechaFin);
+        $this->calFASEFechaFin->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFASEFechaFin));		//Creo el evento cuando haga clic sobre calCotFecha
         $this->calFASEFechaFin->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar7));
-        //$this->calFASEFechaInicio = $this->mctFaseLicencia->calFASEFechaInicio_Create();
-        //$this->calFASEFechaFin = $this->mctFaseLicencia->calFASEFechaFin_Create();
-        $this->lstFASEIdFASEObject = $this->mctFaseLicencia->lstFASEIdFASEObject_Create();
+
+
+
 
         // Create Buttons and Actions on this Form
         $this->btnSave = new QButton($this);
@@ -70,9 +77,11 @@ class FaseLicenciaEditForm extends FaseLicenciaEditFormBase {
 
     protected function Form_Validate() {
 // By default, we report that Custom Validations passed
+        if ($this->calFASEFechaFin->DateTime){
         if ($this->calFASEFechaInicio->DateTime > $this->calFASEFechaFin->DateTime) {
             $this->calFASEFechaFin->Warning = "La fecha de fin debe ser posterior a la fecha de inicio";
             return false;
+        }
         }
 
 
