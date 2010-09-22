@@ -181,6 +181,7 @@ if (!defined('SERVER_INSTANCE')) {
                     'database' => 'sglbd',
                     'username' => 'root',
                     'password' => '1234567',
+                    'encoding' => 'utf8',
                     'profiling' => false)));
 
             // Additional Database Connection Strings can be defined here (e.g. for connection #2, #3, #4, #5, etc.)
