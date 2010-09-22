@@ -56,10 +56,11 @@ class FaseLicenciaMetaControl extends FaseLicenciaMetaControlGen {
      * @return QDateTimePicker
      */
     public function calFASEFechaInicio_Create($strControlId = null) {
-        $this->calFASEFechaInicio = new QDateTimeTextBox($this->objParentObject, $strControlId);
-        $this->calFASEFechaInicio->Name = QApplication::Translate('Fecha Inicio');
+        $this->calFASEFechaInicio = new QDateTimeTextBox($this->objParentObject, $strControlId);			//Cambias el tipo de QDateTimePicker a QDateTimeTextBox
+        $this->calFASEFechaInicio->Name = QApplication::Translate('Fecha Inicio');						//Nombre del campo
         if ($this->objFaseLicencia->FASEFechaInicio)
             $this->calFASEFechaInicio->Text = $this->objFaseLicencia->FASEFechaInicio->__toString();
+        //$this->calFASEFechaInicio->Required = true;
         return $this->calFASEFechaInicio;
     }
 
@@ -69,10 +70,11 @@ class FaseLicenciaMetaControl extends FaseLicenciaMetaControlGen {
      * @return QDateTimePicker
      */
     public function calFASEFechaFin_Create($strControlId = null) {
-        $this->calFASEFechaFin = new QDateTimeTextBox($this->objParentObject, $strControlId);
-        $this->calFASEFechaFin->Name = QApplication::Translate('Fecha Fin');
+        $this->calFASEFechaFin = new QDateTimeTextBox($this->objParentObject, $strControlId);			//Cambias el tipo de QDateTimePicker a QDateTimeTextBox
+        $this->calFASEFechaFin->Name = QApplication::Translate('Fecha Fin');						//Nombre del campo
         if ($this->objFaseLicencia->FASEFechaFin)
             $this->calFASEFechaFin->Text = $this->objFaseLicencia->FASEFechaFin->__toString();
+        //$this->calFASEFechaInicio->Required = true;
         return $this->calFASEFechaFin;
     }
 

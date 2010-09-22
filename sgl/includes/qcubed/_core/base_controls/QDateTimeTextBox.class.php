@@ -126,6 +126,7 @@
 				case "Maximum": return $this->dttMaximum;
 				case "Minimum": return $this->dttMinimum;
 				case 'DateTime': return QDateTimeTextBox::ParseForDateTimeValue($this->strText);
+                                case 'Text': return QDateTimeTextBox::ParseForDateTimeValue($this->strText);
 				case 'LabelForInvalid': return $this->strLabelForInvalid;
 
 				default:
