@@ -8,7 +8,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 $idLicencia = QApplication::PathInfo(0);
 
 $objLicencia = Licencia::Load($idLicencia);
-echo '<div><b>Licencia : </b>'.$objLicencia->NumeroProforma.'</div>';
+echo '<div><b>Licencia : </b>'.$objLicencia->NumeroProforma.'<p></p></div>';
 echo '<div><b>Estatus : </b><a id="estatus">'.$objLicencia->Status.'</a></div>';
 echo '<div id="divisor2"></div>';
 echo '<table>';
@@ -37,7 +37,8 @@ if ($objLicencia) {
     echo '</thead>';
 
     echo '<tr class="tablafase">';
-    echo '<td COLSPAN='.(count($FaseLicArray)+1).' height="30px">';
+    echo '<td class="th1"></td>';
+    echo '<td COLSPAN='.count($FaseLicArray).' height="30px">';
     echo '</td>';
     echo '<tr class="tablafase">';
     echo '<td class="th1"></td>';
@@ -99,7 +100,8 @@ if ($objLicencia) {
 
 
     echo '<tr class="tablafase">';
-    echo '<td COLSPAN='.(count($FaseLicArray)+1).' height="30px">';
+    echo '<td class="th1"></td>';
+    echo '<td COLSPAN='.count($FaseLicArray).' height="30px">';
     echo '</td>';
     echo '</tr>';
 
