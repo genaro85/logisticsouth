@@ -5,40 +5,37 @@ require('../qcubed.inc.php');
 
 require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
-$idLicencia = QApplication::PathInfo(0);
+$IdLICENCIA = QApplication::PathInfo(0);
+$IdPRODUCTO = QApplication::PathInfo(1);
 
-$objLicencia = Licencia::Load($idLicencia);
-echo '<div><b>Licencia : </b>'.$objLicencia->NumeroProforma.'<p></p></div>';
-echo '<div><b>Estatus : </b><a id="estatus">'.$objLicencia->Status.'</a></div>';
+$objLicencia = Licencia::Load($IdLICENCIA);//ListaProducto::Load($idListaProducto)->LICENCIAIdLICENCIAObject;
+echo '<div><b>Licencia : </b>' . $objLicencia->NumeroProforma . '<p></p></div>';
+echo '<div><b>Estatus : </b><a id="estatus">' . $objLicencia->Status . '</a></div>';
 echo '<div id="divisor2"></div>';
 echo '<table>';
 
 if ($objLicencia) {
-
-
 //    $Fase=FaseLicencia::Load($idLicencia);
 //    $Fase->FASEFechaFin;
 //    $Doc=DocumentosFase::Load($idLicencia);
 //    $Doc->DOCUMENTOIdDOCUMENTOObject->Nombre;
-
-    $FaseLicArray=FaseLicencia::LoadArrayByLICENCIAIdLICENCIA($idLicencia);
+    $FaseLicArray = FaseLicencia::LoadArrayByLICENCIAIdLICENCIA($idLicencia);
 
     echo '<thead class="seglic">';
     echo '<td class="th1"></td>';
     foreach ($FaseLicArray as $FaseLicObj) {
 
         if ($FaseLicObj->FASEIdFASEObject->Nombre)
-            echo '<td width="300px" align="center">'.$FaseLicObj->FASEIdFASEObject->Nombre.'</td>';
+            echo '<td width="300px" align="center">' . $FaseLicObj->FASEIdFASEObject->Nombre . '</td>';
         else {
             echo '<td width="300px" align="center">&nbsp;</td>';
         }
-
     }
     echo '</thead>';
 
     echo '<tr class="tablafase">';
     echo '<td class="th1"></td>';
-    echo '<td COLSPAN='.count($FaseLicArray).' height="30px">';
+    echo '<td COLSPAN=' . count($FaseLicArray) . ' height="30px">';
     echo '</td>';
     echo '<tr class="tablafase">';
     echo '<td class="th1"></td>';
@@ -46,7 +43,7 @@ if ($objLicencia) {
 //    $FaseLicArray=FaseLicencia::LoadArrayByLICENCIAIdLICENCIA($idLicencia);
     foreach ($FaseLicArray as $FaseLicObj) {
         if ($FaseLicObj->FASEIdFASEObject->Icono)
-            echo '<td width="300px" align="center"><div><img  src="'.__ARCHIVE_DIRECTORY_PARTIAL__.$FaseLicObj->FASEIdFASEObject->Icono.'" width="60px"></div></td>';
+            echo '<td width="300px" align="center"><div><img  src="' . __ARCHIVE_DIRECTORY_PARTIAL__ . $FaseLicObj->FASEIdFASEObject->Icono . '" width="60px"></div></td>';
         else {
             echo '<td width="300px" align="center">&nbsp;</td>';
         }
@@ -65,7 +62,7 @@ if ($objLicencia) {
                 $sTime = strtotime(date("j F Y")); // Start as time
                 $eTime = strtotime($objLicencia->FechaFin); // End as time
                 $numDays = round(($eTime - $sTime) / $day) + 1;
-                if ($numDays>1)
+                if ($numDays > 1)
                     echo '<td width="300px" align="center">&nbsp;</td>';
                 else
                     echo '<td width="300px" align="center"><div id="notcheck"></div></td>';
@@ -73,24 +70,19 @@ if ($objLicencia) {
             else
                 echo '<td width="300px" align="center">&nbsp;</td>';
         }
-
     }
     echo '</tr>';
 
 
-
-
-
-    $countDocs=0;
+    $countDocs = 0;
 
     foreach ($FaseLicArray as $FaseLicObj) {
         if ($FaseLicObj->FASEIdFASEObject->IdFASE) {
-            $DocsFaseArray=DocumentosFase::LoadArrayByFASEIdFASE($FaseLicObj->FASEIdFASEObject->IdFASE);
-            if (count($DocsFaseArray)>$countDocs)
-                $countDocs=count($DocsFaseArray);
+            $DocsFaseArray = DocumentosFase::LoadArrayByFASEIdFASE($FaseLicObj->FASEIdFASEObject->IdFASE);
+            if (count($DocsFaseArray) > $countDocs)
+                $countDocs = count($DocsFaseArray);
             foreach ($DocsFaseArray as $DocsFaseObj) {
                 $DocsFaseObj->DOCUMENTOIdDOCUMENTOObject->Nombre;
-
             }
         }
     }
@@ -98,10 +90,9 @@ if ($objLicencia) {
 
     $count = count($FaseLicArray);
 
-
     echo '<tr class="tablafase">';
     echo '<td class="th1"></td>';
-    echo '<td COLSPAN='.count($FaseLicArray).' height="30px">';
+    echo '<td COLSPAN=' . count($FaseLicArray) . ' height="30px">';
     echo '</td>';
     echo '</tr>';
 
@@ -110,50 +101,45 @@ if ($objLicencia) {
     foreach ($FaseLicArray as $FaseLicObj) {
 
         if ($FaseLicObj->FASEFechaFin)
-            echo '<td width="300px" align="center">'.$FaseLicObj->FASEFechaFin.'</td>';
+            echo '<td width="300px" align="center">' . $FaseLicObj->FASEFechaFin . '</td>';
         else {
             if ($FaseLicObj->FASEFechaInicio) {
                 $day = 86400;
                 $sTime = strtotime(date("j F Y")); // Start as time
                 $eTime = strtotime($objLicencia->FechaFin); // End as time
                 $numDays = round(($eTime - $sTime) / $day) + 1;
-                if ($numDays>1)
-                    echo '<td width="300px" align="center">'.$numDays.' d&iacute;as</td>';
+                if ($numDays > 1)
+                    echo '<td width="300px" align="center">' . $numDays . ' d&iacute;as</td>';
                 else
                     echo '<td width="300px" align="center"><b color:red;>Vencido</b></td>';
             }
             else
                 echo '<td width="300px" align="center">&nbsp;</td>';
         }
-
     }
     echo '</tr>';
     for ($i = 0; $i < $countDocs; $i++) {
         echo '<tr class="tablafecha">';
-        if ($i==0)
+        if ($i == 0)
             echo '<td class="th1">Documentos</td>';
         else
             echo '<td class="th1"></td>';
         foreach ($FaseLicArray as $FaseLicObj) {
             if ($FaseLicObj->FASEIdFASEObject->IdFASE) {
-                $DocsFaseArray=DocumentosFase::LoadArrayByFASEIdFASE($FaseLicObj->FASEIdFASEObject->IdFASE);
-                $j=0;
-                $DocAux='&nbsp;';
+                $DocsFaseArray = DocumentosFase::LoadArrayByFASEIdFASE($FaseLicObj->FASEIdFASEObject->IdFASE);
+                $j = 0;
+                $DocAux = '&nbsp;';
                 foreach ($DocsFaseArray as $DocsFaseObj) {
-                    $j=$j+1;
-                    if ($j==($i+1))
-                        $DocAux=htmlentities($DocsFaseObj->DOCUMENTOIdDOCUMENTOObject->Nombre,ENT_COMPAT, 'UTF-8');
+                    $j = $j + 1;
+                    if ($j == ($i + 1))
+                        $DocAux = htmlentities($DocsFaseObj->DOCUMENTOIdDOCUMENTOObject->Nombre, ENT_COMPAT, 'UTF-8');
                 }
-                echo '<td width="300px" height="50px" align="center">'.$DocAux.'</td>';
+                echo '<td width="300px" height="50px" align="center">' . $DocAux . '</td>';
             }
-
         }
         echo '</tr>';
     }
     echo '</table>';
-
-
-
 
 //
 //    echo '<tr>';
@@ -183,7 +169,7 @@ if ($objLicencia) {
 //    }
 //    echo '</tr>';
 //
-////        $DocsFase=DocumentosFase::LoadArrayByFASEIdFASE($intFASEIdFASE);
+///        $DocsFase=DocumentosFase::LoadArrayByFASEIdFASE($intFASEIdFASE);
 ////
 ////        $DocsLicArray=VigenciaDocumento::LoadArrayByLICENCIAIdLICENCIA($idLicencia);
 ////
@@ -199,17 +185,7 @@ if ($objLicencia) {
 ////
 ////        }
 ////        echo '</tr>';
-
-
 }
 
-
-
-
-require(__CONFIGURATION__ .'/footer.inc.php'); 
-
-
-
-
-
+require(__CONFIGURATION__ . '/footer.inc.php');
 ?>
