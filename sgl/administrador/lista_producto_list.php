@@ -48,7 +48,6 @@ class ListaProductoListForm extends ListaProductoListFormBase {
 
         // Create the Other Columns (note that you can use strings for LISTA_PRODUCTO's properties, or you
         // can traverse down QQN::LISTA_PRODUCTO() to display fields that are down the hierarchy)
-         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Nombre,'Name=Nombre Empresa');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->NumeroCNP,'Name=Numero CNP');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->Descripcion,'Name=Producto');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->CodigoArancelario,'Name=Codigo Arancelario');

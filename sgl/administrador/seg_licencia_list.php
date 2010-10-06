@@ -3,25 +3,25 @@
 // Load the QCubed Development Framework
 require('../qcubed.inc.php');
 
-require(__FORMBASE_CLASSES__ . '/LicenciaListFormBase.class.php');
+require(__FORMBASE_CLASSES__ . '/ListaProductoListFormBase.class.php');
 
 /**
  * This is a quick-and-dirty draft QForm object to do the List All functionality
- * of the Licencia class.  It uses the code-generated
- * LicenciaDataGrid control which has meta-methods to help with
- * easily creating/defining Licencia columns.
+ * of the ListaProducto class.  It uses the code-generated
+ * ListaProductoDataGrid control which has meta-methods to help with
+ * easily creating/defining ListaProducto columns.
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
  * 
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
- * permanent changes, it is STRONGLY RECOMMENDED to move both licencia_list.php AND
- * licencia_list.tpl.php out of this Form Drafts directory.
+ * permanent changes, it is STRONGLY RECOMMENDED to move both lista_producto_list.php AND
+ * lista_producto_list.tpl.php out of this Form Drafts directory.
  *
  * @package My QCubed Application
  * @subpackage Drafts
  */
-class BlahListForm extends LicenciaListFormBase {
+class ListaProductoListForm extends ListaProductoListFormBase {
 
     // Override Form Event Handlers as Needed
 //		protected function Form_Run() {}
@@ -31,34 +31,37 @@ class BlahListForm extends LicenciaListFormBase {
         parent::Form_Create();
 
         // Instantiate the Meta DataGrid
-        $this->dtgLicencias = new LicenciaDataGrid($this);
+        $this->dtgListaProductos = new ListaProductoDataGrid($this);
 
         // Style the DataGrid (if desired)
-        $this->dtgLicencias->CssClass = 'datagrid';
-        $this->dtgLicencias->AlternateRowStyle->CssClass = 'alternate';
+        $this->dtgListaProductos->CssClass = 'datagrid';
+        $this->dtgListaProductos->AlternateRowStyle->CssClass = 'alternate';
 
         // Add Pagination (if desired)
-        $this->dtgLicencias->Paginator = new QPaginator($this->dtgLicencias);
-        $this->dtgLicencias->ItemsPerPage = 20;
+        $this->dtgListaProductos->Paginator = new QPaginator($this->dtgListaProductos);
+        $this->dtgListaProductos->ItemsPerPage = 20;
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
         $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/seg_licencia.php';
-        $this->dtgLicencias->MetaAddEditLinkColumn($strEditPageUrl, 'Consultar', 'Consultar');
+        $this->dtgListaProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Consultar', 'Consultar');
 
-        // Create the Other Columns (note that you can use strings for LICENCIA's properties, or you
-        // can traverse down QQN::LICENCIA() to display fields that are down the hierarchy)
-        //$this->dtgLicencias->MetaAddColumn('IdLICENCIA');
-        $this->dtgLicencias->MetaAddColumn('NumeroCNP','Name=Nº C.N.P');
-        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
-        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->Nombre, 'Name=Proveedor');
-        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->PAISIdPAISObject->Nombre, 'Name=País');
-        
+        // Create the Other Columns (note that you can use strings for LISTA_PRODUCTO's properties, or you
+        // can traverse down QQN::LISTA_PRODUCTO() to display fields that are down the hierarchy)
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->NumeroCNP, 'Name=No C.N.P.');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->NumeroProforma, 'Name=No Proforma');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->FechaInicio, 'Name=Fecha Inicio');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->FechaFin, 'Name=Fecha Fin');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Rif, 'Name=RIF');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->Descripcion, 'Name=Producto');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->CodigoArancelario, 'Name=Codigo Arancelario');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->PROVEEDORIdPROVEEDORObject->PAISIdPAISObject->Nombre, 'Name=País Origen');
     }
 
 }
 
 // Go ahead and run this form object to generate the page and event handlers, implicitly using
-// licencia_list.tpl.php as the included HTML template file
-BlahListForm::Run('BlahListForm');
+// lista_producto_list.tpl.php as the included HTML template file
+ListaProductoListForm::Run('ListaProductoListForm');
 ?>
