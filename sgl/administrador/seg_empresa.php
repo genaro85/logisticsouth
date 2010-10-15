@@ -100,8 +100,14 @@ class EmpresaListForm extends EmpresaListFormBase {
 
         //apply any filters the user has set
         foreach ($this->dtgEmpresas->FilterInfo as $filter) {
-            if ($filter['column'] == 'Licencias') {
-                $sql .= ' HAVING count(l.idLICENCIA) = ' . $filter['value'];
+            if ($filter['column'] == 'LicOtorgadas') {
+                $sql .= ' HAVING count(LicOtorgadas.idLICENCIA) = ' . $filter['value'];
+            }
+            if ($filter['column'] == 'LicEjecucion') {
+                $sql .= ' HAVING count(LicEjecucion.idLICENCIA) = ' . $filter['value'];
+            }
+            if ($filter['column'] == 'LicNacionalizadas') {
+                $sql .= ' HAVING count(LicNacionalizadas.idLICENCIA) = ' . $filter['value'];
             }
         }
 
