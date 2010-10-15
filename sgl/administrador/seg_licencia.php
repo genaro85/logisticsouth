@@ -8,13 +8,32 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 $IdLICENCIA = QApplication::PathInfo(0);
 $IdPRODUCTO = QApplication::PathInfo(1);
 
-$objLicencia = Licencia::Load($IdLICENCIA);//ListaProducto::Load($idListaProducto)->LICENCIAIdLICENCIAObject;
-echo '<div><b>Licencia : </b>' . $objLicencia->NumeroProforma . '<p></p></div>';
-echo '<div><b>Estatus : </b><a id="estatus">' . $objLicencia->Status . '</a></div>';
-echo '<div id="divisor2"></div>';
-echo '<table>';
+$objLicencia = Licencia::Load($idLicencia);
+
 
 if ($objLicencia) {
+
+    echo '<div><b>Empresa : </b>'.$objLicencia->EMPRESAIdEMPRESAObject->Nombre.'<p></p></div>';
+    echo '<div><b>Licencia : </b>'.$objLicencia->NumeroProforma.'<p></p></div>';
+    $day = 86400;
+    $sTime = strtotime(date("j F Y")); // Start as time
+    $eTime = strtotime($objLicencia->VencimientoCNP); // End as time
+    $numDays = round(($eTime - $sTime) / $day) + 1;
+    if ($numDays>0)
+        echo '<div><b>D&iacute;as restantes : </b>'.$numDays.'<p></p></div>';
+    else
+        echo '<div><b>D&iacute;as restantes : </b>0<p></p></div>';
+
+    echo '<div><b>Estatus : </b><a id="estatus">'.$objLicencia->Status.'</a></div>';
+
+    echo '<div id="divisor2"></div>';
+
+    echo '<table>';
+
+
+
+
+
 //    $Fase=FaseLicencia::Load($idLicencia);
 //    $Fase->FASEFechaFin;
 //    $Doc=DocumentosFase::Load($idLicencia);
@@ -60,7 +79,7 @@ if ($objLicencia) {
             if ($FaseLicObj->FASEFechaInicio) {
                 $day = 86400;
                 $sTime = strtotime(date("j F Y")); // Start as time
-                $eTime = strtotime($objLicencia->FechaFin); // End as time
+                $eTime = strtotime($objLicencia->VencimientoCNP); // End as time
                 $numDays = round(($eTime - $sTime) / $day) + 1;
                 if ($numDays > 1)
                     echo '<td width="300px" align="center">&nbsp;</td>';
@@ -97,27 +116,42 @@ if ($objLicencia) {
     echo '</tr>';
 
     echo '<tr class="tablafecha">';
-    echo '<td class="th1">Fecha</td>';
+    echo '<td class="th1">Fechas</td>';
     foreach ($FaseLicArray as $FaseLicObj) {
 
-        if ($FaseLicObj->FASEFechaFin)
-            echo '<td width="300px" align="center">' . $FaseLicObj->FASEFechaFin . '</td>';
-        else {
-            if ($FaseLicObj->FASEFechaInicio) {
-                $day = 86400;
-                $sTime = strtotime(date("j F Y")); // Start as time
-                $eTime = strtotime($objLicencia->FechaFin); // End as time
-                $numDays = round(($eTime - $sTime) / $day) + 1;
-                if ($numDays > 1)
-                    echo '<td width="300px" align="center">' . $numDays . ' d&iacute;as</td>';
-                else
-                    echo '<td width="300px" align="center"><b color:red;>Vencido</b></td>';
-            }
-            else
-                echo '<td width="300px" align="center">&nbsp;</td>';
-        }
+        if ($FaseLicObj->FASEFechaInicio)
+            echo '<td width="300px" align="center">'.$FaseLicObj->FASEFechaInicio.'</td>';
+        else
+            echo '<td width="300px" align="center">&nbsp;</td>';
+
+
     }
     echo '</tr>';
+
+    echo '<tr class="tablafecha">';
+    echo '<td class="th1">Tiempos</td>';
+    foreach ($FaseLicArray as $FaseLicObj) {
+
+
+        if ($FaseLicObj->FASEFechaInicio&&$FaseLicObj->FASEFechaInicio) {
+            $day = 86400;
+            $sTime = strtotime($FaseLicObj->FASEFechaInicio); // Start as time
+            $eTime = strtotime($FaseLicObj->FASEFechaFin); // End as time
+            $numDays = round(($eTime - $sTime) / $day) + 1;
+            if ($numDays>1)
+                echo '<td width="300px" align="center">'.$numDays.' d&iacute;as</td>';
+            else
+                echo '<td width="300px" align="center"><b color:red;>&nbsp;</b></td>';
+        }
+        else
+            echo '<td width="300px" align="center">&nbsp;</td>';
+
+
+    }
+    echo '</tr>';
+
+
+
     for ($i = 0; $i < $countDocs; $i++) {
         echo '<tr class="tablafecha">';
         if ($i == 0)
@@ -140,6 +174,8 @@ if ($objLicencia) {
         echo '</tr>';
     }
     echo '</table>';
+
+
 
 //
 //    echo '<tr>';
