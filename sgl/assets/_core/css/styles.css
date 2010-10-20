@@ -760,189 +760,189 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 /*----Licencia Panel----*/
 #LicenciaPan{width:187px; height:192px; background:url(../images/licencia.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #LicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#LicenciaPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#LicenciaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #LicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #LicenciaPan p.ver a:hover{color:black; text-decoration:none;}
-#LicenciaPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#LicenciaPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #LicenciaPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #LicenciaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Empresa Panel----*/
 #EmpresaPan{width:187px; height:192px; background:url(../images/empresa.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #EmpresaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#EmpresaPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#EmpresaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #EmpresaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpresaPan p.ver a:hover{color:black; text-decoration:none;}
-#EmpresaPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#EmpresaPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #EmpresaPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpresaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----CodigoDePago Panel----*/
 #CodigoDePagoPan{width:187px; height:192px; background:url(../images/codigopago.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #CodigoDePagoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#CodigoDePagoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#CodigoDePagoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #CodigoDePagoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #CodigoDePagoPan p.ver a:hover{color:black; text-decoration:none;}
-#CodigoDePagoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#CodigoDePagoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #CodigoDePagoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #CodigoDePagoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----TipoDePago Panel----*/
 #TipoDePagoPan{width:187px; height:192px; background:url(../images/tipodepago.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #TipoDePagoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#TipoDePagoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#TipoDePagoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #TipoDePagoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #TipoDePagoPan p.ver a:hover{color:black; text-decoration:none;}
-#TipoDePagoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#TipoDePagoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #TipoDePagoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #TipoDePagoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----FaseLicencia Panel----*/
 #FaseLicenciaPan{width:187px; height:192px; background:url(../images/faselicencia.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #FaseLicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#FaseLicenciaPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#FaseLicenciaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #FaseLicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #FaseLicenciaPan p.ver a:hover{color:black; text-decoration:none;}
-#FaseLicenciaPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#FaseLicenciaPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #FaseLicenciaPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #FaseLicenciaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----VigenciaDeDocumento Panel----*/
 #VigenciaDeDocumentoPan{width:187px; height:192px; background:url(../images/vigenciadedocumentos.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #VigenciaDeDocumentoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#VigenciaDeDocumentoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#VigenciaDeDocumentoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #VigenciaDeDocumentoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #VigenciaDeDocumentoPan p.ver a:hover{color:black; text-decoration:none;}
-#VigenciaDeDocumentoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#VigenciaDeDocumentoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #VigenciaDeDocumentoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #VigenciaDeDocumentoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Importacion Panel----*/
 #ImportacionPan{width:187px; height:192px; background:url(../images/importacion.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ImportacionPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#ImportacionPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#ImportacionPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ImportacionPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ImportacionPan p.ver a:hover{color:black; text-decoration:none;}
-#ImportacionPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#ImportacionPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ImportacionPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ImportacionPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Producto Panel----*/
 #ProductoPan{width:187px; height:192px; background:url(../images/producto.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#ProductoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#ProductoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ProductoPan p.ver a:hover{color:black; text-decoration:none;}
-#ProductoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#ProductoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ProductoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ProductoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----ListaDeProducto Panel----*/
 #ListaDeProductoPan{width:187px; height:192px; background:url(../images/listaproducto.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ListaDeProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#ListaDeProductoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#ListaDeProductoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ListaDeProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ListaDeProductoPan p.ver a:hover{color:black; text-decoration:none;}
-#ListaDeProductoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#ListaDeProductoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ListaDeProductoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ListaDeProductoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Proceso Panel----*/
 #ProcesoPan{width:187px; height:192px; background:url(../images/proceso.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProcesoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#ProcesoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#ProcesoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProcesoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ProcesoPan p.ver a:hover{color:black; text-decoration:none;}
-#ProcesoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#ProcesoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ProcesoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ProcesoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Fase Panel----*/
 #FasePan{width:187px; height:192px; background:url(../images/fase.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #FasePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#FasePan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#FasePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #FasePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #FasePan p.ver a:hover{color:black; text-decoration:none;}
-#FasePan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#FasePan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #FasePan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #FasePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Documento Panel----*/
 #DocumentoPan{width:187px; height:192px; background:url(../images/documento.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #DocumentoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#DocumentoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#DocumentoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #DocumentoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #DocumentoPan p.ver a:hover{color:black; text-decoration:none;}
-#DocumentoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#DocumentoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #DocumentoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #DocumentoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----DocumentoFase Panel----*/
 #DocumentoFasePan{width:187px; height:192px; background:url(../images/documentodelagestion.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #DocumentoFasePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#DocumentoFasePan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#DocumentoFasePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #DocumentoFasePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #DocumentoFasePan p.ver a:hover{color:black; text-decoration:none;}
-#DocumentoFasePan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#DocumentoFasePan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #DocumentoFasePan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #DocumentoFasePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Proveedor Panel----*/
 #ProveedorPan{width:187px; height:192px; background:url(../images/proveedor.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProveedorPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#ProveedorPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#ProveedorPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProveedorPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ProveedorPan p.ver a:hover{color:black; text-decoration:none;}
-#ProveedorPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#ProveedorPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ProveedorPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ProveedorPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Transporte Panel----*/
 #TransportePan{width:187px; height:192px; background:url(../images/transporte.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #TransportePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#TransportePan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#TransportePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #TransportePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #TransportePan p.ver a:hover{color:black; text-decoration:none;}
-#TransportePan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#TransportePan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #TransportePan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #TransportePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Pais Panel----*/
 #PaisPan{width:187px; height:192px; background:url(../images/pais.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #PaisPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#PaisPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#PaisPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #PaisPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #PaisPan p.ver a:hover{color:black; text-decoration:none;}
-#PaisPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#PaisPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #PaisPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #PaisPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Administrador Panel----*/
 #AdministradorPan{width:187px; height:192px; background:url(../images/administrador.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #AdministradorPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#AdministradorPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#AdministradorPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #AdministradorPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #AdministradorPan p.ver a:hover{color:black; text-decoration:none;}
-#AdministradorPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#AdministradorPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #AdministradorPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #AdministradorPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Empleado Panel----*/
 #EmpleadoPan{width:187px; height:192px; background:url(../images/empleado.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #EmpleadoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#EmpleadoPan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#EmpleadoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #EmpleadoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpleadoPan p.ver a:hover{color:black; text-decoration:none;}
-#EmpleadoPan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#EmpleadoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #EmpleadoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpleadoPan p.nuevo a:hover{color:black; text-decoration:none;}
 /*----Responsable Panel----*/
 #ResponsablePan{width:187px; height:192px; background:url(../images/responsable.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ResponsablePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
-#ResponsablePan p.ver{width:40px; height:18px; padding:56px 0 0 30px;}
+#ResponsablePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ResponsablePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ResponsablePan p.ver a:hover{color:black; text-decoration:none;}
-#ResponsablePan p.nuevo{width:40px; height:18px; padding:56px 0 0 17px;}
+#ResponsablePan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ResponsablePan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ResponsablePan p.nuevo a:hover{color:black; text-decoration:none;}
 
