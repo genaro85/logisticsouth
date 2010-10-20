@@ -30,6 +30,17 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
       }
       }
      */
+
+    public function lblIdEMPRESA_Create($strControlId = null) {
+        $this->lblIdEMPRESA = new QLabel($this->objParentObject, $strControlId);
+        $this->lblIdEMPRESA->Name = QApplication::Translate('No Registro');
+        if ($this->blnEditMode)
+            $this->lblIdEMPRESA->Text = $this->objEmpresa->IdEMPRESA;
+        else
+            $this->lblIdEMPRESA->Text = 'N/A';
+        return $this->lblIdEMPRESA;
+    }
+
     public function txtNombre_Create($strControlId = null) {
         $this->txtNombre = new QTextBox($this->objParentObject, $strControlId);
         $this->txtNombre->Name = QApplication::Translate('Nombre');
@@ -89,6 +100,7 @@ class EmpresaMetaControl extends EmpresaMetaControlGen {
         $this->txtEmail->MaxLength = Empresa::EmailMaxLength;
         return $this->txtEmail;
     }
+
 }
 
 ?>
