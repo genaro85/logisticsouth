@@ -48,7 +48,7 @@ class VigenciaDocumentoListForm extends VigenciaDocumentoListFormBase {
 
         // Create the Other Columns (note that you can use strings for VIGENCIA_DOCUMENTO's properties, or you
         // can traverse down QQN::VIGENCIA_DOCUMENTO() to display fields that are down the hierarchy)
-        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject->NumeroProforma,'Name=Licencia');
+        $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->LICENCIAIdLICENCIAObject->NumeroProforma,'Name=C.N.P.');
         $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTOObject->Nombre,'Name=Documento');
         $this->dtgVigenciaDocumentos->MetaAddColumn(QQN::VigenciaDocumento()->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->FASEIdFASEObject->Nombre,'Name=Fase');
         $this->dtgVigenciaDocumentos->MetaAddColumn('FechaOtorgado');

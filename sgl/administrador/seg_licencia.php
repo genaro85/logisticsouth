@@ -14,7 +14,7 @@ $objLicencia = Licencia::Load($idLicencia);
 if ($objLicencia) {
 
     echo '<div><b>Empresa : </b>'.$objLicencia->EMPRESAIdEMPRESAObject->Nombre.'<p></p></div>';
-    echo '<div><b>Licencia : </b>'.$objLicencia->NumeroProforma.'<p></p></div>';
+    echo '<div><b>C.N.P. : </b>'.$objLicencia->NumeroProforma.'<p></p></div>';
     $day = 86400;
     $sTime = strtotime(date("j F Y")); // Start as time
     $eTime = strtotime($objLicencia->VencimientoCNP); // End as time

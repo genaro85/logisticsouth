@@ -101,7 +101,7 @@ echo '<img src="http://chart.apis.google.com/chart?chf=bg,s,807F7F|c,s,999999' .
     '&chd=t:' . $LicOtorgadas . '|' . $LicOtorgadas .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
     '&chg=0,-1,0,0' .
     '&chma=0,0,0,10' .
-    '&chtt=Licencias+por+Pa%C3%ADs" width="400" height="300" alt="Licencias por País" />';
+    '&chtt=CNP+por+Pa%C3%ADs" width="400" height="300" alt="C.N.P. por País" />';
 ?>
 </div>
 
