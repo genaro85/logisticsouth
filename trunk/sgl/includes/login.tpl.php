@@ -1,4 +1,4 @@
-<?include "configuration/header.inc.php" ?>
+<?php require(__CONFIGURATION__ . '/header.inc.php'); ?>
 
 <div id="body1">
    <?php $this->RenderBegin() ?>
@@ -37,4 +37,4 @@
     <p class="lasttext"></p>
 </div>
 
-<? include "configuration/footer.inc.php" ?>
+<?php require(__CONFIGURATION__ .'/footer.inc.php'); ?>

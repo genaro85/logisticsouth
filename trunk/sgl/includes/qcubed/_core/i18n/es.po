@@ -78,7 +78,7 @@ MsgId "List All"
 MsgStr "Mostrar Todos"
 
 MsgId "Create a New"
-MsgStr "Crear un Nuevo"
+MsgStr "Crear"
 
 MsgId "Go to \"Form Drafts\""
 MsgStr "Ir a \"Menu\""
@@ -171,3 +171,54 @@ MsgStr "Noviembre"
 
 MsgId "Dicember"
 MsgStr "Diciembre"
+
+MsgId "Licencia"
+MsgStr "C.N.P."
+
+MsgId "Licencias"
+MsgStr "C.N.P."
+
+MsgId "Adminitradors"
+MsgStr "Administradores"
+
+MsgId "CodigoPago"
+MsgStr "Código Pago"
+
+MsgId "CodigoPagos"
+MsgStr "Código Pago"
+
+MsgId "Tipo de Pagos"
+MsgStr "Tipos de Pago"
+
+MsgId "Importacion"
+MsgStr "Importación"
+
+MsgId "FaseLicencia"
+MsgStr "Fase por C.N.P."
+
+MsgId "VigenciaDocumento"
+MsgStr "Vigencia de Documento"
+
+MsgId "ListaProducto"
+MsgStr "Productos del C.N.P."
+
+MsgId "Documentos Fases"
+MsgStr "Documentos de Gestión"
+
+MsgId "Documentos Fase"
+MsgStr "Documento de Gestión"
+
+MsgId "Login"
+MsgStr "Usuario"
+
+MsgId "Password"
+MsgStr "Contraseña"
+
+MsgId "Cedula"
+MsgStr "Cédula"
+
+MsgId "Duracion"
+MsgStr "Duración"
+
+MsgId "Descripcion"
+MsgStr "Descripción"

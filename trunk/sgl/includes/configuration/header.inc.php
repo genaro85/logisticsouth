@@ -17,6 +17,6 @@
             </div>
         </div>
         <ul class="menu">
-            <li class="top"><a href="#" target="_self" class="top_link"><span>Inicio</span></a>
+            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/index.php" target="_self" class="top_link"><span>Inicio</span></a>
+        </ul>
         <div id="content">
-

@@ -32,9 +32,8 @@ class LoginForm extends QForm {
             $_SESSION['User'] = serialize($objUserAdmin);
             QApplication::Redirect('../administrador/index.php');
         }
-
         $this->txtPassword->Text = "";
-        $this->txtPassword->Warning = " Usuario o clave incorrectos";
+        $this->txtPassword->Warning = "Usuario o clave incorrectos";
         return;
     }
 }
