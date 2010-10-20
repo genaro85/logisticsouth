@@ -13,7 +13,7 @@
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctCodigoPago->TitleVerb); ?></h2>
-		<h1><?php _t('CodigoPago')?></h1>
+		<h1><?php _t('Codigo Pago')?></h1>
 	</div>
 
 	<div id="formControls">

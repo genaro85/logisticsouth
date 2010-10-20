@@ -78,7 +78,7 @@ MsgId "List All"
 MsgStr "Mostrar Todos"
 
 MsgId "Create a New"
-MsgStr "Crear uno Nuevo"
+MsgStr "Crear un Nuevo"
 
 MsgId "Go to \"Form Drafts\""
 MsgStr "Ir a \"Menu\""
