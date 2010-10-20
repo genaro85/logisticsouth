@@ -23,7 +23,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
     
     <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
     <p class="create">
-	<a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Crear una nueva'); ?> <?php _t('Licencia');?></a>
+	<a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('C.N.P.');?></a>
     </p>
 
     <?php $this->calFechaInicio->RenderWithName(); ?>
