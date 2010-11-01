@@ -122,7 +122,8 @@ if (!defined('SERVER_INSTANCE')) {
             // Destination for generated form drafts and panel drafts
             define ('__FORM_DRAFTS__', __SUBDIRECTORY__ . '/drafts');
             define ('__FORM_ADMINISTRADOR__', __SUBDIRECTORY__ . '/administrador');
-            define ('__FORM_EMPLEADO__', __SUBDIRECTORY__ . '/empleado');
+            define ('__FORM_EMPLEADO__', __SUBDIRECTORY__ . '/empleados');
+            define ('__FORM_CLIENTE__', __SUBDIRECTORY__ . '/cliente');
             define ('__ARCHIVE_DIRECTORY__', __DOCROOT__ . __SUBDIRECTORY__ . '/archivos');
             define ('__ARCHIVE_DIRECTORY_PARTIAL__', __SUBDIRECTORY__ . '/archivos');
             define ('__PANEL_DRAFTS__', __SUBDIRECTORY__ . '/drafts/panels');
@@ -178,9 +179,9 @@ if (!defined('SERVER_INSTANCE')) {
                     'adapter' => 'MySqli5',
                     'server' => 'localhost',
                     'port' => null,
-                    'database' => 'sglbd',
+                    'database' => 'sgldb',
                     'username' => 'root',
-                    'password' => '1234567',
+                    'password' => '',
                     'encoding' => 'utf8',
                     'profiling' => false)));
 

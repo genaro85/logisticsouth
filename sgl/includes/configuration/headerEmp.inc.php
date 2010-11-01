@@ -17,25 +17,25 @@
             </div>
         </div>
         <ul class="menu">
-            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/index.php" target="_self" class="top_link"><span>Inicio</span></a>
-            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/Licencia.php" target="_self" class="top_link"><span>C.N.P.</span></a>
+            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/index.php" target="_self" class="top_link"><span>Inicio</span></a>
+            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/Licencia.php" target="_self" class="top_link"><span>C.N.P.</span></a>
                 <ul class="sub">
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/licencia_list.php" target="_self">C.N.P.</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/codigo_pago_list.php" target="_self">Codigo Pago</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/tipo_de_pago_list.php" target="_self">Tipo de Pago</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/empresa_list.php" target="_self">Empresa</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/fase_licencia_list.php" target="_self">Fase C.N.P.</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/vigencia_documento_list.php" target="_self">Vigencia de Documentos</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/importacion_list.php" target="_self">Importación</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/producto_list.php" target="_self">Producto</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/lista_producto_list.php" target="_self">Lista de Producto</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/licencia_list.php" target="_self">C.N.P.</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/codigo_pago_list.php" target="_self">Código Pago</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/tipo_de_pago_list.php" target="_self">Tipo de Pago</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/empresa_list.php" target="_self">Empresa</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/fase_licencia_list.php" target="_self">Fase C.N.P.</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/vigencia_documento_list.php" target="_self">Vigencia de Documentos</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/importacion_list.php" target="_self">Importación</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/producto_list.php" target="_self">Producto</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/lista_producto_list.php" target="_self">Lista de Producto</a></li>
                 </ul>
             </li>
-            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/Proveedor.php" target="_self" class="top_link"><span>Proveedores</span></a>
+            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/Proveedor.php" target="_self" class="top_link"><span>Proveedores</span></a>
                 <ul class="sub">
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/transporte_list.php" target="_self">Transporte</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/proveedor_list.php" target="_self">Proveedor</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_DRAFTS__) ?>/pais_list.php" target="_self">País</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/transporte_list.php" target="_self">Transporte</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/proveedor_list.php" target="_self">Proveedor</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/pais_list.php" target="_self">País</a></li>
                 </ul>
             </li>
         </ul>

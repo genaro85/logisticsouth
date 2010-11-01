@@ -5,7 +5,7 @@
 // Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 // code re-generations do not overwrite your changes.
 
-$strPageTitle = QApplication::Translate('Periodo Licencia por Fase') . ' - ' . $this->mctFaseLicencia->TitleVerb;
+$strPageTitle = QApplication::Translate('Período C.N.P. por Fase') . ' - ' . $this->mctFaseLicencia->TitleVerb;
 require(__CONFIGURATION__ . '/headerEmp.inc.php');
 ?>
 
@@ -13,7 +13,7 @@ require(__CONFIGURATION__ . '/headerEmp.inc.php');
 
 <div id="titleBar">
     <h2><?php _p($this->mctFaseLicencia->TitleVerb); ?></h2>
-    <h1><?php _t('Periodo Licencia por Fase')?></h1>
+    <h1><?php _t('Período C.N.P. por Fase')?></h1>
 </div>
 
 <div id="formControls">

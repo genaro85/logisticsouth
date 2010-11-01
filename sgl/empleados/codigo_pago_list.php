@@ -48,9 +48,9 @@ class CodigoPagoListForm extends CodigoPagoListFormBase {
 
         // Create the Other Columns (note that you can use strings for CODIGO_PAGO's properties, or you
         // can traverse down QQN::CODIGO_PAGO() to display fields that are down the hierarchy)
-        $this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->LICENCIAIdLICENCIAObject,'Name=Licencia');
+        $this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->LICENCIAIdLICENCIAObject,'Name=C.N.P.');
         $this->dtgCodigoPagos->MetaAddColumn(QQN::CodigoPago()->TIPODEPAGOIdTIPODEPAGOObject,'Name=Modalidad de Pago');
-        $this->dtgCodigoPagos->MetaAddColumn('NumRef','Name=Numero de Referencia');
+        $this->dtgCodigoPagos->MetaAddColumn('NumRef','Name=No de Referencia');
         $this->dtgCodigoPagos->MetaAddColumn('Fecha');
         $this->dtgCodigoPagos->MetaAddColumn('Divisa');
         $this->dtgCodigoPagos->MetaAddColumn('Monto');

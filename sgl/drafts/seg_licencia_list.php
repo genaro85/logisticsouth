@@ -44,16 +44,19 @@ class ListaProductoListForm extends ListaProductoListFormBase {
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
         $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/lista_producto_edit.php';
-        $this->dtgListaProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Editar');
+        $this->dtgListaProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Consultar', 'Consultar');
 
         // Create the Other Columns (note that you can use strings for LISTA_PRODUCTO's properties, or you
         // can traverse down QQN::LISTA_PRODUCTO() to display fields that are down the hierarchy)
-        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject,'Name=C.N.P.');
-        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject,'Name=Producto');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->NumeroCNP,'Name=No C.N.P.');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->NumeroProforma,'Name=No Proforma');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->FechaInicio,'Name=Fecha Inicio');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->FechaFin,'Name=Fecha Fin');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Nombre,'Name=Empresa');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Rif,'Name=R.I.F.');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->Descripcion,'Name=Producto');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->CodigoArancelario,'Name=Código Arancelario');
-        $this->dtgListaProductos->MetaAddColumn('PRODUCTOCantidad', 'Name=Cantidad');
-        $this->dtgListaProductos->MetaAddColumn('PRODUCTOUnidad', 'Name=Unidad');
-        $this->dtgListaProductos->MetaAddColumn('PRODUCTOCostoUnitario', 'Name=Costo Unitario');
+        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->PROVEEDORIdPROVEEDORObject->PAISIdPAISObject->Nombre,'Name=País');
     }
 
 }
