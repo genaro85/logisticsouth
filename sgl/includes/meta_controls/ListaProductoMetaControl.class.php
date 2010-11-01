@@ -44,7 +44,7 @@ class ListaProductoMetaControl extends ListaProductoMetaControlGen {
         $objLICENCIAIdLICENCIAObjectArray = Licencia::LoadAll();
         if ($objLICENCIAIdLICENCIAObjectArray)
             foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
-                $objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString(), $objLICENCIAIdLICENCIAObject->IdLICENCIA);
+                $objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString().' - '.$objLICENCIAIdLICENCIAObject->NumeroCNP, $objLICENCIAIdLICENCIAObject->IdLICENCIA);
                 if (($this->objListaProducto->LICENCIAIdLICENCIAObject) && ($this->objListaProducto->LICENCIAIdLICENCIAObject->IdLICENCIA == $objLICENCIAIdLICENCIAObject->IdLICENCIA))
                     $objListItem->Selected = true;
                 $this->lstLICENCIAIdLICENCIAObject->AddItem($objListItem);
