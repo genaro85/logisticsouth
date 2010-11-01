@@ -44,7 +44,7 @@ class ListaProductoListForm extends ListaProductoListFormBase {
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
         $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/lista_producto_edit.php';
-        $this->dtgListaProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Editar');
+        $this->dtgListaProductos->MetaAddEditLinkColumn($strEditPageUrl, 'Editar', 'Editar');
 
         // Create the Other Columns (note that you can use strings for LISTA_PRODUCTO's properties, or you
         // can traverse down QQN::LISTA_PRODUCTO() to display fields that are down the hierarchy)

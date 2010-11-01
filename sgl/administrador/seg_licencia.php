@@ -221,7 +221,12 @@ if ($objLicencia) {
 ////
 ////        }
 ////        echo '</tr>';
+    
 }
-
+// BY PAM
+    echo '<p class="create">
+            <a href="../Reporte_3.php">Reporte</a>
+          </p>';
+    
 require(__CONFIGURATION__ . '/footer.inc.php');
 ?>
