@@ -22,16 +22,23 @@ class LoginForm extends QForm {
     protected function btnLogin_Click($strFormId, $strControlId, $strParameter) {
         $objUserAdmin = Administrador::LoadByAmLog($this->txtUsername->Text);
         $objUserEm = Empleado::LoadByEmLog($this->txtUsername->Text);
-
-        if ($objUserEm && $objUserEm->Password == $this->txtPassword->Text) {
-            $_SESSION['User'] = serialize($objUserEm);
-            QApplication::Redirect('../empleado/index.php');
-        }
+        $objUserCliente = Empresa::LoadByEmLog($this->txtUsername->Text);
 
         if ($objUserAdmin && $objUserAdmin->Password == $this->txtPassword->Text) {
             $_SESSION['User'] = serialize($objUserAdmin);
             QApplication::Redirect('../administrador/index.php');
         }
+
+        if ($objUserEm && $objUserEm->Password == $this->txtPassword->Text) {
+            $_SESSION['User'] = serialize($objUserEm);
+            QApplication::Redirect('../empleados/index.php');
+        }
+
+        if ($objUserCliente && $objUserCliente->Password == $this->txtPassword->Text) {
+            $_SESSION['User'] = serialize($objUserCliente);
+            QApplication::Redirect('../cliente/index.php');
+        }
+
         $this->txtPassword->Text = "";
         $this->txtPassword->Warning = "Usuario o clave incorrectos";
         return;

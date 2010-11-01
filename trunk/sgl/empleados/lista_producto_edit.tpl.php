@@ -5,7 +5,7 @@
 	// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 	// code re-generations do not overwrite your changes.
 
-	$strPageTitle = QApplication::Translate('ListaProducto') . ' - ' . $this->mctListaProducto->TitleVerb;
+	$strPageTitle = QApplication::Translate('Producto de la Licencia') . ' - ' . $this->mctListaProducto->TitleVerb;
 	require(__CONFIGURATION__ . '/headerEmp.inc.php');
 ?>
 
@@ -13,7 +13,7 @@
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctListaProducto->TitleVerb); ?></h2>
-		<h1><?php _t('ListaProducto')?></h1>
+		<h1><?php _t('Producto de la Licencia')?></h1>
 	</div>
 
 	<div id="formControls">

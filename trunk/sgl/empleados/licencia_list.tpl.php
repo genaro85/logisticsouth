@@ -19,10 +19,6 @@
 
 	<?php $this->dtgLicencias->Render(); ?>
 
-	<p class="create">
-		<a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__) ?>/licencia_edit.php"><?php _t('Create a New'); ?> <?php _t('Licencia');?></a>
-	</p>
-
 	<?php $this->RenderEnd() ?>
 	
 <?php require(__CONFIGURATION__ . '/footer.inc.php'); ?>

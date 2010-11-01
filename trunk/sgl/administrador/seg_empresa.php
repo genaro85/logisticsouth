@@ -53,15 +53,15 @@ class EmpresaListForm extends EmpresaListFormBase {
         //$this->dtgEmpresas->MetaAddColumn(QQN::Empresa()->Rif, 'Name=RIF');
 
 
-        $colLicencias = new QDataGridColumn('Lic Otorgadas', '<?= $_ITEM["LicOtorgadas"] ?>');
+        $colLicencias = new QDataGridColumn('CNP Internas', '<?= $_ITEM["LicOtorgadas"] ?>');
         //$colLicencias->FilterByCommand = array('column' => 'Licencias');
         $this->dtgEmpresas->AddColumn($colLicencias);
 
-        $colLicencias = new QDataGridColumn('Lic Ejecución', '<?= $_ITEM["LicEjecucion"] ?>');
+        $colLicencias = new QDataGridColumn('CNP Externas', '<?= $_ITEM["LicEjecucion"] ?>');
         //$colLicencias->FilterByCommand = array('column' => 'Licencias');
         $this->dtgEmpresas->AddColumn($colLicencias);
 
-        $colLicencias = new QDataGridColumn('Lic Nacionalizadas', '<?= $_ITEM["LicNacionalizadas"] ?>');
+        $colLicencias = new QDataGridColumn('CNP Nacionalizadas', '<?= $_ITEM["LicNacionalizadas"] ?>');
         //$colLicencias->FilterByCommand = array('column' => 'Licencias');
         $this->dtgEmpresas->AddColumn($colLicencias);
 
@@ -88,13 +88,14 @@ class EmpresaListForm extends EmpresaListFormBase {
                     e.nombre as Nombre,
                     e.rif as RIF,
                     (Select count(idLICENCIA) from licencia
-                        where EMPRESA_idEMPRESA = e.idEMPRESA) as LicOtorgadas,
+                        where EMPRESA_idEMPRESA = e.idEMPRESA
+                        AND status = "Interna") as LicOtorgadas,
                     (Select count(idLICENCIA) from licencia
                         where EMPRESA_idEMPRESA = e.idEMPRESA
-                        AND status = "En Proceso") as LicEjecucion,
+                        AND status = "Externa") as LicEjecucion,
                     (Select count(idLICENCIA) from licencia
                         where EMPRESA_idEMPRESA = e.idEMPRESA
-                        AND status = "Cerrada") as LicNacionalizadas
+                        AND status = "Nacionalizada") as LicNacionalizadas
                 FROM empresa as e
                 GROUP BY e.idEMPRESA';
 

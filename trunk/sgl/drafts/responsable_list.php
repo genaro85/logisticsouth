@@ -49,7 +49,7 @@ class ResponsableListForm extends ResponsableListFormBase {
         // Create the Other Columns (note that you can use strings for RESPONSABLE's properties, or you
         // can traverse down QQN::RESPONSABLE() to display fields that are down the hierarchy)
         $this->dtgResponsables->MetaAddColumn(QQN::Responsable()->EMPLEADOIdEMPLEADOObject, 'Name=Empleado');
-        $this->dtgResponsables->MetaAddColumn(QQN::Responsable()->LICENCIAIdLICENCIAObject, 'Name=Licencia');
+        $this->dtgResponsables->MetaAddColumn(QQN::Responsable()->LICENCIAIdLICENCIAObject, 'Name=C.N.P.');
         $this->dtgResponsables->MetaAddColumn('FechaInicio', 'Name=Fecha Inicio');
         $this->dtgResponsables->MetaAddColumn('FechaFin', 'Name=Fecha Fin');
     }
