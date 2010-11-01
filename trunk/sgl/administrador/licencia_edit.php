@@ -137,7 +137,8 @@ class LicenciaEditForm extends LicenciaEditFormBase {
     }
 
     protected function RedirectToListPage() {
-        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/licencia_list.php');
+        //QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/licencia_list.php');
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/lista_producto_edit.php');
     }
 
 }
