@@ -23,6 +23,7 @@ if ($objLicencia) {
     $day = 86400;
     $sTime = strtotime(date("j F Y")); // Start as time
     $eTime = strtotime($objLicencia->VencimientoCNP); // End as time
+    echo '<div><b>Fecha de Vencimiento: </b>'.$objLicencia->VencimientoCNP.'<p></p></div>';
     $numDays = round(($eTime - $sTime) / $day) + 1;
     if ($numDays>0)
         echo '<div><b>D&iacute;as restantes : </b>'.$numDays.'<p></p></div>';
