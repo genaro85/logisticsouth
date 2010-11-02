@@ -21,14 +21,14 @@
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Licencia.php" target="_self" class="top_link"><span>C.N.P.</span></a>
                 <ul class="sub">
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_list.php" target="_self">C.N.P.</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/codigo_pago_list.php" target="_self">Código Pago</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/tipo_de_pago_list.php" target="_self">Tipo de Pago</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empresa_list.php" target="_self">Empresa</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/fase_licencia_list.php" target="_self">Fase C.N.P.</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/vigencia_documento_list.php" target="_self">Vigencia de Documentos</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/importacion_list.php" target="_self">Importacion</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/producto_list.php" target="_self">Producto</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empresa_list.php" target="_self">Empresa</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/lista_producto_list.php" target="_self">Lista de Producto</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/producto_list.php" target="_self">Producto</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/codigo_pago_list.php" target="_self">Código Pago</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/tipo_de_pago_list.php" target="_self">Tipo de Pago</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/importacion_list.php" target="_self">Importacion</a></li>
                 </ul>
             </li>
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Procesos.php" target="_self" class="top_link"><span>Procesos</span></a>
@@ -41,9 +41,9 @@
             </li>
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Proveedor.php" target="_self" class="top_link"><span>Proveedores</span></a>
                 <ul class="sub">
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/transporte_list.php" target="_self">Transporte</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/proveedor_list.php" target="_self">Proveedor</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/pais_list.php" target="_self">País</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/proveedor_list.php" target="_self">Proveedor</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/transporte_list.php" target="_self">Transporte</a></li>
                 </ul>
             </li>
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Administrador.php" target="_self" class="top_link"><span>Administrador</span></a>
