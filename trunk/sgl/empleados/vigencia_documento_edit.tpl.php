@@ -5,7 +5,7 @@
 // Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 // code re-generations do not overwrite your changes.
 
-$strPageTitle = QApplication::Translate('VigenciaDocumento') . ' - ' . $this->mctVigenciaDocumento->TitleVerb;
+$strPageTitle = QApplication::Translate('Vigencia de Documento') . ' - ' . $this->mctVigenciaDocumento->TitleVerb;
 require(__CONFIGURATION__ . '/headerEmp.inc.php');
 ?>
 
@@ -13,7 +13,7 @@ require(__CONFIGURATION__ . '/headerEmp.inc.php');
 
 <div id="titleBar">
     <h2><?php _p($this->mctVigenciaDocumento->TitleVerb); ?></h2>
-    <h1><?php _t('VigenciaDocumento')?></h1>
+    <h1><?php _t('Vigencia de Documento')?></h1>
 </div>
 
 <div id="formControls">
