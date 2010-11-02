@@ -3,7 +3,7 @@
 // Load the QCubed Development Framework
 require('../qcubed.inc.php');
 
-require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+require(__CONFIGURATION__ . '/headerClient.inc.php');
 
 $IdLICENCIA = QApplication::PathInfo(0);
 $IdPRODUCTO = QApplication::PathInfo(1);

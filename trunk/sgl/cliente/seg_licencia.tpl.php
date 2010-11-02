@@ -6,7 +6,7 @@
 // code re-generations do not overwrite your changes.
 
 $strPageTitle = QApplication::Translate('Seguimiento de C.N.P.') . ' - ' . QApplication::Translate('List All');
-require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+require(__CONFIGURATION__ . '/headerClient.inc.php');
 ?>
 
 <?php $this->RenderBegin() ?>
