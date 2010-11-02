@@ -99,6 +99,9 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
         $this->txtNumeroCNP->Name = QApplication::Translate('Número de C.N.P');
         $this->txtNumeroCNP->Text = $this->objLicencia->NumeroCNP;
         $this->txtNumeroCNP->MaxLength = Licencia::NumeroCNPMaxLength;
+        $this->txtNumeroCNP->Required = true;
+        //$this->txtNumeroCNP->FontBold = true;
+        //$this->txtNumeroCNP->FontItalic = true;
         return $this->txtNumeroCNP;
     }
 
@@ -137,7 +140,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtTipo_Create($strControlId = null) {
         $this->txtTipo = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtTipo->Name = QApplication::Translate('Tipo de Licencia');
+        $this->txtTipo->Name = QApplication::Translate('Registro Sanitario');
         $this->txtTipo->Text = $this->objLicencia->Tipo;
         $this->txtTipo->MaxLength = Licencia::TipoMaxLength;
         return $this->txtTipo;
