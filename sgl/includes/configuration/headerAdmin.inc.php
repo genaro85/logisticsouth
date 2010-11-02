@@ -61,7 +61,6 @@
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_pais_list.php" target="_self">Seguimiento Paises</a></li>
                 </ul>
             </li>
-            <li class="top"><a href="<?php _p(__SUBDIRECTORY__) ?>/includes/logout.php" target="_self" class="top_link"><span>Desconectar</span></a></li>
         </ul>
         <div id="content">
 
