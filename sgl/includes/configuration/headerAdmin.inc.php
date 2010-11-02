@@ -1,5 +1,5 @@
 <?php
-// This example header.inc.php is intended to be modfied for your application.
+// This example header.inc.php is intended to be modified for your application.
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -16,7 +16,7 @@
                 <h1>&nbsp;</h1>
             </div>
         </div>
-        <ul class="menu">
+        <ul class="menu" style="padding: 0 0 0 16%;">
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/index.php" target="_self" class="top_link"><span>Inicio</span></a>
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Licencia.php" target="_self" class="top_link"><span>C.N.P.</span></a>
                 <ul class="sub">
@@ -61,6 +61,7 @@
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_pais_list.php" target="_self">Seguimiento Paises</a></li>
                 </ul>
             </li>
+            <li class="top"><a href="<?php _p(__SUBDIRECTORY__) ?>/includes/logout.php" target="_self" class="top_link"><span>Desconectar</span></a></li>
         </ul>
         <div id="content">
 
