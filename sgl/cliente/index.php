@@ -1,7 +1,7 @@
 <?php
 require_once('../qcubed.inc.php');
 
-require(__CONFIGURATION__ . '/header.inc.php');
+require(__CONFIGURATION__ . '/headerClient.inc.php');
 ?>
 
 <div id="bodymiddlePan" align="justify">
