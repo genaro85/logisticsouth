@@ -24,9 +24,9 @@ require(__CONFIGURATION__ . '/headerEmp.inc.php');
 
     <?php $this->txtNumeroRegSanitario->RenderWithName(); ?>
 
-    <?php $this->txtVolumen->RenderWithName(); ?>
+    <?php //$this->txtVolumen->RenderWithName(); ?>
 
-    <?php $this->txtUnidad->RenderWithName(); ?>
+    <?php //$this->txtUnidad->RenderWithName(); ?>
 
 </div>
 
