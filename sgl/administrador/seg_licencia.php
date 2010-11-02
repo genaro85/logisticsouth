@@ -5,7 +5,12 @@ require('../qcubed.inc.php');
 
 require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
-$IdLICENCIA = QApplication::PathInfo(0);
+// BY PAM
+    echo '<p class="create">
+            <a href="../Reporte_3.php">Reporte</a>
+          </p>';
+
+$idLicencia = QApplication::PathInfo(0);
 $IdPRODUCTO = QApplication::PathInfo(1);
 
 $objLicencia = Licencia::Load($idLicencia);
@@ -223,10 +228,7 @@ if ($objLicencia) {
 ////        echo '</tr>';
     
 }
-// BY PAM
-    echo '<p class="create">
-            <a href="../Reporte_3.php">Reporte</a>
-          </p>';
+
     
 require(__CONFIGURATION__ . '/footer.inc.php');
 ?>
