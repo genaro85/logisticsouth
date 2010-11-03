@@ -23,6 +23,6 @@
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_CLIENTE__) ?>/seg_licencia_list.php" target="_self">Seguimiento Licencias</a></li>
                 </ul>
             </li>
-            <li class="top"><a href="<?php _p(__SUBDIRECTORY__) ?>/includes/logout.php" target="_self" class="top_link"><span>Desconectar</span></a></li>
+            <li class="top"><a href="<?php _p(__SUBDIRECTORY__) ?>/includes/logout.php" target="_self" class="top_link"><span>Salir</span></a></li>
         </ul>
         <div id="content">
