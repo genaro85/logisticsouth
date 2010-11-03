@@ -5,7 +5,12 @@ require('../qcubed.inc.php');
 
 require(__CONFIGURATION__ . '/headerClient.inc.php');
 
-$IdLICENCIA = QApplication::PathInfo(0);
+// BY PAM
+    echo '<p class="create">
+            <a href="../Reporte_3.php">Reporte</a>
+          </p>';
+
+$idLicencia = QApplication::PathInfo(0);
 $IdPRODUCTO = QApplication::PathInfo(1);
 
 $objLicencia = Licencia::Load($idLicencia);
@@ -18,6 +23,7 @@ if ($objLicencia) {
     $day = 86400;
     $sTime = strtotime(date("j F Y")); // Start as time
     $eTime = strtotime($objLicencia->VencimientoCNP); // End as time
+    echo '<div><b>Fecha de Vencimiento: </b>'.$objLicencia->VencimientoCNP.'<p></p></div>';
     $numDays = round(($eTime - $sTime) / $day) + 1;
     if ($numDays>0)
         echo '<div><b>D&iacute;as restantes : </b>'.$numDays.'<p></p></div>';
@@ -175,52 +181,6 @@ if ($objLicencia) {
     }
     echo '</table>';
 
-
-
-//
-//    echo '<tr>';
-//    $FaseLicArray=FaseLicencia::LoadArrayByLICENCIAIdLICENCIA($idLicencia);
-//    foreach ($FaseLicArray as $FaseLicObj) {
-//        if ($FaseLicObj->FASEIdFASEObject->IdFASE) {
-//            echo '<td width="300px" align="center">';
-//            echo '<table border="2>';
-//            $DocsFaseArray=DocumentosFase::LoadArrayByFASEIdFASE($FaseLicObj->FASEIdFASEObject->IdFASE);
-//            foreach ($DocsFaseArray as $DocsFaseObj) {
-//                if ($DocsFaseObj->DOCUMENTOIdDOCUMENTOObject->Nombre)
-//                    echo '<tr><td width="300px" align="center">'.$DocsFaseObj->DOCUMENTOIdDOCUMENTOObject->Nombre.'</td></tr>';
-//
-//                else {
-//                    echo '<tr><td>&nbsp;</td></tr>';
-//                }
-//            }
-//
-//            echo '</table>';
-//            echo '</td>';
-//        }
-//        else {
-//            echo '<td width="300px" align="center">&nbsp;</td>';
-//        }
-//
-//        echo '</td>';
-//    }
-//    echo '</tr>';
-//
-///        $DocsFase=DocumentosFase::LoadArrayByFASEIdFASE($intFASEIdFASE);
-////
-////        $DocsLicArray=VigenciaDocumento::LoadArrayByLICENCIAIdLICENCIA($idLicencia);
-////
-////
-////
-////        echo '<tr>';
-////        foreach ($DocsLicArray as $DocsLicObj) {
-////            if ($DocsLicObj->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTOObject)
-////                echo '<td width="300px" align="center">'.$DocsLicObj->DOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->DOCUMENTOIdDOCUMENTOObject->Nombre.'</td>';
-////            else {
-////                echo '<td width="300px" align="center">&nbsp;</td>';
-////            }
-////
-////        }
-////        echo '</tr>';
 }
 
 require(__CONFIGURATION__ . '/footer.inc.php');
