@@ -5,8 +5,8 @@
 // Be sure to move this out of this directory before modifying to ensure that subsequent
 // code re-generations do not overwrite your changes.
 
-$strPageTitle = QApplication::Translate('Seguimiento de Licencias') . ' - ' . QApplication::Translate('List All');
-require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+$strPageTitle = QApplication::Translate('Seguimiento de C.N.P.') . ' - ' . QApplication::Translate('List All');
+require(__CONFIGURATION__ . '/headerClient.inc.php');
 ?>
 
 <?php $this->RenderBegin() ?>
