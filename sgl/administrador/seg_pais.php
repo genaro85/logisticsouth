@@ -8,6 +8,7 @@ require('../qcubed.inc.php');
 $strPageTitle = QApplication::Translate('Seguimiento') . ' - ' . QApplication::Translate('Paises');
 require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 $IdPAIS = QApplication::PathInfo(0);
+$objPais = Pais::Load($IdPAIS);
 
 // Licencias Otorgadas
 $sql = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio) MesOtorgadas
@@ -101,7 +102,7 @@ echo '<img src="http://chart.apis.google.com/chart?chf=bg,s,807F7F|c,s,999999' .
     '&chd=t:' . $LicOtorgadas . '|' . $LicOtorgadas .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
     '&chg=0,-1,0,0' .
     '&chma=0,0,0,10' .
-    '&chtt=CNP+por+Pa%C3%ADs" width="400" height="300" alt="C.N.P. por País" />';
+    '&chtt=C.N.P.+'. $objPais->Nombre . '" width="400" height="300" alt="C.N.P. ' . $objPais->Nombre . '" />';
 ?>
 </div>
 
