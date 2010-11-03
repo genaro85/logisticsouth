@@ -55,7 +55,7 @@
             </li>
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/index.php" target="_self" class="top_link"><span>Resumen Ejecutivo</span></a>
                 <ul class="sub">
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_licencia_list.php" target="_self">Seguimiento Licencias</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_licencia_list.php" target="_self">Seguimiento C.N.P.</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_empresa.php" target="_self">Seguimiento Empresas</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_producto.php" target="_self">Seguimiento Productos</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_pais_list.php" target="_self">Seguimiento Paises</a></li>
