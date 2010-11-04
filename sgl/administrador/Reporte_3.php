@@ -75,9 +75,9 @@ $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w
 <div class="head">
 <table width="100%" border="0" cellspacing="0">
   <tr>
-    <td width="20%">Logo</td>
-    <td width="60%"><h1>Reporte de Estatus</h1></td>
-    <td width="20%">Fecha <p id="tableData" style="width:100%">';
+    <td><img src="../archivos/LogoSGL.png"/></td>
+    <td width="50%"><h1>Reporte de Estatus</h1></td>
+    <td width="30%">Fecha <p id="tableData" style="width:100%">';
         $sTime = date("j F Y");
         $html.= $sTime.'
     </p></td>

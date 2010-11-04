@@ -23,7 +23,7 @@
 
 		<?php $this->txtPRODUCTOCantidad->RenderWithName(); ?>
 
-		<?php //$this->txtPRODUCTOVolumen->RenderWithName(); ?>
+		<?php $this->txtPRODUCTOVolumen->RenderWithName(); ?>
 
 		<?php $this->txtPRODUCTOUnidad->RenderWithName(); ?>
 

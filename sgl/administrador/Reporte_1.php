@@ -1,9 +1,13 @@
 <?php
 
-//require('../qcubed.inc.php');
+require('../qcubed.inc.php');
 
-//$idLicencia = QApplication::PathInfo(0);
-//$objLicencia = Licencia::Load($idLicencia);
+$idLicencia = QApplication::PathInfo(0);
+$idProducto = QApplication::PathInfo(1);
+$objLicencia = Licencia::Load($idLicencia);
+$objProducto = Producto::Load($idProducto);
+$objListaProd = ListaProducto::Load($idLicencia, $idProducto);
+$objEmpresa = $objLicencia->EMPRESAIdEMPRESAObject;
 
 $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -76,9 +80,9 @@ $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w
 <div class="head">
 <table width="100%" border="0" cellspacing="10">
   <tr>
-    <td width="20%">Logo</td>
-    <td width="60%"><h1>Reporte Empresa por Producto</h1></td>
-    <td width="20%">Fecha <p id="tableData"> ';
+    <td><img src="../archivos/LogoSGL.png"/></td>
+    <td width="50%"><h1>Reporte Empresa por Producto</h1></td>
+    <td width="30%">Fecha <p id="tableData"> ';
         $sTime = date("j F Y");
         $html.= $sTime.'
     </p></td>
@@ -92,19 +96,19 @@ $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w
         <table width="100%" border="0" cellspacing="10">
           <tr>
             <td id="tableTitle">Descripción</td>
-            <td id="tableData"> Blah </td>
+            <td id="tableData"> '. $objProducto->Descripcion .' </td>
           </tr>
           <tr>
             <td id="tableTitle">Código<br />Arancelario</td>
-            <td id="tableData"> Blah </td>
+            <td id="tableData"> '. $objProducto->CodigoArancelario .' </td>
           </tr>
           <tr>
             <td id="tableTitle">Unidad</td>
-            <td id="tableData"> Blah </td>
+            <td id="tableData"> '. $objProducto->Unidad .' </td>
           </tr>
         </table>
     </td>
-    <td id="graphic" align="center">Gráfico</td>
+    <!--<td id="graphic" align="center">Gráfico</td>-->
   </tr>
 </table>
 &nbsp;
@@ -121,12 +125,12 @@ $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w
         <td id="tableTitle2">Cantidad</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>'. $objEmpresa->Rif .'</td>
+        <td>'. $objEmpresa->Nombre .'</td>
+        <td>'. $objLicencia->NumeroCNP .'</td>
+        <td>'. $objLicencia->FechaInicio .'</td>
+        <td>'. $objLicencia->FechaFin .'</td>
+        <td>'. $objListaProd->PRODUCTOCantidad .'</td>
       </tr>
       <tr>
         <td>&nbsp;</td>
