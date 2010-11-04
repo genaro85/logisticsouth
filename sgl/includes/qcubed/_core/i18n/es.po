@@ -222,3 +222,6 @@ MsgStr "Duración"
 
 MsgId "Descripcion"
 MsgStr "Descripción"
+
+MsgId "Costo Unitario"
+MsgStr "Costo Unitario ($)"
