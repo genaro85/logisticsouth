@@ -13,7 +13,7 @@
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctListaProducto->TitleVerb); ?></h2>
-		<h1><?php _t('Producto de la Licencia')?></h1>
+		<h1><?php _t('Producto del C.N.P.')?></h1>
 	</div>
 
 	<div id="formControls">

@@ -23,8 +23,8 @@ require(__FORMBASE_CLASSES__ . '/ResponsableEditFormBase.class.php');
  */
 class ResponsableEditForm extends ResponsableEditFormBase {
 
-    protected $calCalendar;
     protected $calCalendar1;
+    protected $calCalendar2;
 
     // Override Form Event Handlers as Needed
 //		protected function Form_Run() {}
@@ -32,8 +32,8 @@ class ResponsableEditForm extends ResponsableEditFormBase {
 
     protected function Form_Create() {
         parent::Form_Create();
-        $this->calCalendar = new QCalendar($this, $this->calFechaInicio);
-        $this->calCalendar1 = new QCalendar($this, $this->calFechaFin);
+
+
         // Use the CreateFromPathInfo shortcut (this can also be done manually using the ResponsableMetaControl constructor)
         // MAKE SURE we specify "$this" as the MetaControl's (and thus all subsequent controls') parent
         $this->mctResponsable = ResponsableMetaControl::CreateFromPathInfo($this);
@@ -42,11 +42,13 @@ class ResponsableEditForm extends ResponsableEditFormBase {
         $this->lstEMPLEADOIdEMPLEADOObject = $this->mctResponsable->lstEMPLEADOIdEMPLEADOObject_Create();
         $this->lstLICENCIAIdLICENCIAObject = $this->mctResponsable->lstLICENCIAIdLICENCIAObject_Create();
         //Calendars Actions
+        $this->calCalendar1 = new QCalendar($this, $this->calFechaInicio);
         $this->calFechaInicio->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaInicio));
-        $this->calFechaInicio->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar));
+        $this->calFechaInicio->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar1));
 
+        $this->calCalendar2 = new QCalendar($this, $this->calFechaFin);
         $this->calFechaFin->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaFin));
-        $this->calFechaFin->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar1));
+        $this->calFechaFin->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendar2));
 
         //$this->calFechaInicio = $this->mctResponsable->calFechaInicio_Create();
         //$this->calFechaFin = $this->mctResponsable->calFechaFin_Create();

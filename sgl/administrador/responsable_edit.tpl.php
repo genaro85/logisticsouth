@@ -27,10 +27,10 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
     </p>
 
     <?php $this->calFechaInicio->RenderWithName(); ?>
-    <div style="margin-left: 415px;"><?php $this->calCalendar->Render(); ?></div>
+    <div style="margin-left: 415px;"><?php $this->calCalendar1->Render(); ?></div>
 
     <?php $this->calFechaFin->RenderWithName(); ?>
-    <div style="margin-left: 415px;"><?php $this->calCalendar1->Render(); ?></div>
+    <div style="margin-left: 415px;"><?php $this->calCalendar2->Render(); ?></div>
 
 </div>
 

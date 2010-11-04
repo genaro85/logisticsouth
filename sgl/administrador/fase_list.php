@@ -53,7 +53,7 @@ class FaseListForm extends FaseListFormBase {
         $this->dtgFases->MetaAddColumn(QQN::Fase()->PROCESOIdPROCESOObject->Nombre, 'Name=Proceso');
         $this->dtgFases->MetaAddColumn('Nombre');
         $this->dtgFases->MetaAddColumn('Duracion');
-        $this->dtgFases->MetaAddColumn('Icono','HtmlEntities=False');
+        $this->dtgFases->MetaAddColumn('Icono',Array('HtmlEntities'=>'False','Name'=>'Icono'));
     }
 
 }
