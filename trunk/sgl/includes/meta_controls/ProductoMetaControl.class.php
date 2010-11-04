@@ -39,7 +39,7 @@ class ProductoMetaControl extends ProductoMetaControlGen {
         $this->txtUnidad = new QListBox($this->objParentObject, $strControlId);
         $this->txtUnidad->Name = QApplication::Translate('Unidad');
         $this->txtUnidad->AddItem(QApplication::Translate('- Select One -'), null);
-        $ListaUnidades = array(1 => 'Toneladas', 2 => 'Cm3', 3 => 'Kg');
+        $ListaUnidades = array(1 => 'Toneladas', 2 => 'Litros');
         if ($ListaUnidades)
             foreach ($ListaUnidades as $objMat) {
                 $objListItem = new QListItem($objMat, $objMat);
