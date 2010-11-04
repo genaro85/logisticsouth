@@ -70,9 +70,9 @@ $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w
 <div class="head">
 <table width="100%" border="0" cellspacing="10">
   <tr>
-    <td width="20%">Logo</td>
-    <td width="60%"><h1>Reporte de Empresas</h1></td>
-    <td width="20%">Fecha <p id="tableData"> ';
+    <td><img src="../archivos/LogoSGL.png"/></td>
+    <td width="50%"><h1>Reporte de Empresas</h1></td>
+    <td width="30%">Fecha <p id="tableData"> ';
         $sTime = date("j F Y");
         $html.= $sTime.'
         </p></td>

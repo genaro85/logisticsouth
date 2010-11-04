@@ -40,9 +40,30 @@ class EmpresaListForm extends EmpresaListFormBase {
 
 
         $colName = new QDataGridColumn('Nombre', '<?= $_ITEM["Nombre"] ?>');
-        //$colName->FilterType = QFilterType::TextFilter;
-        $colName->FilterByCommand = array('column' => 'Nombre');
+        $colName->OrderByClause = QQ::OrderBy(QQN::Empresa()->Nombre);
+        $colName->ReverseOrderByClause = QQ::OrderBy(QQN::Empresa()->Nombre, false);
+        QQN::Empresa()->Nombre->SetFilteredDataGridColumnFilter($colName);
         $this->dtgEmpresas->AddColumn($colName);
+
+        //$colName = new QDataGridColumn('Project', '<?= $_ITEM->Name>');
+ 	//$colName->OrderByClause = QQ::OrderBy(QQN::Project()->Name);
+ 	//$colName->ReverseOrderByClause = QQ::OrderBy(QQN::Project()->Name, false);
+ 	//$this->dtgProjects->AddColumn($colName);
+
+        //$colType = new QDataGridColumn('Type', '<?= ProjectStatusType::ToString($_ITEM->ProjectStatusTypeId) >');
+ 	//$colType->OrderByClause = QQ::OrderBy(QQN::Project()->ProjectStatusTypeId);
+ 	//$colType->ReverseOrderByClause = QQ::OrderBy(QQN::Project()->ProjectStatusTypeId, false);
+ 	//$colType->FilterType = QFilterType::ListFilter;
+ 	//foreach(ProjectStatusType::$NameArray as $value=>$name)
+        //    $colType->FilterAddListItem($name, QQ::Equal(QQN::Project()->ProjectStatusTypeId,$value));
+ 	//$this->dtgProjects->AddColumn($colType);
+
+        //$colLName = new QDataGridColumn('Last Name', '<?= $_ITEM->ManagerPerson->LastName >');
+ 	//$colLName->OrderByClause = QQ::OrderBy(QQN::Project()->ManagerPerson->LastName);
+ 	//$colLName->ReverseOrderByClause = QQ::OrderBy(QQN::Project()->ManagerPerson->LastName, false);
+ 	//QQN::Project()->ManagerPerson->LastName->SetFilteredDataGridColumnFilter($colLName);
+ 	//$colLName->FilterCustom = QQ::Equal(QQN::Project()->ManagerPerson->Login->IsEnabled, true);
+ 	//$this->dtgProjects->AddColumn($colLName);
 
         $colRIF = new QDataGridColumn('RIF', '<?= $_ITEM["RIF"] ?>');
         $colRIF->FilterByCommand = array('column' => 'Rif');

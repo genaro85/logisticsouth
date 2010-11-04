@@ -15,11 +15,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 <?php $this->RenderEnd() ?>
 
 <p class="create">
-    <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Reporte_1.php">Reporte 1</a>
-</p>
-
-<p class="create">
-    <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Reporte_2.php">Reporte 2</a>
+    <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Reporte_2.php">Reporte</a>
 </p>
 
 

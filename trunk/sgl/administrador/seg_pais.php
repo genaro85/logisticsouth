@@ -15,6 +15,7 @@ $sql = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio) 
         FROM licencia l
         JOIN Proveedor b ON l.PROVEEDOR_idPROVEEDOR = b.idPROVEEDOR
         JOIN Pais a ON a.idPAIS = b.PAIS_idPAIS
+        WHERE status = "Interna"
         GROUP BY a.idPAIS, l.fechaInicio
         HAVING a.idPAIS = ' . $IdPAIS .
         ' ORDER BY Month(l.fechaInicio)';
@@ -27,32 +28,46 @@ while ($mixRow = $objDbResult->FetchArray()) {
     $arrayOtorgadas[] = $mixRow;
 }
 
+$aux = 1;
+$LicOtorgadas = "";
+$MesOtorgadas = 0;
 foreach ($arrayOtorgadas as $value) {
     $MesOtorgadas = $value[MesOtorgadas];
 
-    for ($i = 1 ; $i <= 12 ; $i ++){
-        if($MesOtorgadas == $i){
-            if($i == 1){
-                $LicOtorgadas = $value[LicOtorgadas];
-            }else{
-                $LicOtorgadas = $LicOtorgadas . ',' . $value[LicOtorgadas];
-            }
-        }else{
-            if($i == 1){
-                $LicOtorgadas = $LicOtorgadas = '0';
-            }else{
-                $LicOtorgadas = $LicOtorgadas . ',0';
-            }
+    while ($MesOtorgadas != $aux) {
+        if ($MesOtorgadas != 12) {
+            $LicOtorgadas = $LicOtorgadas . '0,';
+        } else {
+            $LicOtorgadas = $LicOtorgadas . '0';
         }
+        $aux++;
     }
+
+    if ($MesOtorgadas != 12) {
+        $LicOtorgadas = $LicOtorgadas .  $value[LicOtorgadas] . ',';
+    } else {
+        $LicOtorgadas = $LicOtorgadas .  $value[LicOtorgadas];
+    }
+    $aux++;
+  
 }
+
+for ($index = $MesOtorgadas+1; $index <= 12; $index++) {
+    if ($index != 12) {
+        $LicOtorgadas = $LicOtorgadas . '0,';
+    } else {
+        $LicOtorgadas = $LicOtorgadas . '0';
+    }
+    
+}
+//echo $LicOtorgadas;
 
 // Licencias Ejecutadas
 $sql2 = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio) MesOtorgadas
         FROM licencia l
         JOIN Proveedor b ON l.PROVEEDOR_idPROVEEDOR = b.idPROVEEDOR
         JOIN Pais a ON a.idPAIS = b.PAIS_idPAIS
-        WHERE status = "En Proceso"
+        WHERE status = "Nacionalizada"
         GROUP BY a.idPAIS, l.fechaInicio
         HAVING a.idPAIS = ' . $IdPAIS .
         ' ORDER BY Month(l.fechaInicio)';
@@ -65,44 +80,63 @@ while ($mixRow2 = $objDbResult2->FetchArray()) {
     $arrayEjecutadas[] = $mixRow2;
 }
 
+$aux2 = 1;
+$LicEjecutadas = "";
+$MesEjecutadas = 0;
 foreach ($arrayEjecutadas as $value2) {
-    $MesEjecutadas = $value2[MesOtorgadas];
-
-    for ($j = 1 ; $j <= 12 ; $j ++){
-        if($MesEjecutadas == $j){
-            if($j == 1){
-                $LicEjecutadas = $value2[LicOtorgadas];
-            }else{
-                $LicEjecutadas = $LicEjecutadas . ',' . $value2[LicOtorgadas];
-            }
-        }else{
-            if($j == 1){
-                $LicEjecutadas = $LicEjecutadas = '0';
-            }else{
-                $LicEjecutadas = $LicEjecutadas . ',0';
-            }
+    $MesEjecutadas = $value[MesOtorgadas];
+    
+    while ($MesEjecutadas != $aux2) {
+        
+        if ($MesEjecutadas != 12) {
+            $LicEjecutadas = $LicEjecutadas . '0,';
+        } else {
+            $LicEjecutadas = $LicEjecutadas . '0';
         }
+        $aux2++;
     }
+
+    if ($MesEjecutadas != 12) {
+        $LicEjecutadas = $LicEjecutadas .  $value2[LicOtorgadas] . ',';
+    } else {
+        $LicEjecutadas = $LicEjecutadas .  $value2[LicOtorgadas];
+    }
+    $aux2++;
+  
 }
-//print_r(array_values($array));
+
+for ($index = $MesEjecutadas+1; $index <= 12; $index++) {
+    if ($index != 12) {
+        $LicEjecutadas = $LicEjecutadas . '0,';
+    } else {
+        $LicEjecutadas = $LicEjecutadas . '0';
+    }
+    
+}
+//echo ' ' . $LicEjecutadas;
+
+//print_r(array_values($arrayOtorgadas));
+//print_r(array_values($arrayEjecutadas));
 
 ?>
 <div align="center">
 <?php
 
 echo '<img src="http://chart.apis.google.com/chart?chf=bg,s,807F7F|c,s,999999' .
+    '?chf=bg,s,FFFFFF' .
     '&chxl=1:|Ene|Feb|Mar|Abr|May|Jun|Jul|Ago|Sep|Oct|Nov|Dic' .
-    '&chxs=0,FFFFFF,11.5,0,l,FFFFFF|1,FFFFFF,11.5,0,l,676767' .
+    '&chxs=0,676767,11.5,0,l,676767|1,676767,11.5,0,l,676767' .
     '&chxt=y,t' .
     '&chbh=a,4,4' .
-    '&chs=400x300' .
+    '&chs=500x375' .
     '&cht=bvs' .
     '&chco=FF9900,FFCC33' .
     '&chds=0,100,0,100' .
-    '&chd=t:' . $LicOtorgadas . '|' . $LicOtorgadas .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
+    '&chd=t:' . $LicOtorgadas . '|' . $LicEjecutadas .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
+    '&chdl=C.N.P.+Internas|C.N.P+Nacionalizadas' .
     '&chg=0,-1,0,0' .
     '&chma=0,0,0,10' .
-    '&chtt=C.N.P.+'. $objPais->Nombre . '" width="400" height="300" alt="C.N.P. ' . $objPais->Nombre . '" />';
+    '&chtt=C.N.P.+'. $objPais->Nombre . '" width="500" height="375" alt="C.N.P. ' . $objPais->Nombre . '" />';
 ?>
 </div>
 
