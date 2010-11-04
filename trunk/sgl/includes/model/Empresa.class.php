@@ -26,7 +26,7 @@ class Empresa extends EmpresaGen {
      * @return string a nicely formatted string representation of this object
      */
     public function __toString() {
-        return sprintf('Empresa Object %s', $this->Nombre);
+        return sprintf('%s', $this->Nombre);
     }
 
     public static function LoadByEmLog($login, $objOptionalClauses = null) {

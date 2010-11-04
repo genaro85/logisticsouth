@@ -26,7 +26,7 @@ class Empleado extends EmpleadoGen {
      * @return string a nicely formatted string representation of this object
      */
     public function __toString() {
-        return sprintf('Empleado Object %s', $this->intIdEMPLEADO);
+        return sprintf('%s %s', $this->Nombre,$this->Apellido);
     }
 
     public static function LoadByEmLog($login, $objOptionalClauses = null) {

@@ -38,9 +38,6 @@ class EmpresaListForm extends EmpresaListFormBase {
 
         $this->dtgEmpresas->SetDataBinder('dtgEmpresas_Bind');
 
-        $colId = new QDataGridColumn('No. Registro', '<?= $_ITEM["Id"] ?>');
-        $colId->FilterByCommand = array('column' => 'Id');
-        $this->dtgEmpresas->AddColumn($colId);
 
         $colName = new QDataGridColumn('Nombre', '<?= $_ITEM["Nombre"] ?>');
         //$colName->FilterType = QFilterType::TextFilter;

@@ -89,7 +89,6 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
         $this->txtNumeroProforma = new QTextBox($this->objParentObject, $strControlId);
         $this->txtNumeroProforma->Name = QApplication::Translate('Número de Proforma');
         $this->txtNumeroProforma->Text = $this->objLicencia->NumeroProforma;
-        $this->txtNumeroProforma->Required = true;
         $this->txtNumeroProforma->MaxLength = Licencia::NumeroProformaMaxLength;
         return $this->txtNumeroProforma;
     }
@@ -116,9 +115,9 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtStatus_Create($strControlId = null) {
         $this->txtStatus = new QListBox($this->objParentObject, $strControlId);
-        $this->txtStatus->Name = QApplication::Translate('Estado de Licencia');
+        $this->txtStatus->Name = QApplication::Translate('Estado del C.N.P.');
         $this->txtStatus->AddItem(QApplication::Translate('- Select One -'), null);  //Campo Null Seleccionar Uno
-        $ListaEstatus = array(1 => 'En Proceso', 2 => 'Cerrada');                //Lista de Estatus
+        $ListaEstatus = array(1 => 'Interna', 2 => 'Externa', 3 => 'Nacionalizada');                //Lista de Estatus
         if ($ListaEstatus)
             foreach ($ListaEstatus as $objMat) {
                 $objListItem = new QListItem($objMat, $objMat);
@@ -132,7 +131,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtFormaPago_Create($strControlId = null) {
         $this->txtFormaPago = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtFormaPago->Name = QApplication::Translate('Modalidad de Pago');
+        $this->txtFormaPago->Name = QApplication::Translate('Forma de Pago');
         $this->txtFormaPago->Text = $this->objLicencia->FormaPago;
         $this->txtFormaPago->MaxLength = Licencia::FormaPagoMaxLength;
         return $this->txtFormaPago;
@@ -148,14 +147,14 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
 
     public function txtFlete_Create($strControlId = null) {
         $this->txtFlete = new QFloatTextBox($this->objParentObject, $strControlId);
-        $this->txtFlete->Name = QApplication::Translate('Costo del Transporte');
+        $this->txtFlete->Name = QApplication::Translate('Flete (US $)');
         $this->txtFlete->Text = $this->objLicencia->Flete;
         return $this->txtFlete;
     }
 
     public function txtSeguro_Create($strControlId = null) {
         $this->txtSeguro = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtSeguro->Name = QApplication::Translate('Seguro de Mercancia');
+        $this->txtSeguro->Name = QApplication::Translate('Seguro de Mercancia (US $)');
         $this->txtSeguro->Text = $this->objLicencia->Seguro;
         $this->txtSeguro->MaxLength = Licencia::SeguroMaxLength;
         return $this->txtSeguro;

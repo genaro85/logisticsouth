@@ -13,7 +13,7 @@ require(__FORMBASE_CLASSES__ . '/LicenciaListFormBase.class.php');
  *
  * Any display customizations and presentation-tier logic can be implemented
  * here by overriding existing or implementing new methods, properties and variables.
- * 
+ *
  * NOTE: This file is overwritten on any code regenerations.  If you want to make
  * permanent changes, it is STRONGLY RECOMMENDED to move both licencia_list.php AND
  * licencia_list.tpl.php out of this Form Drafts directory.
@@ -49,21 +49,23 @@ class LicenciaListForm extends LicenciaListFormBase {
         // Create the Other Columns (note that you can use strings for LICENCIA's properties, or you
         // can traverse down QQN::LICENCIA() to display fields that are down the hierarchy)
         //$this->dtgLicencias->MetaAddColumn('IdLICENCIA');
-        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROCESOIdPROCESOObject->Nombre,'Name=Proceso');
+        $this->dtgLicencias->MetaAddColumn('NumeroCNP','Name=Nº C.N.P');
+        //$this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROCESOIdPROCESOObject->Nombre,'Name=Proceso');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
         $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->Nombre, 'Name=Proveedor');
+        $this->dtgLicencias->MetaAddColumn(QQN::Licencia()->PROVEEDORIdPROVEEDORObject->PAISIdPAISObject->Nombre, 'Name=Pais');
+        //$this->dtgLicencias->MetaAddColumn(QQN::Licencia()->ListaProductoAsLICENCIAIdLICENCIA->PRODUCTOIdPRODUCTOObject->Descripcion, 'Name=Producto');
         $this->dtgLicencias->MetaAddColumn('FechaInicio','Name=Inicio');
         $this->dtgLicencias->MetaAddColumn('FechaFin','Name=Fin');
         //$this->dtgLicencias->MetaAddColumn('FechaFinEstimada');
-        $this->dtgLicencias->MetaAddColumn('NumeroProforma', 'Name=Nº Proforma');
-        $this->dtgLicencias->MetaAddColumn('NumeroCNP','Name=Nº C.N.P');
+        //$this->dtgLicencias->MetaAddColumn('NumeroProforma', 'Name=Nº Proforma');
         $this->dtgLicencias->MetaAddColumn('VencimientoCNP','Name=Prorroga C.N.P');
-        $this->dtgLicencias->MetaAddColumn('Status','Name=Estdo');
+        $this->dtgLicencias->MetaAddColumn('Status','Name=Estado');
         $this->dtgLicencias->MetaAddColumn('FormaPago','Name=Forma de Pago');
         $this->dtgLicencias->MetaAddColumn('Tipo', 'Name=Tipo');
-        $this->dtgLicencias->MetaAddColumn('Flete', 'Name=Flete');
-        $this->dtgLicencias->MetaAddColumn('Seguro', 'Name=Seguro');
-        
+        $this->dtgLicencias->MetaAddColumn('Flete', 'Name=Flete (US $)');
+        $this->dtgLicencias->MetaAddColumn('Seguro', 'Name=Seguro (US $)');
+
     }
 
 }

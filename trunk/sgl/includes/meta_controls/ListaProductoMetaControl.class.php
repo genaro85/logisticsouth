@@ -44,7 +44,7 @@ class ListaProductoMetaControl extends ListaProductoMetaControlGen {
         $objLICENCIAIdLICENCIAObjectArray = Licencia::LoadAll();
         if ($objLICENCIAIdLICENCIAObjectArray)
             foreach ($objLICENCIAIdLICENCIAObjectArray as $objLICENCIAIdLICENCIAObject) {
-                $objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString().' - '.$objLICENCIAIdLICENCIAObject->NumeroCNP, $objLICENCIAIdLICENCIAObject->IdLICENCIA);
+                $objListItem = new QListItem($objLICENCIAIdLICENCIAObject->__toString(), $objLICENCIAIdLICENCIAObject->IdLICENCIA);
                 if (($this->objListaProducto->LICENCIAIdLICENCIAObject) && ($this->objListaProducto->LICENCIAIdLICENCIAObject->IdLICENCIA == $objLICENCIAIdLICENCIAObject->IdLICENCIA))
                     $objListItem->Selected = true;
                 $this->lstLICENCIAIdLICENCIAObject->AddItem($objListItem);
@@ -96,7 +96,6 @@ class ListaProductoMetaControl extends ListaProductoMetaControlGen {
         $this->txtPRODUCTOVolumen = new QIntegerTextBox($this->objParentObject, $strControlId);
         $this->txtPRODUCTOVolumen->Name = QApplication::Translate('Volumen');
         $this->txtPRODUCTOVolumen->Text = $this->objListaProducto->PRODUCTOVolumen;
-        $this->txtPRODUCTOVolumen->Required = true;
         return $this->txtPRODUCTOVolumen;
     }
 
@@ -127,7 +126,7 @@ class ListaProductoMetaControl extends ListaProductoMetaControlGen {
      */
     public function txtPRODUCTOCostoUnitario_Create($strControlId = null) {
         $this->txtPRODUCTOCostoUnitario = new QTextBox($this->objParentObject, $strControlId);
-        $this->txtPRODUCTOCostoUnitario->Name = QApplication::Translate('Costo Unitario');
+        $this->txtPRODUCTOCostoUnitario->Name = QApplication::Translate('Costo Unitario (US $)');
         $this->txtPRODUCTOCostoUnitario->Text = $this->objListaProducto->PRODUCTOCostoUnitario;
         $this->txtPRODUCTOCostoUnitario->MaxLength = ListaProducto::PRODUCTOCostoUnitarioMaxLength;
         return $this->txtPRODUCTOCostoUnitario;

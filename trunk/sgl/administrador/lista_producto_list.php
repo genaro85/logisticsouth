@@ -53,7 +53,7 @@ class ListaProductoListForm extends ListaProductoListFormBase {
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->CodigoArancelario,'Name=Código Arancelario');
         $this->dtgListaProductos->MetaAddColumn('PRODUCTOCantidad', 'Name=Cantidad');
         $this->dtgListaProductos->MetaAddColumn('PRODUCTOUnidad', 'Name=Unidad');
-        $this->dtgListaProductos->MetaAddColumn('PRODUCTOCostoUnitario', 'Name=Costo Unitario');
+        $this->dtgListaProductos->MetaAddColumn('PRODUCTOCostoUnitario', 'Name=Costo Unitario (US $)');
     }
 
 }
