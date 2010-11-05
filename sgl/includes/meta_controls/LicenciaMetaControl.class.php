@@ -81,7 +81,7 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
         //TODO QUE HACE ESTE IF?
         if ($this->objLicencia->FechaFin)
             $this->calFechaFin->Text = $this->objLicencia->FechaFin->__toString();
-        
+
         return $this->calFechaFin;
     }
 
@@ -130,10 +130,17 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
     }
 
     public function txtFormaPago_Create($strControlId = null) {
-        $this->txtFormaPago = new QTextBox($this->objParentObject, $strControlId);
+        $this->txtFormaPago = new QListBox($this->objParentObject, $strControlId);
         $this->txtFormaPago->Name = QApplication::Translate('Forma de Pago');
-        $this->txtFormaPago->Text = $this->objLicencia->FormaPago;
-        $this->txtFormaPago->MaxLength = Licencia::FormaPagoMaxLength;
+        $this->txtFormaPago->AddItem(QApplication::Translate('- Select One -'), null);  //Campo Null Seleccionar Uno
+        $ListaEstatus = array(1 => 'ALADI', 2 => 'Carta de Crédito', 3 => 'Contado (Pago a la Vista)', 4 => 'Otra Forma de Pago');                //Lista de Estatus
+        if ($ListaEstatus)
+            foreach ($ListaEstatus as $objMat) {
+                $objListItem = new QListItem($objMat, $objMat);
+                if ($this->objLicencia->FormaPago == $objMat)     //Comparacion con el campo de la BD
+                    $objListItem->Selected = true;
+                $this->txtFormaPago->AddItem($objListItem);
+            }
         return $this->txtFormaPago;
     }
 
