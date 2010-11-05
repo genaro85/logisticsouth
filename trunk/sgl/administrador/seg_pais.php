@@ -15,10 +15,9 @@ $sql = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio) 
         FROM licencia l
         JOIN Proveedor b ON l.PROVEEDOR_idPROVEEDOR = b.idPROVEEDOR
         JOIN Pais a ON a.idPAIS = b.PAIS_idPAIS
-        WHERE status = "Interna"
-        GROUP BY a.idPAIS, l.fechaInicio
+        GROUP BY a.idPAIS,MesOtorgadas
         HAVING a.idPAIS = ' . $IdPAIS .
-        ' ORDER BY Month(l.fechaInicio)';
+        ' ORDER BY MesOtorgadas';
 
 $objDatabase = Empresa::GetDatabase();
 $objDbResult = $objDatabase->Query($sql);
@@ -67,10 +66,10 @@ $sql2 = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio)
         FROM licencia l
         JOIN Proveedor b ON l.PROVEEDOR_idPROVEEDOR = b.idPROVEEDOR
         JOIN Pais a ON a.idPAIS = b.PAIS_idPAIS
-        WHERE status = "Nacionalizada"
-        GROUP BY a.idPAIS, l.fechaInicio
+        WHERE l.status = "Nacionalizada"
+        GROUP BY a.idPAIS,MesOtorgadas
         HAVING a.idPAIS = ' . $IdPAIS .
-        ' ORDER BY Month(l.fechaInicio)';
+        ' ORDER BY MesOtorgadas';
 
 $objDatabase2 = Empresa::GetDatabase();
 $objDbResult2 = $objDatabase2->Query($sql2);
@@ -84,7 +83,7 @@ $aux2 = 1;
 $LicEjecutadas = "";
 $MesEjecutadas = 0;
 foreach ($arrayEjecutadas as $value2) {
-    $MesEjecutadas = $value[MesOtorgadas];
+    $MesEjecutadas = $value2[MesOtorgadas];
     
     while ($MesEjecutadas != $aux2) {
         
@@ -132,8 +131,8 @@ echo '<img src="http://chart.apis.google.com/chart?chf=bg,s,807F7F|c,s,999999' .
     '&cht=bvs' .
     '&chco=FF9900,FFCC33' .
     '&chds=0,100,0,100' .
-    '&chd=t:' . $LicOtorgadas . '|' . $LicEjecutadas .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
-    '&chdl=C.N.P.+Internas|C.N.P+Nacionalizadas' .
+    '&chd=t:' . $LicEjecutadas . '|' .$LicOtorgadas  .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
+    '&chdl=C.N.P.+Nacionalizadas|C.N.P+Totales' .
     '&chg=0,-1,0,0' .
     '&chma=0,0,0,10' .
     '&chtt=C.N.P.+'. $objPais->Nombre . '" width="500" height="375" alt="C.N.P. ' . $objPais->Nombre . '" />';
