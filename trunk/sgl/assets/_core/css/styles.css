@@ -104,8 +104,8 @@ h1 {font:24px Helvetica, Verdana, Arial, sans-serif; color: black;
     background-image: -webkit-gradient(
         linear,
         left top, left bottom,
-        from(#afb1b4),
-        to(#dcddde)
+        from(#f7e7d0),
+        to(#edcfa2)
         );
     width: 105%
 }
