@@ -1,6 +1,6 @@
 <?php require(__CONFIGURATION__ . '/header.inc.php'); ?>
 
-<div id="body1">
+<div id="body1" style="border-top: 15px solid black/*#f26722*/;" >
    <?php $this->RenderBegin() ?>
     <table width="514" border="0">
 
