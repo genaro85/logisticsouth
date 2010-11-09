@@ -497,7 +497,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     background-color:white;
     display:block;
     float:left;
-    background-image: url(../images/level.jpg);
+    background-image: url(../images/level.gif);
     background-repeat:no-repeat;
     background-position:left top;
     padding-left:60px;
@@ -937,6 +937,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #EmpleadoPan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #EmpleadoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpleadoPan p.nuevo a:hover{color:black; text-decoration:none;}
+
 /*----Responsable Panel----*/
 #ResponsablePan{width:187px; height:192px; background:url(../images/responsable.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ResponsablePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
@@ -946,6 +947,34 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ResponsablePan p.nuevo{width:40px; height:18px; padding:42px 0 0 16px;}
 #ResponsablePan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #ResponsablePan p.nuevo a:hover{color:black; text-decoration:none;}
+
+/*----Seguimientos C.N.P. Panel----*/
+#SegLicenciaPan{width:187px; height:192px; background:url(../images/Scnp.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#SegLicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
+#SegLicenciaPan p.ver{width:40px; height:18px; padding:44px 0 0 63px;}
+#SegLicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
+#SegLicenciaPan p.ver a:hover{color:black; text-decoration:none;}
+
+/*----Seg. Empresa Panel----*/
+#SegEmpresaPan{width:187px; height:192px; background:url(../images/Sempresa.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#SegEmpresaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
+#SegEmpresaPan p.ver{width:40px; height:18px; padding:43px 0 0 63px;}
+#SegEmpresaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
+#SegEmpresaPan p.ver a:hover{color:black; text-decoration:none;}
+
+/*----Seg. Producto Panel----*/
+#SegProductoPan{width:187px; height:192px; background:url(../images/Sproductos.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#SegProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
+#SegProductoPan p.ver{width:40px; height:18px; padding:43px 0 0 63px;}
+#SegProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
+#SegProductoPan p.ver a:hover{color:black; text-decoration:none;}
+
+/*----Seg. Paises Panel----*/
+#SegPaisesPan{width:187px; height:192px; background:url(../images/Spais.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#SegPaisesPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
+#SegPaisesPan p.ver{width:40px; height:18px; padding:44px 0 0 63px;}
+#SegPaisesPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
+#SegPaisesPan p.ver a:hover{color:black; text-decoration:none;}
 
 /*----BODY MIDDLE PANEL----*/
 #bodymiddlePan{width:602px; position:relative; margin:0 auto; padding:0 88px; clear:both;}
