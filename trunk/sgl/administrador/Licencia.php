@@ -1,7 +1,7 @@
 <?php
 
 require('../qcubed.inc.php');
-$strPageTitle = 'Licencias';
+$strPageTitle = 'C.N.P.';
 require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 
