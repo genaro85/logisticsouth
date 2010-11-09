@@ -281,7 +281,7 @@ table.datagrid .column1	{
 
 }
 table.datagrid td {
-    color:white;
+    color:black;
     border-bottom:1px solid #e5eff8;
     border-left:1px solid #e5eff8;
     padding:.3em 1em;
@@ -354,7 +354,7 @@ table.datagrid .button{
 }
 
 table.datagrid a {
-    color: white;
+    color: black;
 }
 
 /* QPaginator */
