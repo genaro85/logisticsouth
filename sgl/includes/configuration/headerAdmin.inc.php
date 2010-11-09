@@ -13,7 +13,10 @@
     <body>
         <div id="header_container">
             <div id="header">
-                <h1>&nbsp;</h1>
+            </div>
+        </div>
+        <div id="banner_container">
+            <div id="banner">
             </div>
         </div>
         <ul class="menu" style="padding: 0 0 0 16%;">
