@@ -36,60 +36,37 @@ class EmpresaListForm extends EmpresaListFormBase {
         //$this->dtgEmpresas = new EmpresaDataGrid($this);
         $this->dtgEmpresas->ShowFilter = true;
 
-        $this->dtgEmpresas->SetDataBinder('dtgEmpresas_Bind');
-
-
+        //Project Name
         $colName = new QDataGridColumn('Nombre', '<?= $_ITEM["Nombre"] ?>');
         $colName->OrderByClause = QQ::OrderBy(QQN::Empresa()->Nombre);
         $colName->ReverseOrderByClause = QQ::OrderBy(QQN::Empresa()->Nombre, false);
-        QQN::Empresa()->Nombre->SetFilteredDataGridColumnFilter($colName);
+        //QQN::Empresa()->Nombre->SetFilteredDataGridColumnFilter($colName);
+        //$colName->FilterType = QFilterType::TextFilter;
+        //$colName->FilterPrefix = '%';
+        //$colName->FilterPostfix = '%';
+        //$colName->Filter = QQ::Like(QQN::Empresa()->Nombre, null);
         $this->dtgEmpresas->AddColumn($colName);
 
-        //$colName = new QDataGridColumn('Project', '<?= $_ITEM->Name>');
- 	//$colName->OrderByClause = QQ::OrderBy(QQN::Project()->Name);
- 	//$colName->ReverseOrderByClause = QQ::OrderBy(QQN::Project()->Name, false);
- 	//$this->dtgProjects->AddColumn($colName);
-
-        //$colType = new QDataGridColumn('Type', '<?= ProjectStatusType::ToString($_ITEM->ProjectStatusTypeId) >');
- 	//$colType->OrderByClause = QQ::OrderBy(QQN::Project()->ProjectStatusTypeId);
- 	//$colType->ReverseOrderByClause = QQ::OrderBy(QQN::Project()->ProjectStatusTypeId, false);
- 	//$colType->FilterType = QFilterType::ListFilter;
- 	//foreach(ProjectStatusType::$NameArray as $value=>$name)
-        //    $colType->FilterAddListItem($name, QQ::Equal(QQN::Project()->ProjectStatusTypeId,$value));
- 	//$this->dtgProjects->AddColumn($colType);
-
-        //$colLName = new QDataGridColumn('Last Name', '<?= $_ITEM->ManagerPerson->LastName >');
- 	//$colLName->OrderByClause = QQ::OrderBy(QQN::Project()->ManagerPerson->LastName);
- 	//$colLName->ReverseOrderByClause = QQ::OrderBy(QQN::Project()->ManagerPerson->LastName, false);
- 	//QQN::Project()->ManagerPerson->LastName->SetFilteredDataGridColumnFilter($colLName);
- 	//$colLName->FilterCustom = QQ::Equal(QQN::Project()->ManagerPerson->Login->IsEnabled, true);
- 	//$this->dtgProjects->AddColumn($colLName);
-
+        
         $colRIF = new QDataGridColumn('RIF', '<?= $_ITEM["RIF"] ?>');
-        $colRIF->FilterByCommand = array('column' => 'Rif');
+        $colRIF->OrderByClause = QQ::OrderBy(QQN::Empresa()->Rif);
+        $colRIF->ReverseOrderByClause = QQ::OrderBy(QQN::Empresa()->Rif, false);
         $this->dtgEmpresas->AddColumn($colRIF);
-        //$this->dtgEmpresas->MetaAddColumn(QQN::Empresa()->Rif, 'Name=RIF');
+        
+        $colLicOtorgadas = new QDataGridColumn('CNP Internas', '<?= $_ITEM["LicOtorgadas"] ?>');
+        //$colLicencias->FilterByCommand = array('column' => 'LicOtorgadas');
+        $this->dtgEmpresas->AddColumn($colLicOtorgadas);
 
+        $colLicEjecucion = new QDataGridColumn('CNP Externas', '<?= $_ITEM["LicEjecucion"] ?>');
+        //$colLicencias->FilterByCommand = array('column' => 'LicEjecucion');
+        $this->dtgEmpresas->AddColumn($colLicEjecucion);
 
-        $colLicencias = new QDataGridColumn('CNP Internas', '<?= $_ITEM["LicOtorgadas"] ?>');
-        //$colLicencias->FilterByCommand = array('column' => 'Licencias');
-        $this->dtgEmpresas->AddColumn($colLicencias);
+        $colLicNacionalizadas = new QDataGridColumn('CNP Nacionalizadas', '<?= $_ITEM["LicNacionalizadas"] ?>');
+        //$colLicencias->FilterByCommand = array('column' => 'LicNacionalizadas');
+        $this->dtgEmpresas->AddColumn($colLicNacionalizadas);
 
-        $colLicencias = new QDataGridColumn('CNP Externas', '<?= $_ITEM["LicEjecucion"] ?>');
-        //$colLicencias->FilterByCommand = array('column' => 'Licencias');
-        $this->dtgEmpresas->AddColumn($colLicencias);
-
-        $colLicencias = new QDataGridColumn('CNP Nacionalizadas', '<?= $_ITEM["LicNacionalizadas"] ?>');
-        //$colLicencias->FilterByCommand = array('column' => 'Licencias');
-        $this->dtgEmpresas->AddColumn($colLicencias);
-
-        // Style the DataGrid (if desired)
-        $this->dtgEmpresas->CssClass = 'datagrid';
-        $this->dtgEmpresas->AlternateRowStyle->CssClass = 'alternate';
-
-        // Add Pagination (if desired)
-        $this->dtgEmpresas->Paginator = new QPaginator($this->dtgEmpresas);
-        $this->dtgEmpresas->ItemsPerPage = 20;
+        // Specify the Datagrid's Data Binder method
+ 	$this->dtgEmpresas->SetDataBinder('dtgEmpresas_Bind');
     }
 
     protected function dtgEmpresas_Bind() {
@@ -120,13 +97,13 @@ class EmpresaListForm extends EmpresaListFormBase {
         //apply any filters the user has set
         foreach ($this->dtgEmpresas->FilterInfo as $filter) {
             if ($filter['column'] == 'LicOtorgadas') {
-                $sql .= ' HAVING count(LicOtorgadas.idLICENCIA) = ' . $filter['value'];
+                $sql .= ' HAVING count(LicOtorgadas) = ' . $filter['value'];
             }
             if ($filter['column'] == 'LicEjecucion') {
-                $sql .= ' HAVING count(LicEjecucion.idLICENCIA) = ' . $filter['value'];
+                $sql .= ' HAVING count(LicEjecucion) = ' . $filter['value'];
             }
             if ($filter['column'] == 'LicNacionalizadas') {
-                $sql .= ' HAVING count(LicNacionalizadas.idLICENCIA) = ' . $filter['value'];
+                $sql .= ' HAVING count(LicNacionalizadas) = ' . $filter['value'];
             }
         }
 

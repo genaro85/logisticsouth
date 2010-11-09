@@ -10,7 +10,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 <?php $this->RenderBegin() ?>
 
-<?php $this->dtgListaProductos->Render(); ?>
+<?php $this->dtgProductos->Render(); ?>
 
 <?php $this->RenderEnd() ?>
 
