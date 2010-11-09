@@ -179,9 +179,9 @@ if (!defined('SERVER_INSTANCE')) {
                     'adapter' => 'MySqli5',
                     'server' => 'localhost',
                     'port' => null,
-                    'database' => 'sgldb',
+                    'database' => 'sgldemo',
                     'username' => 'root',
-                    'password' => '',
+                    'password' => '1234567',
                     'encoding' => 'utf8',
                     'profiling' => false)));
 

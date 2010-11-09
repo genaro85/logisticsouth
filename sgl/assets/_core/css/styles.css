@@ -77,36 +77,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {font:16px Helvetica, Verdana, Arial, sans-serif; color: black/*#231f20*/;
-    text-shadow:2px 2px 2px #414042;
+    
 }
 h1 {font:24px Helvetica, Verdana, Arial, sans-serif; color: black; font-weight: bold;
     padding: 0 0 0 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    text-shadow:2px 2px 2px #414042;
+    /*text-shadow:2px 2px 2px #414042;
     /* Legacy browsers */
-    background:#dcddde url("gradient-bg.png") repeat-x top;
-    -o-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
-    /* Internet Explorer */
-    background: #dcddde;
-    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFafb1b4, endColorstr=#FFdcddde);
-    /* Opera */
-    background: #dcddde url("gradient-bg.svg");
-    /* Recent browsers */
-    background-image: -moz-linear-gradient(
-        top,
-        #afb1b4,
-        #dcddde
-        );
-    background-image: -webkit-gradient(
-        linear,
-        left top, left bottom,
-        from(#afb1b4),
-        to(#dcddde)
-        );
 }
 h3 { font-size: 1.4em; }
 h4 { font-size: 1.2em; }
@@ -116,6 +94,7 @@ h6 { font-size: 1.0em; }
 p {
     clear: inherit;
     text-align:left;
+    color:black;
 }
 
 table {
@@ -295,6 +274,15 @@ table.datagrid th {
     border-left:1px solid #e5eff8;
     padding:.3em 1em;
 }
+
+table.datagrid th a{
+    color:white;
+    text-align:left;
+    border-bottom: 1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+
+}
 table.datagrid thead th {
     width: 960px;
     /* Legacy browsers */
@@ -358,15 +346,15 @@ table.datagrid a {
 }
 
 /* QPaginator */
-span.paginator { margin: 0; padding: 0;  }
+span.paginator { margin: 0; padding: 0; black; }
 span.paginator span { list-style-type:none; display: inline; padding: 0; margin: 0; }
-span.paginator span.page a { text-decoration: none; color: #FFF; padding: 0 3px 0 3px; margin: 0 2px 0 2px;}
+span.paginator span.page a { text-decoration: none; color: black; padding: 0 3px 0 3px; margin: 0 2px 0 2px;}
 span.paginator span.page a:hover { background-color: #c4c6c8; }
-span.paginator span.arrow { font-weight: bold; color: #ccc; margin: 0; padding: 0 3px 0 3px; }
-span.paginator span.arrow a { font-weight: bold; color: #FFF; text-decoration: none; }
-span.paginator span.selected { font-weight: bold; background-color: #c4c6c8; padding: 0 3px 0 3px; margin: 0 2px 0 2px; border: 1px; border-style: solid; }
-span.paginator span.break { color: #FFF; margin: 0 5px 0 5px; }
-span.paginator span.ellipsis { color: #FFF; }
+span.paginator span.arrow { font-weight: bold; color: black; margin: 0; padding: 0 3px 0 3px; }
+span.paginator span.arrow a { font-weight: bold; color: black; text-decoration: none; }
+span.paginator span.selected { font-weight: bold; background-color: black; padding: 0 3px 0 3px; margin: 0 2px 0 2px; border: 1px; border-style: solid; }
+span.paginator span.break { color: black; margin: 0 5px 0 5px; }
+span.paginator span.ellipsis { color: black; }
 
 /* QCalendar */
 div.calendar { width: 200px; border: 1px solid black; background-color: white; color: black;}
@@ -483,7 +471,6 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     width:778px;
     height:100px;
     position:relative;
-    background:url(../images/from_shadow.jpg) 0 100% no-repeat;
     margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
@@ -507,7 +494,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     font-size:20px;
     font-weight:bold;
     color: black;
-    background-color:#807F7F;
+    background-color:white;
     display:block;
     float:left;
     background-image: url(../images/level.jpg);
@@ -536,7 +523,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     width:56px;
     height:28px;
     float:left;
-    background:url(../images/button.gif) 0 0 no-repeat #807F7F;
+    background:url(../images/button.gif) 0 0 no-repeat white;
     border:none;
     color:#fff;
     padding:0px;
@@ -772,7 +759,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 
 
 /*----Licencia Panel----*/
-#LicenciaPan{width:187px; height:192px; background:url(../images/cnp.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#LicenciaPan{width:187px; height:192px; background:url(../images/cnp.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #LicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #LicenciaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #LicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -782,7 +769,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #LicenciaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Empresa Panel----*/
-#EmpresaPan{width:187px; height:192px; background:url(../images/empresa.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#EmpresaPan{width:187px; height:192px; background:url(../images/empresa.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #EmpresaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #EmpresaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #EmpresaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -792,7 +779,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #EmpresaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----CodigoDePago Panel----*/
-#CodigoDePagoPan{width:187px; height:192px; background:url(../images/codigopago.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#CodigoDePagoPan{width:187px; height:192px; background:url(../images/codigopago.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #CodigoDePagoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #CodigoDePagoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #CodigoDePagoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -802,7 +789,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #CodigoDePagoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----TipoDePago Panel----*/
-#TipoDePagoPan{width:187px; height:192px; background:url(../images/tipodepago.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#TipoDePagoPan{width:187px; height:192px; background:url(../images/tipodepago.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #TipoDePagoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #TipoDePagoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #TipoDePagoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -812,7 +799,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #TipoDePagoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----FaseLicencia Panel----*/
-#FaseLicenciaPan{width:187px; height:192px; background:url(../images/faselicencia.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#FaseLicenciaPan{width:187px; height:192px; background:url(../images/faselicencia.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #FaseLicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #FaseLicenciaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #FaseLicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -822,7 +809,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #FaseLicenciaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----VigenciaDeDocumento Panel----*/
-#VigenciaDeDocumentoPan{width:187px; height:192px; background:url(../images/vigenciadedocumentos.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#VigenciaDeDocumentoPan{width:187px; height:192px; background:url(../images/vigenciadedocumentos.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #VigenciaDeDocumentoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #VigenciaDeDocumentoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #VigenciaDeDocumentoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -832,7 +819,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #VigenciaDeDocumentoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Importacion Panel----*/
-#ImportacionPan{width:187px; height:192px; background:url(../images/importacion.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ImportacionPan{width:187px; height:192px; background:url(../images/importacion.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ImportacionPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ImportacionPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ImportacionPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -842,7 +829,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ImportacionPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Producto Panel----*/
-#ProductoPan{width:187px; height:192px; background:url(../images/producto.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ProductoPan{width:187px; height:192px; background:url(../images/producto.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ProductoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -852,7 +839,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ProductoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----ListaDeProducto Panel----*/
-#ListaDeProductoPan{width:187px; height:192px; background:url(../images/listaproducto.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ListaDeProductoPan{width:187px; height:192px; background:url(../images/listaproducto.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ListaDeProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ListaDeProductoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ListaDeProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -862,7 +849,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ListaDeProductoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Proceso Panel----*/
-#ProcesoPan{width:187px; height:192px; background:url(../images/proceso.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ProcesoPan{width:187px; height:192px; background:url(../images/proceso.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProcesoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ProcesoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProcesoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -872,7 +859,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ProcesoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Fase Panel----*/
-#FasePan{width:187px; height:192px; background:url(../images/fase.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#FasePan{width:187px; height:192px; background:url(../images/fase.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #FasePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #FasePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #FasePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -882,7 +869,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #FasePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Documento Panel----*/
-#DocumentoPan{width:187px; height:192px; background:url(../images/documento.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#DocumentoPan{width:187px; height:192px; background:url(../images/documento.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #DocumentoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #DocumentoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #DocumentoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -892,7 +879,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #DocumentoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----DocumentoFase Panel----*/
-#DocumentoFasePan{width:187px; height:192px; background:url(../images/documentodelagestion.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#DocumentoFasePan{width:187px; height:192px; background:url(../images/documentodelagestion.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #DocumentoFasePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #DocumentoFasePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #DocumentoFasePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -902,7 +889,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #DocumentoFasePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Proveedor Panel----*/
-#ProveedorPan{width:187px; height:192px; background:url(../images/proveedor.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ProveedorPan{width:187px; height:192px; background:url(../images/proveedor.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProveedorPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ProveedorPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProveedorPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -912,7 +899,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ProveedorPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Transporte Panel----*/
-#TransportePan{width:187px; height:192px; background:url(../images/transporte.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#TransportePan{width:187px; height:192px; background:url(../images/transporte.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #TransportePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #TransportePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #TransportePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -922,7 +909,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #TransportePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Pais Panel----*/
-#PaisPan{width:187px; height:192px; background:url(../images/pais.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#PaisPan{width:187px; height:192px; background:url(../images/pais.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #PaisPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #PaisPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #PaisPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -932,7 +919,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #PaisPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Administrador Panel----*/
-#AdministradorPan{width:187px; height:192px; background:url(../images/administrador.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#AdministradorPan{width:187px; height:192px; background:url(../images/administrador.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #AdministradorPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #AdministradorPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #AdministradorPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -942,7 +929,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #AdministradorPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Empleado Panel----*/
-#EmpleadoPan{width:187px; height:192px; background:url(../images/empleado.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#EmpleadoPan{width:187px; height:192px; background:url(../images/empleado.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #EmpleadoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #EmpleadoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #EmpleadoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -951,7 +938,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #EmpleadoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpleadoPan p.nuevo a:hover{color:black; text-decoration:none;}
 /*----Responsable Panel----*/
-#ResponsablePan{width:187px; height:192px; background:url(../images/responsable.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ResponsablePan{width:187px; height:192px; background:url(../images/responsable.png) 0 100% no-repeat white; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ResponsablePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ResponsablePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ResponsablePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -966,7 +953,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
     width:400px;
     height:45px;
     display:block;
-    background:#807F7F;
+    background:white;
     color:black;
     font-weight:normal;
     font-family: Arial, Helvetica, sans-serif;
@@ -977,9 +964,9 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #bodymiddlePan p span{background:#3B3B3B; color:black;}
 
 /*----BODY BOTTOM PANEL----*/
-#bodyBottomPan{width:690px; background:url(../images/body_shadow.gif) 0 0 no-repeat; position:relative; margin:0 auto; padding:54px 0 0 88px; clear:both;}
+#bodyBottomPan{width:690px; position:relative; margin:0 auto; padding:54px 0 0 88px; clear:both;}
 /*----BOTOM PANEL----*/
-#bottomPan{height:282px; background:url(../images/bottombg.gif) 0 0 repeat-x; position:relative; margin:0 auto; padding:65px 0 0; clear:both; background-color:#807F7F;}
+#bottomPan{height:282px; background:url(../images/bottombg.gif) 0 0 repeat-x; position:relative; margin:0 auto; padding:65px 0 0; clear:both; background-color:white;}
 
 #bottomMainPan{
     width:600px;
@@ -1046,7 +1033,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #bottomBorderPan ul li a{width:200px; height:22px; display:block; background:url(../images/arrow-normal.gif) 0 8px no-repeat #ccc; color:#3D3C2C; font:14px/22px Arial, Helvetica, sans-serif; text-decoration:none; padding:0 0 0 16px;}
 #bottomBorderPan ul li a:hover{background:url(../images/arrow-hover.gif) 0 8px no-repeat #BDBDBD; color:#3D3C2C; text-decoration:none;}
 /*----BOTOM PANEL----*/
-#bottomPan{height:282px; background:url(../images/bottombg.gif) 0 0 repeat-x; position:relative; margin:0 auto; padding:65px 0 0; clear:both; background-color:#807F7F;}
+#bottomPan{height:282px; background:url(../images/bottombg.gif) 0 0 repeat-x; position:relative; margin:0 auto; padding:65px 0 0; clear:both; background-color:white;}
 
 #bottomMainPan{
     width:600px;
@@ -1128,7 +1115,7 @@ tr.tablafase {
 
 
 }
-/*tr.tablafase {background-color:#807F7F;}*/
+/*tr.tablafase {background-color:white;}*/
 
 /*tr.tablafecha {background-color:green;}*/
 tr.tablafecha {
@@ -1156,9 +1143,9 @@ tr.tablafecha {
         );
 
 }
-tr.tablafecha td{border: 1px solid #807F7F; height: 50px;}
+tr.tablafecha td{border: 1px solid white; height: 50px;}
 
-.th1 {background-color:#807F7F;border: 1px solid #807F7F; text-align: center; width:150px; border:0px; text-decoration: none;}
+.th1 {background-color:white;border: 1px solid white; text-align: center; width:150px; border:0px; text-decoration: none;}
 
 /*tr.tablafecha:hover{background-color:orange;}*/
 tr.middle{
@@ -1215,7 +1202,7 @@ thead.seglic{
     font:bold 1em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
 }
 
-thead.seglic td{border: 1px solid #807F7F;}
+thead.seglic td{border: 1px solid white;}
 
 /* Status Licencia */
 #estatus{
