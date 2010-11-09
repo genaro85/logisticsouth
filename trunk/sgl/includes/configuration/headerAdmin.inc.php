@@ -56,7 +56,7 @@
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/responsable_list.php" target="_self">Responsable</a></li>
                 </ul>
             </li>
-            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/index.php" target="_self" class="top_link"><span>Seguimiento</span></a>
+            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Seguimientos.php" target="_self" class="top_link"><span>Seguimiento</span></a>
                 <ul class="sub">
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_licencia_list.php" target="_self">Seguimiento C.N.P.</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_empresa.php" target="_self">Seguimiento Empresas</a></li>
