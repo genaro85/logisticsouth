@@ -1,6 +1,6 @@
 <?php
 require('../qcubed.inc.php');
-$strPageTitle = 'Licencias';
+$strPageTitle = 'Proveedor';
 require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 ?>
 <div id="bodyBottomPan">

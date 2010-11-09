@@ -43,8 +43,8 @@ class EmpresaListForm extends EmpresaListFormBase {
 
         // Use the MetaDataGrid functionality to add Columns for this datagrid
         // Create an Edit Column
-        $strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__ . '/empresa_edit.php';
-        $this->dtgEmpresas->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
+        //$strEditPageUrl = __VIRTUAL_DIRECTORY__ . __FORM_EMPLEADO__ . '/empresa_edit.php';
+        //$this->dtgEmpresas->MetaAddEditLinkColumn($strEditPageUrl, 'Edit', 'Edit');
 
         // Create the Other Columns (note that you can use strings for EMPRESA's properties, or you
         // can traverse down QQN::EMPRESA() to display fields that are down the hierarchy)
