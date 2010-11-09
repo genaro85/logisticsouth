@@ -1,8 +1,8 @@
 /* Margin resets for block-level elements */
 * { margin: 0px;padding: 0px; }
 html,body {
-    background-color:#f7e7d0;
-    color:black;
+    background-color:white;
+    color:#FFF;
     padding:0px;
     margin:0px;
     font-family: Helvetica,Arial,sans-serif;
@@ -18,7 +18,7 @@ html>body, html>body #page {
 
 
 .bg {background: url(../images/button4.gif);text-decoration:none;}
-.menu {padding:0 0 0 25%; margin:0; list-style:none; height:40px; background:#fff url(../images/button1a.gif) repeat-x; position:relative; font-family: Arial,Helvetica,sans-serif; text-decoration:none;}
+.menu {padding:0 0 0 15%; margin:0; list-style:none; height:40px; background:#fff url(../images/button1a.gif) repeat-x; position:relative; font-family: Arial,Helvetica,sans-serif; text-decoration:none;}
 .menu li.top {display:block; float:left; position:relative;text-decoration:none;}
 .menu li a.current {padding:0 16px 0 20px; display:block; float:left;  height:40px; line-height:33px; color:black; text-decoration:none; font-size:12px;text-align:center; font-weight:bold; cursor:pointer; background: url(../images/button4.gif) no-repeat;}
 .menu li a.top_link {display:block; float:left; height:40px; line-height:33px; color:white; text-decoration:none; font-size:12px; font-weight:bold; padding:0 0 0 12px; cursor:pointer;}
@@ -28,9 +28,9 @@ html>body, html>body #page {
 .menu li a.top_link:hover span {background:url(../images/button4.gif) no-repeat right top; text-decoration:none;}
 .menu li a.top_link:hover span.down {background:url(../images/button4a.gif) no-repeat right top; text-decoration:none;}
 
-.menu li:hover > a.top_link {color:#000; background: url(../images/button4.gif) no-repeat;text-decoration:none;}
-.menu li:hover > a.top_link span {background:url(../images/button4.gif) no-repeat right top;text-decoration:none;}
-.menu li:hover > a.top_link span.down {background:url(../images/button4a.gif) no-repeat right top;text-decoration:none;}
+.menu li:hover > a.top_link {height: 34px; color:#000; background: #F7E7D0;text-decoration:none;}
+.menu li:hover > a.top_link span {height: 34px;background:#F7E7D0;text-decoration:none;}
+.menu li:hover > a.top_link span.down {height: 34px; background:url(../images/button4a.gif) no-repeat right top;text-decoration:none;}
 
 .menu table {border-collapse:collapse; width:0; height:0; position:absolute; top:0; left:0;text-decoration:none;}
 
@@ -43,13 +43,13 @@ html>body, html>body #page {
 .menu :hover ul :hover ul :hover ul ul,
 .menu :hover ul :hover ul :hover ul :hover ul ul {position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;text-decoration:none;}
 
-.menu :hover ul.sub {left:2px; top:40px; right:2px; background: #fff; padding:3px 0; border:1px solid #f7e7d0/*#999999*/; white-space:nowrap; width:200px; height:auto;text-decoration:none;}
+.menu :hover ul.sub {left:2px; top:40px; right:2px; background: #fff; padding:3px 0; border:1px solid #CB3400; white-space:nowrap; width:200px; height:auto;text-decoration:none;}
 .menu :hover ul.sub li {display:block; height:20px; position:relative; float:left; width:250px;}
-.menu :hover ul.sub li a {font-weight:normal;display:block; font-size:11px; height:20px; width:170px; line-height:20px; text-indent:5px; color:#000; text-decoration:none; border:3px solid #fff; border-width:0 0 0 3px;}
-.menu :hover ul.sub li a.fly {background:#edcfa2/*#fff*/ url(../images/arrow.gif) 80px 7px no-repeat;text-decoration:none;}
-.menu :hover ul.sub li a:hover {background:#f7e7d0/*#999999*/; color:#000;text-decoration:none;}
-.menu :hover ul.sub li a.fly:hover {background:#f7e7d0/*#999999*/ url(../images/arrow_over.gif) 80px 7px no-repeat; color:black/*#fff*/;text-decoration:none;}
-.menu :hover ul li:hover > a.fly {background:#f7e7d0/*#999999*/ url(../images/arrow_over.gif) 80px 7px no-repeat; color:black/*#fff*/;text-decoration:none;}
+.menu :hover ul.sub li a {font-weight:normal;display:block; font-size:11px; height:20px; width:192px; line-height:20px; text-indent:5px; color:#000; text-decoration:none; border:3px solid #fff; border-width:0 0 0 3px;}
+.menu :hover ul.sub li a.fly {background:#fff url(../images/arrow.gif) 80px 7px no-repeat;text-decoration:none;}
+.menu :hover ul.sub li a:hover {background:#F17800; width: 70%; color:#fff;text-decoration:none;}
+.menu :hover ul.sub li a.fly:hover {background:#F17800 url(../images/arrow_over.gif) 80px 7px no-repeat; color:#fff;text-decoration:none;}
+.menu :hover ul li:hover > a.fly {background:#F17800 url(../images/arrow_over.gif) 80px 7px no-repeat; color:#fff;text-decoration:none;}
 
 .menu :hover ul :hover ul,
 .menu :hover ul :hover ul :hover ul,
@@ -59,7 +59,7 @@ html>body, html>body #page {
 
 
 a:link {color:#FFF;}
-a:visited {color: gray;}
+a:visited {color: #c4c6c8;}
 a:link, a:visited { text-decoration:none; /*border-bottom: 1px dotted #FF6A00;*/}
 a:hover { text-decoration:none; border-bottom: 1px solid #FFF;}
 pre { font-family: Arial,Helvetica,sans-serif/*'Lucida Console', 'Courier New', 'Courier', 'FreeMono', monospaced*/; font-size: 11px; line-height: 13px; }
@@ -76,38 +76,37 @@ h1, h2, h3, h4, h5, h6 {
     margin: .5em 0 .3em 0;
 }
 
-h2 {font:16px Helvetica, Verdana, Arial, sans-serif; color:  black/*#FFF/#231f20*/;
-    /*text-shadow:2px 2px 2px #414042;*/
+h2 {font:16px Helvetica, Verdana, Arial, sans-serif; color: black/*#231f20*/;
+    text-shadow:2px 2px 2px #414042;
 }
-h1 {font:24px Helvetica, Verdana, Arial, sans-serif; color: black;
+h1 {font:24px Helvetica, Verdana, Arial, sans-serif; color: black; font-weight: bold;
     padding: 0 0 0 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    text-shadow:1px 1px 1px #414042;
+    text-shadow:2px 2px 2px #414042;
     /* Legacy browsers */
-    background:#edcfa2 url("gradient-bg.png") repeat-x top;
+    background:#dcddde url("gradient-bg.png") repeat-x top;
     -o-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
     /* Internet Explorer */
-    background: #edcfa2;
+    background: #dcddde;
     filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFafb1b4, endColorstr=#FFdcddde);
     /* Opera */
-    background: #edcfa2 url("gradient-bg.svg");
+    background: #dcddde url("gradient-bg.svg");
     /* Recent browsers */
     background-image: -moz-linear-gradient(
         top,
-        #f7e7d0,
-        #edcfa2/*#dcddde*/
+        #afb1b4,
+        #dcddde
         );
     background-image: -webkit-gradient(
         linear,
         left top, left bottom,
-        from(#f7e7d0),
-        to(#edcfa2)
+        from(#afb1b4),
+        to(#dcddde)
         );
-    width: 105%
 }
 h3 { font-size: 1.4em; }
 h4 { font-size: 1.2em; }
@@ -117,7 +116,6 @@ h6 { font-size: 1.0em; }
 p {
     clear: inherit;
     text-align:left;
-    color: black;
 }
 
 table {
@@ -264,11 +262,11 @@ span.datetimepicker select.second { width: 45px; margin-left: 2px; }
 
 /* QDataGrid - TABLA*/
 table.datagrid{
-    border-top:1px solid black;
-    border-right:1px solid black;
+    border-top:1px solid #e5eff8;
+    border-right:1px solid #e5eff8;
     margin:1em auto;
     border-collapse:collapse;
-    
+
 }
 
 table.datagrid tr.odd td	{
@@ -276,32 +274,54 @@ table.datagrid tr.odd td	{
 }
 table.datagrid tr.odd .column1	{
     background:#f4f9fe;
-    
+
 }
 table.datagrid .column1	{
     background:#f9fcfe;
-    
+
 }
 table.datagrid td {
-    color:black;
-    border-bottom:1px solid black;
-    border-left:1px solid black;
+    color:white;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
     padding:.3em 1em;
     text-align:center;
 }
 table.datagrid th {
     font-weight:normal;
-    color: black;
+    color: #678197;
     text-align:left;
-    border-bottom: 1px solid black;
-    border-left:1px solid black;
+    border-bottom: 1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
     padding:.3em 1em;
 }
 table.datagrid thead th {
     width: 960px;
-    background: #edcfa2 url("gradient-bg.png") repeat-x top;
+    /* Legacy browsers */
+    background: #3b3b3c url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    background: #3b3b3c;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FF67686b, endColorstr=#FF3b3b3c);
+    /* Opera */
+    background: #3b3b3c url("gradient-bg.svg");
+    /* Recent browsers */
+    background-image: -moz-linear-gradient(
+        top,
+        #67686b,
+        #3b3b3c
+        );
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(#67686b),
+        to(#3b3b3c)
+        );
     text-align:center;
-    color: black;
+    color: #FFF;
     font:bold 1em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
 }
 table.datagrid tfoot th {
@@ -325,7 +345,7 @@ table.datagrid .textbox{
 }
 
 table.datagrid .button{
-    border: 1px solid #000;
+    border: 1px solid #FFF;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -334,17 +354,17 @@ table.datagrid .button{
 }
 
 table.datagrid a {
-    color: black;
+    color: white;
 }
 
 /* QPaginator */
 span.paginator { margin: 0; padding: 0;  }
 span.paginator span { list-style-type:none; display: inline; padding: 0; margin: 0; }
 span.paginator span.page a { text-decoration: none; color: #FFF; padding: 0 3px 0 3px; margin: 0 2px 0 2px;}
-span.paginator span.page a:hover { background-color: white/*#c4c6c8*/; }
-span.paginator span.arrow { font-weight: bold; color: gray/*#ccc*/; margin: 0; padding: 0 3px 0 3px; }
-span.paginator span.arrow a { font-weight: bold; color: black/*#FFF*/; text-decoration: none; }
-span.paginator span.selected { font-weight: bold; background-color: white/*#c4c6c8*/; padding: 0 3px 0 3px; margin: 0 2px 0 2px; border: 0px; border-style: solid; }
+span.paginator span.page a:hover { background-color: #c4c6c8; }
+span.paginator span.arrow { font-weight: bold; color: #ccc; margin: 0; padding: 0 3px 0 3px; }
+span.paginator span.arrow a { font-weight: bold; color: #FFF; text-decoration: none; }
+span.paginator span.selected { font-weight: bold; background-color: #c4c6c8; padding: 0 3px 0 3px; margin: 0 2px 0 2px; border: 1px; border-style: solid; }
 span.paginator span.break { color: #FFF; margin: 0 5px 0 5px; }
 span.paginator span.ellipsis { color: #FFF; }
 
@@ -387,7 +407,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
   *   Layout Specific IDs
 */
 
-#page { 
+#page {
     position: absolute;
     top: 0;
     left: 0;
@@ -399,8 +419,11 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     text-align:left;
 }
 
-#header_container{height:350px; position:relative; margin:0 auto; padding:0px; background-image:url(../images/header_slice.gif); background-repeat:repeat-x; background-position:top;}
-#header { width:755px; height:299px; position:relative; margin:0 auto; padding:0px 9px 0px 14px; background-image:url(../images/logo.gif); background-repeat: no-repeat; background-position: top; }
+#header_container{height:90px; position:relative; margin:0 auto; padding:0px; background-image:url(../images/header_slice.gif); background-repeat:repeat-x; background-position:top;}
+#header { width:755px; height:90px; position:relative; margin:0 auto; padding:0px 9px 0px 14px; background-image:url(../images/logo.gif); background-repeat: no-repeat; background-position: top; }
+#banner_container{height:188px; position:relative; margin:0 auto; padding:0px; background-image:url(../images/banner_slice.png); background-repeat:repeat-x; background-position:top;}
+#banner { width:755px; height:188px; position:relative; margin:0 auto; padding:0px 9px 0px 14px; background-image:url(../images/bannercaja.png); background-repeat: no-repeat; background-position: top; }
+
 #header img{height:86px; width:650px; position:absolute; top:0; left:161px; padding:0px;}
 #header ul{
     width:480px;
@@ -483,8 +506,8 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
     font:bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
     font-size:20px;
     font-weight:bold;
-    color: #000;
-    background-color:#f7e7d0/*#807F7F*/;
+    color: black;
+    background-color:#807F7F;
     display:block;
     float:left;
     background-image: url(../images/level.jpg);
@@ -528,7 +551,7 @@ div.renderWithName div.right span.error { margin-left: 15px; font:bold 1.2em "Ce
 
 /*----/BODY1 PANEL----*/
 #pageName { height:24px; font-size:14px; line-height:24px; font-weight:bold; }
-#categoryName, #codeVersion { height:12px; line-height:12px; font-size:10px; } 
+#categoryName, #codeVersion { height:12px; line-height:12px; font-size:10px; }
 #pageLinks { height:12px; line-height:12px; font-size:10px; }
 .headerGray {font-style:italic;}
 #headerRight { width: 49%; text-align: right; float:right; padding-right:1%;}
@@ -552,7 +575,28 @@ div#formControls {
     padding-bottom: 5px;
     padding-top: 5px;
     /* Legacy browsers */
-    background: #edcfa2;    
+    background: #3b3b3c url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    background: #3b3b3c;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FF67686b, endColorstr=#FF3b3b3c);
+    /* Opera */
+    background: #3b3b3c url("gradient-bg.svg");
+    /* Recent browsers */
+    background-image: -moz-linear-gradient(
+        top,
+        #67686b,
+        #3b3b3c
+        );
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(#67686b),
+        to(#3b3b3c)
+        );
 }
 
 div#formActions {background:#3b3b3c repeat-x ; padding: 10px; height: 20px; margin-top: 2px; border:0px solid #111; }
@@ -597,7 +641,7 @@ div#dashboard div#right div#pnlEdit { border: 1px solid #111; padding: 5px; back
 
 #footerRight { width: 50%; text-align: right; float:right; padding-right:5px;}
 #footerRight div { height:18px; line-height: 18px; }
-#footerRight .templateworld{	
+#footerRight .templateworld{
     background:#3B3B3B;
     color:#fff;
     display:block;
@@ -642,9 +686,8 @@ a.footerLink { background-color:#FF6A00; color: #FFF; border-bottom: 1px dotted 
 p.create {
     color: white;
     width: 150px;
-    padding: 8px;
     text-align: center;
-    border: 1px solid #000;
+    border: 1px solid #FFF;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -676,7 +719,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 .listbox { width: 250px; font:bold 1.2em Helvetica,"Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif; text-align:left;}
 .button { font: 12px Helvetica, Verdana, Arial, sans-serif;font-weight: bold; border:1px solid #111; background-color:black; color:#FFF; padding:3px;}
 #formActions .button {
-    border: 1px solid black/*#FFF*/;
+    border: 1px solid #FFF;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -729,7 +772,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 
 
 /*----Licencia Panel----*/
-#LicenciaPan{width:187px; height:192px; background:url(../images/cnp.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#LicenciaPan{width:187px; height:192px; background:url(../images/cnp.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #LicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #LicenciaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #LicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -739,7 +782,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #LicenciaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Empresa Panel----*/
-#EmpresaPan{width:187px; height:192px; background:url(../images/empresa.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#EmpresaPan{width:187px; height:192px; background:url(../images/empresa.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #EmpresaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #EmpresaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #EmpresaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -749,7 +792,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #EmpresaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----CodigoDePago Panel----*/
-#CodigoDePagoPan{width:187px; height:192px; background:url(../images/codigopago.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#CodigoDePagoPan{width:187px; height:192px; background:url(../images/codigopago.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #CodigoDePagoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #CodigoDePagoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #CodigoDePagoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -759,7 +802,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #CodigoDePagoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----TipoDePago Panel----*/
-#TipoDePagoPan{width:187px; height:192px; background:url(../images/tipodepago.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#TipoDePagoPan{width:187px; height:192px; background:url(../images/tipodepago.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #TipoDePagoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #TipoDePagoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #TipoDePagoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -769,7 +812,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #TipoDePagoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----FaseLicencia Panel----*/
-#FaseLicenciaPan{width:187px; height:192px; background:url(../images/faselicencia.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#FaseLicenciaPan{width:187px; height:192px; background:url(../images/faselicencia.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #FaseLicenciaPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #FaseLicenciaPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #FaseLicenciaPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -779,7 +822,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #FaseLicenciaPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----VigenciaDeDocumento Panel----*/
-#VigenciaDeDocumentoPan{width:187px; height:192px; background:url(../images/vigenciadedocumentos.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#VigenciaDeDocumentoPan{width:187px; height:192px; background:url(../images/vigenciadedocumentos.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #VigenciaDeDocumentoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #VigenciaDeDocumentoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #VigenciaDeDocumentoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -789,7 +832,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #VigenciaDeDocumentoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Importacion Panel----*/
-#ImportacionPan{width:187px; height:192px; background:url(../images/importacion.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ImportacionPan{width:187px; height:192px; background:url(../images/importacion.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ImportacionPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ImportacionPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ImportacionPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -799,7 +842,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ImportacionPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Producto Panel----*/
-#ProductoPan{width:187px; height:192px; background:url(../images/producto.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ProductoPan{width:187px; height:192px; background:url(../images/producto.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ProductoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -809,7 +852,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ProductoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----ListaDeProducto Panel----*/
-#ListaDeProductoPan{width:187px; height:192px; background:url(../images/listaproducto.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ListaDeProductoPan{width:187px; height:192px; background:url(../images/listaproducto.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ListaDeProductoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ListaDeProductoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ListaDeProductoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -819,7 +862,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ListaDeProductoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Proceso Panel----*/
-#ProcesoPan{width:187px; height:192px; background:url(../images/proceso.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ProcesoPan{width:187px; height:192px; background:url(../images/proceso.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProcesoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ProcesoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProcesoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -829,7 +872,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ProcesoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Fase Panel----*/
-#FasePan{width:187px; height:192px; background:url(../images/fase.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#FasePan{width:187px; height:192px; background:url(../images/fase.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #FasePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #FasePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #FasePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -839,7 +882,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #FasePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Documento Panel----*/
-#DocumentoPan{width:187px; height:192px; background:url(../images/documento.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#DocumentoPan{width:187px; height:192px; background:url(../images/documento.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #DocumentoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #DocumentoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #DocumentoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -849,7 +892,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #DocumentoPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----DocumentoFase Panel----*/
-#DocumentoFasePan{width:187px; height:192px; background:url(../images/documentodelagestion.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#DocumentoFasePan{width:187px; height:192px; background:url(../images/documentodelagestion.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #DocumentoFasePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #DocumentoFasePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #DocumentoFasePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -859,7 +902,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #DocumentoFasePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Proveedor Panel----*/
-#ProveedorPan{width:187px; height:192px; background:url(../images/proveedor.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ProveedorPan{width:187px; height:192px; background:url(../images/proveedor.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ProveedorPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ProveedorPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ProveedorPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -869,7 +912,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #ProveedorPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Transporte Panel----*/
-#TransportePan{width:187px; height:192px; background:url(../images/transporte.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#TransportePan{width:187px; height:192px; background:url(../images/transporte.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #TransportePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #TransportePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #TransportePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -879,7 +922,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #TransportePan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Pais Panel----*/
-#PaisPan{width:187px; height:192px; background:url(../images/pais.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#PaisPan{width:187px; height:192px; background:url(../images/pais.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #PaisPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #PaisPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #PaisPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -889,7 +932,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #PaisPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Administrador Panel----*/
-#AdministradorPan{width:187px; height:192px; background:url(../images/administrador.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#AdministradorPan{width:187px; height:192px; background:url(../images/administrador.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #AdministradorPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #AdministradorPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #AdministradorPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -899,7 +942,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #AdministradorPan p.nuevo a:hover{color:black; text-decoration:none;}
 
 /*----Empleado Panel----*/
-#EmpleadoPan{width:187px; height:192px; background:url(../images/empleado.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#EmpleadoPan{width:187px; height:192px; background:url(../images/empleado.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #EmpleadoPan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #EmpleadoPan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #EmpleadoPan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -908,7 +951,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
 #EmpleadoPan p.nuevo a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
 #EmpleadoPan p.nuevo a:hover{color:black; text-decoration:none;}
 /*----Responsable Panel----*/
-#ResponsablePan{width:187px; height:192px; background:url(../images/responsable.png) 0 100% no-repeat #f7e7d0 /*#807F7F*/; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
+#ResponsablePan{width:187px; height:192px; background:url(../images/responsable.png) 0 100% no-repeat #807F7F; float:left; margin:0 28px 0 0; font:13px/17px Verdana, Arial, Helvetica, sans-serif;}
 #ResponsablePan p{padding:56px 0 0 30px; line-height:17px; display:inline-block;}
 #ResponsablePan p.ver{width:40px; height:18px; padding:42px 0 0 32px;}
 #ResponsablePan p.ver a{width:66px; height:18px; display:block; color:#fff; font:12px/18px Verdana, Arial, Helvetica, sans-serif; font-weight:bold; text-align:center; text-decoration:none;}
@@ -923,15 +966,15 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
     width:400px;
     height:45px;
     display:block;
-    background:#f7e7d0/*#807F7F*/;
-    color:#231F20;
+    background:#807F7F;
+    color:black;
     font-weight:normal;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     line-height: normal;
 }
 #bodymiddlePan p.lasttext{padding:0 0 25px 0; color:black;}
-#bodymiddlePan p span{background:#3B3B3B; color:#FCFCFC;}
+#bodymiddlePan p span{background:#3B3B3B; color:black;}
 
 /*----BODY BOTTOM PANEL----*/
 #bodyBottomPan{width:690px; background:url(../images/body_shadow.gif) 0 0 no-repeat; position:relative; margin:0 auto; padding:54px 0 0 88px; clear:both;}
@@ -959,7 +1002,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
     left:0px;
     display:block;
     background:#ccc;
-    color:#0C0C0C;
+    color:black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     line-height: 40px;
@@ -1026,7 +1069,7 @@ a.main_navselected { color: #ffffff; font-weight: bold; text-transform: uppercas
     left:0px;
     display:block;
     background:#ccc;
-    color:#0C0C0C;
+    color:black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     line-height: 40px;

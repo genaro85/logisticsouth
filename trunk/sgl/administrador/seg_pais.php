@@ -15,6 +15,7 @@ $sql = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio) 
         FROM licencia l
         JOIN Proveedor b ON l.PROVEEDOR_idPROVEEDOR = b.idPROVEEDOR
         JOIN Pais a ON a.idPAIS = b.PAIS_idPAIS
+        WHERE l.status <>  "Nacionalizada"
         GROUP BY a.idPAIS,MesOtorgadas
         HAVING a.idPAIS = ' . $IdPAIS .
         ' ORDER BY MesOtorgadas';
@@ -130,9 +131,9 @@ echo '<img src="http://chart.apis.google.com/chart?chf=bg,s,807F7F|c,s,999999' .
     '&chs=500x375' .
     '&cht=bvs' .
     '&chco=FF9900,FFCC33' .
-    '&chds=0,100,0,100' .
+    '&chds=0,10,0,10' .
     '&chd=t:' . $LicEjecutadas . '|' .$LicOtorgadas  .//5,10,20,25,30,35,40|10,20,30,40,50,60,70' .
-    '&chdl=C.N.P.+Nacionalizadas|C.N.P+Totales' .
+    '&chdl=C.N.P.+Nacionalizadas|C.N.P+No+Nacionalizadas' .
     '&chg=0,-1,0,0' .
     '&chma=0,0,0,10' .
     '&chtt=C.N.P.+'. $objPais->Nombre . '" width="500" height="375" alt="C.N.P. ' . $objPais->Nombre . '" />';
