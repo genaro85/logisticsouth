@@ -18,9 +18,13 @@
 
 	<div id="formControls">
 		<?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
-
+            <div style="margin-left: 450px;">
+                <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Create a New'); ?> <?php _t('Licencia');?></a>
+            </div>
 		<?php $this->lstTIPODEPAGOIdTIPODEPAGOObject->RenderWithName(); ?>
-
+            <div style="margin-left: 450px;">
+                <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/tipo_de_pago_edit.php"><?php _t('Create a New'); ?> <?php _t('Tipo de Pago');?></a>
+            </div>
 		<?php $this->txtNumRef->RenderWithName(); ?>
 
 		<?php $this->txtFecha->RenderWithName(); ?>

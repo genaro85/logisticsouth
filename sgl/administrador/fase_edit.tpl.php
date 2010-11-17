@@ -20,6 +20,9 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
     <?php //$this->lblIdFASE->RenderWithName(); ?>
 
     <?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/proceso_edit.php"><?php _t('Create a New'); ?> <?php _t('Proceso');?></a>
+    </div>
 
     <?php $this->txtNombre->RenderWithName(); ?>
 
