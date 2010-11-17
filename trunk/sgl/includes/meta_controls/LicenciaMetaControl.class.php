@@ -133,14 +133,16 @@ class LicenciaMetaControl extends LicenciaMetaControlGen {
         $this->txtFormaPago = new QListBox($this->objParentObject, $strControlId);
         $this->txtFormaPago->Name = QApplication::Translate('Forma de Pago');
         $this->txtFormaPago->AddItem(QApplication::Translate('- Select One -'), null);  //Campo Null Seleccionar Uno
-        $ListaEstatus = array(1 => 'ALADI', 2 => 'Carta de Crédito', 3 => 'Contado (Pago a la Vista)', 4 => 'Otra Forma de Pago');                //Lista de Estatus
-        if ($ListaEstatus)
-            foreach ($ListaEstatus as $objMat) {
+        $ListaFPagos = array(1 => 'Aladi', 2 => 'Carta de Crédito', 3 => 'Contado (Pago a la Vista)', 4 => 'Sitme', 5 => 'Tercer País', 6 => 'Otra forma de Pago');  //Lista de Formas de Pagos
+        if ($ListaFPagos)
+            foreach ($ListaFPagos as $objMat) {
                 $objListItem = new QListItem($objMat, $objMat);
                 if ($this->objLicencia->FormaPago == $objMat)     //Comparacion con el campo de la BD
                     $objListItem->Selected = true;
                 $this->txtFormaPago->AddItem($objListItem);
             }
+        //$this->txtFormaPago->Text = $this->objLicencia->FormaPago;
+        //$this->txtFormaPago->MaxLength = Licencia::FormaPagoMaxLength;
         return $this->txtFormaPago;
     }
 

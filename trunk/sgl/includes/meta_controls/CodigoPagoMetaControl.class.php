@@ -32,7 +32,7 @@ class CodigoPagoMetaControl extends CodigoPagoMetaControlGen {
      */
     public function lstLICENCIAIdLICENCIAObject_Create($strControlId = null) {
         $this->lstLICENCIAIdLICENCIAObject = new QListBox($this->objParentObject, $strControlId);
-        $this->lstLICENCIAIdLICENCIAObject->Name = QApplication::Translate('Licencia De*');
+        $this->lstLICENCIAIdLICENCIAObject->Name = QApplication::Translate('Licencia');
         $this->lstLICENCIAIdLICENCIAObject->Required = true;
         if (!$this->blnEditMode)
             $this->lstLICENCIAIdLICENCIAObject->AddItem(QApplication::Translate('- Select One -'), null);
@@ -49,7 +49,7 @@ class CodigoPagoMetaControl extends CodigoPagoMetaControlGen {
 
     public function lstTIPODEPAGOIdTIPODEPAGOObject_Create($strControlId = null) {
         $this->lstTIPODEPAGOIdTIPODEPAGOObject = new QListBox($this->objParentObject, $strControlId);
-        $this->lstTIPODEPAGOIdTIPODEPAGOObject->Name = QApplication::Translate('Modalidad de Pago*');
+        $this->lstTIPODEPAGOIdTIPODEPAGOObject->Name = QApplication::Translate('Tipo de Pago');
         $this->lstTIPODEPAGOIdTIPODEPAGOObject->Required = true;
         if (!$this->blnEditMode)
             $this->lstTIPODEPAGOIdTIPODEPAGOObject->AddItem(QApplication::Translate('- Select One -'), null);
