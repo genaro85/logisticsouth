@@ -16,41 +16,50 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 </div>
 
 <div id="formControls">
-<?php // $this->lblIdLICENCIA->RenderWithName();  ?>
+    <?php // $this->lblIdLICENCIA->RenderWithName();  ?>
 
-<?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
-    
-<?php $this->lstEMPRESAIdEMPRESAObject->RenderWithName(); ?>
+    <?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/proceso_edit.php"><?php _t('Create a New'); ?> <?php _t('Proceso');?></a>
+    </div>
 
-<?php $this->lstPROVEEDORIdPROVEEDORObject->RenderWithName(); ?>
+    <?php $this->lstEMPRESAIdEMPRESAObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empresa_edit.php"><?php _t('Create a New'); ?> <?php _t('Empresa');?></a>
+    </div>
 
-<?php $this->calFechaInicio->RenderWithName(); ?>
+    <?php $this->lstPROVEEDORIdPROVEEDORObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/proveedor_edit.php"><?php _t('Create a New'); ?> <?php _t('Proveedor');?></a>
+    </div>
+
+    <?php $this->calFechaInicio->RenderWithName(); ?>
 
     <div style="margin-left: 415px;"><?php $this->calCalendarIni->Render(); ?></div>
 
-<?php $this->calFechaFin->RenderWithName(); ?>
+    <?php $this->calFechaFin->RenderWithName(); ?>
 
     <div style="margin-left: 415px;"><?php $this->calCalendarFin->Render(); ?></div>
 
-<?php //Eliminado $this->calFechaFinEstimada->RenderWithName(); ?>
+    <?php //Eliminado $this->calFechaFinEstimada->RenderWithName(); ?>
 
-<?php $this->txtNumeroProforma->RenderWithName(); ?>
+    <?php $this->txtNumeroProforma->RenderWithName(); ?>
 
-<?php $this->txtNumeroCNP->RenderWithName(); ?>
+    <?php $this->txtNumeroCNP->RenderWithName(); ?>
 
-<?php $this->calVencimientoCNP->RenderWithName(); ?>
+    <?php $this->calVencimientoCNP->RenderWithName(); ?>
 
     <div style="margin-left: 415px;"><?php $this->calCalendarCNP->Render(); ?></div>
 
-<?php $this->txtStatus->RenderWithName(); ?>
+    <?php $this->txtStatus->RenderWithName(); ?>
 
-<?php $this->txtFormaPago->RenderWithName(); ?>
+    <?php $this->txtFormaPago->RenderWithName(); ?>
 
-<?php $this->txtTipo->RenderWithName(); ?>
+    <?php $this->txtTipo->RenderWithName(); ?>
 
-<?php $this->txtFlete->RenderWithName(); ?>
+    <?php $this->txtFlete->RenderWithName(); ?>
 
-<?php $this->txtSeguro->RenderWithName(); ?>
+    <?php $this->txtSeguro->RenderWithName(); ?>
 
 
 

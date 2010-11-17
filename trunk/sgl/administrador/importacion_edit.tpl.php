@@ -18,8 +18,14 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 <div id="formControls">
     <?php $this->lstTRANSPORTEIdTRANSPORTEObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/transporte_edit.php"><?php _t('Create a New'); ?> <?php _t('Transporte');?></a>
+    </div>
 
     <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Create a New'); ?> <?php _t('Licencia');?></a>
+    </div>
 
     <?php $this->calFechaDeSalida->RenderWithName(); ?>
     <div style="margin-left: 415px;"><?php $this->calCalendarIni->Render(); ?></div>
@@ -30,8 +36,14 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
     <?php $this->txtTipo->RenderWithName(); ?>
 
     <?php $this->lstPAISOrigenObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/pais_edit.php"><?php _t('Create a New'); ?> <?php _t('Pais');?></a>
+    </div>
 
     <?php $this->lstPAISDestinoObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/pais_edit.php"><?php _t('Create a New'); ?> <?php _t('Pais');?></a>
+    </div>
 
 </div>
 

@@ -17,14 +17,14 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 <div id="formControls">
     <?php $this->lstEMPLEADOIdEMPLEADOObject->RenderWithName(); ?>
-    <p class="create">
-        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empleado_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('Empleado'); ?></a>
-    </p>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empleado_edit.php"><?php _t('Create a New'); ?> <?php _t('Empleado');?></a>
+    </div>
     
     <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
-    <p class="create">
-	<a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Crear un nuevo'); ?> <?php _t('C.N.P.');?></a>
-    </p>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Create a New'); ?> <?php _t('Licencia');?></a>
+    </div>
 
     <?php $this->calFechaInicio->RenderWithName(); ?>
     <div style="margin-left: 415px;"><?php $this->calCalendar1->Render(); ?></div>

@@ -18,8 +18,14 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 <div id="formControls">
     <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/licencia_edit.php"><?php _t('Create a New'); ?> <?php _t('Licencia');?></a>
+    </div>
 
     <?php $this->lstDOCUMENTOSFASEDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
+    <div style="margin-left: 450px;">
+        <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/documentos_fase_edit.php"><?php _t('Create a New'); ?> <?php _t('Documentos Fase');?></a>
+    </div>
 
     <?php $this->calFechaOtorgado->RenderWithName(); ?>
     <div style="margin-left: 415px;"><?php $this->calCalendar4->Render(); ?></div>
