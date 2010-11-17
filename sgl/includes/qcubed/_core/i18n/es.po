@@ -188,7 +188,10 @@ MsgId "CodigoPagos"
 MsgStr "Código Pago"
 
 MsgId "Tipo de Pagos"
-MsgStr "Tipos de Pago"
+MsgStr "Modalidades de Pago"
+
+MsgId "Tipo de Pago"
+MsgStr "Modalidad de Pago"
 
 MsgId "Importacion"
 MsgStr "Importación"
@@ -225,3 +228,6 @@ MsgStr "Descripción"
 
 MsgId "Costo Unitario"
 MsgStr "Costo Unitario ($)"
+
+MsgId "Pais"
+MsgStr "País"
