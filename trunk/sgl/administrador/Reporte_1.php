@@ -2,12 +2,61 @@
 
 require('../qcubed.inc.php');
 
-$idLicencia = QApplication::PathInfo(0);
-$idProducto = QApplication::PathInfo(1);
-$objLicencia = Licencia::Load($idLicencia);
+
+$idProducto = QApplication::PathInfo(0);
 $objProducto = Producto::Load($idProducto);
-$objListaProd = ListaProducto::Load($idLicencia, $idProducto);
-$objEmpresa = $objLicencia->EMPRESAIdEMPRESAObject;
+
+// Licencias Internas
+$sql = 'SELECT e.rif RIF, e.nombre Nombre, m.numeroCNP CNP, m.fechaInicio Fecha,
+        TIMESTAMPDIFF(DAY,sysdate(),m.fechaFin) Diff, l.PRODUCTO_cantidad Qty 
+        FROM lista_producto l
+        JOIN licencia m ON l.LICENCIA_idLICENCIA = m.idLICENCIA
+        JOIN empresa e on e.idEMPRESA = m.EMPRESA_idEMPRESA
+        WHERE m.status = "Interna"
+        AND l.PRODUCTO_idPRODUCTO = ' . $objProducto->IdPRODUCTO;
+
+$objDatabase = ListaProducto::GetDatabase();
+$objDbResult = $objDatabase->Query($sql);
+
+$arrayInternas = array();
+while ($mixRow = $objDbResult->FetchArray()) {
+    $arrayInternas[] = $mixRow;
+}
+
+// Licencias Externas
+$sql2 = 'SELECT e.rif RIF, e.nombre Nombre, m.numeroCNP CNP, m.fechaInicio Fecha,
+        TIMESTAMPDIFF(DAY,sysdate(),m.fechaFin) Diff, l.PRODUCTO_cantidad Qty
+        FROM lista_producto l
+        JOIN licencia m ON l.LICENCIA_idLICENCIA = m.idLICENCIA
+        JOIN empresa e on e.idEMPRESA = m.EMPRESA_idEMPRESA
+        WHERE m.status = "Externa"
+        AND l.PRODUCTO_idPRODUCTO = ' . $objProducto->IdPRODUCTO;
+
+$objDatabase2 = ListaProducto::GetDatabase();
+$objDbResult2 = $objDatabase2->Query($sql2);
+
+$arrayExternas = array();
+while ($mixRow2 = $objDbResult2->FetchArray()) {
+    $arrayExternas[] = $mixRow2;
+}
+
+// Licencias Nacionalizadas
+$sql3 = 'SELECT e.rif RIF, e.nombre Nombre, m.numeroCNP CNP, m.fechaInicio Fecha,
+        TIMESTAMPDIFF(DAY,sysdate(),m.fechaFin) Diff, l.PRODUCTO_cantidad Qty
+        FROM lista_producto l
+        JOIN licencia m ON l.LICENCIA_idLICENCIA = m.idLICENCIA
+        JOIN empresa e on e.idEMPRESA = m.EMPRESA_idEMPRESA
+        WHERE m.status = "Nacionalizada"
+        AND l.PRODUCTO_idPRODUCTO = ' . $objProducto->IdPRODUCTO;
+
+$objDatabase3 = ListaProducto::GetDatabase();
+$objDbResult3 = $objDatabase3->Query($sql3);
+
+$arrayNac = array();
+while ($mixRow3 = $objDbResult3->FetchArray()) {
+    $arrayNac[] = $mixRow3;
+}
+
 
 $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -117,60 +166,78 @@ $html= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w
   <div align="center">
   	<table width="100%" border="1" bordercolor="#999999" cellspacing="0" cellpadding="0">
       <tr>
-        <td id="tableTitle2">R.I.F.</td>
-        <td id="tableTitle2">Nombre</td>
-        <td id="tableTitle2">C.N.P.</td>
-        <td id="tableTitle2">Fecha</td>
-        <td id="tableTitle2">Vence (Días)</td>
-        <td id="tableTitle2">Cantidad</td>
-      </tr>
-      <tr>
-        <td>'. $objEmpresa->Rif .'</td>
-        <td>'. $objEmpresa->Nombre .'</td>
-        <td>'. $objLicencia->NumeroCNP .'</td>
-        <td>'. $objLicencia->FechaInicio .'</td>
-        <td>'. $objLicencia->FechaFin .'</td>
-        <td>'. $objListaProd->PRODUCTOCantidad .'</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table>
+        <td id="tableTitle2" width="18%">R.I.F.</td>
+        <td id="tableTitle2" width="30%">Nombre</td>
+        <td id="tableTitle2" width="18%">C.N.P.</td>
+        <td id="tableTitle2" width="14%">Fecha</td>
+        <td id="tableTitle2" width="10%">Vence (Días)</td>
+        <td id="tableTitle2" width="10%">Cantidad</td>
+      </tr>';
+foreach ($arrayInternas as $value) {
+    $html.='<tr>
+              <td>'. $value[RIF] .'</td>
+              <td>'. $value[Nombre] .'</td>
+              <td>'. $value[CNP] .'</td>
+              <td>'. $value[Fecha] .'</td>
+              <td>'. $value[Diff] .'</td>
+              <td>'. $value[Qty] .'</td>
+            </tr>';
+
+};
+
+$html.='</table>
   </div>
   &nbsp;
   <h3>Ejecución Externa</h3>
   <div align="center">
   	<table width="100%" border="1" bordercolor="#999999" cellspacing="0" cellpadding="0">
       <tr>
-        <td id="tableTitle2">R.I.F.</td>
-        <td id="tableTitle2">Nombre</td>
-        <td id="tableTitle2">C.N.P.</td>
-        <td id="tableTitle2">Fecha</td>
-        <td id="tableTitle2">Vence (Días)</td>
-        <td id="tableTitle2">Cantidad</td>
-      </tr>
+        <td id="tableTitle2" width="18%">R.I.F.</td>
+        <td id="tableTitle2" width="30%">Nombre</td>
+        <td id="tableTitle2" width="18%">C.N.P.</td>
+        <td id="tableTitle2" width="14%">Fecha</td>
+        <td id="tableTitle2" width="10%">Vence (Días)</td>
+        <td id="tableTitle2" width="10%">Cantidad</td>
+      </tr>';
+foreach ($arrayExternas as $value2) {
+    $html.='<tr>
+              <td>'. $value2[RIF] .'</td>
+              <td>'. $value2[Nombre] .'</td>
+              <td>'. $value2[CNP] .'</td>
+              <td>'. $value2[Fecha] .'</td>
+              <td>'. $value2[Diff] .'</td>
+              <td>'. $value2[Qty] .'</td>
+            </tr>';
+
+};
+
+$html.='</table>
+  </div>
+  &nbsp;
+  <h3>Nacionalizada</h3>
+  <div align="center">
+  	<table width="100%" border="1" bordercolor="#999999" cellspacing="0" cellpadding="0">
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table>
+        <td id="tableTitle2" width="18%">R.I.F.</td>
+        <td id="tableTitle2" width="30%">Nombre</td>
+        <td id="tableTitle2" width="18%">C.N.P.</td>
+        <td id="tableTitle2" width="14%">Fecha</td>
+        <td id="tableTitle2" width="10%">Vence (Días)</td>
+        <td id="tableTitle2" width="10%">Cantidad</td>
+      </tr>';
+foreach ($arrayNac as $value3) {
+    $html.='<tr>
+              <td>'. $value3[RIF] .'</td>
+              <td>'. $value3[Nombre] .'</td>
+              <td>'. $value3[CNP] .'</td>
+              <td>'. $value3[Fecha] .'</td>
+              <td>'. $value3[Diff] .'</td>
+              <td>'. $value3[Qty] .'</td>
+            </tr>';
+
+};
+
+$html.='</table>
   </div>
 </div>
 <!--<div class="foot">
