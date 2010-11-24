@@ -1,11 +1,11 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : sglbd
+ Source Server         : surlogi1_sglbd
  Source Server Type    : MySQL
  Source Server Version : 50144
  Source Host           : localhost
- Source Database       : sglbd
+ Source Database       : surlogi1_sglbd
 
  Target Server Type    : MySQL
  Target Server Version : 50144
@@ -197,9 +197,9 @@ CREATE TABLE `LICENCIA` (
 delimiter ;;
 DELIMITER $$
 
-USE `sglbd`$$
-DROP TRIGGER IF EXISTS `sglbd`.`INSERTAR_FL` $$
-USE `sglbd`$$
+USE `surlogi1_sglbd`$$
+DROP TRIGGER IF EXISTS `surlogi1_sglbd`.`INSERTAR_FL` $$
+USE `surlogi1_sglbd`$$
 
 
 
