@@ -425,7 +425,6 @@
 			$this->txtNumeroProforma = new QTextBox($this->objParentObject, $strControlId);
 			$this->txtNumeroProforma->Name = QApplication::Translate('Numero Proforma');
 			$this->txtNumeroProforma->Text = $this->objLicencia->NumeroProforma;
-			$this->txtNumeroProforma->Required = true;
 			$this->txtNumeroProforma->MaxLength = Licencia::NumeroProformaMaxLength;
 			return $this->txtNumeroProforma;
 		}
@@ -439,7 +438,6 @@
 			$this->lblNumeroProforma = new QLabel($this->objParentObject, $strControlId);
 			$this->lblNumeroProforma->Name = QApplication::Translate('Numero Proforma');
 			$this->lblNumeroProforma->Text = $this->objLicencia->NumeroProforma;
-			$this->lblNumeroProforma->Required = true;
 			return $this->lblNumeroProforma;
 		}
 

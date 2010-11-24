@@ -5,15 +5,15 @@
 	// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 	// code re-generations do not overwrite your changes.
 
-	$strPageTitle = QApplication::Translate('Producto del C.N.P.') . ' - ' . $this->mctListaProducto->TitleVerb;
-	require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+	$strPageTitle = QApplication::Translate('ListaProducto') . ' - ' . $this->mctListaProducto->TitleVerb;
+	require(__CONFIGURATION__ . '/header.inc.php');
 ?>
 
 	<?php $this->RenderBegin() ?>
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctListaProducto->TitleVerb); ?></h2>
-		<h1><?php _t('Producto del C.N.P.')?></h1>
+		<h1><?php _t('ListaProducto')?></h1>
 	</div>
 
 	<div id="formControls">

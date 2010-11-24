@@ -28,6 +28,7 @@
 		public $txtDuracion;
 		public $txtIcono;
 		public $lstPROCESOIdPROCESOObject;
+		public $lstFASEIdFASEObject;
 
 		// Other ListBoxes (if applicable) via Unique ReverseReferences and ManyToMany References
 
@@ -71,6 +72,7 @@
 			$this->txtDuracion = $this->mctFase->txtDuracion_Create();
 			$this->txtIcono = $this->mctFase->txtIcono_Create();
 			$this->lstPROCESOIdPROCESOObject = $this->mctFase->lstPROCESOIdPROCESOObject_Create();
+			$this->lstFASEIdFASEObject = $this->mctFase->lstFASEIdFASEObject_Create();
 
 			// Create Buttons and Actions on this Form
 			$this->btnSave = new QButton($this);

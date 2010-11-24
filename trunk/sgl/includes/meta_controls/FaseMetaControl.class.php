@@ -1,4 +1,5 @@
 <?php
+
 require(__META_CONTROLS_GEN__ . '/FaseMetaControlGen.class.php');
 
 /**
@@ -19,15 +20,16 @@ require(__META_CONTROLS_GEN__ . '/FaseMetaControlGen.class.php');
  * @subpackage MetaControls
  */
 class FaseMetaControl extends FaseMetaControlGen {
+
     // Initialize fields with default values from database definition
     /*
-		public function __construct($objParentObject, Fase $objFase) {
-			parent::__construct($objParentObject,$objFase);
-			if ( !$this->blnEditMode ){
-				$this->objFase->Initialize();
-			}
-		}
-    */
+      public function __construct($objParentObject, Fase $objFase) {
+      parent::__construct($objParentObject,$objFase);
+      if ( !$this->blnEditMode ){
+      $this->objFase->Initialize();
+      }
+      }
+     */
     public function lstPROCESOIdPROCESOObject_Create($strControlId = null) {
         $this->lstPROCESOIdPROCESOObject = new QListBox($this->objParentObject, $strControlId);
         $this->lstPROCESOIdPROCESOObject->Name = QApplication::Translate('Proceso');
@@ -35,13 +37,29 @@ class FaseMetaControl extends FaseMetaControlGen {
         if (!$this->blnEditMode)
             $this->lstPROCESOIdPROCESOObject->AddItem(QApplication::Translate('- Select One -'), null);
         $objPROCESOIdPROCESOObjectArray = Proceso::LoadAll();
-        if ($objPROCESOIdPROCESOObjectArray) foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
+        if ($objPROCESOIdPROCESOObjectArray)
+            foreach ($objPROCESOIdPROCESOObjectArray as $objPROCESOIdPROCESOObject) {
                 $objListItem = new QListItem($objPROCESOIdPROCESOObject->__toString(), $objPROCESOIdPROCESOObject->IdPROCESO);
                 if (($this->objFase->PROCESOIdPROCESOObject) && ($this->objFase->PROCESOIdPROCESOObject->IdPROCESO == $objPROCESOIdPROCESOObject->IdPROCESO))
                     $objListItem->Selected = true;
                 $this->lstPROCESOIdPROCESOObject->AddItem($objListItem);
             }
         return $this->lstPROCESOIdPROCESOObject;
+    }
+
+    public function lstFASEIdFASEObject_Create($strControlId = null) {
+        $this->lstFASEIdFASEObject = new QListBox($this->objParentObject, $strControlId);
+        $this->lstFASEIdFASEObject->Name = QApplication::Translate('Fase anterior');
+        $this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
+        $objFASEIdFASEObjectArray = Fase::LoadAll();
+        if ($objFASEIdFASEObjectArray)
+            foreach ($objFASEIdFASEObjectArray as $objFASEIdFASEObject) {
+                $objListItem = new QListItem($objFASEIdFASEObject->__toString(), $objFASEIdFASEObject->IdFASE);
+                if (($this->objFase->FASEIdFASEObject) && ($this->objFase->FASEIdFASEObject->IdFASE == $objFASEIdFASEObject->IdFASE))
+                    $objListItem->Selected = true;
+                $this->lstFASEIdFASEObject->AddItem($objListItem);
+            }
+        return $this->lstFASEIdFASEObject;
     }
 
     public function txtDuracion_Create($strControlId = null) {
@@ -51,14 +69,12 @@ class FaseMetaControl extends FaseMetaControlGen {
         return $this->txtDuracion;
     }
 
-
-
     public function txtIcono_Create($strControlId = null) {
 
         $this->txtIcono = new QFileAsset($this->objParentObject, $strControlId);
         $this->txtIcono->TemporaryUploadPath = __ARCHIVE_DIRECTORY__;
         if ($this->objFase->Icono) {
-            $this->txtIcono->SetFile(__ARCHIVE_DIRECTORY__.$this->objFase->Icono);
+            $this->txtIcono->SetFile(__ARCHIVE_DIRECTORY__ . $this->objFase->Icono);
         }
         $this->txtIcono->ClickToView = true;
         $this->txtIcono->CssClass = 'file_asset';
@@ -68,6 +84,6 @@ class FaseMetaControl extends FaseMetaControlGen {
         return $this->txtIcono;
     }
 
-
 }
+
 ?>

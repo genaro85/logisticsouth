@@ -26,6 +26,8 @@
 	 * @property-read QLabel $IconoLabel
 	 * @property QListBox $PROCESOIdPROCESOControl
 	 * @property-read QLabel $PROCESOIdPROCESOLabel
+	 * @property QListBox $FASEIdFASEControl
+	 * @property-read QLabel $FASEIdFASELabel
 	 * @property-read string $TitleVerb a verb indicating whether or not this is being edited or created
 	 * @property-read boolean $EditMode a boolean indicating whether or not this is being edited or created
 	 */
@@ -67,12 +69,17 @@
 		 * @var QListBox intPROCESOIdPROCESO
 		 */
 		protected $lstPROCESOIdPROCESOObject;
+		/**
+		 * @var QListBox intFASEIdFASE
+		 */
+		protected $lstFASEIdFASEObject;
 
 		// Controls that allow the viewing of Fase's individual data fields
 		protected $lblNombre;
 		protected $lblDuracion;
 		protected $lblIcono;
 		protected $lblPROCESOIdPROCESO;
+		protected $lblFASEIdFASE;
 
 		// QListBox Controls (if applicable) to edit Unique ReverseReferences and ManyToMany References
 
@@ -248,7 +255,6 @@
 			$this->txtIcono = new QTextBox($this->objParentObject, $strControlId);
 			$this->txtIcono->Name = QApplication::Translate('Icono');
 			$this->txtIcono->Text = $this->objFase->Icono;
-			$this->txtIcono->Required = true;
 			$this->txtIcono->TextMode = QTextMode::MultiLine;
 			return $this->txtIcono;
 		}
@@ -262,7 +268,6 @@
 			$this->lblIcono = new QLabel($this->objParentObject, $strControlId);
 			$this->lblIcono->Name = QApplication::Translate('Icono');
 			$this->lblIcono->Text = $this->objFase->Icono;
-			$this->lblIcono->Required = true;
 			return $this->lblIcono;
 		}
 
@@ -298,6 +303,37 @@
 			$this->lblPROCESOIdPROCESO->Text = ($this->objFase->PROCESOIdPROCESOObject) ? $this->objFase->PROCESOIdPROCESOObject->__toString() : null;
 			$this->lblPROCESOIdPROCESO->Required = true;
 			return $this->lblPROCESOIdPROCESO;
+		}
+
+		/**
+		 * Create and setup QListBox lstFASEIdFASEObject
+		 * @param string $strControlId optional ControlId to use
+		 * @return QListBox
+		 */
+		public function lstFASEIdFASEObject_Create($strControlId = null) {
+			$this->lstFASEIdFASEObject = new QListBox($this->objParentObject, $strControlId);
+			$this->lstFASEIdFASEObject->Name = QApplication::Translate('F A S E Id F A S E Object');
+			$this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
+			$objFASEIdFASEObjectArray = Fase::LoadAll();
+			if ($objFASEIdFASEObjectArray) foreach ($objFASEIdFASEObjectArray as $objFASEIdFASEObject) {
+				$objListItem = new QListItem($objFASEIdFASEObject->__toString(), $objFASEIdFASEObject->IdFASE);
+				if (($this->objFase->FASEIdFASEObject) && ($this->objFase->FASEIdFASEObject->IdFASE == $objFASEIdFASEObject->IdFASE))
+					$objListItem->Selected = true;
+				$this->lstFASEIdFASEObject->AddItem($objListItem);
+			}
+			return $this->lstFASEIdFASEObject;
+		}
+
+		/**
+		 * Create and setup QLabel lblFASEIdFASE
+		 * @param string $strControlId optional ControlId to use
+		 * @return QLabel
+		 */
+		public function lblFASEIdFASE_Create($strControlId = null) {
+			$this->lblFASEIdFASE = new QLabel($this->objParentObject, $strControlId);
+			$this->lblFASEIdFASE->Name = QApplication::Translate('F A S E Id F A S E Object');
+			$this->lblFASEIdFASE->Text = ($this->objFase->FASEIdFASEObject) ? $this->objFase->FASEIdFASEObject->__toString() : null;
+			return $this->lblFASEIdFASE;
 		}
 
 
@@ -336,6 +372,19 @@
 			}
 			if ($this->lblPROCESOIdPROCESO) $this->lblPROCESOIdPROCESO->Text = ($this->objFase->PROCESOIdPROCESOObject) ? $this->objFase->PROCESOIdPROCESOObject->__toString() : null;
 
+			if ($this->lstFASEIdFASEObject) {
+					$this->lstFASEIdFASEObject->RemoveAllItems();
+				$this->lstFASEIdFASEObject->AddItem(QApplication::Translate('- Select One -'), null);
+				$objFASEIdFASEObjectArray = Fase::LoadAll();
+				if ($objFASEIdFASEObjectArray) foreach ($objFASEIdFASEObjectArray as $objFASEIdFASEObject) {
+					$objListItem = new QListItem($objFASEIdFASEObject->__toString(), $objFASEIdFASEObject->IdFASE);
+					if (($this->objFase->FASEIdFASEObject) && ($this->objFase->FASEIdFASEObject->IdFASE == $objFASEIdFASEObject->IdFASE))
+						$objListItem->Selected = true;
+					$this->lstFASEIdFASEObject->AddItem($objListItem);
+				}
+			}
+			if ($this->lblFASEIdFASE) $this->lblFASEIdFASE->Text = ($this->objFase->FASEIdFASEObject) ? $this->objFase->FASEIdFASEObject->__toString() : null;
+
 		}
 
 
@@ -363,6 +412,7 @@
 				if ($this->txtDuracion) $this->objFase->Duracion = $this->txtDuracion->Text;
 				if ($this->txtIcono) $this->objFase->Icono = $this->txtIcono->Text;
 				if ($this->lstPROCESOIdPROCESOObject) $this->objFase->PROCESOIdPROCESO = $this->lstPROCESOIdPROCESOObject->SelectedValue;
+				if ($this->lstFASEIdFASEObject) $this->objFase->FASEIdFASE = $this->lstFASEIdFASEObject->SelectedValue;
 
 				// Update any UniqueReverseReferences (if any) for controls that have been created for it
 
@@ -435,6 +485,12 @@
 				case 'PROCESOIdPROCESOLabel':
 					if (!$this->lblPROCESOIdPROCESO) return $this->lblPROCESOIdPROCESO_Create();
 					return $this->lblPROCESOIdPROCESO;
+				case 'FASEIdFASEControl':
+					if (!$this->lstFASEIdFASEObject) return $this->lstFASEIdFASEObject_Create();
+					return $this->lstFASEIdFASEObject;
+				case 'FASEIdFASELabel':
+					if (!$this->lblFASEIdFASE) return $this->lblFASEIdFASE_Create();
+					return $this->lblFASEIdFASE;
 				default:
 					try {
 						return parent::__get($strName);
@@ -467,6 +523,8 @@
 						return ($this->txtIcono = QType::Cast($mixValue, 'QControl'));
 					case 'PROCESOIdPROCESOControl':
 						return ($this->lstPROCESOIdPROCESOObject = QType::Cast($mixValue, 'QControl'));
+					case 'FASEIdFASEControl':
+						return ($this->lstFASEIdFASEObject = QType::Cast($mixValue, 'QControl'));
 					default:
 						return parent::__set($strName, $mixValue);
 				}

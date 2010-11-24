@@ -6,7 +6,7 @@
 	// code re-generations do not overwrite your changes.
 
 	$strPageTitle = QApplication::Translate('Documento') . ' - ' . $this->mctDocumento->TitleVerb;
-	require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+	require(__CONFIGURATION__ . '/header.inc.php');
 ?>
 
 	<?php $this->RenderBegin() ?>
@@ -17,15 +17,15 @@
 	</div>
 
 	<div id="formControls">
-		<?php //$this->lblIdDOCUMENTO->RenderWithName(); ?>
+		<?php $this->lblIdDOCUMENTO->RenderWithName(); ?>
 
 		<?php $this->txtNombre->RenderWithName(); ?>
 
 		<?php $this->txtDuracion->RenderWithName(); ?>
 
-		<?php //$this->lstDocumentosFase->RenderWithName(); ?>
+		<?php $this->lstDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
 
-                <?php $this->lstDOCUMENTOIdDOCUMENTOObject->RenderWithName(); ?>
+		<?php $this->lstDocumentosFase->RenderWithName(); ?>
 
 	</div>
 

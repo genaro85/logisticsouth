@@ -15,6 +15,8 @@
 
 		<?php $_CONTROL->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
 
+		<?php $_CONTROL->lstFASEIdFASEObject->RenderWithName(); ?>
+
 	</div>
 
 	<div id="formActions">

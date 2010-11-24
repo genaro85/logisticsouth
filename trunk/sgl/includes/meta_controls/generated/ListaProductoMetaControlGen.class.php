@@ -287,7 +287,6 @@
 			$this->txtPRODUCTOVolumen = new QIntegerTextBox($this->objParentObject, $strControlId);
 			$this->txtPRODUCTOVolumen->Name = QApplication::Translate('P R O D U C T O Volumen');
 			$this->txtPRODUCTOVolumen->Text = $this->objListaProducto->PRODUCTOVolumen;
-			$this->txtPRODUCTOVolumen->Required = true;
 			return $this->txtPRODUCTOVolumen;
 		}
 
@@ -301,7 +300,6 @@
 			$this->lblPRODUCTOVolumen = new QLabel($this->objParentObject, $strControlId);
 			$this->lblPRODUCTOVolumen->Name = QApplication::Translate('P R O D U C T O Volumen');
 			$this->lblPRODUCTOVolumen->Text = $this->objListaProducto->PRODUCTOVolumen;
-			$this->lblPRODUCTOVolumen->Required = true;
 			$this->lblPRODUCTOVolumen->Format = $strFormat;
 			return $this->lblPRODUCTOVolumen;
 		}
