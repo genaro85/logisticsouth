@@ -18,7 +18,7 @@
 	 * @property integer $LICENCIAIdLICENCIA the value for intLICENCIAIdLICENCIA (PK)
 	 * @property integer $PRODUCTOIdPRODUCTO the value for intPRODUCTOIdPRODUCTO (PK)
 	 * @property integer $PRODUCTOCantidad the value for intPRODUCTOCantidad (Not Null)
-	 * @property integer $PRODUCTOVolumen the value for intPRODUCTOVolumen (Not Null)
+	 * @property integer $PRODUCTOVolumen the value for intPRODUCTOVolumen 
 	 * @property string $PRODUCTOUnidad the value for strPRODUCTOUnidad (Not Null)
 	 * @property string $PRODUCTOCostoUnitario the value for strPRODUCTOCostoUnitario 
 	 * @property Licencia $LICENCIAIdLICENCIAObject the value for the Licencia object referenced by intLICENCIAIdLICENCIA (PK)
@@ -832,7 +832,7 @@
 
 				case 'PRODUCTOVolumen':
 					/**
-					 * Gets the value for intPRODUCTOVolumen (Not Null)
+					 * Gets the value for intPRODUCTOVolumen 
 					 * @return integer
 					 */
 					return $this->intPRODUCTOVolumen;
@@ -959,7 +959,7 @@
 
 				case 'PRODUCTOVolumen':
 					/**
-					 * Sets the value for intPRODUCTOVolumen (Not Null)
+					 * Sets the value for intPRODUCTOVolumen 
 					 * @param integer $mixValue
 					 * @return integer
 					 */

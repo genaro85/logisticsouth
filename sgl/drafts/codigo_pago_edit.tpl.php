@@ -6,7 +6,7 @@
 	// code re-generations do not overwrite your changes.
 
 	$strPageTitle = QApplication::Translate('CodigoPago') . ' - ' . $this->mctCodigoPago->TitleVerb;
-	require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+	require(__CONFIGURATION__ . '/header.inc.php');
 ?>
 
 	<?php $this->RenderBegin() ?>

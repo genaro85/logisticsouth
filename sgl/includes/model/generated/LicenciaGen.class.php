@@ -21,7 +21,7 @@
 	 * @property QDateTime $FechaInicio the value for dttFechaInicio (Not Null)
 	 * @property QDateTime $FechaFin the value for dttFechaFin 
 	 * @property QDateTime $FechaFinEstimada the value for dttFechaFinEstimada 
-	 * @property string $NumeroProforma the value for strNumeroProforma (Not Null)
+	 * @property string $NumeroProforma the value for strNumeroProforma 
 	 * @property string $NumeroCNP the value for strNumeroCNP 
 	 * @property QDateTime $VencimientoCNP the value for dttVencimientoCNP 
 	 * @property string $Status the value for strStatus (Not Null)
@@ -379,8 +379,6 @@
 				$objOptionalClauses
 			);
 		}
-                
-
 
 		/**
 		 * Load all Licencias
@@ -1338,7 +1336,7 @@
 
 				case 'NumeroProforma':
 					/**
-					 * Gets the value for strNumeroProforma (Not Null)
+					 * Gets the value for strNumeroProforma 
 					 * @return string
 					 */
 					return $this->strNumeroProforma;
@@ -1643,7 +1641,7 @@
 
 				case 'NumeroProforma':
 					/**
-					 * Sets the value for strNumeroProforma (Not Null)
+					 * Sets the value for strNumeroProforma 
 					 * @param string $mixValue
 					 * @return string
 					 */

@@ -5,19 +5,19 @@
 	// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 	// code re-generations do not overwrite your changes.
 
-	$strPageTitle = QApplication::Translate('Tipo de Pago') . ' - ' . $this->mctTipoDePago->TitleVerb;
-	require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+	$strPageTitle = QApplication::Translate('TipoDePago') . ' - ' . $this->mctTipoDePago->TitleVerb;
+	require(__CONFIGURATION__ . '/header.inc.php');
 ?>
 
 	<?php $this->RenderBegin() ?>
 
 	<div id="titleBar">
 		<h2><?php _p($this->mctTipoDePago->TitleVerb); ?></h2>
-		<h1><?php _t('Tipo de Pago')?></h1>
+		<h1><?php _t('TipoDePago')?></h1>
 	</div>
 
 	<div id="formControls">
-		<?php //$this->lblIdTIPODEPAGO->RenderWithName(); ?>
+		<?php $this->lblIdTIPODEPAGO->RenderWithName(); ?>
 
 		<?php $this->txtNombre->RenderWithName(); ?>
 

@@ -116,6 +116,7 @@ class ListaProductoMetaControl extends ListaProductoMetaControlGen {
                     $objListItem->Selected = true;
                 $this->txtPRODUCTOUnidad->AddItem($objListItem);
             }
+            $this->txtPRODUCTOUnidad->Required=true;
         return $this->txtPRODUCTOUnidad;
     }
 

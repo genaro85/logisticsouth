@@ -1,7 +1,6 @@
 <?php
 // This is the HTML template include file (.tpl.php) for the fase_edit.php
 // form DRAFT page.  Remember that this is a DRAFT.  It is MEANT to be altered/modified.
-
 // Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
 // code re-generations do not overwrite your changes.
 
@@ -13,22 +12,24 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 <div id="titleBar">
     <h2><?php _p($this->mctFase->TitleVerb); ?></h2>
-    <h1><?php _t('Fase')?></h1>
+    <h1><?php _t('Fase') ?></h1>
 </div>
 
 <div id="formControls">
-    <?php //$this->lblIdFASE->RenderWithName(); ?>
+<?php //$this->lblIdFASE->RenderWithName();  ?>
 
-    <?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
+<?php $this->lstPROCESOIdPROCESOObject->RenderWithName(); ?>
     <div style="margin-left: 450px;">
         <a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/proceso_edit.php"><?php _t('Create a New'); ?> <?php _t('Proceso');?></a>
     </div>
 
-    <?php $this->txtNombre->RenderWithName(); ?>
+<?php $this->lstFASEIdFASEObject->RenderWithName(); ?>
 
-    <?php $this->txtDuracion->RenderWithName(); ?>
+<?php $this->txtNombre->RenderWithName(); ?>
 
-    <?php $this->txtIcono->RenderWithName(); ?>
+<?php $this->txtDuracion->RenderWithName(); ?>
+
+<?php $this->txtIcono->RenderWithName(); ?>
 
 
 
@@ -42,4 +43,4 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 <?php $this->RenderEnd() ?>	
 
-<?php require(__CONFIGURATION__ .'/footer.inc.php'); ?>
+<?php require(__CONFIGURATION__ . '/footer.inc.php'); ?>

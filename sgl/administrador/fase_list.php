@@ -51,6 +51,7 @@ class FaseListForm extends FaseListFormBase {
         // can traverse down QQN::FASE() to display fields that are down the hierarchy)
         //$this->dtgFases->MetaAddColumn('IdFASE');
         $this->dtgFases->MetaAddColumn(QQN::Fase()->PROCESOIdPROCESOObject->Nombre, 'Name=Proceso');
+        $this->dtgFases->MetaAddColumn(QQN::Fase()->FASEIdFASEObject->Nombre, 'Name=Fase anterior');
         $this->dtgFases->MetaAddColumn('Nombre');
         $this->dtgFases->MetaAddColumn('Duracion');
         $this->dtgFases->MetaAddColumn('Icono',Array('HtmlEntities'=>'False','Name'=>'Icono'));

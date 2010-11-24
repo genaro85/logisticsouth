@@ -1,46 +1,44 @@
 <?php
-// This is the HTML template include file (.tpl.php) for the importacion_edit.php
-// form DRAFT page.  Remember that this is a DRAFT.  It is MEANT to be altered/modified.
+	// This is the HTML template include file (.tpl.php) for the importacion_edit.php
+	// form DRAFT page.  Remember that this is a DRAFT.  It is MEANT to be altered/modified.
 
-// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
-// code re-generations do not overwrite your changes.
+	// Be sure to move this out of the generated/ subdirectory before modifying to ensure that subsequent 
+	// code re-generations do not overwrite your changes.
 
-$strPageTitle = QApplication::Translate('Importacion') . ' - ' . $this->mctImportacion->TitleVerb;
-require(__CONFIGURATION__ . '/headerAdmin.inc.php');
+	$strPageTitle = QApplication::Translate('Importacion') . ' - ' . $this->mctImportacion->TitleVerb;
+	require(__CONFIGURATION__ . '/header.inc.php');
 ?>
 
-<?php $this->RenderBegin() ?>
+	<?php $this->RenderBegin() ?>
 
-<div id="titleBar">
-    <h2><?php _p($this->mctImportacion->TitleVerb); ?></h2>
-    <h1><?php _t('Importacion')?></h1>
-</div>
+	<div id="titleBar">
+		<h2><?php _p($this->mctImportacion->TitleVerb); ?></h2>
+		<h1><?php _t('Importacion')?></h1>
+	</div>
 
-<div id="formControls">
-    <?php $this->lstTRANSPORTEIdTRANSPORTEObject->RenderWithName(); ?>
+	<div id="formControls">
+		<?php $this->lstTRANSPORTEIdTRANSPORTEObject->RenderWithName(); ?>
 
-    <?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
+		<?php $this->lstLICENCIAIdLICENCIAObject->RenderWithName(); ?>
 
-    <?php $this->calFechaDeSalida->RenderWithName(); ?>
-    <div style="margin-left: 415px;"><?php $this->calCalendarIni->Render(); ?></div>
+		<?php $this->calFechaDeSalida->RenderWithName(); ?>
 
-    <?php $this->calFechaLlegada->RenderWithName(); ?>
-    <div style="margin-left: 415px;"><?php $this->calCalendarFin->Render(); ?></div>
+		<?php $this->calFechaLlegada->RenderWithName(); ?>
 
-    <?php $this->txtTipo->RenderWithName(); ?>
+		<?php $this->txtTipo->RenderWithName(); ?>
 
-    <?php $this->lstPAISOrigenObject->RenderWithName(); ?>
+		<?php $this->lstPAISOrigenObject->RenderWithName(); ?>
 
-    <?php $this->lstPAISDestinoObject->RenderWithName(); ?>
+		<?php $this->lstPAISDestinoObject->RenderWithName(); ?>
 
-</div>
+	</div>
 
-<div id="formActions">
-    <div id="save"><?php $this->btnSave->Render(); ?></div>
-    <div id="cancel"><?php $this->btnCancel->Render(); ?></div>
-    <div id="delete"><?php $this->btnDelete->Render(); ?></div>
-</div>
+	<div id="formActions">
+		<div id="save"><?php $this->btnSave->Render(); ?></div>
+		<div id="cancel"><?php $this->btnCancel->Render(); ?></div>
+		<div id="delete"><?php $this->btnDelete->Render(); ?></div>
+	</div>
 
-<?php $this->RenderEnd() ?>	
+	<?php $this->RenderEnd() ?>	
 
 <?php require(__CONFIGURATION__ .'/footer.inc.php'); ?>

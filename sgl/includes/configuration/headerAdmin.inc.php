@@ -29,8 +29,8 @@
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/empresa_list.php" target="_self">Empresa</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/lista_producto_list.php" target="_self">Lista de Producto</a></li>
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/producto_list.php" target="_self">Producto</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/codigo_pago_list.php" target="_self">Código Pago</a></li>
-                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/tipo_de_pago_list.php" target="_self">Tipo de Pago</a></li>
+                    <!--<li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/codigo_pago_list.php" target="_self">Código Pago</a></li>
+                    <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/tipo_de_pago_list.php" target="_self">Tipo de Pago</a></li>-->
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/importacion_list.php" target="_self">Importacion</a></li>
                 </ul>
             </li>
