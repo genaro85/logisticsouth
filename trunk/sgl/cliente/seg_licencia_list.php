@@ -52,8 +52,6 @@ class ListaProductoListForm extends ListaProductoListFormBase {
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->NumeroProforma, 'Name=No Proforma');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->FechaInicio, 'Name=Fecha Inicio');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->FechaFin, 'Name=Fecha Fin');
-        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Nombre, 'Name=Empresa');
-        $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESAObject->Rif, 'Name=R.I.F.');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->Descripcion, 'Name=Producto');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->PRODUCTOIdPRODUCTOObject->CodigoArancelario, 'Name=Código Arancelario');
         $this->dtgListaProductos->MetaAddColumn(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->PROVEEDORIdPROVEEDORObject->PAISIdPAISObject->Nombre, 'Name=País Origen');

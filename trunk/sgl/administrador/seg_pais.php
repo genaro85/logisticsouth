@@ -10,7 +10,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 $IdPAIS = QApplication::PathInfo(0);
 $objPais = Pais::Load($IdPAIS);
 
-// Licencias Otorgadas
+// Licencias Nacionalizadas
 $sql = 'SELECT a.idPAIS, count(l.idLICENCIA) LicOtorgadas, Month(l.fechaInicio) MesOtorgadas
         FROM licencia l
         JOIN Proveedor b ON l.PROVEEDOR_idPROVEEDOR = b.idPROVEEDOR

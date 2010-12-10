@@ -241,8 +241,8 @@ span.datetimepicker select.second { width: 45px; margin-left: 2px; }
 
 /* QDataGrid - TABLA*/
 table.datagrid{
-    border-top:1px solid #e5eff8;
-    border-right:1px solid #e5eff8;
+    border-top:1px solid #999999;
+    border-right:1px solid #999999;
     margin:1em auto;
     border-collapse:collapse;
 
@@ -261,8 +261,8 @@ table.datagrid .column1	{
 }
 table.datagrid td {
     color:black;
-    border-bottom:1px solid #e5eff8;
-    border-left:1px solid #e5eff8;
+    border-bottom:1px solid #999999;
+    border-left:1px solid #999999;
     padding:.3em 1em;
     text-align:center;
 }
@@ -270,16 +270,14 @@ table.datagrid th {
     font-weight:normal;
     color: #678197;
     text-align:left;
-    border-bottom: 1px solid #e5eff8;
-    border-left:1px solid #e5eff8;
+    border-bottom: 1px solid #999999;
+    border-left:1px solid #999999;
     padding:.3em 1em;
 }
 
 table.datagrid th a{
     color:white;
     text-align:left;
-    border-bottom: 1px solid #e5eff8;
-    border-left:1px solid #e5eff8;
     padding:.3em 1em;
 
 }
@@ -1148,6 +1146,7 @@ tr.tablafase {
 
 /*tr.tablafecha {background-color:green;}*/
 tr.tablafecha {
+    color:white;
     background: #3b3b3c url("gradient-bg.png") repeat-x top;
     -o-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
@@ -1238,6 +1237,7 @@ thead.seglic td{border: 1px solid white;}
     padding: 4px;
     border: 1px solid #FFF;
     border-radius: 10px;
+    color: white;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     background:-webkit-gradient(

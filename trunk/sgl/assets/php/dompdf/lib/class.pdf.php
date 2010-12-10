@@ -2077,7 +2077,7 @@ class  Cpdf {
 
     $xref = array();
 
-    $content = "%PDF-1.3\n%âãÏÓ\n";
+    $content = "%PDF-1.3\n%ï¿½ï¿½ï¿½ï¿½\n";
 
     //  $content="%PDF-1.3\n";
     $pos = strlen($content);
@@ -2531,11 +2531,11 @@ class  Cpdf {
           // simple utility to convert them from pfa to pfb.
           $tmp =  get_magic_quotes_runtime();
 
-          set_magic_quotes_runtime(0);
+          //set_magic_quotes_runtime(0);
 
           $data =  file_get_contents($fbfile);
 
-          set_magic_quotes_runtime($tmp);
+          //set_magic_quotes_runtime($tmp);
 
 
           // create the font descriptor
@@ -4329,7 +4329,7 @@ class  Cpdf {
 
     $tmp =  get_magic_quotes_runtime();
 
-    set_magic_quotes_runtime(0);
+    //set_magic_quotes_runtime(0);
 
     if  ( ($data =  file_get_contents($file)) ===  false) {
 
@@ -4345,7 +4345,7 @@ class  Cpdf {
       $errormsg =  'trouble opening file: '.$file;
     }
 
-    set_magic_quotes_runtime($tmp);
+    //set_magic_quotes_runtime($tmp);
 
 
     if  (!$error) {

@@ -7,7 +7,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
 
 // BY PAM
     echo '<p class="create">
-            <a href="../Reporte_3.php">Reporte</a>
+            Reporte
           </p>';
 
 $idLicencia = QApplication::PathInfo(0);
@@ -122,7 +122,7 @@ if ($objLicencia) {
     echo '</tr>';
 
     echo '<tr class="tablafecha">';
-    echo '<td class="th1">Fechas</td>';
+    echo '<td class="th1" style="color:black">Fechas</td>';
     foreach ($FaseLicArray as $FaseLicObj) {
 
         if ($FaseLicObj->FASEFechaInicio)
@@ -135,7 +135,7 @@ if ($objLicencia) {
     echo '</tr>';
 
     echo '<tr class="tablafecha">';
-    echo '<td class="th1">Tiempos</td>';
+    echo '<td class="th1" style="color:black">Tiempos</td>';
     foreach ($FaseLicArray as $FaseLicObj) {
 
 
@@ -161,7 +161,7 @@ if ($objLicencia) {
     for ($i = 0; $i < $countDocs; $i++) {
         echo '<tr class="tablafecha">';
         if ($i == 0)
-            echo '<td class="th1">Documentos</td>';
+            echo '<td class="th1" style="color:black">Documentos</td>';
         else
             echo '<td class="th1"></td>';
         foreach ($FaseLicArray as $FaseLicObj) {
