@@ -62,7 +62,7 @@ class LicenciaListForm extends LicenciaListFormBase {
         $this->dtgLicencias->MetaAddColumn('VencimientoCNP','Name=Prorroga C.N.P');
         $this->dtgLicencias->MetaAddColumn('Status','Name=Estado');
         $this->dtgLicencias->MetaAddColumn('FormaPago','Name=Forma de Pago');
-        $this->dtgLicencias->MetaAddColumn('Tipo', 'Name=Tipo');
+        $this->dtgLicencias->MetaAddColumn('Tipo', 'Name=Registro Sanitario');
         $this->dtgLicencias->MetaAddColumn('Flete', 'Name=Flete (US $)');
         $this->dtgLicencias->MetaAddColumn('Seguro', 'Name=Seguro (US $)');
 

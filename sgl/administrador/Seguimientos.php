@@ -14,6 +14,7 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
     <div id="SegProductoPan">
         <p class="ver"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_producto.php">ver</a></p>
     </div>
+        <div id="divisor"></div>
     <div id="SegPaisesPan">
         <p class="ver"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_pais_list.php">ver</a></p>
     </div>
