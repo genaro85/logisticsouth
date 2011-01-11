@@ -31,6 +31,16 @@ class EmpleadoEditForm extends EmpleadoEditFormBase {
         QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/empleado_list.php');
     }
 
+    protected function RedirectToResponsablePage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/responsable_edit.php');
+    }
+
+    protected function btnSave_Click($strFormId, $strControlId, $strParameter) {
+        // Delegate "Save" processing to the EmpleadoMetaControl
+        $this->mctEmpleado->SaveEmpleado();
+        $this->RedirectToResponsablePage();
+    }
+
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using

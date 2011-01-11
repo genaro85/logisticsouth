@@ -1,4 +1,5 @@
 <?php
+
 // Load the QCubed Development Framework
 require('../qcubed.inc.php');
 
@@ -21,15 +22,25 @@ require(__FORMBASE_CLASSES__ . '/ProveedorEditFormBase.class.php');
  * @subpackage Drafts
  */
 class ProveedorEditForm extends ProveedorEditFormBase {
+
     // Override Form Event Handlers as Needed
 //		protected function Form_Run() {}
-
 //		protected function Form_Load() {}
-
 //		protected function Form_Create() {}
     protected function RedirectToListPage() {
         QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/proveedor_list.php');
     }
+
+    protected function RedirectToProveedorPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/Proveedor.php');
+    }
+
+    protected function btnSave_Click($strFormId, $strControlId, $strParameter) {
+        // Delegate "Save" processing to the ProveedorMetaControl
+        $this->mctProveedor->SaveProveedor();
+        $this->RedirectToProveedorPage();
+    }
+
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using
