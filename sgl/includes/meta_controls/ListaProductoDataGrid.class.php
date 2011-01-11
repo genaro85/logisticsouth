@@ -55,6 +55,9 @@ class ListaProductoDataGrid extends ListaProductoDataGridGen {
                 $conditions = QQ::AndCondition(QQ::Equal(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->EMPRESAIdEMPRESA,$objUser->IdEMPRESA), $this->Conditions);
                 $this->DataSource = ListaProducto::QueryArray($conditions, $objClauses);
             }
+            else if ($objUser instanceof Administrador) {
+                $this->DataSource = ListaProducto::QueryArray($objConditions, $objClauses);
+            }
             else if ($objUser instanceof Empleado) {
                 $conditions = QQ::AndCondition(QQ::Equal(QQN::ListaProducto()->LICENCIAIdLICENCIAObject->ResponsableAsLICENCIAIdLICENCIA->EMPLEADOIdEMPLEADO,$objUser->IdEMPLEADO), $this->Conditions);
                 $this->DataSource = ListaProducto::QueryArray($conditions, $objClauses);
