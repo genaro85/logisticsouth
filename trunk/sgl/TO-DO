@@ -1,0 +1,2 @@
+Cuando elimino una fase se debe eliminar todo los documentos de esa fase (delete on cascade)
+navegabilidad de la pestaña C.N.P

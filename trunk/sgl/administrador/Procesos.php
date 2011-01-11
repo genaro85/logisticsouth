@@ -18,8 +18,8 @@ require(__CONFIGURATION__ . '/headerAdmin.inc.php');
     </div>
     <div id="divisor"></div>
     <div id="DocumentoFasePan">
-        <p class="ver"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/documento_fase_list.php">ver</a></p>
-        <p class="nuevo"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/documento_edit_list.php">nuevo</a></p>
+        <p class="ver"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/documentos_fase_list.php">ver</a></p>
+        <p class="nuevo"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/documentos_fase_edit.php">nuevo</a></p>
     </div>
     <div id="divisor"></div>
 </div>

@@ -60,18 +60,18 @@ class LicenciaEditForm extends LicenciaEditFormBase {
 
 
         $this->calCalendarIni = new QCalendar($this, $this->calFechaInicio);       //Inicializo el QCalendar
-        $this->calFechaInicio->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaInicio));		//Creo el evento cuando haga clic sobre calCotFecha
+        $this->calFechaInicio->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaInicio));  //Creo el evento cuando haga clic sobre calCotFecha
         $this->calFechaInicio->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendarIni));
         $this->calFechaInicio->AddAction(new QChangeEvent(), new QAjaxAction('Date_Change'));
 
 
         $this->calCalendarFin = new QCalendar($this, $this->calFechaFin);       //Inicializo el QCalendar
-        $this->calFechaFin->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaFin));		//Creo el evento cuando haga clic sobre calCotFecha
+        $this->calFechaFin->AddAction(new QFocusEvent(), new QBlurControlAction($this->calFechaFin));  //Creo el evento cuando haga clic sobre calCotFecha
         $this->calFechaFin->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendarFin));
 
 
         $this->calCalendarCNP = new QCalendar($this, $this->calVencimientoCNP);       //Inicializo el QCalendar
-        $this->calVencimientoCNP->AddAction(new QFocusEvent(), new QBlurControlAction($this->calVencimientoCNP));		//Creo el evento cuando haga clic sobre calCotFecha
+        $this->calVencimientoCNP->AddAction(new QFocusEvent(), new QBlurControlAction($this->calVencimientoCNP));  //Creo el evento cuando haga clic sobre calCotFecha
         $this->calVencimientoCNP->AddAction(new QClickEvent(), new QShowCalendarAction($this->calCalendarCNP));
 
 
@@ -99,12 +99,11 @@ class LicenciaEditForm extends LicenciaEditFormBase {
 
         //$newdate = strtotime ( '+180 day' , strtotime ( $date ) ) ;
         if ($this->lstPROCESOIdPROCESOObject) {
-            $Proceso = Proceso::LoadByIdPROCESO((int)$this->lstPROCESOIdPROCESOObject->Text);
-            $newdate = date( 'j M Y' , strtotime ( '+'.$Proceso->Duracion.' day' ,strtotime($date)));
-            $this->calFechaFin->Text= $newdate;
-            $this->calVencimientoCNP->Text= $newdate;
+            $Proceso = Proceso::LoadByIdPROCESO((int) $this->lstPROCESOIdPROCESOObject->Text);
+            $newdate = date('j M Y', strtotime('+' . $Proceso->Duracion . ' day', strtotime($date)));
+            $this->calFechaFin->Text = $newdate;
+            $this->calVencimientoCNP->Text = $newdate;
         }
-
     }
 
     protected function Form_Validate() {
@@ -137,8 +136,16 @@ class LicenciaEditForm extends LicenciaEditFormBase {
     }
 
     protected function RedirectToListPage() {
-        //QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/licencia_list.php');
+        
         QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/lista_producto_edit.php');
+    }
+
+    protected function RedirectToCancelPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/licencia_list.php');
+    }
+
+    protected function btnCancel_Click($strFormId, $strControlId, $strParameter) {
+        $this->RedirectToCancelPage();
     }
 
 }

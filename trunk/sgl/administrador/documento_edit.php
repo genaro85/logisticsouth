@@ -1,4 +1,5 @@
 <?php
+
 // Load the QCubed Development Framework
 require('../qcubed.inc.php');
 
@@ -21,16 +22,26 @@ require(__FORMBASE_CLASSES__ . '/DocumentoEditFormBase.class.php');
  * @subpackage Drafts
  */
 class DocumentoEditForm extends DocumentoEditFormBase {
+
     // Override Form Event Handlers as Needed
 //		protected function Form_Run() {}
-
 //		protected function Form_Load() {}
-
 //		protected function Form_Create() {}
 
     protected function RedirectToListPage() {
         QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/documento_list.php');
     }
+
+    protected function btnSave_Click($strFormId, $strControlId, $strParameter) {
+        // Delegate "Save" processing to the DocumentoMetaControl
+        $this->mctDocumento->SaveDocumento();
+        $this->RedirectToDocGestionPage();
+    }
+
+    protected function RedirectToDocGestionPage() {
+        QApplication::Redirect(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__ . '/documentos_fase_edit.php');
+    }
+
 }
 
 // Go ahead and run this form object to render the page and its event handlers, implicitly using
