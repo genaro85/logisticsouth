@@ -5,7 +5,7 @@
  */
 
 require('../qcubed.inc.php');
-unset($_SESSION['user']);
+unset($_SESSION['User']);
 QApplication::Redirect(__SUBDIRECTORY__. '/includes/login.php');
 
 ?>
