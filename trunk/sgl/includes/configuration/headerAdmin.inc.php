@@ -19,7 +19,10 @@
             <div id="banner">
             </div>
         </div>
-        <ul class="menu" style="padding: 0 0 0 16%;">
+        <?php
+        if (isset($_SESSION['User']))
+        {?>
+            <ul class="menu" style="padding: 0 0 0 16%;">
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/index.php" target="_self" class="top_link"><span>Inicio</span></a>
             <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/Licencia.php" target="_self" class="top_link"><span>C.N.P.</span></a>
                 <ul class="sub">
@@ -64,7 +67,11 @@
                     <li><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __FORM_ADMINISTRADOR__) ?>/seg_pais_list.php" target="_self">Seguimiento Paises</a></li>
                 </ul>
             </li>
-            <li class="top"><a href="<?php _p(__SUBDIRECTORY__) ?>/includes/logout.php" target="_self" class="top_link"><span>Salir</span></a></li>
+            <li class="top"><a href="<?php _p(__VIRTUAL_DIRECTORY__ . __SUBDIRECTORY__) ?>/includes/logout.php" target="_self" class="top_link"><span>Salir</span></a></li>
         </ul>
+
+        <?php
+        }else{ QApplication::Redirect(__SUBDIRECTORY__. '/includes/login.php');}
+        ?>
         <div id="content">
 
