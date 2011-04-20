@@ -344,7 +344,7 @@ table.datagrid a {
 }
 
 /* QPaginator */
-span.paginator { margin: 0; padding: 0; black; }
+span.paginator { margin: 0; padding: 0; color: black; }
 span.paginator span { list-style-type:none; display: inline; padding: 0; margin: 0; }
 span.paginator span.page a { text-decoration: none; color: black; padding: 0 3px 0 3px; margin: 0 2px 0 2px;}
 span.paginator span.page a:hover { background-color: #c4c6c8; }
